@@ -1,0 +1,168 @@
+---
+// 首頁模板(spec §5.1):Hero / 今日出爐 / 故事引言 / 資訊帶
+import Base from '../../layouts/Base.astro';
+import BrandFlower from '../BrandFlower.astro';
+import ProductCard from '../ProductCard.astro';
+import { getDict, localePrefix, type Lang } from '../../i18n';
+
+export interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const p = localePrefix[lang];
+
+const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
+---
+
+<Base lang={lang} path="/" title={t.pageMeta.home.title} description={t.pageMeta.home.description}>
+  <section class="hero">
+    <div class="container hero__inner fade-up">
+      <BrandFlower size={64} />
+      <h1>{t.home.hero.slogan}</h1>
+      <a class="btn btn--primary" href={`${p}/story`}>{t.home.hero.cta}</a>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2 class="section__heading fade-up">{t.home.todayFresh.heading}</h2>
+    <div class="product-grid">
+      {featured.map((item) => (
+        <ProductCard item={item} limitedBadgeTemplate={t.products.limitedBadge} soldOutBadge={t.products.soldOutBadge} />
+      ))}
+    </div>
+    <div class="section__cta fade-up">
+      <a href={`${p}/products`}>{t.home.todayFresh.cta}</a>
+    </div>
+  </section>
+
+  <section class="section story-teaser">
+    <div class="container story-teaser__grid fade-up">
+      <div class="story-teaser__image" aria-hidden="true">河岸夕陽 16:9</div>
+      <div class="story-teaser__content">
+        <BrandFlower size={32} />
+        <h2>{t.home.storyTeaser.heading}</h2>
+        <p>{t.home.storyTeaser.body}</p>
+        <a href={`${p}/story`}>{t.home.storyTeaser.cta}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section info-bar">
+    <div class="container info-bar__grid fade-up">
+      <div>
+        <h3>{t.home.infoBar.hoursLabel}</h3>
+        <p>{t.home.infoBar.hoursValue}</p>
+      </div>
+      <div>
+        <h3>{t.home.infoBar.addressLabel}</h3>
+        <p>{t.home.infoBar.addressValue}</p>
+      </div>
+      <div>
+        <h3>{t.home.infoBar.phoneLabel}</h3>
+        <p>{t.home.infoBar.phoneValue}</p>
+      </div>
+    </div>
+    <div class="container info-bar__cta">
+      <a href={`${p}/contact`}>{t.home.infoBar.cta}</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    height: 85vh;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(58, 46, 37, 0.35), rgba(58, 46, 37, 0.55)), var(--color-line);
+  }
+  .hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+    color: var(--color-surface);
+  }
+  .hero__inner h1 {
+    font-size: clamp(28px, 4vw, 44px);
+  }
+  .section__heading {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .section__cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+  .section__cta a {
+    color: var(--color-rosegold);
+    text-decoration: none;
+  }
+  .story-teaser__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .story-teaser__image {
+    aspect-ratio: 3 / 4;
+    background: var(--color-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-card);
+    color: var(--color-ink-soft);
+  }
+  .story-teaser__content a {
+    color: var(--color-rosegold);
+    text-decoration: none;
+  }
+  .info-bar {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-line);
+  }
+  .info-bar__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+  .info-bar__grid h3 {
+    color: var(--color-ink-soft);
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .info-bar__cta {
+    text-align: center;
+    margin-top: 32px;
+  }
+  .info-bar__cta a {
+    color: var(--color-rosegold);
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .product-grid {
+      grid-template-columns: 1fr;
+    }
+    .story-teaser__grid {
+      grid-template-columns: 1fr;
+    }
+    .info-bar__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (min-width: 480px) and (max-width: 1120px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

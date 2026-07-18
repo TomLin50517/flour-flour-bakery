@@ -1,0 +1,93 @@
+---
+// 聯絡我們模板(spec §5.5):左資訊 / 右地圖(click-to-load) / 下方表單
+import Base from '../../layouts/Base.astro';
+import MapEmbed from '../MapEmbed.astro';
+import ContactForm from '../ContactForm.astro';
+import { getDict, localePrefix, type Lang } from '../../i18n';
+
+export interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const p = localePrefix[lang];
+
+const phoneHref = `tel:${t.contact.phoneValue.replace(/-/g, '')}`;
+const emailHref = `mailto:${t.contact.emailValue}`;
+---
+
+<Base lang={lang} path="/contact" title={t.pageMeta.contact.title} description={t.pageMeta.contact.description}>
+  <section class="contact-banner">
+    <div class="container fade-up">
+      <h1>{t.contact.bannerTitle}</h1>
+    </div>
+  </section>
+
+  <section class="section container contact-layout">
+    <div class="contact-info fade-up">
+      <h2>{t.contact.infoHeading}</h2>
+      <dl>
+        <dt>{t.contact.phoneLabel}</dt>
+        <dd><a href={phoneHref}>{t.contact.phoneValue}</a></dd>
+        <dt>{t.contact.emailLabel}</dt>
+        <dd><a href={emailHref}>{t.contact.emailValue}</a></dd>
+        <dt>{t.contact.addressLabel}</dt>
+        <dd>{t.contact.addressValue}</dd>
+        <dt>{t.contact.hoursLabel}</dt>
+        <dd>{t.contact.hoursValue}</dd>
+        <dt>{t.contact.socialLabel}</dt>
+        <dd>Instagram {t.contact.instagram} · LINE {t.contact.line}</dd>
+      </dl>
+    </div>
+
+    <div class="contact-map fade-up">
+      <MapEmbed placeholderText={t.contact.mapPlaceholder} loadCta={t.contact.mapLoadCta} address={t.contact.addressValue} />
+    </div>
+  </section>
+
+  <section class="section container contact-form-section fade-up">
+    <ContactForm form={t.contact.form} privacyHref={`${p}/privacy`} />
+  </section>
+</Base>
+
+<style>
+  .contact-banner {
+    height: 32vh;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--color-line);
+  }
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .contact-info dt {
+    color: var(--color-ink-soft);
+    font-size: 14px;
+    margin-top: 16px;
+  }
+  .contact-info dt:first-child {
+    margin-top: 0;
+  }
+  .contact-info dd {
+    margin: 4px 0 0;
+  }
+  .contact-info a {
+    color: var(--color-rosegold);
+    text-decoration: none;
+  }
+  .contact-form-section {
+    max-width: 640px;
+  }
+
+  @media (max-width: 768px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

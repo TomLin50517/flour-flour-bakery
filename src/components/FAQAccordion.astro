@@ -1,0 +1,98 @@
+---
+// FAQAccordion.astro(spec §5.4/§6):單開模式 accordion,aria-expanded
+export interface Props {
+  items: { question: string; answer: string }[];
+  groupId: string;
+}
+
+const { items, groupId } = Astro.props;
+---
+
+<div class="faq-accordion">
+  {items.map((item, i) => (
+    <div class="faq-item">
+      <h3 class="faq-item__heading">
+        <button
+          type="button"
+          class="faq-item__trigger"
+          aria-expanded="false"
+          aria-controls={`faq-panel-${groupId}-${i}`}
+          id={`faq-trigger-${groupId}-${i}`}
+        >
+          <span>{item.question}</span>
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </button>
+      </h3>
+      <div
+        class="faq-item__panel"
+        id={`faq-panel-${groupId}-${i}`}
+        role="region"
+        aria-labelledby={`faq-trigger-${groupId}-${i}`}
+        hidden
+      >
+        <p>{item.answer}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .faq-item {
+    border-bottom: 1px solid var(--color-line);
+  }
+  .faq-item__trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    font: inherit;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+  .faq-item__icon {
+    color: var(--color-rosegold);
+    font-size: 20px;
+    transition: transform 300ms ease;
+  }
+  .faq-item__trigger[aria-expanded='true'] .faq-item__icon {
+    transform: rotate(45deg);
+  }
+  .faq-item__panel {
+    padding-bottom: 20px;
+    color: var(--color-ink-soft);
+  }
+  .faq-item__trigger:focus-visible {
+    outline: 2px solid var(--color-rosegold);
+    outline-offset: 2px;
+  }
+</style>
+
+<script>
+  function initFaqAccordions() {
+    document.querySelectorAll('.faq-accordion').forEach((accordion) => {
+      const triggers = Array.from(accordion.querySelectorAll('.faq-item__trigger'));
+      triggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          const expanded = trigger.getAttribute('aria-expanded') === 'true';
+          triggers.forEach((t) => {
+            t.setAttribute('aria-expanded', 'false');
+            const panel = document.getElementById(t.getAttribute('aria-controls') || '');
+            if (panel) panel.hidden = true;
+          });
+          if (!expanded) {
+            trigger.setAttribute('aria-expanded', 'true');
+            const panel = document.getElementById(trigger.getAttribute('aria-controls') || '');
+            if (panel) panel.hidden = false;
+          }
+        });
+      });
+    });
+  }
+
+  initFaqAccordions();
+</script>

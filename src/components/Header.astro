@@ -1,0 +1,157 @@
+---
+// Header.astro — 全站共用 header(spec §4):左 logo,右導覽 + 語言切換器;mobile 漢堡選單全屏展開
+import BrandFlower from './BrandFlower.astro';
+import LangSwitcher from './LangSwitcher.astro';
+
+export interface Props {
+  lang: 'zh-hant' | 'en' | 'ja' | 'ko';
+  path: string;
+  nav: { story: string; products: string; service: string; contact: string };
+  langLabels: Record<string, string>;
+}
+
+const { lang, path, nav, langLabels } = Astro.props;
+const localePrefix = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' } as const;
+const home = localePrefix[lang] || '/';
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href={home} class="site-header__brand" aria-label="flour flour BAKERY">
+      <BrandFlower size={32} />
+      <span>flour flour</span>
+    </a>
+
+    <nav class="site-header__nav" aria-label="primary">
+      <a href={`${localePrefix[lang]}/story`}>{nav.story}</a>
+      <a href={`${localePrefix[lang]}/products`}>{nav.products}</a>
+      <a href={`${localePrefix[lang]}/service`}>{nav.service}</a>
+      <a href={`${localePrefix[lang]}/contact`}>{nav.contact}</a>
+    </nav>
+    <div class="site-header__lang-desktop">
+      <LangSwitcher lang={lang} path={path} labels={langLabels} />
+    </div>
+
+    <button
+      type="button"
+      class="site-header__toggle"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu" hidden>
+    <nav class="mobile-menu__nav" aria-label="mobile primary">
+      <a href={`${localePrefix[lang]}/story`}>{nav.story}</a>
+      <a href={`${localePrefix[lang]}/products`}>{nav.products}</a>
+      <a href={`${localePrefix[lang]}/service`}>{nav.service}</a>
+      <a href={`${localePrefix[lang]}/contact`}>{nav.contact}</a>
+    </nav>
+    <div class="mobile-menu__lang">
+      <LangSwitcher lang={lang} path={path} labels={langLabels} />
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--color-line);
+    position: relative;
+  }
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-block: 16px;
+  }
+  .site-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--color-ink);
+    font-family: var(--font-heading-en);
+    letter-spacing: 0.06em;
+    text-transform: lowercase;
+  }
+  .site-header__nav {
+    display: flex;
+    gap: 32px;
+    font-family: var(--font-body-en);
+  }
+  .site-header__nav a {
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+  .site-header__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .site-header__toggle span {
+    display: block;
+    height: 1.5px;
+    background: var(--color-ink);
+  }
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    top: 65px;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px 24px;
+    z-index: 40;
+  }
+  .mobile-menu__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-size: 20px;
+  }
+  .mobile-menu__nav a {
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+
+  @media (max-width: 768px) {
+    .site-header__nav,
+    .site-header__lang-desktop {
+      display: none;
+    }
+    .site-header__toggle {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.site-header__toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    if (menu) menu.hidden = expanded;
+  });
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      if (menu) menu.hidden = true;
+    });
+  });
+</script>

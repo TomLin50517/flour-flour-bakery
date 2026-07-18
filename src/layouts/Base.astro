@@ -1,0 +1,133 @@
+---
+// Base.astro — 全站共用外殼(spec §6):載入設計 token、字型、meta、hreflang、Header/Footer
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getDict, localePrefix, locales, type Lang } from '../i18n';
+import zhHant from '../i18n/zh-hant.json';
+
+export interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  path: string; // 不含語系前綴的頁面路徑,如 '/', '/story'
+}
+
+const { lang, title, description, path } = Astro.props;
+
+const htmlLang = { 'zh-hant': 'zh-Hant', en: 'en', ja: 'ja', ko: 'ko' } as const;
+const t = getDict(lang);
+
+const siteUrl = 'https://flourflour.tw';
+const canonicalPath = `${localePrefix[lang]}${path}`;
+const ogLocale = { 'zh-hant': 'zh_TW', en: 'en_US', ja: 'ja_JP', ko: 'ko_KR' } as const;
+
+// JSON-LD Bakery(LocalBusiness)— spec §6;地址採繁中原文以利地圖/在地搜尋辨識,geo 為淡水老街概略座標(待實際地址確認後更新)
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Bakery',
+  name: 'flour flour BAKERY',
+  description,
+  url: `${siteUrl}${canonicalPath}`,
+  telephone: zhHant.contact.phoneValue,
+  email: zhHant.contact.emailValue,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: zhHant.contact.addressValue,
+    addressLocality: '淡水區',
+    addressRegion: '新北市',
+    addressCountry: 'TW',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 25.17,
+    longitude: 121.4393,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '11:00',
+    closes: '19:00',
+  },
+  sameAs: [`https://www.instagram.com/${zhHant.contact.instagram.replace('@', '')}/`],
+};
+---
+
+<!doctype html>
+<html lang={htmlLang[lang]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={`${siteUrl}${canonicalPath}`} />
+    {locales.map((l) => (
+      <link rel="alternate" hreflang={htmlLang[l]} href={`${siteUrl}${localePrefix[l]}${path}`} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${path}`} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="flour flour BAKERY" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={`${siteUrl}${canonicalPath}`} />
+    <meta property="og:locale" content={ogLocale[lang]} />
+    <!-- TODO: og:image 需品牌方提供素材後產出 1200x630 圖檔(spec §6),路徑預留 /og-image.png -->
+    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <!-- TODO 字型:v1 先用 Google Fonts CDN 連結(下方),之後改自架子集 woff2(public/fonts/,spec §3.2/§6） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Quicksand:wght@300;400;500&family=Zen+Maru+Gothic:wght@300;400&family=Gowun+Dodum&family=Noto+Sans+TC:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- TODO: 流量分析插入點(v1 不安裝,spec §6) -->
+  </head>
+  <body>
+    {t.announcement.enabled && (
+      <div class="announcement-bar">
+        <p class="container">{t.announcement.text}</p>
+      </div>
+    )}
+    <Header lang={lang} path={path} nav={t.nav} langLabels={t.langSwitcher} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} footer={t.footer} nav={t.nav} contact={t.contact} />
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
+
+<style>
+  .announcement-bar {
+    background: var(--color-olive);
+    color: var(--color-surface);
+  }
+  .announcement-bar p {
+    padding-block: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+</style>

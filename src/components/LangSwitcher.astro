@@ -1,0 +1,37 @@
+---
+// LangSwitcher.astro — 語言切換器(spec §4):切換時停留在同一頁面的對應語系
+export interface Props {
+  lang: 'zh-hant' | 'en' | 'ja' | 'ko';
+  path: string; // 不含語系前綴,如 '/', '/story'
+  labels: Record<string, string>;
+}
+
+const { lang, path, labels } = Astro.props;
+
+const localePrefix = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' } as const;
+const locales = ['zh-hant', 'en', 'ja', 'ko'] as const;
+---
+
+<nav class="lang-switcher" aria-label={labels.label}>
+  {locales.map((l) => (
+    <a href={`${localePrefix[l]}${path}`} aria-current={l === lang ? 'true' : undefined}>
+      {labels[l]}
+    </a>
+  ))}
+</nav>
+
+<style>
+  .lang-switcher {
+    display: flex;
+    gap: 12px;
+    font-family: var(--font-body-en);
+    font-size: 14px;
+  }
+  .lang-switcher a {
+    text-decoration: none;
+    color: var(--color-ink-soft);
+  }
+  .lang-switcher a[aria-current='true'] {
+    color: var(--color-rosegold);
+  }
+</style>

@@ -1,0 +1,43 @@
+---
+// 隱私權政策模板(spec §5.7):純文字頁,單欄窄版
+import Base from '../../layouts/Base.astro';
+import { getDict, type Lang } from '../../i18n';
+
+export interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+---
+
+<Base lang={lang} path="/privacy" title={t.pageMeta.privacy.title} description={t.pageMeta.privacy.description}>
+  <section class="section privacy-page">
+    <div class="container privacy-page__inner fade-up">
+      <h1>{t.privacy.title}</h1>
+      <p class="privacy-page__note">{t.privacy.lastUpdated}</p>
+      {t.privacy.sections.map((section) => (
+        <div class="privacy-page__section">
+          <h2>{section.heading}</h2>
+          <p>{section.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .privacy-page__inner {
+    max-width: 720px;
+  }
+  .privacy-page__note {
+    color: var(--color-ink-soft);
+    font-size: 14px;
+  }
+  .privacy-page__section {
+    margin-top: 32px;
+  }
+  .privacy-page__section h2 {
+    margin-bottom: 8px;
+  }
+</style>

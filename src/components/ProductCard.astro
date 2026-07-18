@@ -1,0 +1,89 @@
+---
+// ProductCard.astro(spec §5.3):圖 4:5 → 品名 → 一句描述 → 玫瑰金價格 → 限量/完售 badge
+export interface Props {
+  item: {
+    id: string;
+    name: string;
+    description: string;
+    price: number;
+    dailyLimit: number | null;
+    soldOut: boolean;
+  };
+  limitedBadgeTemplate: string;
+  soldOutBadge: string;
+}
+
+const { item, limitedBadgeTemplate, soldOutBadge } = Astro.props;
+const limitedText = item.dailyLimit ? limitedBadgeTemplate.replace('{n}', String(item.dailyLimit)) : null;
+---
+
+<article class:list={['product-card', 'fade-up', { 'product-card--sold-out': item.soldOut }]} data-product-id={item.id}>
+  <div class="product-card__image" aria-hidden="true">4:5</div>
+  <div class="product-card__body">
+    <h3>{item.name}</h3>
+    <p class="product-card__desc">{item.description}</p>
+    <div class="product-card__meta">
+      <span class="product-card__price">NT$ {item.price}</span>
+      {limitedText && !item.soldOut && <span class="badge badge--olive">{limitedText}</span>}
+      {item.soldOut && <span class="badge badge--soldout">{soldOutBadge}</span>}
+    </div>
+  </div>
+</article>
+
+<style>
+  .product-card {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+    background: var(--color-surface);
+    transition: box-shadow 300ms ease;
+  }
+  .product-card:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+  .product-card__image {
+    aspect-ratio: 4 / 5;
+    background: var(--color-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-ink-soft);
+    font-size: 14px;
+  }
+  .product-card__body {
+    padding: 20px;
+  }
+  .product-card__desc {
+    color: var(--color-ink-soft);
+    font-size: 14px;
+    min-height: 2.6em;
+  }
+  .product-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .product-card__price {
+    font-family: var(--font-heading-en);
+    color: var(--color-rosegold);
+    font-weight: 500;
+  }
+  .badge {
+    border-radius: var(--radius-pill);
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+  .badge--olive {
+    background: var(--color-olive);
+    color: var(--color-surface);
+  }
+  .badge--soldout {
+    background: var(--color-ink);
+    color: var(--color-surface);
+  }
+  .product-card--sold-out {
+    filter: saturate(0.5);
+    opacity: 0.75;
+  }
+</style>

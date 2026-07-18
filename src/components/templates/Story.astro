@@ -1,0 +1,109 @@
+---
+// 品牌故事模板(spec §5.2):窄幅 banner + 三段式敘事(左右交錯)+ 理念金句 + CTA
+import Base from '../../layouts/Base.astro';
+import BrandFlower from '../BrandFlower.astro';
+import { getDict, localePrefix, type Lang } from '../../i18n';
+
+export interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const p = localePrefix[lang];
+---
+
+<Base lang={lang} path="/story" title={t.pageMeta.story.title} description={t.pageMeta.story.description}>
+  <section class="story-banner">
+    <div class="container fade-up">
+      <p class="story-banner__en">{t.story.bannerTitleEn}</p>
+      <h1>{t.story.bannerTitleZh}</h1>
+    </div>
+  </section>
+
+  {t.story.sections.map((section, i) => (
+    <section class="section container">
+      <div class:list={['story-section', { 'story-section--reverse': i % 2 === 1 }]}>
+        <div class="story-section__image fade-up" aria-hidden="true">3:4</div>
+        <div class="story-section__content fade-up">
+          <h2>{section.title}</h2>
+          <p>{section.body}</p>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="story-quote">
+    <div class="container fade-up">
+      <BrandFlower color="var(--color-rosegold)" size={40} />
+      <p>{t.story.quote}</p>
+    </div>
+  </section>
+
+  <section class="section container story-cta fade-up">
+    <a class="btn btn--primary" href={`${p}/products`}>{t.story.cta}</a>
+  </section>
+</Base>
+
+<style>
+  .story-banner {
+    height: 40vh;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(181, 118, 78, 0.25), rgba(58, 46, 37, 0.45)), var(--color-line);
+    color: var(--color-surface);
+  }
+  .story-banner__en {
+    font-family: var(--font-heading-en);
+    letter-spacing: 0.12em;
+    opacity: 0.85;
+  }
+  .story-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .story-section--reverse {
+    direction: rtl;
+  }
+  .story-section--reverse > * {
+    direction: ltr;
+  }
+  .story-section__image {
+    aspect-ratio: 3 / 4;
+    background: var(--color-line);
+    border-radius: var(--radius-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-ink-soft);
+  }
+  .story-quote {
+    background: var(--color-ink);
+    color: var(--color-rosegold);
+    text-align: center;
+    padding-block: 96px;
+  }
+  .story-quote p {
+    font-family: var(--font-heading-en);
+    font-size: clamp(22px, 3vw, 32px);
+    max-width: 720px;
+    margin-inline: auto;
+    margin-top: 24px;
+  }
+  .story-cta {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .story-section,
+    .story-section--reverse {
+      grid-template-columns: 1fr;
+      direction: ltr;
+    }
+  }
+</style>

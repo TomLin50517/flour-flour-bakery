@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "siteName": "flour flour BAKERY",
+    "titleSuffix": " | flour flour BAKERY"
+  },
+  "pageMeta": {
+    "home": {
+      "title": "flour flour BAKERY | Warmth and beauty, every single day",
+      "description": "flour flour BAKERY is a boutique bakery in Tamsui, inspired by riverside sunsets and blossoms — baking a little everyday magic into warmth and beauty."
+    },
+    "story": {
+      "title": "Our Story | flour flour BAKERY",
+      "description": "Founded in 2024 on the banks of the Tamsui River, flour flour tells a gentle story of sunsets, flowers, and the everyday magic of the baker's craft."
+    },
+    "products": {
+      "title": "Products | flour flour BAKERY",
+      "description": "Classic breads, seasonal specials and pastries, baked in small daily batches with longan blossom honey and local ingredients."
+    },
+    "service": {
+      "title": "Customer Service | flour flour BAKERY",
+      "description": "How to order, storage tips, and frequently asked questions. Can't find your answer? Call us or message us on LINE."
+    },
+    "contact": {
+      "title": "Contact Us | flour flour BAKERY",
+      "description": "Find flour flour BAKERY's address, phone number, opening hours and contact form. Visits and phone orders are welcome."
+    },
+    "privacy": {
+      "title": "Privacy Policy | flour flour BAKERY",
+      "description": "How flour flour BAKERY collects, uses and protects your personal data."
+    },
+    "notFound": {
+      "title": "Page Not Found | flour flour BAKERY",
+      "description": "Looks like this loaf has already been sold."
+    }
+  },
+  "nav": {
+    "story": "Our Story",
+    "products": "Products",
+    "service": "Service",
+    "contact": "Contact"
+  },
+  "langSwitcher": {
+    "label": "Select language",
+    "zh-hant": "繁中",
+    "en": "EN",
+    "ja": "日本語",
+    "ko": "한국어"
+  },
+  "announcement": {
+    "enabled": false,
+    "text": "Store hours will be adjusted 7/21–7/22 — see our LINE account for details."
+  },
+  "footer": {
+    "tagline": "Warmth and beauty, every single day.",
+    "quickLinksHeading": "Quick Links",
+    "contactHeading": "Contact",
+    "hoursHeading": "Hours",
+    "hoursValue": "Wed–Sun 11:00–19:00 (Closed Mon & Tue)",
+    "copyright": "© 2026 flour flour BAKERY · EST. 2024",
+    "privacyLink": "Privacy Policy"
+  },
+  "home": {
+    "hero": {
+      "slogan": "Warmth and beauty, every single day.",
+      "cta": "Meet flour flour →"
+    },
+    "todayFresh": {
+      "heading": "Fresh Today",
+      "cta": "See all products →"
+    },
+    "storyTeaser": {
+      "heading": "A story of the river and the blossom",
+      "body": "flour flour was born from Tamsui's sunsets and riverbanks, folding longan blossom honey and local flavours into every ferment. We believe even a single loaf can carry a little magic and warmth.",
+      "cta": "Read our story →"
+    },
+    "infoBar": {
+      "hoursLabel": "Hours",
+      "hoursValue": "Wed–Sun 11:00–19:00",
+      "addressLabel": "Address",
+      "addressValue": "No. 123, Zhongzheng Rd., Tamsui Dist., New Taipei City",
+      "phoneLabel": "Phone",
+      "phoneValue": "02-2621-XXXX",
+      "cta": "Contact us →"
+    }
+  },
+  "story": {
+    "bannerTitleZh": "我們的故事",
+    "bannerTitleEn": "Our Story",
+    "sections": [
+      {
+        "title": "Where the river begins",
+        "body": "In 2024, flour flour began with a single light by the Tamsui River. Every evening the sunset turns the old street the colour of honey, and the river breeze carries a hint of salt air mixed with the scent of bread fresh from the oven. We chose to settle here not only for the view, but because the riverbank taught us patience — waiting for the tide, waiting for the dough to rise, waiting for the best light of the day. Starting from one small oven, we set out to bake the everyday rhythm of Tamsui into something tender and true."
+      },
+      {
+        "title": "Blossoms and flour",
+        "body": "Our brand blossom weaves together the softness of natural flowers, the glow of a Tamsui sunset, the sweetness of longan blossoms, and the curl of a croissant — four elements that are also our promises when we bake. We use local longan blossom honey in place of some refined sugar, so every bite carries a faint honeyed note. Our dough rests through a long, slow, cold ferment, letting wheat and wild yeast talk quietly to one another. Flour and flowers may seem unrelated, but in our hands they grow into the same gentle thing."
+      },
+      {
+        "title": "Everyday magic",
+        "body": "Every morning at four, the oven light comes on before we do. Our bakers knead, shape, and wait, watching the dough slowly rise and colour in the heat — a small magic that happens daily, yet never grows old. We keep our batches deliberately limited, not to manufacture scarcity, but so that every loaf gets the care, the bake, and the hands it deserves before it reaches yours. Baking a little magic into every day, bringing warmth and beauty — that is the promise we make each morning, to ourselves and to you."
+      }
+    ],
+    "quote": "Baking a little magic into every day, bringing warmth and beauty.",
+    "cta": "See what's fresh today →"
+  },
+  "products": {
+    "bannerTitle": "Products",
+    "categories": {
+      "classic": "Classic Breads",
+      "seasonal": "Seasonal Specials",
+      "pastry": "Pastries"
+    },
+    "limitedBadge": "Only {n} made daily",
+    "soldOutBadge": "Sold out today",
+    "footnote": "Daily quantities are limited — reservations by phone are recommended.",
+    "footnoteCta": "Call to reserve",
+    "items": [
+      { "id": "longan-tangzhong-toast", "category": "classic", "name": "Longan Honey Tangzhong Toast", "description": "Tangzhong method locks in moisture, with a soft, faintly honeyed sweetness", "price": 180, "dailyLimit": 15, "soldOut": false },
+      { "id": "lean-country-loaf", "category": "classic", "name": "Levain Country Loaf", "description": "Long-fermented natural levain, crackling crust and a chewy, moist crumb", "price": 220, "dailyLimit": 12, "soldOut": false },
+      { "id": "sea-salt-croissant", "category": "classic", "name": "Sea Salt Croissant", "description": "Buttery French croissant finished with sea salt, flaky layers of sweet and salty", "price": 68, "dailyLimit": 30, "soldOut": false },
+      { "id": "whole-wheat-walnut", "category": "classic", "name": "Whole Wheat Walnut", "description": "Whole wheat flour with toasted walnuts, earthy grain flavour with a nutty crunch", "price": 190, "dailyLimit": 20, "soldOut": false },
+      { "id": "sunset-apricot-danish", "category": "seasonal", "name": "Sunset Apricot Danish", "description": "Golden apricots over crisp danish pastry, like sunset settling onto bread", "price": 95, "dailyLimit": 18, "soldOut": false },
+      { "id": "longan-blossom-bagel", "category": "seasonal", "name": "Longan Blossom Honey Bagel", "description": "Dense, chewy bagel folded with longan blossom honey for a natural sweetness", "price": 85, "dailyLimit": 25, "soldOut": false },
+      { "id": "fig-country-loaf", "category": "seasonal", "name": "Fig Country Loaf", "description": "Dried figs baked into a country dough, rich fruit flavour and hearty texture", "price": 260, "dailyLimit": 10, "soldOut": true },
+      { "id": "osmanthus-chestnut", "category": "seasonal", "name": "Osmanthus Chestnut Bread", "description": "Fragrant osmanthus with soft chestnut filling, a gentle taste of autumn", "price": 110, "dailyLimit": 16, "soldOut": false },
+      { "id": "longan-madeleine", "category": "pastry", "name": "Longan Honey Madeleine", "description": "Shell-shaped madeleine with buttery aroma and a lingering note of longan honey", "price": 60, "dailyLimit": 40, "soldOut": false },
+      { "id": "rose-lychee-dacquoise", "category": "pastry", "name": "Rose Lychee Dacquoise", "description": "Almond meringue layered with rose and lychee cream, delicate and elegant", "price": 150, "dailyLimit": 20, "soldOut": false },
+      { "id": "rice-chiffon", "category": "pastry", "name": "Rice Flour Chiffon", "description": "Made with rice flour for a light, soft crumb — a gluten-free option", "price": 280, "dailyLimit": 8, "soldOut": false },
+      { "id": "brown-sugar-financier", "category": "pastry", "name": "Brown Sugar Financier", "description": "Caramelised brown sugar folded into buttery cake, moist and richly aromatic", "price": 140, "dailyLimit": 25, "soldOut": false }
+    ]
+  },
+  "service": {
+    "bannerTitle": "Customer Service",
+    "faq": {
+      "orderingHeading": "Ordering",
+      "orderingItems": [
+        { "question": "How do I place an order?", "answer": "Call us at 02-2621-XXXX during business hours, or message our LINE account @flourflour. We'll confirm a pickup time as soon as possible." },
+        { "question": "Do you ship?", "answer": "Our shelf-stable pastries (madeleines, dacquoise, chiffon, financiers) can be shipped; breads are pickup-only for now to ensure freshness." },
+        { "question": "Can I place a bulk order?", "answer": "For wedding favours, corporate gifts and other bulk orders, please call or message us on LINE at least 3 days in advance so we can plan the bake and pickup time." }
+      ],
+      "productHeading": "Products",
+      "productItems": [
+        { "question": "Storage and shelf life", "answer": "Bread is best kept at room temperature and enjoyed the day of purchase or the next day; shelf-stable pastries keep refrigerated for 3–5 days and taste best brought back to room temperature." },
+        { "question": "Allergen information", "answer": "Our products may contain gluten, egg, dairy and nuts. Please ask our staff in store, or let us know when ordering so we can help confirm ingredients." },
+        { "question": "Do you have vegan options?", "answer": "Most of our products currently contain butter, honey and similar ingredients, so we don't yet offer fully vegan options. Please contact us before ordering if you have dietary restrictions." }
+      ]
+    },
+    "orderInfo": {
+      "heading": "Ordering Notes",
+      "pickupLabel": "Pickup time",
+      "pickupValue": "Please collect your order within the agreed time window; uncollected orders may be held or cancelled at our discretion.",
+      "paymentLabel": "Payment methods",
+      "paymentValue": "Cash / Bank transfer / LINE Pay",
+      "cancellationLabel": "Cancellation policy",
+      "cancellationValue": "Please cancel at least one day before pickup. Same-day cancellations or no-shows are non-refundable."
+    },
+    "sidebar": {
+      "heading": "Can't find your answer?",
+      "callCta": "Call us",
+      "lineCta": "Message us on LINE",
+      "contactCta": "Go to Contact →"
+    }
+  },
+  "contact": {
+    "bannerTitle": "Contact Us",
+    "infoHeading": "Contact Info",
+    "phoneLabel": "Phone",
+    "phoneValue": "02-2621-XXXX",
+    "emailLabel": "Email",
+    "emailValue": "hello@flourflour.tw",
+    "addressLabel": "Address",
+    "addressValue": "No. 123, Zhongzheng Rd., Tamsui Dist., New Taipei City (near Tamsui Old Street / riverside)",
+    "hoursLabel": "Hours",
+    "hoursValue": "Wed–Sun 11:00–19:00 (Closed Mon & Tue)",
+    "socialLabel": "Social",
+    "instagram": "@flourflour.bakery",
+    "line": "@flourflour",
+    "mapPlaceholder": "Map preview",
+    "mapLoadCta": "Load map",
+    "form": {
+      "nameLabel": "Name",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "subjectLabel": "Subject",
+      "subjectOptions": ["General inquiry", "Bulk order", "Partnership proposal"],
+      "messageLabel": "Message",
+      "submitCta": "Submit",
+      "successMessage": "Thanks — we've received your message and will get back to you soon.",
+      "errorRequired": "This field is required",
+      "errorEmail": "Please enter a valid email address",
+      "privacyNotePrefix": "By submitting, you agree to our",
+      "privacyNoteLink": "Privacy Policy",
+      "privacyNoteSuffix": "for how we handle your personal data."
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "This policy template was generated by AI. We recommend legal review before launch.",
+    "sections": [
+      { "heading": "Information We Collect", "body": "When you contact us through the form on this website, we collect the name, phone number and email address you provide." },
+      { "heading": "Purpose of Collection", "body": "This information is used solely to respond to your inquiry, confirm order details, and coordinate pickup — never for any other purpose." },
+      { "heading": "Retention Period", "body": "Your personal data is retained for a reasonable period after your inquiry or order is completed, after which it will be deleted or de-identified as required." },
+      { "heading": "Your Rights", "body": "You may request to access, copy, supplement, or correct your personal data, or request that we stop collecting, processing or using it, by contacting us below." },
+      { "heading": "Contact", "body": "For any questions about your personal data, please email hello@flourflour.tw." }
+    ]
+  },
+  "notFound": {
+    "message": "Looks like this loaf has already been sold.",
+    "homeCta": "Back to home",
+    "productsCta": "See what's fresh today →"
+  }
+}

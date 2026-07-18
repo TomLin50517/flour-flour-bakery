@@ -1,0 +1,181 @@
+---
+// ContactForm.astro(spec §5.5):必填 + Email 格式驗證、honeypot、v1 不接後端僅顯示成功訊息
+export interface Props {
+  form: {
+    nameLabel: string;
+    phoneLabel: string;
+    emailLabel: string;
+    subjectLabel: string;
+    subjectOptions: string[];
+    messageLabel: string;
+    submitCta: string;
+    successMessage: string;
+    errorRequired: string;
+    errorEmail: string;
+    privacyNotePrefix: string;
+    privacyNoteLink: string;
+    privacyNoteSuffix: string;
+  };
+  privacyHref: string;
+}
+
+const { form, privacyHref } = Astro.props;
+---
+
+<div class="contact-form-wrapper">
+  <form
+    class="contact-form"
+    novalidate
+    data-error-required={form.errorRequired}
+    data-error-email={form.errorEmail}
+  >
+    <div class="field">
+      <label for="cf-name">{form.nameLabel} *</label>
+      <input type="text" id="cf-name" name="name" required />
+      <p class="field-error" data-error-for="name" hidden></p>
+    </div>
+    <div class="field">
+      <label for="cf-phone">{form.phoneLabel}</label>
+      <input type="tel" id="cf-phone" name="phone" />
+    </div>
+    <div class="field">
+      <label for="cf-email">{form.emailLabel} *</label>
+      <input type="email" id="cf-email" name="email" required />
+      <p class="field-error" data-error-for="email" hidden></p>
+    </div>
+    <div class="field">
+      <label for="cf-subject">{form.subjectLabel}</label>
+      <select id="cf-subject" name="subject">
+        {form.subjectOptions.map((opt) => <option value={opt}>{opt}</option>)}
+      </select>
+    </div>
+    <div class="field">
+      <label for="cf-message">{form.messageLabel} *</label>
+      <textarea id="cf-message" name="message" required rows="5"></textarea>
+      <p class="field-error" data-error-for="message" hidden></p>
+    </div>
+
+    <!-- honeypot:隱藏欄位防機器人,接後端時沿用(spec §5.5) -->
+    <div class="field field--honeypot" aria-hidden="true">
+      <label for="cf-company">Company</label>
+      <input type="text" id="cf-company" name="company" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <!-- TODO: v1 前端無後端,送出後僅顯示成功訊息;之後可接 Formspree 或自建 API(spec §8-7) -->
+    <button type="submit" class="btn btn--primary">{form.submitCta}</button>
+
+    <p class="contact-form__privacy">
+      {form.privacyNotePrefix} <a href={privacyHref}>{form.privacyNoteLink}</a> {form.privacyNoteSuffix}
+    </p>
+  </form>
+
+  <p class="contact-form__success" hidden>{form.successMessage}</p>
+</div>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .field label {
+    font-size: 14px;
+    color: var(--color-ink-soft);
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font: inherit;
+    background: var(--color-surface);
+    color: var(--color-ink);
+  }
+  .field input:focus-visible,
+  .field select:focus-visible,
+  .field textarea:focus-visible {
+    outline: 2px solid var(--color-rosegold);
+    outline-offset: 1px;
+  }
+  .field-error {
+    color: var(--color-rosegold);
+    font-size: 13px;
+    margin: 0;
+  }
+  .field--honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .contact-form__privacy {
+    font-size: 13px;
+    color: var(--color-ink-soft);
+  }
+  .contact-form__privacy a {
+    color: var(--color-rosegold);
+  }
+  .contact-form__success {
+    color: var(--color-olive);
+    font-weight: 500;
+  }
+</style>
+
+<script>
+  function isValidEmail(value: string) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  document.querySelectorAll('.contact-form').forEach((formEl) => {
+    const form = formEl as HTMLFormElement;
+    const errorRequired = form.dataset.errorRequired || '';
+    const errorEmail = form.dataset.errorEmail || '';
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const honeypot = form.querySelector<HTMLInputElement>('input[name="company"]');
+      if (honeypot && honeypot.value) return;
+
+      let valid = true;
+
+      (['name', 'email', 'message'] as const).forEach((field) => {
+        const input = form.querySelector<HTMLInputElement | HTMLTextAreaElement>(`[name="${field}"]`);
+        const errorEl = form.querySelector<HTMLElement>(`[data-error-for="${field}"]`);
+        if (input && !input.value.trim()) {
+          valid = false;
+          if (errorEl) {
+            errorEl.textContent = errorRequired;
+            errorEl.hidden = false;
+          }
+        } else if (errorEl) {
+          errorEl.hidden = true;
+        }
+      });
+
+      const emailInput = form.querySelector<HTMLInputElement>('[name="email"]');
+      const emailError = form.querySelector<HTMLElement>('[data-error-for="email"]');
+      if (emailInput && emailInput.value.trim() && !isValidEmail(emailInput.value.trim())) {
+        valid = false;
+        if (emailError) {
+          emailError.textContent = errorEmail;
+          emailError.hidden = false;
+        }
+      }
+
+      if (!valid) return;
+
+      const wrapper = form.closest('.contact-form-wrapper');
+      const successEl = wrapper?.querySelector<HTMLElement>('.contact-form__success');
+      form.hidden = true;
+      if (successEl) successEl.hidden = false;
+    });
+  });
+</script>

@@ -1,0 +1,81 @@
+---
+// Footer.astro — 全站共用 footer(spec §4):深可可底,三欄 + 版權列
+import BrandFlower from './BrandFlower.astro';
+
+export interface Props {
+  lang: 'zh-hant' | 'en' | 'ja' | 'ko';
+  footer: {
+    tagline: string;
+    quickLinksHeading: string;
+    contactHeading: string;
+    hoursHeading: string;
+    hoursValue: string;
+    copyright: string;
+    privacyLink: string;
+  };
+  nav: { story: string; products: string; service: string; contact: string };
+  contact: { phoneValue: string; emailValue: string; addressValue: string };
+}
+
+const { lang, footer, nav, contact } = Astro.props;
+const localePrefix = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' } as const;
+const p = localePrefix[lang];
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div>
+      <BrandFlower color="var(--color-rosegold)" size={40} />
+      <p>{footer.tagline}</p>
+      <!-- TODO: 社群 icon(Instagram/LINE,spec §4) -->
+    </div>
+    <div>
+      <h3>{footer.quickLinksHeading}</h3>
+      <a href={`${p}/story`}>{nav.story}</a>
+      <a href={`${p}/products`}>{nav.products}</a>
+      <a href={`${p}/service`}>{nav.service}</a>
+      <a href={`${p}/contact`}>{nav.contact}</a>
+    </div>
+    <div>
+      <h3>{footer.contactHeading}</h3>
+      <p>{contact.phoneValue}</p>
+      <p>{contact.emailValue}</p>
+      <p>{contact.addressValue}</p>
+      <h3>{footer.hoursHeading}</h3>
+      <p>{footer.hoursValue}</p>
+    </div>
+  </div>
+  <div class="container site-footer__bottom">
+    <span>{footer.copyright}</span>
+    <a href={`${p}/privacy`}>{footer.privacyLink}</a>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-ink);
+    color: var(--color-surface);
+  }
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    padding-block: 64px;
+  }
+  .site-footer a {
+    color: var(--color-rosegold);
+    display: block;
+  }
+  .site-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 253, 248, 0.15);
+    padding-block: 24px;
+    font-size: 14px;
+  }
+  @media (max-width: 768px) {
+    .site-footer__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

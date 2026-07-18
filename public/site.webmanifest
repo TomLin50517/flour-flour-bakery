@@ -1,0 +1,16 @@
+{
+  "name": "flour flour BAKERY",
+  "short_name": "flour flour",
+  "description": "為每一天,帶來美好與溫暖。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7EFE3",
+  "theme_color": "#B5764E",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

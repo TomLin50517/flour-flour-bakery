@@ -1,0 +1,94 @@
+---
+// 404 頁(spec §5.6):靜態主機僅一份 404.html,無法按語系預產生;
+// 預設顯示繁中,JS 依 location.pathname 前綴切換為對應語系文案(四語文案內嵌於同一頁)
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BrandFlower from '../components/BrandFlower.astro';
+import { getDict, localePrefix, locales, type Lang } from '../i18n';
+
+const htmlLang = { 'zh-hant': 'zh-Hant', en: 'en', ja: 'ja', ko: 'ko' } as const;
+const defaultDict = getDict('zh-hant');
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{defaultDict.pageMeta.notFound.title}</title>
+    <meta name="description" content={defaultDict.pageMeta.notFound.description} />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Quicksand:wght@300;400;500&family=Zen+Maru+Gothic:wght@300;400&family=Gowun+Dodum&family=Noto+Sans+TC:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {locales.map((lang: Lang) => {
+      const t = getDict(lang);
+      const p = localePrefix[lang];
+      return (
+        <div class="notfound-locale" data-lang={lang} data-html-lang={htmlLang[lang]} hidden={lang !== 'zh-hant'}>
+          <Header lang={lang} path="/404" nav={t.nav} langLabels={t.langSwitcher} />
+          <main class="notfound">
+            <div class="container notfound__inner">
+              <BrandFlower size={64} />
+              <p class="notfound__message">{t.notFound.message}</p>
+              <div class="notfound__actions">
+                <a class="btn btn--primary" href={p || '/'}>{t.notFound.homeCta}</a>
+                <a class="notfound__link" href={`${p}/products`}>{t.notFound.productsCta}</a>
+              </div>
+            </div>
+          </main>
+          <Footer lang={lang} footer={t.footer} nav={t.nav} contact={t.contact} />
+        </div>
+      );
+    })}
+
+    <script>
+      const path = window.location.pathname;
+      let lang = 'zh-hant';
+      if (path.startsWith('/en/') || path === '/en') lang = 'en';
+      else if (path.startsWith('/ja/') || path === '/ja') lang = 'ja';
+      else if (path.startsWith('/ko/') || path === '/ko') lang = 'ko';
+
+      document.querySelectorAll<HTMLElement>('.notfound-locale').forEach((el) => {
+        const isMatch = el.dataset.lang === lang;
+        el.hidden = !isMatch;
+        if (isMatch) document.documentElement.lang = el.dataset.htmlLang || 'zh-Hant';
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .notfound {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+  }
+  .notfound__inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .notfound__message {
+    font-size: clamp(20px, 3vw, 28px);
+  }
+  .notfound__actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .notfound__link {
+    color: var(--color-rosegold);
+    text-decoration: none;
+  }
+</style>
