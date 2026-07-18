@@ -18,7 +18,7 @@ const { lang, title, description, path } = Astro.props;
 const htmlLang = { 'zh-hant': 'zh-Hant', en: 'en', ja: 'ja', ko: 'ko' } as const;
 const t = getDict(lang);
 
-const siteUrl = 'https://flourflour.tw';
+const siteUrl = 'https://flourflour.com.tw';
 const canonicalPath = `${localePrefix[lang]}${path}`;
 const ogLocale = { 'zh-hant': 'zh_TW', en: 'en_US', ja: 'ja_JP', ko: 'ko_KR' } as const;
 
@@ -72,10 +72,10 @@ const jsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={`${siteUrl}${canonicalPath}`} />
     <meta property="og:locale" content={ogLocale[lang]} />
-    <!-- TODO: og:image 需品牌方提供素材後產出 1200x630 圖檔(spec §6),路徑預留 /og-image.png -->
     <meta property="og:image" content={`${siteUrl}/og-image.png`} />
 
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 

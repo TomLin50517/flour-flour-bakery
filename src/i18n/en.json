@@ -167,7 +167,7 @@
     "phoneLabel": "Phone",
     "phoneValue": "02-2621-XXXX",
     "emailLabel": "Email",
-    "emailValue": "hello@flourflour.tw",
+    "emailValue": "hello@flourflour.com.tw",
     "addressLabel": "Address",
     "addressValue": "No. 123, Zhongzheng Rd., Tamsui Dist., New Taipei City (near Tamsui Old Street / riverside)",
     "hoursLabel": "Hours",
@@ -201,7 +201,7 @@
       { "heading": "Purpose of Collection", "body": "This information is used solely to respond to your inquiry, confirm order details, and coordinate pickup — never for any other purpose." },
       { "heading": "Retention Period", "body": "Your personal data is retained for a reasonable period after your inquiry or order is completed, after which it will be deleted or de-identified as required." },
       { "heading": "Your Rights", "body": "You may request to access, copy, supplement, or correct your personal data, or request that we stop collecting, processing or using it, by contacting us below." },
-      { "heading": "Contact", "body": "For any questions about your personal data, please email hello@flourflour.tw." }
+      { "heading": "Contact", "body": "For any questions about your personal data, please email hello@flourflour.com.tw." }
     ]
   },
   "notFound": {

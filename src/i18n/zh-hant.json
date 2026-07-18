@@ -167,7 +167,7 @@
     "phoneLabel": "電話",
     "phoneValue": "02-2621-XXXX",
     "emailLabel": "Email",
-    "emailValue": "hello@flourflour.tw",
+    "emailValue": "hello@flourflour.com.tw",
     "addressLabel": "地址",
     "addressValue": "新北市淡水區中正路 123 號(近淡水老街/河岸)",
     "hoursLabel": "營業時間",
@@ -201,7 +201,7 @@
       { "heading": "蒐集目的", "body": "上述資訊僅用於回覆您的詢問、確認訂單內容及聯繫取貨相關事宜,不會用於其他目的。" },
       { "heading": "保存期限", "body": "您的個人資料將保存至詢問或訂單完成後合理期間,逾期將依規定刪除或去識別化處理。" },
       { "heading": "當事人權利", "body": "您可隨時要求查詢、複製、補充、更正您的個人資料,或要求停止蒐集、處理及利用,請透過下方聯絡窗口與我們聯繫。" },
-      { "heading": "聯絡窗口", "body": "如有個人資料相關問題,歡迎來信 hello@flourflour.tw 與我們聯繫。" }
+      { "heading": "聯絡窗口", "body": "如有個人資料相關問題,歡迎來信 hello@flourflour.com.tw 與我們聯繫。" }
     ]
   },
   "notFound": {

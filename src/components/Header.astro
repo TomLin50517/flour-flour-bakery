@@ -1,6 +1,5 @@
 ---
 // Header.astro — 全站共用 header(spec §4):左 logo,右導覽 + 語言切換器;mobile 漢堡選單全屏展開
-import BrandFlower from './BrandFlower.astro';
 import LangSwitcher from './LangSwitcher.astro';
 
 export interface Props {
@@ -18,8 +17,7 @@ const home = localePrefix[lang] || '/';
 <header class="site-header">
   <div class="container site-header__inner">
     <a href={home} class="site-header__brand" aria-label="flour flour BAKERY">
-      <BrandFlower size={32} />
-      <span>flour flour</span>
+      <img src="/images/logo-horizontal.png" alt="flour flour BAKERY" class="site-header__logo" />
     </a>
 
     <nav class="site-header__nav" aria-label="primary">
@@ -73,12 +71,10 @@ const home = localePrefix[lang] || '/';
   .site-header__brand {
     display: flex;
     align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: var(--color-ink);
-    font-family: var(--font-heading-en);
-    letter-spacing: 0.06em;
-    text-transform: lowercase;
+  }
+  .site-header__logo {
+    height: 36px;
+    width: auto;
   }
   .site-header__nav {
     display: flex;

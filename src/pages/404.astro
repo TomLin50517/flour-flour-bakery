@@ -4,7 +4,6 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import BrandFlower from '../components/BrandFlower.astro';
 import { getDict, localePrefix, locales, type Lang } from '../i18n';
 
 const htmlLang = { 'zh-hant': 'zh-Hant', en: 'en', ja: 'ja', ko: 'ko' } as const;
@@ -19,7 +18,9 @@ const defaultDict = getDict('zh-hant');
     <title>{defaultDict.pageMeta.notFound.title}</title>
     <meta name="description" content={defaultDict.pageMeta.notFound.description} />
     <meta name="robots" content="noindex" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -36,7 +37,7 @@ const defaultDict = getDict('zh-hant');
           <Header lang={lang} path="/404" nav={t.nav} langLabels={t.langSwitcher} />
           <main class="notfound">
             <div class="container notfound__inner">
-              <BrandFlower size={64} />
+              <img src="/images/logo-flower.png" alt="flour flour BAKERY" class="notfound__logo" />
               <p class="notfound__message">{t.notFound.message}</p>
               <div class="notfound__actions">
                 <a class="btn btn--primary" href={p || '/'}>{t.notFound.homeCta}</a>
@@ -78,6 +79,10 @@ const defaultDict = getDict('zh-hant');
     flex-direction: column;
     align-items: center;
     gap: 24px;
+  }
+  .notfound__logo {
+    height: 64px;
+    width: auto;
   }
   .notfound__message {
     font-size: clamp(20px, 3vw, 28px);

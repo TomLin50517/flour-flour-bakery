@@ -1,7 +1,5 @@
 ---
 // Footer.astro — 全站共用 footer(spec §4):深可可底,三欄 + 版權列
-import BrandFlower from './BrandFlower.astro';
-
 export interface Props {
   lang: 'zh-hant' | 'en' | 'ja' | 'ko';
   footer: {
@@ -25,7 +23,7 @@ const p = localePrefix[lang];
 <footer class="site-footer">
   <div class="container site-footer__grid">
     <div>
-      <BrandFlower color="var(--color-rosegold)" size={40} />
+      <img src="/images/logo-flower.png" alt="flour flour BAKERY" class="site-footer__logo" />
       <p>{footer.tagline}</p>
       <!-- TODO: 社群 icon(Instagram/LINE,spec §4) -->
     </div>
@@ -55,6 +53,11 @@ const p = localePrefix[lang];
   .site-footer {
     background: var(--color-ink);
     color: var(--color-surface);
+  }
+  .site-footer__logo {
+    height: 48px;
+    width: auto;
+    margin-bottom: 16px;
   }
   .site-footer__grid {
     display: grid;

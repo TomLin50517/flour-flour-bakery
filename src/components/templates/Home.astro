@@ -1,7 +1,6 @@
 ---
 // 首頁模板(spec §5.1):Hero / 今日出爐 / 故事引言 / 資訊帶
 import Base from '../../layouts/Base.astro';
-import BrandFlower from '../BrandFlower.astro';
 import ProductCard from '../ProductCard.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
 
@@ -19,7 +18,7 @@ const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
 <Base lang={lang} path="/" title={t.pageMeta.home.title} description={t.pageMeta.home.description}>
   <section class="hero">
     <div class="container hero__inner fade-up">
-      <BrandFlower size={64} />
+      <img src="/images/logo-flower.png" alt="flour flour BAKERY" class="hero__logo" />
       <h1>{t.home.hero.slogan}</h1>
       <a class="btn btn--primary" href={`${p}/story`}>{t.home.hero.cta}</a>
     </div>
@@ -41,7 +40,7 @@ const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
     <div class="container story-teaser__grid fade-up">
       <div class="story-teaser__image" aria-hidden="true">河岸夕陽 16:9</div>
       <div class="story-teaser__content">
-        <BrandFlower size={32} />
+        <img src="/images/logo-flower.png" alt="flour flour BAKERY" class="story-teaser__logo" />
         <h2>{t.home.storyTeaser.heading}</h2>
         <p>{t.home.storyTeaser.body}</p>
         <a href={`${p}/story`}>{t.home.storyTeaser.cta}</a>
@@ -89,6 +88,10 @@ const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
   .hero__inner h1 {
     font-size: clamp(28px, 4vw, 44px);
   }
+  .hero__logo {
+    height: 64px;
+    width: auto;
+  }
   .section__heading {
     text-align: center;
     margin-bottom: 48px;
@@ -111,6 +114,11 @@ const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
     grid-template-columns: 1fr 1fr;
     gap: 48px;
     align-items: center;
+  }
+  .story-teaser__logo {
+    height: 32px;
+    width: auto;
+    margin-bottom: 8px;
   }
   .story-teaser__image {
     aspect-ratio: 3 / 4;

@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://flourflour.tw',
+  site: 'https://flourflour.com.tw',
   output: 'static',
   i18n: {
     defaultLocale: 'zh-hant',

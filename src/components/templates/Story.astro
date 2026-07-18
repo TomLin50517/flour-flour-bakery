@@ -1,7 +1,6 @@
 ---
 // 品牌故事模板(spec §5.2):窄幅 banner + 三段式敘事(左右交錯)+ 理念金句 + CTA
 import Base from '../../layouts/Base.astro';
-import BrandFlower from '../BrandFlower.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
 
 export interface Props {
@@ -35,7 +34,7 @@ const p = localePrefix[lang];
 
   <section class="story-quote">
     <div class="container fade-up">
-      <BrandFlower color="var(--color-rosegold)" size={40} />
+      <img src="/images/logo-flower.png" alt="flour flour BAKERY" class="story-quote__logo" />
       <p>{t.story.quote}</p>
     </div>
   </section>
@@ -87,6 +86,10 @@ const p = localePrefix[lang];
     color: var(--color-rosegold);
     text-align: center;
     padding-block: 96px;
+  }
+  .story-quote__logo {
+    height: 40px;
+    width: auto;
   }
   .story-quote p {
     font-family: var(--font-heading-en);

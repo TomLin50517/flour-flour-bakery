@@ -167,7 +167,7 @@
     "phoneLabel": "전화",
     "phoneValue": "02-2621-XXXX",
     "emailLabel": "이메일",
-    "emailValue": "hello@flourflour.tw",
+    "emailValue": "hello@flourflour.com.tw",
     "addressLabel": "주소",
     "addressValue": "신베이시 단수이구 중정로 123호(단수이 옛거리·강변 인근)",
     "hoursLabel": "영업시간",
@@ -201,7 +201,7 @@
       { "heading": "수집 목적", "body": "수집된 정보는 문의 응대, 주문 내용 확인, 픽업 관련 연락을 위해서만 사용되며 그 외의 목적으로는 사용되지 않습니다." },
       { "heading": "보관 기간", "body": "개인정보는 문의 또는 주문 완료 후 합리적인 기간 동안 보관되며, 이후 관련 규정에 따라 삭제 또는 비식별화 처리됩니다." },
       { "heading": "정보주체의 권리", "body": "언제든지 본인의 개인정보에 대한 열람, 복사, 보완, 정정을 요청하거나 수집·처리·이용의 중지를 요청하실 수 있습니다. 아래 문의처로 연락해 주세요." },
-      { "heading": "문의처", "body": "개인정보 관련 문의는 hello@flourflour.tw로 연락해 주세요." }
+      { "heading": "문의처", "body": "개인정보 관련 문의는 hello@flourflour.com.tw로 연락해 주세요." }
     ]
   },
   "notFound": {
