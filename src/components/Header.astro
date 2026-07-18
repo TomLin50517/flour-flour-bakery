@@ -106,11 +106,13 @@ const home = localePrefix[lang] || '/';
     inset: 0;
     top: 65px;
     background: var(--color-bg);
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 32px 24px;
     z-index: 40;
+  }
+  .mobile-menu:not([hidden]) {
+    display: flex;
   }
   .mobile-menu__nav {
     display: flex;

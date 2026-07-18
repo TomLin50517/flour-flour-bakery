@@ -74,9 +74,11 @@ const { form, privacyHref } = Astro.props;
 
 <style>
   .contact-form {
-    display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+  .contact-form:not([hidden]) {
+    display: flex;
   }
   .field {
     display: flex;
