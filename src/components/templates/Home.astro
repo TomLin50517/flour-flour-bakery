@@ -278,6 +278,7 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
   }
   .place__photo {
     width: 100%;
+    height: auto; /* 讓 aspect-ratio 主導高度,否則 <img height> 屬性會蓋掉比例 */
     aspect-ratio: 3 / 2;
     object-fit: cover;
   }

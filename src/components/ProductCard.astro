@@ -58,6 +58,7 @@ const tagStatuses = new Set(['seasonal', 'holiday']);
   }
   .product-card__photo {
     width: 100%;
+    height: auto; /* 讓 aspect-ratio 主導高度,否則 <img height> 屬性會蓋掉比例 */
     aspect-ratio: 4 / 5;
     object-fit: cover;
   }
