@@ -34,7 +34,7 @@ const defaultDict = getDict('zh-hant');
       const p = localePrefix[lang];
       return (
         <div class="notfound-locale" data-lang={lang} data-html-lang={htmlLang[lang]} hidden={lang !== 'zh-hant'}>
-          <Header lang={lang} path="/404" langLabels={t.langSwitcher} reservePhone={t.contact.phoneValue} />
+          <Header lang={lang} path="/404" langLabels={t.langSwitcher} reserveEmail={t.contact.emailValue} />
           <main class="notfound">
             <div class="container notfound__inner">
               <img src="/images/logo-flower-ink.png" alt="FlourFlour BAKERY" class="notfound__logo" />

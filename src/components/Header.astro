@@ -9,14 +9,14 @@ export interface Props {
   path: string;
   langLabels: Record<string, string>;
   transparent?: boolean;
-  reservePhone: string;
+  reserveEmail: string;
 }
 
-const { lang, path, langLabels, transparent = false, reservePhone } = Astro.props;
+const { lang, path, langLabels, transparent = false, reserveEmail } = Astro.props;
 const localePrefix = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' } as const;
 const p = localePrefix[lang];
 const home = p || '/';
-const reserveHref = `tel:${reservePhone.replace(/-/g, '')}`;
+const reserveHref = `mailto:${reserveEmail}?subject=${encodeURIComponent('Reservation Inquiry')}`;
 
 const navLeft = [
   { label: 'Story', href: `${p}/story` },
@@ -36,7 +36,7 @@ const navLeft = [
     </a>
 
     <div class="site-header__right">
-      <LangSwitcher lang={lang} path={path} labels={langLabels} variant="dropdown" />
+      <LangSwitcher lang={lang} path={path} labels={langLabels} />
       <a class="site-header__reserve" href={reserveHref}>Reserve</a>
     </div>
 
@@ -59,7 +59,7 @@ const navLeft = [
       <a href={reserveHref}>Reserve</a>
     </nav>
     <div class="mobile-menu__lang">
-      <LangSwitcher lang={lang} path={path} labels={langLabels} variant="inline" />
+      <LangSwitcher lang={lang} path={path} labels={langLabels} size="sm" />
     </div>
   </div>
 </header>
@@ -141,6 +141,8 @@ const navLeft = [
   }
   .site-header--transparent .site-header__right {
     --lang-switcher-color: var(--flour-white);
+    --lang-switcher-active-bg: var(--flour-white);
+    --lang-switcher-active-color: var(--deep-ink);
   }
   .site-header--transparent .site-header__toggle span {
     background-color: var(--flour-white);
@@ -158,7 +160,9 @@ const navLeft = [
     color: var(--color-ink);
   }
   .site-header--transparent.is-scrolled .site-header__right {
-    --lang-switcher-color: var(--color-ink);
+    --lang-switcher-color: var(--color-ink-soft);
+    --lang-switcher-active-bg: var(--color-ink);
+    --lang-switcher-active-color: var(--flour-white);
   }
   .site-header--transparent.is-scrolled .site-header__toggle span {
     background-color: var(--color-ink);

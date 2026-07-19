@@ -59,6 +59,55 @@ const jsonLd = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 首次造訪依瀏覽器語言自動導向對應語系頁面(不在支援語系內則預設繁中);
+         只在使用者尚未有語系偏好紀錄時執行一次,之後(含手動切換語言後)不再自動判斷/導向,
+         避免每次載入都打斷使用者已做的語言選擇。放在 head 最前面,盡量在繪製前完成導向判斷。 -->
+    <script is:inline>
+      (function () {
+        var STORAGE_KEY = 'ff-lang-pref';
+        try {
+          if (localStorage.getItem(STORAGE_KEY)) return;
+        } catch (e) {
+          return;
+        }
+
+        var prefixes = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' };
+
+        function detect() {
+          var langs =
+            navigator.languages && navigator.languages.length
+              ? navigator.languages
+              : [navigator.language || ''];
+          for (var i = 0; i < langs.length; i++) {
+            var l = (langs[i] || '').toLowerCase();
+            if (l.indexOf('zh') === 0) return 'zh-hant';
+            if (l.indexOf('en') === 0) return 'en';
+            if (l.indexOf('ja') === 0) return 'ja';
+            if (l.indexOf('ko') === 0) return 'ko';
+          }
+          return 'zh-hant';
+        }
+
+        var path = window.location.pathname;
+        var current = 'zh-hant';
+        if (path === '/en' || path.indexOf('/en/') === 0) current = 'en';
+        else if (path === '/ja' || path.indexOf('/ja/') === 0) current = 'ja';
+        else if (path === '/ko' || path.indexOf('/ko/') === 0) current = 'ko';
+
+        var target = detect();
+
+        try {
+          localStorage.setItem(STORAGE_KEY, target);
+        } catch (e) {}
+
+        if (target !== current) {
+          var currentPrefix = prefixes[current];
+          var rest = currentPrefix ? path.slice(currentPrefix.length) : path;
+          if (!rest) rest = '/';
+          window.location.replace(prefixes[target] + rest + window.location.search + window.location.hash);
+        }
+      })();
+    </script>
     <!-- 漸進增強:先同步標記 JS 可用,.reveal-text/.reveal-media 的進場隱藏樣式只在此 class 存在時生效
          (見 global.css)。JS 關閉或載入失敗時,內容維持一般可見,不依賴後續進場動畫。 -->
     <script is:inline>
@@ -109,7 +158,7 @@ const jsonLd = {
       path={path}
       langLabels={t.langSwitcher}
       transparent={transparentHeader}
-      reservePhone={t.contact.phoneValue}
+      reserveEmail={t.contact.emailValue}
     />
     <main id="main-content">
       <slot />
