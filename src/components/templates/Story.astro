@@ -14,13 +14,14 @@ const { lang } = Astro.props;
 const t = getDict(lang);
 const p = localePrefix[lang];
 
-// 各章影像分類:01 河岸/05 光影屬「場域」(Place),02 麵粉/03 花蜜/04 摺疊屬「工藝過程」(Craft)
+// 各章影像:01 河/02 粉/03 花/04 摺為橫幅實景(3:2),05 光為直幅夕陽(4:5);
+// aspect 依實際照片方向設定,避免把橫幅硬裁成直幅。src 未提供時仍回退佔位系統。
 const chapterImage = [
-  { label: 'Place Photography', ratio: '3:2', aspect: '3 / 2' },
-  { label: 'Craft Photography', ratio: '4:5', aspect: '4 / 5' },
-  { label: 'Craft Photography', ratio: '4:5', aspect: '4 / 5' },
-  { label: 'Craft Photography', ratio: '4:5', aspect: '4 / 5' },
-  { label: 'Place Photography', ratio: '3:2', aspect: '3 / 2' },
+  { label: 'Place Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-river.jpg' },
+  { label: 'Craft Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-flour.jpg' },
+  { label: 'Craft Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-flower.jpg' },
+  { label: 'Craft Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-fold.jpg' },
+  { label: 'Place Photography', ratio: '4:5', aspect: '4 / 5', src: '/images/story-light.jpg' },
 ] as const;
 ---
 
@@ -31,11 +32,21 @@ const chapterImage = [
     <section class="chapter">
       <div class:list={['container', 'chapter__grid', { 'chapter__grid--flip': i % 2 === 1 }]}>
         <div class="chapter__media reveal-media">
-          <ImagePlaceholder
-            label={chapterImage[i].label}
-            ratio={chapterImage[i].ratio}
-            aspect={chapterImage[i].aspect}
-          />
+          {chapterImage[i].src ? (
+            <img
+              src={chapterImage[i].src}
+              alt={ch.title}
+              class="chapter__photo"
+              style={`aspect-ratio: ${chapterImage[i].aspect};`}
+              loading="lazy"
+            />
+          ) : (
+            <ImagePlaceholder
+              label={chapterImage[i].label}
+              ratio={chapterImage[i].ratio}
+              aspect={chapterImage[i].aspect}
+            />
+          )}
         </div>
         <div class="chapter__text reveal-text">
           <p class="chapter__no">{ch.no}</p>
@@ -88,6 +99,10 @@ const chapterImage = [
     color: var(--color-ink-soft);
     margin-top: var(--space-3);
     max-width: 46ch;
+  }
+  .chapter__photo {
+    width: 100%;
+    object-fit: cover;
   }
 
   .story-quote {
