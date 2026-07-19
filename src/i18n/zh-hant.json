@@ -61,31 +61,54 @@
   },
   "home": {
     "hero": {
-      "slogan": "為每一天,帶來美好與溫暖。",
-      "cta": "認識 flour flour →"
+      "eyebrow": "FLOUR · FLOWER · TAMSUI",
+      "title": "A Quiet Taste of Tamsui.",
+      "subtitle": "把淡水的光、花與風景,烘進每日出爐的香氣裡。",
+      "cta": "認識 FlourFlour",
+      "cta2": "今日出爐"
+    },
+    "manifesto": {
+      "eyebrow": "MANIFESTO",
+      "text": "我們相信,真正的奢侈,是慢下來的時間。淡水的風、老屋的光、花與麵粉的氣味,都值得被溫柔以待——這是 flour flour 每天清晨,唯一想做好的一件事。"
+    },
+    "signature": {
+      "eyebrow": "SIGNATURE",
+      "name": "龍眼蜜湯種吐司",
+      "description": "以湯種工法鎖住水分,揉入在地龍眼花蜜——這是我們從第一天就沒有改變過的配方,也是最能代表 flour flour 對淡水風土理解的一款吐司。",
+      "price": "NT$ 180",
+      "cta": "了解這款吐司"
     },
     "todayFresh": {
+      "eyebrow": "TODAY'S BAKE",
       "heading": "今日出爐",
-      "cta": "查看全部產品 →"
+      "cta": "查看全部產品"
     },
-    "storyTeaser": {
-      "heading": "河岸與花的故事",
+    "story": {
+      "eyebrow": "OUR STORY",
+      "heading": "老屋、河岸與我們的故事",
       "body": "flour flour 誕生於淡水的夕陽與河岸,將龍眼花蜜與在地滋味揉進每一次發酵。我們相信,一片麵包也能傳遞魔法般的溫暖。",
-      "cta": "閱讀故事 →"
+      "cta": "閱讀完整故事"
     },
-    "infoBar": {
+    "gift": {
+      "eyebrow": "GIFT",
+      "heading": "送一份,淡水的溫柔",
+      "body": "無論是節日、婚禮或日常心意,flour flour 的禮盒選品,把河岸的溫暖包進每一份心意裡。",
+      "cta": "選購禮盒"
+    },
+    "visit": {
+      "eyebrow": "VISIT",
+      "heading": "來店裡,坐坐",
       "hoursLabel": "營業時間",
       "hoursValue": "週三–週日 11:00–19:00",
       "addressLabel": "地址",
       "addressValue": "新北市淡水區中正路 123 號",
       "phoneLabel": "電話",
       "phoneValue": "02-2621-XXXX",
-      "cta": "聯絡我們 →"
+      "cta": "查看完整資訊"
     }
   },
   "story": {
-    "bannerTitleZh": "我們的故事",
-    "bannerTitleEn": "Our Story",
+    "pageTitle": "我們的故事",
     "sections": [
       {
         "title": "河岸的起點",

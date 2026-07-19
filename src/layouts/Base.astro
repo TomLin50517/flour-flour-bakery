@@ -11,9 +11,10 @@ export interface Props {
   title: string;
   description: string;
   path: string; // 不含語系前綴的頁面路徑,如 '/', '/story'
+  transparentHeader?: boolean; // 首頁全螢幕 hero 用透明 header
 }
 
-const { lang, title, description, path } = Astro.props;
+const { lang, title, description, path, transparentHeader = false } = Astro.props;
 
 const htmlLang = { 'zh-hant': 'zh-Hant', en: 'en', ja: 'ja', ko: 'ko' } as const;
 const t = getDict(lang);
@@ -85,20 +86,21 @@ const jsonLd = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Quicksand:wght@300;400;500&family=Zen+Maru+Gothic:wght@300;400&family=Gowun+Dodum&family=Noto+Sans+TC:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600&family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+KR:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
 
     <!-- TODO: 流量分析插入點(v1 不安裝,spec §6) -->
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
     {t.announcement.enabled && (
       <div class="announcement-bar">
         <p class="container">{t.announcement.text}</p>
       </div>
     )}
-    <Header lang={lang} path={path} nav={t.nav} langLabels={t.langSwitcher} />
-    <main>
+    <Header lang={lang} path={path} nav={t.nav} langLabels={t.langSwitcher} transparent={transparentHeader} />
+    <main id="main-content">
       <slot />
     </main>
     <Footer lang={lang} footer={t.footer} nav={t.nav} contact={t.contact} />
@@ -115,19 +117,20 @@ const jsonLd = {
         },
         { threshold: 0.15 }
       );
-      document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+      document.querySelectorAll('.fade-up, .reveal-scale').forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>
 
 <style>
   .announcement-bar {
-    background: var(--color-olive);
-    color: var(--color-surface);
+    background: var(--color-ink);
+    color: var(--color-bg);
   }
   .announcement-bar p {
     padding-block: 10px;
-    font-size: 14px;
+    font-size: var(--text-sm);
+    letter-spacing: 0.02em;
     text-align: center;
   }
 </style>

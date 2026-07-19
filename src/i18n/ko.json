@@ -61,31 +61,54 @@
   },
   "home": {
     "hero": {
-      "slogan": "매일에게 전하는 따뜻함과 아름다움.",
-      "cta": "flour flour 알아보기 →"
+      "eyebrow": "FLOUR · FLOWER · TAMSUI",
+      "title": "A Quiet Taste of Tamsui.",
+      "subtitle": "단수이의 빛과 꽃, 그리고 풍경을 매일 갓 구운 빵의 향기에 담습니다.",
+      "cta": "FlourFlour 살펴보기",
+      "cta2": "오늘의 갓 구운 빵"
+    },
+    "manifesto": {
+      "eyebrow": "MANIFESTO",
+      "text": "진정한 사치란 서두르지 않는 시간이라고 믿습니다. 단수이를 스치는 바람, 오래된 집에 스며드는 빛, 밀가루와 꽃의 향기——그 모든 것은 정성스럽게 다뤄질 가치가 있습니다. 그것이 flour flour가 매일 아침 오직 하나, 잘 해내고자 하는 일입니다."
+    },
+    "signature": {
+      "eyebrow": "SIGNATURE",
+      "name": "용안꿀 탕종 식빵",
+      "description": "탕종 공법으로 수분을 가두고 지역 용안 꽃꿀을 더한——창업 첫날부터 바뀌지 않은 레시피이자, 단수이의 풍토에 대한 flour flour의 이해를 가장 잘 담아낸 식빵입니다.",
+      "price": "NT$ 180",
+      "cta": "이 식빵 알아보기"
     },
     "todayFresh": {
+      "eyebrow": "TODAY'S BAKE",
       "heading": "오늘의 갓 구운 빵",
-      "cta": "전체 제품 보기 →"
+      "cta": "전체 제품 보기"
     },
-    "storyTeaser": {
-      "heading": "강변과 꽃이 전하는 이야기",
+    "story": {
+      "eyebrow": "OUR STORY",
+      "heading": "오래된 집, 강변, 그리고 우리의 이야기",
       "body": "flour flour는 단수이의 노을과 강변에서 태어났습니다. 용안 꽃꿀과 지역의 맛을 발효의 순간마다 담아냅니다. 빵 한 조각에도 마법 같은 따뜻함을 전할 수 있다고 믿습니다.",
-      "cta": "스토리 읽어보기 →"
+      "cta": "스토리 전체 읽어보기"
     },
-    "infoBar": {
+    "gift": {
+      "eyebrow": "GIFT",
+      "heading": "단수이의 다정함을 선물로",
+      "body": "명절, 결혼식, 혹은 소소한 마음을 전하고 싶을 때——flour flour의 선물 컬렉션이 강변의 따뜻함을 한 상자에 담아 전해드립니다.",
+      "cta": "선물 컬렉션 보기"
+    },
+    "visit": {
+      "eyebrow": "VISIT",
+      "heading": "매장에 들러 잠시 쉬어가세요",
       "hoursLabel": "영업시간",
       "hoursValue": "수~일 11:00~19:00",
       "addressLabel": "주소",
       "addressValue": "신베이시 단수이구 중정로 123호",
       "phoneLabel": "전화",
       "phoneValue": "02-2621-XXXX",
-      "cta": "문의하기 →"
+      "cta": "자세히 보기"
     }
   },
   "story": {
-    "bannerTitleZh": "我們的故事",
-    "bannerTitleEn": "Our Story",
+    "pageTitle": "우리의 이야기",
     "sections": [
       {
         "title": "강변에서 시작된 이야기",

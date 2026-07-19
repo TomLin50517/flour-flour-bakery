@@ -1,5 +1,5 @@
 ---
-// Header.astro — 全站共用 header(spec §4):左 logo,右導覽 + 語言切換器;mobile 漢堡選單全屏展開
+// Header.astro — 全站共用 header:左 logo,右導覽 + 語言切換器;首頁可為透明(疊在 hero 上,捲動後轉為實色);mobile 全屏選單
 import LangSwitcher from './LangSwitcher.astro';
 
 export interface Props {
@@ -7,14 +7,15 @@ export interface Props {
   path: string;
   nav: { story: string; products: string; service: string; contact: string };
   langLabels: Record<string, string>;
+  transparent?: boolean;
 }
 
-const { lang, path, nav, langLabels } = Astro.props;
+const { lang, path, nav, langLabels, transparent = false } = Astro.props;
 const localePrefix = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' } as const;
 const home = localePrefix[lang] || '/';
 ---
 
-<header class="site-header">
+<header class:list={['site-header', { 'site-header--transparent': transparent }]} data-transparent={transparent}>
   <div class="container site-header__inner">
     <a href={home} class="site-header__brand" aria-label="flour flour BAKERY">
       <img src="/images/logo-horizontal.png" alt="flour flour BAKERY" class="site-header__logo" />
@@ -59,14 +60,16 @@ const home = localePrefix[lang] || '/';
 <style>
   .site-header {
     border-bottom: 1px solid var(--color-line);
+    background: var(--color-bg);
     position: relative;
+    z-index: 30;
   }
   .site-header__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
-    padding-block: 16px;
+    gap: var(--space-3);
+    padding-block: var(--space-2);
   }
   .site-header__brand {
     display: flex;
@@ -78,13 +81,53 @@ const home = localePrefix[lang] || '/';
   }
   .site-header__nav {
     display: flex;
-    gap: 32px;
-    font-family: var(--font-body-en);
+    gap: var(--space-4);
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
   }
   .site-header__nav a {
     text-decoration: none;
     color: var(--color-ink);
+    transition: color var(--duration-base) var(--ease-editorial);
   }
+
+  /* transparent state: sits over a full-bleed hero, no bg/border until scrolled */
+  .site-header--transparent {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    background: transparent;
+    border-bottom-color: transparent;
+    transition: background var(--duration-base) var(--ease-editorial),
+      border-color var(--duration-base) var(--ease-editorial);
+  }
+  .site-header--transparent .site-header__nav a {
+    color: var(--flour-white);
+  }
+  .site-header--transparent .site-header__lang-desktop {
+    --lang-switcher-color: var(--flour-white);
+    --lang-switcher-active-color: var(--flour-white);
+  }
+  .site-header--transparent .site-header__toggle span {
+    background-color: var(--flour-white);
+  }
+  .site-header--transparent.is-scrolled {
+    position: fixed;
+    background: var(--color-bg);
+    border-bottom-color: var(--color-line);
+  }
+  .site-header--transparent.is-scrolled .site-header__nav a {
+    color: var(--color-ink);
+  }
+  .site-header--transparent.is-scrolled .site-header__lang-desktop {
+    --lang-switcher-color: var(--color-ink-soft);
+    --lang-switcher-active-color: var(--color-accent-text);
+  }
+  .site-header--transparent.is-scrolled .site-header__toggle span {
+    background-color: var(--color-ink);
+  }
+
   .site-header__toggle {
     display: none;
     flex-direction: column;
@@ -98,8 +141,9 @@ const home = localePrefix[lang] || '/';
   }
   .site-header__toggle span {
     display: block;
-    height: 1.5px;
+    height: 1px;
     background: var(--color-ink);
+    transition: background var(--duration-base) var(--ease-editorial);
   }
   .mobile-menu {
     position: fixed;
@@ -108,17 +152,21 @@ const home = localePrefix[lang] || '/';
     background: var(--color-bg);
     flex-direction: column;
     justify-content: space-between;
-    padding: 32px 24px;
+    padding: var(--space-4) var(--space-3);
     z-index: 40;
+    opacity: 0;
+    transition: opacity var(--duration-base) var(--ease-editorial);
   }
   .mobile-menu:not([hidden]) {
     display: flex;
+    opacity: 1;
   }
   .mobile-menu__nav {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    font-size: 20px;
+    gap: var(--space-3);
+    font-family: var(--font-heading-locale);
+    font-size: var(--text-xl);
   }
   .mobile-menu__nav a {
     text-decoration: none;
@@ -132,6 +180,13 @@ const home = localePrefix[lang] || '/';
     }
     .site-header__toggle {
       display: flex;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu,
+    .site-header--transparent {
+      transition: none;
     }
   }
 </style>
@@ -152,4 +207,13 @@ const home = localePrefix[lang] || '/';
       if (menu) menu.hidden = true;
     });
   });
+
+  const header = document.querySelector<HTMLElement>('.site-header--transparent');
+  if (header) {
+    const update = () => {
+      header.classList.toggle('is-scrolled', window.scrollY > window.innerHeight * 0.8);
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
 </script>

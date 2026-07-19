@@ -75,7 +75,7 @@ const { form, privacyHref } = Astro.props;
 <style>
   .contact-form {
     flex-direction: column;
-    gap: 20px;
+    gap: var(--space-3);
   }
   .contact-form:not([hidden]) {
     display: flex;
@@ -86,28 +86,22 @@ const { form, privacyHref } = Astro.props;
     gap: 6px;
   }
   .field label {
-    font-size: 14px;
+    font-size: var(--text-sm);
     color: var(--color-ink-soft);
   }
   .field input,
   .field select,
   .field textarea {
     border: 1px solid var(--color-line);
-    border-radius: 8px;
-    padding: 10px 14px;
+    border-radius: var(--radius-card);
+    padding: 12px 14px;
     font: inherit;
-    background: var(--color-surface);
+    background: var(--color-bg);
     color: var(--color-ink);
   }
-  .field input:focus-visible,
-  .field select:focus-visible,
-  .field textarea:focus-visible {
-    outline: 2px solid var(--color-rosegold);
-    outline-offset: 1px;
-  }
   .field-error {
-    color: var(--color-rosegold);
-    font-size: 13px;
+    color: var(--color-accent-text);
+    font-size: var(--text-sm);
     margin: 0;
   }
   .field--honeypot {
@@ -118,14 +112,14 @@ const { form, privacyHref } = Astro.props;
     overflow: hidden;
   }
   .contact-form__privacy {
-    font-size: 13px;
+    font-size: var(--text-sm);
     color: var(--color-ink-soft);
   }
   .contact-form__privacy a {
-    color: var(--color-rosegold);
+    color: var(--color-accent-text);
   }
   .contact-form__success {
-    color: var(--color-olive);
+    color: var(--color-ink);
     font-weight: 500;
   }
 </style>

@@ -1,6 +1,7 @@
 ---
-// 品牌故事模板(spec §5.2):窄幅 banner + 三段式敘事(左右交錯)+ 理念金句 + CTA
+// 品牌故事模板 — editorial 版型:安靜頁首 + 三段式敘事(左右交錯)+ 理念金句(深色滿版)+ CTA
 import Base from '../../layouts/Base.astro';
+import PageHeader from '../PageHeader.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
 
 export interface Props {
@@ -13,17 +14,12 @@ const p = localePrefix[lang];
 ---
 
 <Base lang={lang} path="/story" title={t.pageMeta.story.title} description={t.pageMeta.story.description}>
-  <section class="story-banner">
-    <div class="container fade-up">
-      <p class="story-banner__en">{t.story.bannerTitleEn}</p>
-      <h1>{t.story.bannerTitleZh}</h1>
-    </div>
-  </section>
+  <PageHeader eyebrow="OUR STORY" title={t.story.pageTitle} />
 
   {t.story.sections.map((section, i) => (
     <section class="section container">
       <div class:list={['story-section', { 'story-section--reverse': i % 2 === 1 }]}>
-        <div class="story-section__image fade-up" aria-hidden="true">3:4</div>
+        <div class="story-section__image reveal-scale" aria-hidden="true">3:4</div>
         <div class="story-section__content fade-up">
           <h2>{section.title}</h2>
           <p>{section.body}</p>
@@ -45,25 +41,10 @@ const p = localePrefix[lang];
 </Base>
 
 <style>
-  .story-banner {
-    height: 40vh;
-    min-height: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(180deg, rgba(181, 118, 78, 0.25), rgba(58, 46, 37, 0.45)), var(--color-line);
-    color: var(--color-surface);
-  }
-  .story-banner__en {
-    font-family: var(--font-heading-en);
-    letter-spacing: 0.12em;
-    opacity: 0.85;
-  }
   .story-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    gap: var(--space-6);
     align-items: center;
   }
   .story-section--reverse {
@@ -74,29 +55,40 @@ const p = localePrefix[lang];
   }
   .story-section__image {
     aspect-ratio: 3 / 4;
-    background: var(--color-line);
-    border-radius: var(--radius-card);
+    background: var(--color-surface);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-ink-soft);
+    font-size: var(--text-sm);
+  }
+  .story-section__content h2 {
+    font-size: var(--text-2xl);
+  }
+  .story-section__content p {
+    margin-top: var(--space-3);
+    color: var(--color-ink-soft);
+    max-width: var(--reading-max-width);
   }
   .story-quote {
     background: var(--color-ink);
-    color: var(--color-rosegold);
+    color: var(--warm-ivory);
     text-align: center;
-    padding-block: 96px;
+    padding-block: var(--space-8);
   }
   .story-quote__logo {
     height: 40px;
     width: auto;
+    margin-inline: auto;
   }
   .story-quote p {
-    font-family: var(--font-heading-en);
-    font-size: clamp(22px, 3vw, 32px);
-    max-width: 720px;
+    font-family: var(--font-heading-locale);
+    font-style: var(--display-italic);
+    font-size: var(--text-2xl);
+    line-height: 1.6;
+    max-width: var(--reading-max-width);
     margin-inline: auto;
-    margin-top: 24px;
+    margin-top: var(--space-3);
   }
   .story-cta {
     text-align: center;

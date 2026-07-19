@@ -1,6 +1,7 @@
 ---
-// 產品介紹模板(spec §5.3):分類 tab(錨點切換)+ 產品卡格線 + 頁尾備註
+// 產品介紹模板 — editorial 版型:安靜頁首 + 分類 tab(錨點切換)+ 產品格線 + 頁尾備註
 import Base from '../../layouts/Base.astro';
+import PageHeader from '../PageHeader.astro';
 import ProductCard from '../ProductCard.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
 
@@ -38,11 +39,7 @@ const jsonLd = {
 <Base lang={lang} path="/products" title={t.pageMeta.products.title} description={t.pageMeta.products.description}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-  <section class="products-banner">
-    <div class="container fade-up">
-      <h1>{t.products.bannerTitle}</h1>
-    </div>
-  </section>
+  <PageHeader eyebrow="PRODUCTS" title={t.products.bannerTitle} />
 
   <nav class="category-tabs" aria-label="product categories">
     <div class="container category-tabs__inner">
@@ -54,7 +51,7 @@ const jsonLd = {
 
   {categoryOrder.map((cat) => (
     <section class="section container" id={cat}>
-      <h2 class="section__heading fade-up">{t.products.categories[cat]}</h2>
+      <h2 class="category-heading fade-up">{t.products.categories[cat]}</h2>
       <div class="product-grid">
         {t.products.items
           .filter((item) => item.category === cat)
@@ -72,15 +69,6 @@ const jsonLd = {
 </Base>
 
 <style>
-  .products-banner {
-    height: 32vh;
-    min-height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: var(--color-line);
-  }
   .category-tabs {
     position: sticky;
     top: 0;
@@ -91,18 +79,20 @@ const jsonLd = {
   .category-tabs__inner {
     display: flex;
     justify-content: center;
-    gap: 32px;
-    padding-block: 16px;
+    gap: var(--space-4);
+    padding-block: var(--space-2);
   }
   .category-tabs__inner a {
     text-decoration: none;
     color: var(--color-ink);
-    font-family: var(--font-body-en);
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    letter-spacing: 0.06em;
   }
-  .section__heading {
+  .category-heading {
     text-align: center;
-    margin-bottom: 48px;
-    scroll-margin-top: 80px;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
   }
   #classic,
   #seasonal,
@@ -112,15 +102,15 @@ const jsonLd = {
   .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: var(--space-5);
   }
   .products-footnote {
     text-align: center;
-    padding-block: 64px;
+    padding-block: var(--space-7);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: var(--space-3);
     color: var(--color-ink-soft);
   }
 
@@ -129,7 +119,7 @@ const jsonLd = {
       grid-template-columns: 1fr;
     }
     .category-tabs__inner {
-      gap: 16px;
+      gap: var(--space-2);
       overflow-x: auto;
     }
   }

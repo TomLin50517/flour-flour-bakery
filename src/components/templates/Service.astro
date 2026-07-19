@@ -1,6 +1,7 @@
 ---
-// 客服中心模板(spec §5.4):FAQ 手風琴(訂購/商品)+ 訂購須知卡 + 側欄聯絡引導
+// 客服中心模板 — editorial 版型:安靜頁首 + FAQ 手風琴(訂購/商品)+ 訂購須知(細線分隔,無卡片)+ 側欄聯絡引導
 import Base from '../../layouts/Base.astro';
+import PageHeader from '../PageHeader.astro';
 import FAQAccordion from '../FAQAccordion.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
 
@@ -17,25 +18,21 @@ const lineHref = `https://line.me/R/ti/p/${encodeURIComponent(t.contact.line)}`;
 ---
 
 <Base lang={lang} path="/service" title={t.pageMeta.service.title} description={t.pageMeta.service.description}>
-  <section class="service-banner">
-    <div class="container fade-up">
-      <h1>{t.service.bannerTitle}</h1>
-    </div>
-  </section>
+  <PageHeader eyebrow="SERVICE" title={t.service.bannerTitle} />
 
   <section class="section container service-layout">
     <div class="service-layout__main">
       <div class="fade-up">
-        <h2>{t.service.faq.orderingHeading}</h2>
+        <h2 class="service-heading">{t.service.faq.orderingHeading}</h2>
         <FAQAccordion items={t.service.faq.orderingItems} groupId="ordering" />
       </div>
       <div class="fade-up service-layout__gap">
-        <h2>{t.service.faq.productHeading}</h2>
+        <h2 class="service-heading">{t.service.faq.productHeading}</h2>
         <FAQAccordion items={t.service.faq.productItems} groupId="product" />
       </div>
 
       <div class="order-info fade-up">
-        <h2>{t.service.orderInfo.heading}</h2>
+        <h2 class="service-heading">{t.service.orderInfo.heading}</h2>
         <dl>
           <dt>{t.service.orderInfo.pickupLabel}</dt>
           <dd>{t.service.orderInfo.pickupValue}</dd>
@@ -51,64 +48,56 @@ const lineHref = `https://line.me/R/ti/p/${encodeURIComponent(t.contact.line)}`;
       <h3>{t.service.sidebar.heading}</h3>
       <a class="btn" href={phoneHref}>{t.service.sidebar.callCta}</a>
       <a class="btn" href={lineHref} target="_blank" rel="noopener">{t.service.sidebar.lineCta}</a>
-      <a class="service-sidebar__link" href={`${p}/contact`}>{t.service.sidebar.contactCta}</a>
+      <a class="link-arrow" href={`${p}/contact`}>{t.service.sidebar.contactCta}</a>
     </aside>
   </section>
 </Base>
 
 <style>
-  .service-banner {
-    height: 32vh;
-    min-height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: var(--color-line);
-  }
   .service-layout {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 64px;
+    gap: var(--space-7);
     align-items: start;
   }
+  .service-heading {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-3);
+  }
   .service-layout__gap {
-    margin-top: 48px;
+    margin-top: var(--space-6);
   }
   .order-info {
-    margin-top: 48px;
-    background: var(--color-surface);
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius-card);
-    padding: 32px;
+    margin-top: var(--space-6);
+    border-top: 1px solid var(--color-line);
+    padding-top: var(--space-5);
   }
   .order-info dt {
     color: var(--color-ink-soft);
-    font-size: 14px;
-    margin-top: 16px;
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: var(--space-3);
   }
-  .order-info dt:first-child {
+  .order-info dt:first-of-type {
     margin-top: 0;
   }
   .order-info dd {
-    margin: 4px 0 0;
+    margin: var(--space-1) 0 0;
+    max-width: var(--reading-max-width);
   }
   .service-sidebar {
     position: sticky;
     top: 96px;
-    background: var(--color-surface);
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius-card);
-    padding: 32px;
+    border-top: 1px solid var(--color-line);
+    padding-top: var(--space-5);
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    text-align: center;
+    align-items: flex-start;
+    gap: var(--space-3);
   }
-  .service-sidebar__link {
-    color: var(--color-rosegold);
-    text-decoration: none;
-    margin-top: 8px;
+  .service-sidebar h3 {
+    font-size: var(--text-xl);
   }
 
   @media (max-width: 768px) {

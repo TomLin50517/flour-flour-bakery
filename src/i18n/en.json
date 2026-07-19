@@ -61,31 +61,54 @@
   },
   "home": {
     "hero": {
-      "slogan": "Warmth and beauty, every single day.",
-      "cta": "Meet flour flour →"
+      "eyebrow": "FLOUR · FLOWER · TAMSUI",
+      "title": "A Quiet Taste of Tamsui.",
+      "subtitle": "The light, the blossoms, the scenery of Tamsui — baked into the scent of every day's first loaves.",
+      "cta": "Discover FlourFlour",
+      "cta2": "Today's Bake"
+    },
+    "manifesto": {
+      "eyebrow": "MANIFESTO",
+      "text": "We believe true luxury is time, unhurried. The wind off the Tamsui river, the light through an old house, the scent of flour and flowers — each deserves to be treated gently. That is the only thing flour flour sets out to do, every morning."
+    },
+    "signature": {
+      "eyebrow": "SIGNATURE",
+      "name": "Longan Honey Tangzhong Toast",
+      "description": "Made with the tangzhong method to lock in moisture, folded with local longan blossom honey — the recipe we've never changed since day one, and the loaf that best captures how flour flour reads the land around Tamsui.",
+      "price": "NT$ 180",
+      "cta": "Discover this loaf"
     },
     "todayFresh": {
+      "eyebrow": "TODAY'S BAKE",
       "heading": "Fresh Today",
-      "cta": "See all products →"
+      "cta": "See all products"
     },
-    "storyTeaser": {
-      "heading": "A story of the river and the blossom",
+    "story": {
+      "eyebrow": "OUR STORY",
+      "heading": "An old house, a river, and our story",
       "body": "flour flour was born from Tamsui's sunsets and riverbanks, folding longan blossom honey and local flavours into every ferment. We believe even a single loaf can carry a little magic and warmth.",
-      "cta": "Read our story →"
+      "cta": "Read the full story"
     },
-    "infoBar": {
+    "gift": {
+      "eyebrow": "GIFT",
+      "heading": "A gift, wrapped in Tamsui",
+      "body": "For holidays, weddings, or simply a thought worth sending — our gift selection carries the warmth of the riverside into every box.",
+      "cta": "View the gift collection"
+    },
+    "visit": {
+      "eyebrow": "VISIT",
+      "heading": "Come sit with us",
       "hoursLabel": "Hours",
       "hoursValue": "Wed–Sun 11:00–19:00",
       "addressLabel": "Address",
       "addressValue": "No. 123, Zhongzheng Rd., Tamsui Dist., New Taipei City",
       "phoneLabel": "Phone",
       "phoneValue": "02-2621-XXXX",
-      "cta": "Contact us →"
+      "cta": "See full details"
     }
   },
   "story": {
-    "bannerTitleZh": "我們的故事",
-    "bannerTitleEn": "Our Story",
+    "pageTitle": "Our Story",
     "sections": [
       {
         "title": "Where the river begins",

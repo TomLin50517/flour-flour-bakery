@@ -1,6 +1,7 @@
 ---
-// 隱私權政策模板(spec §5.7):純文字頁,單欄窄版
+// 隱私權政策模板 — editorial 版型:安靜頁首 + 單欄窄版純文字
 import Base from '../../layouts/Base.astro';
+import PageHeader from '../PageHeader.astro';
 import { getDict, type Lang } from '../../i18n';
 
 export interface Props {
@@ -12,9 +13,10 @@ const t = getDict(lang);
 ---
 
 <Base lang={lang} path="/privacy" title={t.pageMeta.privacy.title} description={t.pageMeta.privacy.description}>
+  <PageHeader eyebrow="PRIVACY" title={t.privacy.title} />
+
   <section class="section privacy-page">
-    <div class="container privacy-page__inner fade-up">
-      <h1>{t.privacy.title}</h1>
+    <div class="container reading-column fade-up">
       <p class="privacy-page__note">{t.privacy.lastUpdated}</p>
       {t.privacy.sections.map((section) => (
         <div class="privacy-page__section">
@@ -27,17 +29,18 @@ const t = getDict(lang);
 </Base>
 
 <style>
-  .privacy-page__inner {
-    max-width: 720px;
-  }
   .privacy-page__note {
     color: var(--color-ink-soft);
-    font-size: 14px;
+    font-size: var(--text-sm);
   }
   .privacy-page__section {
-    margin-top: 32px;
+    margin-top: var(--space-5);
   }
   .privacy-page__section h2 {
-    margin-bottom: 8px;
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-1);
+  }
+  .privacy-page__section p {
+    color: var(--color-ink-soft);
   }
 </style>

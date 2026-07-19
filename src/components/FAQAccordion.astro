@@ -45,8 +45,8 @@ const { items, groupId } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
-    padding-block: 20px;
+    gap: var(--space-2);
+    padding-block: var(--space-3);
     background: none;
     border: none;
     text-align: left;
@@ -55,20 +55,18 @@ const { items, groupId } = Astro.props;
     cursor: pointer;
   }
   .faq-item__icon {
-    color: var(--color-rosegold);
-    font-size: 20px;
-    transition: transform 300ms ease;
+    color: var(--color-accent-text);
+    font-size: var(--text-xl);
+    font-weight: 300;
+    transition: transform var(--duration-base) var(--ease-editorial);
   }
   .faq-item__trigger[aria-expanded='true'] .faq-item__icon {
     transform: rotate(45deg);
   }
   .faq-item__panel {
-    padding-bottom: 20px;
+    padding-bottom: var(--space-3);
     color: var(--color-ink-soft);
-  }
-  .faq-item__trigger:focus-visible {
-    outline: 2px solid var(--color-rosegold);
-    outline-offset: 2px;
+    max-width: var(--reading-max-width);
   }
 </style>
 

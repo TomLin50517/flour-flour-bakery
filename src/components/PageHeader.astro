@@ -1,0 +1,33 @@
+---
+// PageHeader.astro — 內頁共用頁首:編輯感 eyebrow + serif 標題,安靜留白,取代舊版色帶 banner
+export interface Props {
+  eyebrow: string;
+  title: string;
+}
+
+const { eyebrow, title } = Astro.props;
+---
+
+<header class="page-header">
+  <div class="container fade-up">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+  </div>
+</header>
+
+<style>
+  .page-header {
+    padding-block: var(--space-8) var(--space-6);
+    text-align: center;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .page-header h1 {
+    font-size: var(--text-3xl);
+    margin-top: var(--space-2);
+  }
+  @media (max-width: 768px) {
+    .page-header {
+      padding-block: var(--space-6) var(--space-5);
+    }
+  }
+</style>

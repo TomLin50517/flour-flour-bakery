@@ -1,6 +1,7 @@
 ---
-// 聯絡我們模板(spec §5.5):左資訊 / 右地圖(click-to-load) / 下方表單
+// 聯絡我們模板 — editorial 版型:安靜頁首 + 左資訊 / 右地圖(click-to-load)+ 下方表單
 import Base from '../../layouts/Base.astro';
+import PageHeader from '../PageHeader.astro';
 import MapEmbed from '../MapEmbed.astro';
 import ContactForm from '../ContactForm.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
@@ -18,15 +19,11 @@ const emailHref = `mailto:${t.contact.emailValue}`;
 ---
 
 <Base lang={lang} path="/contact" title={t.pageMeta.contact.title} description={t.pageMeta.contact.description}>
-  <section class="contact-banner">
-    <div class="container fade-up">
-      <h1>{t.contact.bannerTitle}</h1>
-    </div>
-  </section>
+  <PageHeader eyebrow="CONTACT" title={t.contact.bannerTitle} />
 
   <section class="section container contact-layout">
     <div class="contact-info fade-up">
-      <h2>{t.contact.infoHeading}</h2>
+      <h2 class="contact-heading">{t.contact.infoHeading}</h2>
       <dl>
         <dt>{t.contact.phoneLabel}</dt>
         <dd><a href={phoneHref}>{t.contact.phoneValue}</a></dd>
@@ -52,37 +49,34 @@ const emailHref = `mailto:${t.contact.emailValue}`;
 </Base>
 
 <style>
-  .contact-banner {
-    height: 32vh;
-    min-height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: var(--color-line);
-  }
   .contact-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    gap: var(--space-6);
+  }
+  .contact-heading {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-3);
   }
   .contact-info dt {
     color: var(--color-ink-soft);
-    font-size: 14px;
-    margin-top: 16px;
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: var(--space-3);
   }
-  .contact-info dt:first-child {
+  .contact-info dt:first-of-type {
     margin-top: 0;
   }
   .contact-info dd {
-    margin: 4px 0 0;
+    margin: var(--space-1) 0 0;
   }
   .contact-info a {
-    color: var(--color-rosegold);
+    color: var(--color-accent-text);
     text-decoration: none;
   }
   .contact-form-section {
-    max-width: 640px;
+    max-width: var(--reading-max-width);
   }
 
   @media (max-width: 768px) {

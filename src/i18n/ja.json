@@ -61,31 +61,54 @@
   },
   "home": {
     "hero": {
-      "slogan": "毎日に、やさしいぬくもりを。",
-      "cta": "flour flour を知る →"
+      "eyebrow": "FLOUR · FLOWER · TAMSUI",
+      "title": "A Quiet Taste of Tamsui.",
+      "subtitle": "淡水の光、花、そして景色を、毎朝焼きたての香りに閉じ込めて。",
+      "cta": "FlourFlourを知る",
+      "cta2": "本日の焼きたて"
+    },
+    "manifesto": {
+      "eyebrow": "MANIFESTO",
+      "text": "本当の贅沢とは、急がない時間だと私たちは考えています。淡水を渡る風、古い家に差し込む光、小麦粉と花の香り——そのひとつひとつに、やさしく向き合う価値がある。それが flour flour が毎朝、ただひとつ大切にしていることです。"
+    },
+    "signature": {
+      "eyebrow": "SIGNATURE",
+      "name": "龍眼蜂蜜湯種食パン",
+      "description": "湯種製法で水分を閉じ込め、地元産の龍眼花蜜を練り込んだ——創業以来変わらないレシピであり、flour flour が淡水の風土をどう見つめているかを最もよく表す一斤です。",
+      "price": "NT$ 180",
+      "cta": "この食パンを知る"
     },
     "todayFresh": {
+      "eyebrow": "TODAY'S BAKE",
       "heading": "本日の焼きたて",
-      "cta": "すべての商品を見る →"
+      "cta": "すべての商品を見る"
     },
-    "storyTeaser": {
-      "heading": "河岸と花の物語",
+    "story": {
+      "eyebrow": "OUR STORY",
+      "heading": "古い家、河岸、そして私たちの物語",
       "body": "flour flour は淡水の夕陽と河岸から生まれました。龍眼の花蜜と地元の味わいを、ひとつひとつの発酵に込めています。一切れのパンにも、魔法のようなぬくもりを届けられると信じて。",
-      "cta": "物語を読む →"
+      "cta": "物語の続きを読む"
     },
-    "infoBar": {
+    "gift": {
+      "eyebrow": "GIFT",
+      "heading": "淡水のやさしさを、贈りものに",
+      "body": "季節の行事にも、結婚のお祝いにも、日々のちょっとした気持ちにも。flour flour のギフトセレクションが、河岸のぬくもりをひと箱に込めてお届けします。",
+      "cta": "ギフトを見る"
+    },
+    "visit": {
+      "eyebrow": "VISIT",
+      "heading": "お店で、ゆっくりと",
       "hoursLabel": "営業時間",
       "hoursValue": "水曜〜日曜 11:00〜19:00",
       "addressLabel": "住所",
       "addressValue": "新北市淡水區中正路123號",
       "phoneLabel": "電話",
       "phoneValue": "02-2621-XXXX",
-      "cta": "お問い合わせ →"
+      "cta": "詳しい情報を見る"
     }
   },
   "story": {
-    "bannerTitleZh": "我們的故事",
-    "bannerTitleEn": "Our Story",
+    "pageTitle": "私たちの物語",
     "sections": [
       {
         "title": "河岸からはじまった",

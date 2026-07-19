@@ -1,5 +1,5 @@
 ---
-// Footer.astro — 全站共用 footer(spec §4):深可可底,三欄 + 版權列
+// Footer.astro — 全站共用 footer:極簡編輯感 masthead,克制、無卡片框線
 export interface Props {
   lang: 'zh-hant' | 'en' | 'ja' | 'ko';
   footer: {
@@ -21,28 +21,25 @@ const p = localePrefix[lang];
 ---
 
 <footer class="site-footer">
-  <div class="container site-footer__grid">
-    <div>
-      <img src="/images/logo-flower.png" alt="flour flour BAKERY" class="site-footer__logo" />
-      <p>{footer.tagline}</p>
-      <!-- TODO: 社群 icon(Instagram/LINE,spec §4) -->
-    </div>
-    <div>
-      <h3>{footer.quickLinksHeading}</h3>
-      <a href={`${p}/story`}>{nav.story}</a>
-      <a href={`${p}/products`}>{nav.products}</a>
-      <a href={`${p}/service`}>{nav.service}</a>
-      <a href={`${p}/contact`}>{nav.contact}</a>
-    </div>
-    <div>
-      <h3>{footer.contactHeading}</h3>
-      <p>{contact.phoneValue}</p>
-      <p>{contact.emailValue}</p>
-      <p>{contact.addressValue}</p>
-      <h3>{footer.hoursHeading}</h3>
-      <p>{footer.hoursValue}</p>
-    </div>
+  <div class="container site-footer__masthead">
+    <img src="/images/logo-flower.png" alt="flour flour BAKERY" class="site-footer__logo" />
+    <p class="site-footer__tagline">{footer.tagline}</p>
   </div>
+
+  <nav class="container site-footer__nav" aria-label={footer.quickLinksHeading}>
+    <a href={`${p}/story`}>{nav.story}</a>
+    <a href={`${p}/products`}>{nav.products}</a>
+    <a href={`${p}/service`}>{nav.service}</a>
+    <a href={`${p}/contact`}>{nav.contact}</a>
+  </nav>
+
+  <p class="container site-footer__info">
+    <span>{contact.phoneValue}</span>
+    <span>{contact.emailValue}</span>
+    <span>{contact.addressValue}</span>
+    <span>{footer.hoursValue}</span>
+  </p>
+
   <div class="container site-footer__bottom">
     <span>{footer.copyright}</span>
     <a href={`${p}/privacy`}>{footer.privacyLink}</a>
@@ -52,33 +49,81 @@ const p = localePrefix[lang];
 <style>
   .site-footer {
     background: var(--color-ink);
-    color: var(--color-surface);
+    color: var(--flour-white);
+    text-align: center;
+  }
+  .site-footer__masthead {
+    padding-top: var(--space-7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
   }
   .site-footer__logo {
-    height: 48px;
+    height: 40px;
     width: auto;
-    margin-bottom: 16px;
   }
-  .site-footer__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    padding-block: 64px;
+  .site-footer__tagline {
+    font-family: var(--font-heading-locale);
+    font-style: var(--display-italic);
+    color: var(--warm-ivory);
+    font-size: var(--text-lg);
   }
-  .site-footer a {
-    color: var(--color-rosegold);
-    display: block;
+  .site-footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    letter-spacing: 0.06em;
+  }
+  .site-footer__nav a {
+    color: var(--flour-white);
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--duration-base) var(--ease-editorial);
+  }
+  .site-footer__nav a:hover {
+    border-color: var(--sunset-copper);
+  }
+  .site-footer__info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-1) var(--space-3);
+    margin-top: var(--space-4);
+    color: var(--warm-ivory);
+    font-size: var(--text-sm);
+  }
+  .site-footer__info span:not(:last-child)::after {
+    content: '·';
+    margin-inline-start: var(--space-3);
+    color: var(--river-grey);
   }
   .site-footer__bottom {
     display: flex;
-    justify-content: space-between;
-    border-top: 1px solid rgba(255, 253, 248, 0.15);
-    padding-block: 24px;
-    font-size: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2) var(--space-4);
+    border-top: 1px solid rgba(243, 239, 232, 0.12);
+    margin-top: var(--space-7);
+    padding-block: var(--space-3);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.08em;
+    color: var(--river-grey);
   }
+  .site-footer__bottom a {
+    color: var(--river-grey);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
   @media (max-width: 768px) {
-    .site-footer__grid {
-      grid-template-columns: 1fr;
+    .site-footer__info span::after {
+      content: none;
     }
   }
 </style>

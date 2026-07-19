@@ -1,5 +1,5 @@
 ---
-// ProductCard.astro(spec §5.3):圖 4:5 → 品名 → 一句描述 → 玫瑰金價格 → 限量/完售 badge
+// ProductCard.astro — editorial 版型:圖 4:5(subtle scale hover)→ 品名(serif)→ 描述 → 價格 / 限量或完售標示(純文字,無 badge 底色)
 export interface Props {
   item: {
     id: string;
@@ -18,72 +18,78 @@ const limitedText = item.dailyLimit ? limitedBadgeTemplate.replace('{n}', String
 ---
 
 <article class:list={['product-card', 'fade-up', { 'product-card--sold-out': item.soldOut }]} data-product-id={item.id}>
-  <div class="product-card__image" aria-hidden="true">4:5</div>
+  <div class="product-card__frame">
+    <div class="product-card__image" aria-hidden="true">4:5</div>
+  </div>
   <div class="product-card__body">
     <h3>{item.name}</h3>
     <p class="product-card__desc">{item.description}</p>
-    <div class="product-card__meta">
+    <p class="product-card__meta">
       <span class="product-card__price">NT$ {item.price}</span>
-      {limitedText && !item.soldOut && <span class="badge badge--olive">{limitedText}</span>}
-      {item.soldOut && <span class="badge badge--soldout">{soldOutBadge}</span>}
-    </div>
+      {limitedText && !item.soldOut && <span class="product-card__note">{limitedText}</span>}
+      {item.soldOut && <span class="product-card__note product-card__note--soldout">{soldOutBadge}</span>}
+    </p>
   </div>
 </article>
 
 <style>
-  .product-card {
-    border-radius: var(--radius-card);
+  .product-card__frame {
     overflow: hidden;
-    border: 1px solid var(--color-line);
-    background: var(--color-surface);
-    transition: box-shadow 300ms ease;
-  }
-  .product-card:hover {
-    box-shadow: var(--shadow-card-hover);
   }
   .product-card__image {
     aspect-ratio: 4 / 5;
-    background: var(--color-line);
+    background: var(--color-surface);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-ink-soft);
-    font-size: 14px;
+    font-size: var(--text-sm);
+    transition: transform var(--duration-slow) var(--ease-editorial);
+  }
+  .product-card:hover .product-card__image {
+    transform: scale(1.03);
   }
   .product-card__body {
-    padding: 20px;
+    padding-top: var(--space-2);
+  }
+  .product-card__body h3 {
+    font-size: var(--text-lg);
   }
   .product-card__desc {
     color: var(--color-ink-soft);
-    font-size: 14px;
+    font-size: var(--text-sm);
+    margin-top: var(--space-1);
     min-height: 2.6em;
   }
   .product-card__meta {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 12px;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
   }
   .product-card__price {
     font-family: var(--font-heading-en);
-    color: var(--color-rosegold);
-    font-weight: 500;
+    color: var(--color-ink);
+    font-size: var(--text-base);
   }
-  .badge {
-    border-radius: var(--radius-pill);
-    padding: 4px 12px;
-    font-size: 12px;
+  .product-card__note {
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
   }
-  .badge--olive {
-    background: var(--color-olive);
-    color: var(--color-surface);
+  .product-card__note--soldout {
+    color: var(--color-accent-text);
   }
-  .badge--soldout {
-    background: var(--color-ink);
-    color: var(--color-surface);
+  .product-card--sold-out .product-card__image {
+    filter: saturate(0.4);
+    opacity: 0.6;
   }
-  .product-card--sold-out {
-    filter: saturate(0.5);
-    opacity: 0.75;
+
+  @media (prefers-reduced-motion: reduce) {
+    .product-card__image {
+      transition: none;
+    }
   }
 </style>

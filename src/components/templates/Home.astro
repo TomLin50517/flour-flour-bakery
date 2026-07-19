@@ -1,5 +1,6 @@
 ---
-// 首頁模板(spec §5.1):Hero / 今日出爐 / 故事引言 / 資訊帶
+// 首頁模板 — editorial 版型(9 區塊):透明 header / 全螢幕 hero / 品牌宣言 / 招牌單品 / 今日出爐(3款)
+// / 老屋河岸故事 / 禮盒 / 來店資訊 / 極簡 footer(Base 內建)
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../ProductCard.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
@@ -15,161 +16,318 @@ const p = localePrefix[lang];
 const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
 ---
 
-<Base lang={lang} path="/" title={t.pageMeta.home.title} description={t.pageMeta.home.description}>
+<Base
+  lang={lang}
+  path="/"
+  title={t.pageMeta.home.title}
+  description={t.pageMeta.home.description}
+  transparentHeader
+>
+  <!-- 1+2. 全螢幕 hero(透明 header 疊於其上) -->
   <section class="hero">
-    <div class="container hero__inner fade-up">
-      <img src="/images/logo-flower.png" alt="flour flour BAKERY" class="hero__logo" />
-      <h1>{t.home.hero.slogan}</h1>
-      <a class="btn btn--primary" href={`${p}/story`}>{t.home.hero.cta}</a>
-    </div>
-  </section>
-
-  <section class="section container">
-    <h2 class="section__heading fade-up">{t.home.todayFresh.heading}</h2>
-    <div class="product-grid">
-      {featured.map((item) => (
-        <ProductCard item={item} limitedBadgeTemplate={t.products.limitedBadge} soldOutBadge={t.products.soldOutBadge} />
-      ))}
-    </div>
-    <div class="section__cta fade-up">
-      <a href={`${p}/products`}>{t.home.todayFresh.cta}</a>
-    </div>
-  </section>
-
-  <section class="section story-teaser">
-    <div class="container story-teaser__grid fade-up">
-      <div class="story-teaser__image" aria-hidden="true">河岸夕陽 16:9</div>
-      <div class="story-teaser__content">
-        <img src="/images/logo-flower.png" alt="flour flour BAKERY" class="story-teaser__logo" />
-        <h2>{t.home.storyTeaser.heading}</h2>
-        <p>{t.home.storyTeaser.body}</p>
-        <a href={`${p}/story`}>{t.home.storyTeaser.cta}</a>
+    <div class="hero__media" aria-hidden="true"></div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="container hero__content">
+      <p class="eyebrow hero__eyebrow">{t.home.hero.eyebrow}</p>
+      <h1 class="hero__title">{t.home.hero.title}</h1>
+      <p class="hero__subtitle">{t.home.hero.subtitle}</p>
+      <div class="hero__actions">
+        <a class="btn btn--on-dark" href={`${p}/story`}>{t.home.hero.cta}</a>
+        <a class="link-arrow" href="#today-fresh">{t.home.hero.cta2}</a>
       </div>
     </div>
   </section>
 
-  <section class="section info-bar">
-    <div class="container info-bar__grid fade-up">
-      <div>
-        <h3>{t.home.infoBar.hoursLabel}</h3>
-        <p>{t.home.infoBar.hoursValue}</p>
-      </div>
-      <div>
-        <h3>{t.home.infoBar.addressLabel}</h3>
-        <p>{t.home.infoBar.addressValue}</p>
-      </div>
-      <div>
-        <h3>{t.home.infoBar.phoneLabel}</h3>
-        <p>{t.home.infoBar.phoneValue}</p>
-      </div>
-    </div>
-    <div class="container info-bar__cta">
-      <a href={`${p}/contact`}>{t.home.infoBar.cta}</a>
+  <!-- 3. 品牌宣言 -->
+  <section class="section manifesto">
+    <div class="container reading-column manifesto__inner fade-up">
+      <p class="eyebrow">{t.home.manifesto.eyebrow}</p>
+      <p class="manifesto__text">{t.home.manifesto.text}</p>
     </div>
   </section>
+
+  <!-- 4. 招牌單品 -->
+  <section class="section signature">
+    <div class="container signature__grid">
+      <div class="signature__image reveal-scale" aria-hidden="true">
+        <span>4:5</span>
+      </div>
+      <div class="signature__content fade-up">
+        <p class="eyebrow">{t.home.signature.eyebrow}</p>
+        <h2>{t.home.signature.name}</h2>
+        <p class="signature__desc">{t.home.signature.description}</p>
+        <p class="signature__price">{t.home.signature.price}</p>
+        <a class="link-arrow" href={`${p}/products`}>{t.home.signature.cta}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 今日出爐(僅 3 款) -->
+  <section class="section today" id="today-fresh">
+    <div class="container">
+      <div class="today__header fade-up">
+        <p class="eyebrow">{t.home.todayFresh.eyebrow}</p>
+        <h2>{t.home.todayFresh.heading}</h2>
+      </div>
+      <div class="today__grid">
+        {featured.map((item) => (
+          <ProductCard item={item} limitedBadgeTemplate={t.products.limitedBadge} soldOutBadge={t.products.soldOutBadge} />
+        ))}
+      </div>
+      <p class="today__cta fade-up">
+        <a class="link-arrow" href={`${p}/products`}>{t.home.todayFresh.cta}</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 6. 老屋與河岸的故事 -->
+  <section class="section story">
+    <div class="container story__grid">
+      <div class="story__image reveal-scale" aria-hidden="true">
+        <span>3:4</span>
+      </div>
+      <div class="story__content fade-up">
+        <p class="eyebrow">{t.home.story.eyebrow}</p>
+        <h2>{t.home.story.heading}</h2>
+        <p>{t.home.story.body}</p>
+        <a class="link-arrow" href={`${p}/story`}>{t.home.story.cta}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 禮盒 -->
+  <section class="section gift">
+    <div class="container gift__grid">
+      <div class="gift__content fade-up">
+        <p class="eyebrow">{t.home.gift.eyebrow}</p>
+        <h2>{t.home.gift.heading}</h2>
+        <p>{t.home.gift.body}</p>
+        <a class="btn" href={`${p}/products`}>{t.home.gift.cta}</a>
+      </div>
+      <div class="gift__image reveal-scale" aria-hidden="true">
+        <span>4:5</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. 來店資訊 -->
+  <section class="section visit">
+    <div class="container reading-column visit__inner fade-up">
+      <p class="eyebrow">{t.home.visit.eyebrow}</p>
+      <h2>{t.home.visit.heading}</h2>
+      <dl class="visit__details">
+        <div>
+          <dt>{t.home.visit.hoursLabel}</dt>
+          <dd>{t.home.visit.hoursValue}</dd>
+        </div>
+        <div>
+          <dt>{t.home.visit.addressLabel}</dt>
+          <dd>{t.home.visit.addressValue}</dd>
+        </div>
+        <div>
+          <dt>{t.home.visit.phoneLabel}</dt>
+          <dd>{t.home.visit.phoneValue}</dd>
+        </div>
+      </dl>
+      <a class="btn btn--primary" href={`${p}/contact`}>{t.home.visit.cta}</a>
+    </div>
+  </section>
+
+  <!-- 9. footer 由 Base.astro 內建的極簡編輯感 Footer 元件提供 -->
 </Base>
 
 <style>
+  /* ---- 1+2. hero ---- */
   .hero {
-    height: 85vh;
-    min-height: 480px;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(180deg, rgba(58, 46, 37, 0.35), rgba(58, 46, 37, 0.55)), var(--color-line);
-  }
-  .hero__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    text-align: center;
-    color: var(--color-surface);
-  }
-  .hero__inner h1 {
-    font-size: clamp(28px, 4vw, 44px);
-  }
-  .hero__logo {
-    height: 64px;
-    width: auto;
-  }
-  .section__heading {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  .section__cta {
-    text-align: center;
-    margin-top: 40px;
-  }
-  .section__cta a {
-    color: var(--color-rosegold);
-    text-decoration: none;
-  }
-  .story-teaser__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
-  }
-  .story-teaser__logo {
-    height: 32px;
-    width: auto;
-    margin-bottom: 8px;
-  }
-  .story-teaser__image {
-    aspect-ratio: 3 / 4;
-    background: var(--color-line);
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-card);
-    color: var(--color-ink-soft);
+    overflow: hidden;
   }
-  .story-teaser__content a {
-    color: var(--color-rosegold);
-    text-decoration: none;
+  .hero__media {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 28% 78%, rgba(169, 111, 78, 0.35), transparent 60%),
+      linear-gradient(180deg, var(--cocoa-brown) 0%, var(--ink-brown) 75%);
   }
-  .info-bar {
-    background: var(--color-surface);
-    border-top: 1px solid var(--color-line);
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(41, 36, 31, 0.1) 0%, rgba(41, 36, 31, 0.55) 100%);
   }
-  .info-bar__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
     text-align: center;
+    color: var(--flour-white);
+    max-width: 780px;
   }
-  .info-bar__grid h3 {
-    color: var(--color-ink-soft);
-    font-size: 14px;
-    margin-bottom: 8px;
+  .hero__eyebrow {
+    color: var(--honey-amber);
   }
-  .info-bar__cta {
-    text-align: center;
-    margin-top: 32px;
+  h1.hero__title {
+    font-family: var(--font-heading-en);
+    font-style: italic;
+    font-weight: 500;
+    font-size: var(--text-5xl);
+    letter-spacing: 0;
+    line-height: 1.15;
   }
-  .info-bar__cta a {
-    color: var(--color-rosegold);
-    text-decoration: none;
+  .hero__subtitle {
+    font-family: var(--font-body-locale);
+    font-size: var(--text-lg);
+    color: var(--warm-ivory);
+    max-width: var(--reading-max-width);
+  }
+  .hero__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-3);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero__content .link-arrow {
+    color: var(--flour-white);
   }
 
-  @media (max-width: 768px) {
-    .product-grid {
+  /* ---- 3. manifesto ---- */
+  .manifesto__inner {
+    text-align: center;
+  }
+  .manifesto__text {
+    font-family: var(--font-heading-locale);
+    font-style: var(--display-italic);
+    font-weight: 500;
+    font-size: var(--text-2xl);
+    line-height: 1.6;
+    color: var(--color-ink);
+    margin-top: var(--space-3);
+  }
+
+  /* ---- shared editorial split layout (signature / story / gift) ---- */
+  .signature__grid,
+  .story__grid,
+  .gift__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: center;
+  }
+  .signature__image,
+  .story__image,
+  .gift__image {
+    aspect-ratio: 4 / 5;
+    background: var(--color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-ink-soft);
+    font-size: var(--text-sm);
+  }
+  .story__image {
+    aspect-ratio: 3 / 4;
+  }
+  .signature__content h2,
+  .story__content h2,
+  .gift__content h2 {
+    font-size: var(--text-3xl);
+    margin-top: var(--space-2);
+  }
+  .signature__desc,
+  .story__content p,
+  .gift__content p {
+    color: var(--color-ink-soft);
+    margin-top: var(--space-3);
+    max-width: var(--reading-max-width);
+  }
+  .signature__price {
+    font-family: var(--font-heading-en);
+    font-size: var(--text-xl);
+    color: var(--color-ink);
+    margin-top: var(--space-3);
+  }
+  .signature__content .link-arrow,
+  .story__content .link-arrow {
+    display: inline-block;
+    margin-top: var(--space-4);
+  }
+  .gift__content .btn {
+    margin-top: var(--space-4);
+  }
+
+  .gift {
+    background: var(--color-surface);
+  }
+
+  /* ---- 5. today's bake ---- */
+  .today__header {
+    text-align: center;
+  }
+  .today__header h2 {
+    font-size: var(--text-3xl);
+    margin-top: var(--space-2);
+  }
+  .today__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-top: var(--space-7);
+  }
+  .today__cta {
+    text-align: center;
+    margin-top: var(--space-6);
+  }
+
+  /* ---- 8. visit ---- */
+  .visit__inner {
+    text-align: center;
+  }
+  .visit__inner h2 {
+    font-size: var(--text-3xl);
+    margin-top: var(--space-2);
+  }
+  .visit__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-block: var(--space-6);
+  }
+  .visit__details dt {
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+  }
+  .visit__details dd {
+    margin: var(--space-1) 0 0;
+    font-family: var(--font-heading-locale);
+    font-size: var(--text-xl);
+  }
+
+  @media (max-width: 900px) {
+    .signature__grid,
+    .story__grid,
+    .gift__grid {
       grid-template-columns: 1fr;
     }
-    .story-teaser__grid {
-      grid-template-columns: 1fr;
+    .gift__image {
+      order: -1;
     }
-    .info-bar__grid {
+    .today__grid {
       grid-template-columns: 1fr;
     }
   }
-  @media (min-width: 480px) and (max-width: 1120px) {
-    .product-grid {
+  @media (min-width: 900px) and (max-width: 1120px) {
+    .today__grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
