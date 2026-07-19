@@ -24,14 +24,13 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
   description={t.pageMeta.home.description}
   transparentHeader
 >
-  <!-- 1. Hero:單張攝影佔位(待正式攝影替換),克制 overlay,單一文字 CTA -->
+  <!-- 1. Hero:單張淡水夕陽攝影,克制 overlay,單一文字 CTA -->
   <section class="hero">
     <div class="hero__media" aria-hidden="true"></div>
     <div class="hero__scrim" aria-hidden="true"></div>
-    <p class="hero__placeholder-note" aria-hidden="true">Hero Photography · 16:9 · Editorial Style</p>
     <div class="container hero__content">
       <p class="eyebrow hero__eyebrow">FLOUR · FLOWER · TAMSUI</p>
-      <h1 class="hero__title">Baked by the River.</h1>
+      <h1 class="hero__title">A Quiet Taste of Tamsui.</h1>
       <p class="hero__subtitle">{t.home.hero.subtitle}</p>
       <a class="link-arrow hero__cta" href={`${p}/story`}>Discover FlourFlour →</a>
     </div>
@@ -146,28 +145,15 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
     justify-content: center;
     overflow: hidden;
   }
-  /* TODO: 待正式攝影到位後,將 .hero__media 換成 <img>(16:9,淡水夕陽河面,自然窗光,老屋材質,
-     左右留白放文案,不用白底);.hero__scrim 為文字可讀性用的暗化疊層,正式照片仍會需要。 */
   .hero__media {
     position: absolute;
     inset: 0;
-    background: var(--cocoa);
+    background: var(--cocoa) url('/images/hero-tamsui-bridge.jpg') center center / cover no-repeat;
   }
   .hero__scrim {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(33, 30, 27, 0.08) 0%, rgba(33, 30, 27, 0.38) 100%);
-  }
-  .hero__placeholder-note {
-    position: absolute;
-    z-index: 1;
-    right: var(--space-3);
-    bottom: var(--space-3);
-    margin: 0;
-    font-family: var(--font-ui);
-    font-size: var(--text-eyebrow);
-    letter-spacing: 0.06em;
-    color: rgba(243, 239, 232, 0.55);
   }
   .hero__content {
     position: relative;
