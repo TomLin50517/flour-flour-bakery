@@ -22,16 +22,16 @@ const lineHref = `https://line.me/R/ti/p/${encodeURIComponent(t.contact.line)}`;
 
   <section class="section container service-layout">
     <div class="service-layout__main">
-      <div class="fade-up">
+      <div class="reveal-text">
         <h2 class="service-heading">{t.service.faq.orderingHeading}</h2>
         <FAQAccordion items={t.service.faq.orderingItems} groupId="ordering" />
       </div>
-      <div class="fade-up service-layout__gap">
+      <div class="reveal-text service-layout__gap">
         <h2 class="service-heading">{t.service.faq.productHeading}</h2>
         <FAQAccordion items={t.service.faq.productItems} groupId="product" />
       </div>
 
-      <div class="order-info fade-up">
+      <div class="order-info reveal-text">
         <h2 class="service-heading">{t.service.orderInfo.heading}</h2>
         <dl>
           <dt>{t.service.orderInfo.pickupLabel}</dt>
@@ -44,11 +44,11 @@ const lineHref = `https://line.me/R/ti/p/${encodeURIComponent(t.contact.line)}`;
       </div>
     </div>
 
-    <aside class="service-sidebar fade-up">
+    <aside class="service-sidebar reveal-text">
       <h3>{t.service.sidebar.heading}</h3>
       <a class="btn" href={phoneHref}>{t.service.sidebar.callCta}</a>
       <a class="btn" href={lineHref} target="_blank" rel="noopener">{t.service.sidebar.lineCta}</a>
-      <a class="link-arrow" href={`${p}/contact`}>{t.service.sidebar.contactCta}</a>
+      <a class="link-arrow" href={`${p}/contact`}>{t.service.sidebar.contactCta} →</a>
     </aside>
   </section>
 </Base>

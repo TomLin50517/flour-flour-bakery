@@ -34,14 +34,14 @@ const defaultDict = getDict('zh-hant');
       const p = localePrefix[lang];
       return (
         <div class="notfound-locale" data-lang={lang} data-html-lang={htmlLang[lang]} hidden={lang !== 'zh-hant'}>
-          <Header lang={lang} path="/404" nav={t.nav} langLabels={t.langSwitcher} />
+          <Header lang={lang} path="/404" langLabels={t.langSwitcher} reservePhone={t.contact.phoneValue} />
           <main class="notfound">
             <div class="container notfound__inner">
-              <img src="/images/logo-flower.png" alt="flour flour BAKERY" class="notfound__logo" />
+              <img src="/images/logo-flower-ink.png" alt="FlourFlour BAKERY" class="notfound__logo" />
               <p class="notfound__message">{t.notFound.message}</p>
               <div class="notfound__actions">
                 <a class="btn btn--primary" href={p || '/'}>{t.notFound.homeCta}</a>
-                <a class="notfound__link" href={`${p}/products`}>{t.notFound.productsCta}</a>
+                <a class="notfound__link" href={`${p}/products`}>{t.notFound.productsCta} →</a>
               </div>
             </div>
           </main>

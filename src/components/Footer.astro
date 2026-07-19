@@ -1,129 +1,124 @@
 ---
-// Footer.astro — 全站共用 footer:極簡編輯感 masthead,克制、無卡片框線
+// Footer.astro — 深墨底、大量留白:左側大字 Baked by the River.,右側 Visit / Follow / Information
 export interface Props {
   lang: 'zh-hant' | 'en' | 'ja' | 'ko';
   footer: {
-    tagline: string;
-    quickLinksHeading: string;
-    contactHeading: string;
-    hoursHeading: string;
-    hoursValue: string;
+    visitHeading: string;
+    followHeading: string;
+    infoHeading: string;
     copyright: string;
     privacyLink: string;
   };
   nav: { story: string; products: string; service: string; contact: string };
-  contact: { phoneValue: string; emailValue: string; addressValue: string };
+  contact: { phoneValue: string; emailValue: string; addressValue: string; hoursValue: string; instagram: string; line: string };
 }
 
 const { lang, footer, nav, contact } = Astro.props;
 const localePrefix = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' } as const;
 const p = localePrefix[lang];
+const igHref = `https://www.instagram.com/${contact.instagram.replace('@', '')}/`;
+const lineHref = `https://line.me/R/ti/p/${encodeURIComponent(contact.line)}`;
 ---
 
 <footer class="site-footer">
-  <div class="container site-footer__masthead">
-    <img src="/images/logo-flower.png" alt="flour flour BAKERY" class="site-footer__logo" />
-    <p class="site-footer__tagline">{footer.tagline}</p>
+  <div class="container site-footer__grid">
+    <div class="site-footer__statement">
+      <p>Baked by<br />the River.</p>
+    </div>
+
+    <div class="site-footer__columns">
+      <div class="site-footer__col">
+        <h3>{footer.visitHeading}</h3>
+        <p>{contact.addressValue}</p>
+        <p>{contact.hoursValue}</p>
+        <p>{contact.phoneValue}</p>
+      </div>
+      <div class="site-footer__col">
+        <h3>{footer.followHeading}</h3>
+        <a href={igHref} target="_blank" rel="noopener">Instagram</a>
+        <a href={lineHref} target="_blank" rel="noopener">LINE</a>
+      </div>
+      <div class="site-footer__col">
+        <h3>{footer.infoHeading}</h3>
+        <a href={`${p}/service`}>{nav.service}</a>
+        <a href={`${p}/contact`}>{nav.contact}</a>
+        <a href={`${p}/privacy`}>{footer.privacyLink}</a>
+      </div>
+    </div>
   </div>
-
-  <nav class="container site-footer__nav" aria-label={footer.quickLinksHeading}>
-    <a href={`${p}/story`}>{nav.story}</a>
-    <a href={`${p}/products`}>{nav.products}</a>
-    <a href={`${p}/service`}>{nav.service}</a>
-    <a href={`${p}/contact`}>{nav.contact}</a>
-  </nav>
-
-  <p class="container site-footer__info">
-    <span>{contact.phoneValue}</span>
-    <span>{contact.emailValue}</span>
-    <span>{contact.addressValue}</span>
-    <span>{footer.hoursValue}</span>
-  </p>
 
   <div class="container site-footer__bottom">
     <span>{footer.copyright}</span>
-    <a href={`${p}/privacy`}>{footer.privacyLink}</a>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    background: var(--color-ink);
+    background: var(--deep-ink);
     color: var(--flour-white);
-    text-align: center;
   }
-  .site-footer__masthead {
-    padding-top: var(--space-7);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-2);
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-7);
+    padding-block: var(--space-8) var(--space-7);
+    align-items: start;
   }
-  .site-footer__logo {
-    height: 40px;
-    width: auto;
+  .site-footer__statement p {
+    font-family: var(--font-heading-en);
+    font-style: italic;
+    font-size: var(--text-4xl);
+    line-height: 1.15;
+    letter-spacing: 0.01em;
   }
-  .site-footer__tagline {
-    font-family: var(--font-heading-locale);
-    font-style: var(--display-italic);
-    color: var(--warm-ivory);
-    font-size: var(--text-lg);
+  .site-footer__columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
   }
-  .site-footer__nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-4);
-    margin-top: var(--space-6);
+  .site-footer__col h3 {
     font-family: var(--font-ui);
-    font-size: var(--text-sm);
-    letter-spacing: 0.06em;
+    font-size: var(--text-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--river-grey);
+    margin-bottom: var(--space-3);
   }
-  .site-footer__nav a {
+  .site-footer__col p,
+  .site-footer__col a {
+    display: block;
+    font-size: var(--text-sm);
     color: var(--flour-white);
     text-decoration: none;
+    margin-top: var(--space-1);
+  }
+  .site-footer__col a {
+    width: fit-content;
     padding-bottom: 2px;
     border-bottom: 1px solid transparent;
     transition: border-color var(--duration-base) var(--ease-editorial);
   }
-  .site-footer__nav a:hover {
+  .site-footer__col a:hover {
     border-color: var(--sunset-copper);
   }
-  .site-footer__info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-1) var(--space-3);
-    margin-top: var(--space-4);
-    color: var(--warm-ivory);
-    font-size: var(--text-sm);
-  }
-  .site-footer__info span:not(:last-child)::after {
-    content: '·';
-    margin-inline-start: var(--space-3);
-    color: var(--river-grey);
-  }
   .site-footer__bottom {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-2) var(--space-4);
     border-top: 1px solid rgba(243, 239, 232, 0.12);
-    margin-top: var(--space-7);
     padding-block: var(--space-3);
     font-size: var(--text-eyebrow);
     letter-spacing: 0.08em;
     color: var(--river-grey);
   }
-  .site-footer__bottom a {
-    color: var(--river-grey);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
 
-  @media (max-width: 768px) {
-    .site-footer__info span::after {
-      content: none;
+  @media (max-width: 900px) {
+    .site-footer__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      padding-block: var(--space-7) var(--space-6);
+    }
+    .site-footer__columns {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
     }
   }
 </style>

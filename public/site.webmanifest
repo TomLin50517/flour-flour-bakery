@@ -1,11 +1,11 @@
 {
-  "name": "flour flour BAKERY",
-  "short_name": "flour flour",
-  "description": "為每一天,帶來美好與溫暖。",
+  "name": "FlourFlour BAKERY",
+  "short_name": "FlourFlour",
+  "description": "Baked by the River.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F7EFE3",
-  "theme_color": "#B5764E",
+  "background_color": "#F3EFE8",
+  "theme_color": "#A16C4C",
   "icons": [
     {
       "src": "/favicon-192.png",

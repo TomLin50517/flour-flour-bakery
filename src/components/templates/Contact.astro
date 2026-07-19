@@ -22,7 +22,7 @@ const emailHref = `mailto:${t.contact.emailValue}`;
   <PageHeader eyebrow="CONTACT" title={t.contact.bannerTitle} />
 
   <section class="section container contact-layout">
-    <div class="contact-info fade-up">
+    <div class="contact-info reveal-text">
       <h2 class="contact-heading">{t.contact.infoHeading}</h2>
       <dl>
         <dt>{t.contact.phoneLabel}</dt>
@@ -38,12 +38,12 @@ const emailHref = `mailto:${t.contact.emailValue}`;
       </dl>
     </div>
 
-    <div class="contact-map fade-up">
+    <div class="contact-map reveal-text">
       <MapEmbed placeholderText={t.contact.mapPlaceholder} loadCta={t.contact.mapLoadCta} address={t.contact.addressValue} />
     </div>
   </section>
 
-  <section class="section container contact-form-section fade-up">
+  <section class="section container contact-form-section reveal-text">
     <ContactForm form={t.contact.form} privacyHref={`${p}/privacy`} />
   </section>
 </Base>

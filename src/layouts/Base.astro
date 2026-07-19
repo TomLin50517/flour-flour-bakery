@@ -27,7 +27,7 @@ const ogLocale = { 'zh-hant': 'zh_TW', en: 'en_US', ja: 'ja_JP', ko: 'ko_KR' } a
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Bakery',
-  name: 'flour flour BAKERY',
+  name: 'FlourFlour BAKERY',
   description,
   url: `${siteUrl}${canonicalPath}`,
   telephone: zhHant.contact.phoneValue,
@@ -68,7 +68,7 @@ const jsonLd = {
     <link rel="alternate" hreflang="x-default" href={`${siteUrl}${path}`} />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="flour flour BAKERY" />
+    <meta property="og:site_name" content="FlourFlour BAKERY" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={`${siteUrl}${canonicalPath}`} />
@@ -99,7 +99,13 @@ const jsonLd = {
         <p class="container">{t.announcement.text}</p>
       </div>
     )}
-    <Header lang={lang} path={path} nav={t.nav} langLabels={t.langSwitcher} transparent={transparentHeader} />
+    <Header
+      lang={lang}
+      path={path}
+      langLabels={t.langSwitcher}
+      transparent={transparentHeader}
+      reservePhone={t.contact.phoneValue}
+    />
     <main id="main-content">
       <slot />
     </main>
@@ -117,7 +123,7 @@ const jsonLd = {
         },
         { threshold: 0.15 }
       );
-      document.querySelectorAll('.fade-up, .reveal-scale').forEach((el) => observer.observe(el));
+      document.querySelectorAll('.reveal-text, .reveal-media').forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>

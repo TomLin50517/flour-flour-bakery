@@ -1,33 +1,34 @@
 ---
-// ProductCard.astro — editorial 版型:圖 4:5(subtle scale hover)→ 品名(serif)→ 描述 → 價格 / 限量或完售標示(純文字,無 badge 底色)
+// ProductCard.astro — 極簡編輯感:4:5 影像(curtain reveal + slow drift)→ 名稱 → 英文名 → 價格・狀態
+// 狀態僅三種(Available Today / Limited Bake / Sold Out,全語系皆用英文編輯體);描述與數量留給商品詳細頁
 export interface Props {
   item: {
     id: string;
     name: string;
-    description: string;
+    nameEn: string;
     price: number;
-    dailyLimit: number | null;
-    soldOut: boolean;
+    status: 'available' | 'limited' | 'soldout';
   };
-  limitedBadgeTemplate: string;
-  soldOutBadge: string;
 }
 
-const { item, limitedBadgeTemplate, soldOutBadge } = Astro.props;
-const limitedText = item.dailyLimit ? limitedBadgeTemplate.replace('{n}', String(item.dailyLimit)) : null;
+const { item } = Astro.props;
+const statusLabels = {
+  available: 'Available Today',
+  limited: 'Limited Bake',
+  soldout: 'Sold Out',
+} as const;
 ---
 
-<article class:list={['product-card', 'fade-up', { 'product-card--sold-out': item.soldOut }]} data-product-id={item.id}>
-  <div class="product-card__frame">
+<article class:list={['product-card', { 'product-card--sold-out': item.status === 'soldout' }]} data-product-id={item.id}>
+  <div class="product-card__frame reveal-media">
     <div class="product-card__image" aria-hidden="true">4:5</div>
   </div>
-  <div class="product-card__body">
+  <div class="product-card__body reveal-text">
     <h3>{item.name}</h3>
-    <p class="product-card__desc">{item.description}</p>
+    {item.nameEn !== item.name && <p class="product-card__name-en">{item.nameEn}</p>}
     <p class="product-card__meta">
       <span class="product-card__price">NT$ {item.price}</span>
-      {limitedText && !item.soldOut && <span class="product-card__note">{limitedText}</span>}
-      {item.soldOut && <span class="product-card__note product-card__note--soldout">{soldOutBadge}</span>}
+      <span class:list={['product-card__status', `product-card__status--${item.status}`]}>{statusLabels[item.status]}</span>
     </p>
   </div>
 </article>
@@ -44,10 +45,6 @@ const limitedText = item.dailyLimit ? limitedBadgeTemplate.replace('{n}', String
     justify-content: center;
     color: var(--color-ink-soft);
     font-size: var(--text-sm);
-    transition: transform var(--duration-slow) var(--ease-editorial);
-  }
-  .product-card:hover .product-card__image {
-    transform: scale(1.03);
   }
   .product-card__body {
     padding-top: var(--space-2);
@@ -55,16 +52,18 @@ const limitedText = item.dailyLimit ? limitedBadgeTemplate.replace('{n}', String
   .product-card__body h3 {
     font-size: var(--text-lg);
   }
-  .product-card__desc {
+  .product-card__name-en {
+    font-family: var(--font-body-en);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
     color: var(--color-ink-soft);
-    font-size: var(--text-sm);
-    margin-top: var(--space-1);
-    min-height: 2.6em;
+    margin-top: 4px;
   }
   .product-card__meta {
     display: flex;
     align-items: baseline;
-    flex-wrap: wrap;
+    justify-content: space-between;
     gap: var(--space-2);
     margin-top: var(--space-2);
   }
@@ -73,23 +72,21 @@ const limitedText = item.dailyLimit ? limitedBadgeTemplate.replace('{n}', String
     color: var(--color-ink);
     font-size: var(--text-base);
   }
-  .product-card__note {
+  .product-card__status {
+    font-family: var(--font-body-en);
     font-size: var(--text-eyebrow);
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-ink-soft);
   }
-  .product-card__note--soldout {
+  .product-card__status--limited {
     color: var(--color-accent-text);
   }
   .product-card--sold-out .product-card__image {
     filter: saturate(0.4);
-    opacity: 0.6;
+    opacity: 0.55;
   }
-
-  @media (prefers-reduced-motion: reduce) {
-    .product-card__image {
-      transition: none;
-    }
+  .product-card--sold-out .product-card__status {
+    color: var(--color-muted);
   }
 </style>

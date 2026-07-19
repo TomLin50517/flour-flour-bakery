@@ -1,35 +1,35 @@
 {
   "meta": {
-    "siteName": "flour flour BAKERY",
-    "titleSuffix": " | flour flour BAKERY"
+    "siteName": "FlourFlour BAKERY",
+    "titleSuffix": " | FlourFlour BAKERY"
   },
   "pageMeta": {
     "home": {
-      "title": "flour flour BAKERY | 매일에게 전하는 따뜻함과 아름다움",
-      "description": "단수이 강변의 프리미엄 베이커리 flour flour BAKERY. 노을과 강, 꽃에서 영감을 받아 마법 같은 빵으로 매일을 따뜻하게 채웁니다."
+      "title": "FlourFlour BAKERY | Baked by the River — 단수이 강변의 베이커리",
+      "description": "단수이 중정로의 오래된 상가 주택에 자리한 작은 베이커리. 탕종 식빵과 크루아상, 구움과자를 싼즈의 용안 꽃꿀과 시간을 들여 완성합니다."
     },
     "story": {
-      "title": "브랜드 스토리 | flour flour BAKERY",
-      "description": "2024년 단수이 강변에서 시작된 flour flour. 노을과 꽃, 그리고 장인이 매일 빚어내는 마법 같은 이야기."
+      "title": "우리의 이야기 | FlourFlour BAKERY",
+      "description": "강, 밀가루, 꽃, 접기, 빛——다섯 개의 장으로 전하는, 단수이 강가에서 빵을 굽는 나날."
     },
     "products": {
-      "title": "제품 소개 | flour flour BAKERY",
-      "description": "클래식 브레드, 시즌 한정, 상온 디저트까지. 용안 꽃꿀과 지역 재료로 매일 소량씩 구워냅니다."
+      "title": "제품 소개 | FlourFlour BAKERY",
+      "description": "클래식 브레드, 시즌 한정, 상온 디저트까지. 싼즈의 용안 꽃꿀과 지역 재료로 매일 소량씩 구워냅니다."
     },
     "service": {
-      "title": "고객센터 | flour flour BAKERY",
+      "title": "고객센터 | FlourFlour BAKERY",
       "description": "주문 방법, 보관 안내, 자주 묻는 질문을 확인하세요. 답을 찾지 못하셨다면 전화나 라인으로 문의해 주세요."
     },
     "contact": {
-      "title": "문의하기 | flour flour BAKERY",
-      "description": "flour flour BAKERY의 주소, 전화번호, 영업시간과 문의 폼을 확인하세요. 방문 및 전화 예약을 환영합니다."
+      "title": "문의하기 | FlourFlour BAKERY",
+      "description": "FlourFlour BAKERY의 주소, 전화번호, 영업시간과 문의 폼을 확인하세요. 방문 및 전화 예약을 환영합니다."
     },
     "privacy": {
-      "title": "개인정보처리방침 | flour flour BAKERY",
-      "description": "flour flour BAKERY의 개인정보 수집, 이용 및 보호에 관한 안내입니다."
+      "title": "개인정보처리방침 | FlourFlour BAKERY",
+      "description": "FlourFlour BAKERY의 개인정보 수집, 이용 및 보호에 관한 안내입니다."
     },
     "notFound": {
-      "title": "페이지를 찾을 수 없습니다 | flour flour BAKERY",
+      "title": "페이지를 찾을 수 없습니다 | FlourFlour BAKERY",
       "description": "이 빵은 이미 다 팔린 것 같아요."
     }
   },
@@ -51,52 +51,40 @@
     "text": "7/21~7/22 영업시간이 조정됩니다. 자세한 내용은 라인 공식 계정을 확인해 주세요."
   },
   "footer": {
-    "tagline": "매일에게 전하는 따뜻함과 아름다움.",
-    "quickLinksHeading": "바로가기",
-    "contactHeading": "문의처",
-    "hoursHeading": "영업시간",
-    "hoursValue": "수~일 11:00~19:00(월, 화 휴무)",
-    "copyright": "© 2026 flour flour BAKERY · EST. 2024",
+    "visitHeading": "Visit",
+    "followHeading": "Follow",
+    "infoHeading": "Information",
+    "copyright": "© 2026 FlourFlour BAKERY · EST. 2024",
     "privacyLink": "개인정보처리방침"
   },
   "home": {
     "hero": {
-      "eyebrow": "FLOUR · FLOWER · TAMSUI",
-      "title": "A Quiet Taste of Tamsui.",
-      "subtitle": "단수이의 빛과 꽃, 그리고 풍경을 매일 갓 구운 빵의 향기에 담습니다.",
-      "cta": "FlourFlour 살펴보기",
-      "cta2": "오늘의 갓 구운 빵"
+      "subtitle": "단수이의 빛을, 겹겹의 결 사이에 접어 넣습니다."
     },
     "manifesto": {
-      "eyebrow": "MANIFESTO",
-      "text": "진정한 사치란 서두르지 않는 시간이라고 믿습니다. 단수이를 스치는 바람, 오래된 집에 스며드는 빛, 밀가루와 꽃의 향기——그 모든 것은 정성스럽게 다뤄질 가치가 있습니다. 그것이 flour flour가 매일 아침 오직 하나, 잘 해내고자 하는 일입니다."
+      "text": "밀가루에서 모든 것이 시작되고, 시간이 풍미를 천천히 피워냅니다."
     },
     "signature": {
-      "eyebrow": "SIGNATURE",
       "name": "용안꿀 탕종 식빵",
-      "description": "탕종 공법으로 수분을 가두고 지역 용안 꽃꿀을 더한——창업 첫날부터 바뀌지 않은 레시피이자, 단수이의 풍토에 대한 flour flour의 이해를 가장 잘 담아낸 식빵입니다.",
-      "price": "NT$ 180",
+      "nameEn": "Longan Honey Tangzhong Toast",
+      "body": "새벽 네 시, 오븐에 불이 들어옵니다. 탕종은 전날 밤에 미리 준비해 둡니다. 설탕 일부를 싼즈산 용안 꽃꿀로 바꾸어 단맛에 꽃의 여운을 남기고——잘라 보면 단면에는 강가의 아침 안개 같은 촉촉함이 남아 있습니다.",
       "cta": "이 식빵 알아보기"
     },
+    "place": {
+      "title": "강변의 오래된 집",
+      "body": "가게는 중정로의 오래된 상가 주택에 있습니다. 나무 창 너머는 나루터. 저녁 다섯 시 반이 되면 노을이 강물을 타고 들어와 빵 선반 위에 십오 분간 머뭅니다.",
+      "cta": "스토리 읽기"
+    },
     "todayFresh": {
-      "eyebrow": "TODAY'S BAKE",
       "heading": "오늘의 갓 구운 빵",
       "cta": "전체 제품 보기"
     },
-    "story": {
-      "eyebrow": "OUR STORY",
-      "heading": "오래된 집, 강변, 그리고 우리의 이야기",
-      "body": "flour flour는 단수이의 노을과 강변에서 태어났습니다. 용안 꽃꿀과 지역의 맛을 발효의 순간마다 담아냅니다. 빵 한 조각에도 마법 같은 따뜻함을 전할 수 있다고 믿습니다.",
-      "cta": "스토리 전체 읽어보기"
-    },
     "gift": {
-      "eyebrow": "GIFT",
-      "heading": "단수이의 다정함을 선물로",
-      "body": "명절, 결혼식, 혹은 소소한 마음을 전하고 싶을 때——flour flour의 선물 컬렉션이 강변의 따뜻함을 한 상자에 담아 전해드립니다.",
+      "heading": "단수이가 보내는 선물",
+      "body": "용안꿀 마들렌과 피낭시에를 중심으로 꾸린 상온 선물 상자. 브랜드 플라워를 새긴 아이보리 포장지에 담아, 멀리 있는 이에게 단수이의 강빛 한 조각을 보냅니다.",
       "cta": "선물 컬렉션 보기"
     },
     "visit": {
-      "eyebrow": "VISIT",
       "heading": "매장에 들러 잠시 쉬어가세요",
       "hoursLabel": "영업시간",
       "hoursValue": "수~일 11:00~19:00",
@@ -109,22 +97,40 @@
   },
   "story": {
     "pageTitle": "우리의 이야기",
-    "sections": [
+    "chapters": [
       {
-        "title": "강변에서 시작된 이야기",
-        "body": "2024년, flour flour는 단수이 강변에 켜진 작은 불빛 하나에서 시작되었습니다. 저녁이 되면 노을이 옛 거리를 꿀빛으로 물들이고, 강바람에는 짭짤한 물기와 갓 구운 빵의 향이 뒤섞입니다. 우리가 이곳에 자리 잡은 이유는 풍경이 아름다워서만은 아니었습니다. 강변은 밀물과 썰물을 기다리듯, 발효를 기다리듯, 하루 중 가장 아름다운 빛을 기다리듯 인내하는 법을 가르쳐 주었습니다. 작은 오븐 하나로 시작해, 단수이의 일상을 그대로 담아낸 부드러운 맛을 굽기로 했습니다."
+        "no": "01",
+        "labelEn": "The River",
+        "title": "강",
+        "body": "2024년, 단수이 강가에서 첫 오븐의 불을 밝혔습니다. 밀물과 썰물이 가르쳐 준 것은 기다림——반죽이 깨어나기를, 그리고 하루 중 가장 좋은 빛을 기다리는 일입니다."
       },
       {
-        "title": "꽃과 밀가루",
-        "body": "flour flour의 브랜드 플라워는 자연스러운 꽃의 부드러움, 단수이 노을의 은은한 빛, 용안꽃의 은은한 단맛, 그리고 크루아상의 둥근 곡선이라는 네 가지 요소를 담고 있습니다. 이는 곧 우리가 빵을 구울 때 가장 중요하게 여기는 원칙이기도 합니다. 정제 설탕의 일부를 지역 용안 꽃꿀로 대신해 한 입마다 은은한 꿀향이 감돌게 하고, 반죽은 저온에서 긴 시간 발효시켜 밀과 효모가 천천히 대화를 나누도록 합니다. 꽃과 밀가루, 언뜻 무관해 보이지만 우리 손끝에서 하나의 부드러움으로 자라납니다."
+        "no": "02",
+        "labelEn": "The Flour",
+        "title": "밀가루",
+        "body": "일본 밀가루와 대만 밀, 각자의 장점을 살립니다. 탕종은 전날 밤에 준비하고, 저온에서 천천히 발효합니다. 밀과 효모의 대화는 서두를 수 없습니다."
       },
       {
-        "title": "매일 아침의 마법",
-        "body": "매일 새벽 4시, 우리보다 먼저 오븐의 불빛이 켜집니다. 반죽을 치대고 모양을 잡고 기다리며, 화덕 안에서 서서히 부풀고 색이 드는 모습을 지켜봅니다. 매일 반복되지만 결코 지루해지지 않는 작은 마법과도 같습니다. 수량을 의도적으로 제한하는 것은 희소성을 만들기 위해서가 아니라, 모든 제품이 정성껏 다뤄지고, 정성껏 구워지고, 정성껏 여러분의 손에 전해지길 바라기 때문입니다. 마법 같은 빵으로 매일에게 따뜻함과 아름다움을 — 이것이 우리가 매일 아침 스스로에게, 그리고 여러분에게 하는 약속입니다."
+        "no": "03",
+        "labelEn": "The Flower",
+        "title": "꽃",
+        "body": "브랜드 플라워는 꽃잎과 노을, 수면에서 태어났습니다. 레시피 속에는 싼즈의 용안 꽃꿀——설탕 일부를 바꾸면 단맛은 꽃의 모양이 됩니다."
+      },
+      {
+        "no": "04",
+        "labelEn": "The Fold",
+        "title": "접기",
+        "body": "크루아상의 스물일곱 겹은 세 번의 삼절 접기에서 나옵니다. 버터는 차갑게, 손은 빠르게. 접어 넣은 공기는 오븐에서 나올 때 소리가 됩니다."
+      },
+      {
+        "no": "05",
+        "labelEn": "The Light",
+        "title": "빛",
+        "body": "저녁 다섯 시 반, 노을이 강물을 타고 들어와 빵 선반에 십오 분간 머뭅니다. 그 빛은 그날의 마지막 빵을 위해 남겨 둡니다."
       }
     ],
-    "quote": "마법 같은 빵으로, 매일에게 따뜻함과 아름다움을.",
-    "cta": "오늘의 갓 구운 빵 보러가기 →"
+    "quote": "밀가루와 꽃, 그리고 강물 위의 빛.",
+    "cta": "오늘의 갓 구운 빵 보러가기"
   },
   "products": {
     "bannerTitle": "제품 소개",
@@ -133,23 +139,21 @@
       "seasonal": "시즌 한정",
       "pastry": "상온 디저트"
     },
-    "limitedBadge": "하루 {n}개 한정",
-    "soldOutBadge": "오늘 품절",
     "footnote": "제품은 매일 한정 수량으로 준비됩니다. 전화 예약을 권장드립니다.",
     "footnoteCta": "전화로 예약하기",
     "items": [
-      { "id": "longan-tangzhong-toast", "category": "classic", "name": "용안꿀 탕종 식빵", "description": "탕종 공법으로 수분을 가둔 촉촉한 식빵, 은은한 용안꿀 향", "price": 180, "dailyLimit": 15, "soldOut": false },
-      { "id": "lean-country-loaf", "category": "classic", "name": "르방 컨트리 브레드", "description": "천연 르방종으로 장시간 발효, 바삭한 겉과 쫄깃한 속", "price": 220, "dailyLimit": 12, "soldOut": false },
-      { "id": "sea-salt-croissant", "category": "classic", "name": "소금 크루아상", "description": "버터 향 가득한 프렌치 크루아상에 바다소금을 더해 짭짤달콤한 겹겹의 식감", "price": 68, "dailyLimit": 30, "soldOut": false },
-      { "id": "whole-wheat-walnut", "category": "classic", "name": "통밀 호두빵", "description": "통밀가루와 구운 호두, 담백한 밀 향과 고소한 견과의 식감", "price": 190, "dailyLimit": 20, "soldOut": false },
-      { "id": "sunset-apricot-danish", "category": "seasonal", "name": "노을 살구 데니시", "description": "바삭한 데니시 위에 노을빛 살구, 마치 노을이 빵 위에 내려앉은 듯", "price": 95, "dailyLimit": 18, "soldOut": false },
-      { "id": "longan-blossom-bagel", "category": "seasonal", "name": "용안꽃꿀 베이글", "description": "쫄깃한 베이글에 용안 꽃꿀을 더해 자연스러운 단맛을 살렸습니다", "price": 85, "dailyLimit": 25, "soldOut": false },
-      { "id": "fig-country-loaf", "category": "seasonal", "name": "무화과 컨트리 브레드", "description": "말린 무화과를 컨트리 반죽에 함께 구워 진한 과일 풍미", "price": 260, "dailyLimit": 10, "soldOut": true },
-      { "id": "osmanthus-chestnut", "category": "seasonal", "name": "계화 밤빵", "description": "은은한 계화 향과 촉촉한 밤 소, 가을에만 만나는 부드러운 맛", "price": 110, "dailyLimit": 16, "soldOut": false },
-      { "id": "longan-madeleine", "category": "pastry", "name": "용안꿀 마들렌", "description": "조개 모양 마들렌, 버터 향 속에 은은히 남는 용안꿀의 여운", "price": 60, "dailyLimit": 40, "soldOut": false },
-      { "id": "rose-lychee-dacquoise", "category": "pastry", "name": "장미 리치 다쿠아즈", "description": "아몬드 머랭 사이 장미 리치 크림을 채운 섬세하고 우아한 디저트", "price": 150, "dailyLimit": 20, "soldOut": false },
-      { "id": "rice-chiffon", "category": "pastry", "name": "쌀가루 시폰 케이크", "description": "쌀가루로 만들어 가볍고 촉촉한 식감, 글루텐프리 옵션", "price": 280, "dailyLimit": 8, "soldOut": false },
-      { "id": "brown-sugar-financier", "category": "pastry", "name": "흑당 피낭시에", "description": "고소한 흑당을 버터 반죽에 더해 촉촉하고 진한 풍미가 오래 남습니다", "price": 140, "dailyLimit": 25, "soldOut": false }
+      { "id": "longan-tangzhong-toast", "category": "classic", "name": "용안꿀 탕종 식빵", "nameEn": "Longan Honey Tangzhong Toast", "description": "탕종 공법으로 수분을 가둔 촉촉한 식빵, 은은한 용안꿀 향.", "price": 180, "dailyLimit": 15, "status": "limited", "soldOut": false },
+      { "id": "lean-country-loaf", "category": "classic", "name": "르방 컨트리 브레드", "nameEn": "Levain Country Loaf", "description": "천연 르방종으로 장시간 발효, 바삭한 겉과 쫄깃한 속.", "price": 220, "dailyLimit": 12, "status": "limited", "soldOut": false },
+      { "id": "sea-salt-croissant", "category": "classic", "name": "소금 크루아상", "nameEn": "Sea Salt Croissant", "description": "버터 향 가득한 프렌치 크루아상에 바다소금을 더해 짭짤달콤한 겹겹의 식감.", "price": 68, "dailyLimit": 30, "status": "available", "soldOut": false },
+      { "id": "whole-wheat-walnut", "category": "classic", "name": "통밀 호두빵", "nameEn": "Whole Wheat Walnut", "description": "통밀가루와 구운 호두, 담백한 밀 향과 고소한 견과의 식감.", "price": 190, "dailyLimit": 20, "status": "available", "soldOut": false },
+      { "id": "sunset-apricot-danish", "category": "seasonal", "name": "노을 살구 데니시", "nameEn": "Sunset Apricot Danish", "description": "바삭한 데니시 위에 노을빛 살구, 마치 노을이 빵 위에 내려앉은 듯.", "price": 95, "dailyLimit": 18, "status": "available", "soldOut": false },
+      { "id": "longan-blossom-bagel", "category": "seasonal", "name": "용안꽃꿀 베이글", "nameEn": "Longan Blossom Honey Bagel", "description": "쫄깃한 베이글에 용안 꽃꿀을 더해 자연스러운 단맛을 살렸습니다.", "price": 85, "dailyLimit": 25, "status": "available", "soldOut": false },
+      { "id": "fig-country-loaf", "category": "seasonal", "name": "무화과 컨트리 브레드", "nameEn": "Fig Country Loaf", "description": "말린 무화과를 컨트리 반죽에 함께 구워 진한 과일 풍미.", "price": 260, "dailyLimit": 10, "status": "soldout", "soldOut": true },
+      { "id": "osmanthus-chestnut", "category": "seasonal", "name": "계화 밤빵", "nameEn": "Osmanthus Chestnut Bread", "description": "은은한 계화 향과 촉촉한 밤 소, 가을에만 만나는 맛.", "price": 110, "dailyLimit": 16, "status": "available", "soldOut": false },
+      { "id": "longan-madeleine", "category": "pastry", "name": "용안꿀 마들렌", "nameEn": "Longan Honey Madeleine", "description": "조개 모양 마들렌, 버터 향 속에 은은히 남는 용안꿀의 여운.", "price": 60, "dailyLimit": 40, "status": "available", "soldOut": false },
+      { "id": "rose-lychee-dacquoise", "category": "pastry", "name": "장미 리치 다쿠아즈", "nameEn": "Rose Lychee Dacquoise", "description": "아몬드 머랭 사이 장미 리치 크림을 채운 섬세하고 우아한 디저트.", "price": 150, "dailyLimit": 20, "status": "available", "soldOut": false },
+      { "id": "rice-chiffon", "category": "pastry", "name": "쌀가루 시폰 케이크", "nameEn": "Rice Flour Chiffon", "description": "쌀가루로 만들어 가볍고 촉촉한 식감, 글루텐프리 옵션.", "price": 280, "dailyLimit": 8, "status": "limited", "soldOut": false },
+      { "id": "brown-sugar-financier", "category": "pastry", "name": "흑당 피낭시에", "nameEn": "Brown Sugar Financier", "description": "고소한 흑당을 버터 반죽에 더해 촉촉하고 진한 풍미가 오래 남습니다.", "price": 140, "dailyLimit": 25, "status": "available", "soldOut": false }
     ]
   },
   "service": {
@@ -181,7 +185,7 @@
       "heading": "원하는 답을 찾지 못하셨나요?",
       "callCta": "전화 문의",
       "lineCta": "라인 문의",
-      "contactCta": "문의하기로 이동 →"
+      "contactCta": "문의하기로 이동"
     }
   },
   "contact": {
@@ -220,7 +224,7 @@
     "title": "개인정보처리방침",
     "lastUpdated": "본 정책은 업계 일반 관행을 참고하여 AI가 작성한 초안입니다. 공개 전 법무 담당자 또는 전문가의 검토를 권장합니다.",
     "sections": [
-      { "heading": "적용 범위", "body": "본 정책은 flour flour BAKERY 공식 웹사이트(이하 '본 웹사이트')가 고객님께서 제공하신 개인정보를 어떻게 수집·처리·이용하는지 설명합니다. 본 정책은 본 웹사이트 외부로 연결되는 링크 사이트나 본 웹사이트로부터 권한을 위임받지 않은 자에게는 적용되지 않습니다." },
+      { "heading": "적용 범위", "body": "본 정책은 FlourFlour BAKERY 공식 웹사이트(이하 '본 웹사이트')가 고객님께서 제공하신 개인정보를 어떻게 수집·처리·이용하는지 설명합니다. 본 정책은 본 웹사이트 외부로 연결되는 링크 사이트나 본 웹사이트로부터 권한을 위임받지 않은 자에게는 적용되지 않습니다." },
       { "heading": "개인정보 수집 방법 및 항목", "body": "본 웹사이트의 '문의하기' 폼을 통해 연락하실 때 입력하신 이름, 전화번호, 이메일, 문의 내용을 수집합니다. 전화 또는 라인 공식 계정을 통해 연락 및 주문하시는 경우에도, 제빵 준비와 픽업 안내를 위해 고객님께서 제공하신 연락처 및 수령 정보를 수집합니다." },
       { "heading": "개인정보 수집 목적", "body": "수집된 정보는 문의 응대, 주문 내용 확인 및 조율, 픽업 관련 연락, 그리고 고객님께서 동의하신 범위 내에서의 제품·서비스 안내를 위해서만 사용되며 그 외의 목적으로는 사용되지 않습니다." },
       { "heading": "개인정보 보관 기간", "body": "개인정보는 문의 또는 주문 완료 후 합리적인 기간 동안 보관되며, 이후 관련 규정에 따라 삭제 또는 비식별화 처리됩니다." },
@@ -236,6 +240,6 @@
   "notFound": {
     "message": "이 빵은 이미 다 팔린 것 같아요.",
     "homeCta": "홈으로 돌아가기",
-    "productsCta": "오늘의 갓 구운 빵 보러가기 →"
+    "productsCta": "오늘의 갓 구운 빵 보러가기"
   }
 }

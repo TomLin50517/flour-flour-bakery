@@ -1,35 +1,35 @@
 {
   "meta": {
-    "siteName": "flour flour BAKERY",
-    "titleSuffix": " | flour flour BAKERY"
+    "siteName": "FlourFlour BAKERY",
+    "titleSuffix": " | FlourFlour BAKERY"
   },
   "pageMeta": {
     "home": {
-      "title": "flour flour BAKERY | Warmth and beauty, every single day",
-      "description": "flour flour BAKERY is a boutique bakery in Tamsui, inspired by riverside sunsets and blossoms — baking a little everyday magic into warmth and beauty."
+      "title": "FlourFlour BAKERY | Baked by the River — a Tamsui riverside bakery",
+      "description": "A small bakery in an old shophouse on Tamsui's Zhongzheng Road. Tangzhong toast, croissants and pastries, finished slowly with longan blossom honey from Sanzhi."
     },
     "story": {
-      "title": "Our Story | flour flour BAKERY",
-      "description": "Founded in 2024 on the banks of the Tamsui River, flour flour tells a gentle story of sunsets, flowers, and the everyday magic of the baker's craft."
+      "title": "Our Story | FlourFlour BAKERY",
+      "description": "The river, the flour, the flower, the fold, the light — five chapters on how we bake beside the Tamsui River."
     },
     "products": {
-      "title": "Products | flour flour BAKERY",
-      "description": "Classic breads, seasonal specials and pastries, baked in small daily batches with longan blossom honey and local ingredients."
+      "title": "Products | FlourFlour BAKERY",
+      "description": "Classic breads, seasonal specials and pastries, made with longan blossom honey from Sanzhi and local ingredients, baked in small daily batches."
     },
     "service": {
-      "title": "Customer Service | flour flour BAKERY",
+      "title": "Customer Service | FlourFlour BAKERY",
       "description": "How to order, storage tips, and frequently asked questions. Can't find your answer? Call us or message us on LINE."
     },
     "contact": {
-      "title": "Contact Us | flour flour BAKERY",
-      "description": "Find flour flour BAKERY's address, phone number, opening hours and contact form. Visits and phone orders are welcome."
+      "title": "Contact Us | FlourFlour BAKERY",
+      "description": "Find FlourFlour BAKERY's address, phone number, opening hours and contact form. Visits and phone orders are welcome."
     },
     "privacy": {
-      "title": "Privacy Policy | flour flour BAKERY",
-      "description": "How flour flour BAKERY collects, uses and protects your personal data."
+      "title": "Privacy Policy | FlourFlour BAKERY",
+      "description": "How FlourFlour BAKERY collects, uses and protects your personal data."
     },
     "notFound": {
-      "title": "Page Not Found | flour flour BAKERY",
+      "title": "Page Not Found | FlourFlour BAKERY",
       "description": "Looks like this loaf has already been sold."
     }
   },
@@ -51,52 +51,40 @@
     "text": "Store hours will be adjusted 7/21–7/22 — see our LINE account for details."
   },
   "footer": {
-    "tagline": "Warmth and beauty, every single day.",
-    "quickLinksHeading": "Quick Links",
-    "contactHeading": "Contact",
-    "hoursHeading": "Hours",
-    "hoursValue": "Wed–Sun 11:00–19:00 (Closed Mon & Tue)",
-    "copyright": "© 2026 flour flour BAKERY · EST. 2024",
+    "visitHeading": "Visit",
+    "followHeading": "Follow",
+    "infoHeading": "Information",
+    "copyright": "© 2026 FlourFlour BAKERY · EST. 2024",
     "privacyLink": "Privacy Policy"
   },
   "home": {
     "hero": {
-      "eyebrow": "FLOUR · FLOWER · TAMSUI",
-      "title": "A Quiet Taste of Tamsui.",
-      "subtitle": "The light, the blossoms, the scenery of Tamsui — baked into the scent of every day's first loaves.",
-      "cta": "Discover FlourFlour",
-      "cta2": "Today's Bake"
+      "subtitle": "The light of Tamsui, folded into every layer."
     },
     "manifesto": {
-      "eyebrow": "MANIFESTO",
-      "text": "We believe true luxury is time, unhurried. The wind off the Tamsui river, the light through an old house, the scent of flour and flowers — each deserves to be treated gently. That is the only thing flour flour sets out to do, every morning."
+      "text": ""
     },
     "signature": {
-      "eyebrow": "SIGNATURE",
       "name": "Longan Honey Tangzhong Toast",
-      "description": "Made with the tangzhong method to lock in moisture, folded with local longan blossom honey — the recipe we've never changed since day one, and the loaf that best captures how flour flour reads the land around Tamsui.",
-      "price": "NT$ 180",
+      "nameEn": "Longan Honey Tangzhong Toast",
+      "body": "The oven is lit at four. The tangzhong was made the night before. We trade part of the sugar for longan blossom honey from Sanzhi, so the sweetness carries an aftertaste of flowers — and the crumb keeps a dampness like morning mist on the river.",
       "cta": "Discover this loaf"
     },
+    "place": {
+      "title": "An old house by the river",
+      "body": "The shop lives in an old shophouse on Zhongzheng Road, its wooden windows facing the ferry pier. At half past five, the sunset walks in along the river and rests on the bread shelves for fifteen minutes.",
+      "cta": "Read the story"
+    },
     "todayFresh": {
-      "eyebrow": "TODAY'S BAKE",
       "heading": "Fresh Today",
       "cta": "See all products"
     },
-    "story": {
-      "eyebrow": "OUR STORY",
-      "heading": "An old house, a river, and our story",
-      "body": "flour flour was born from Tamsui's sunsets and riverbanks, folding longan blossom honey and local flavours into every ferment. We believe even a single loaf can carry a little magic and warmth.",
-      "cta": "Read the full story"
-    },
     "gift": {
-      "eyebrow": "GIFT",
-      "heading": "A gift, wrapped in Tamsui",
-      "body": "For holidays, weddings, or simply a thought worth sending — our gift selection carries the warmth of the riverside into every box.",
+      "heading": "A gift from Tamsui",
+      "body": "Shelf-stable boxes built around longan honey madeleines and financiers, wrapped in ivory paper printed with our brand flower — a small piece of Tamsui river light, for someone far away.",
       "cta": "View the gift collection"
     },
     "visit": {
-      "eyebrow": "VISIT",
       "heading": "Come sit with us",
       "hoursLabel": "Hours",
       "hoursValue": "Wed–Sun 11:00–19:00",
@@ -109,22 +97,40 @@
   },
   "story": {
     "pageTitle": "Our Story",
-    "sections": [
+    "chapters": [
       {
-        "title": "Where the river begins",
-        "body": "In 2024, flour flour began with a single light by the Tamsui River. Every evening the sunset turns the old street the colour of honey, and the river breeze carries a hint of salt air mixed with the scent of bread fresh from the oven. We chose to settle here not only for the view, but because the riverbank taught us patience — waiting for the tide, waiting for the dough to rise, waiting for the best light of the day. Starting from one small oven, we set out to bake the everyday rhythm of Tamsui into something tender and true."
+        "no": "01",
+        "labelEn": "The River",
+        "title": "Where we wait with the tide",
+        "body": "In 2024 we lit our first oven lamp beside the Tamsui River. The tides taught us to wait — for dough to wake, and for the best light of the day."
       },
       {
-        "title": "Blossoms and flour",
-        "body": "Our brand blossom weaves together the softness of natural flowers, the glow of a Tamsui sunset, the sweetness of longan blossoms, and the curl of a croissant — four elements that are also our promises when we bake. We use local longan blossom honey in place of some refined sugar, so every bite carries a faint honeyed note. Our dough rests through a long, slow, cold ferment, letting wheat and wild yeast talk quietly to one another. Flour and flowers may seem unrelated, but in our hands they grow into the same gentle thing."
+        "no": "02",
+        "labelEn": "The Flour",
+        "title": "A conversation with wheat",
+        "body": "Japanese flour and Taiwanese wheat, each for what it does best. Tangzhong made the night before; long, cold fermentation. The conversation between wheat and yeast cannot be hurried."
       },
       {
-        "title": "Everyday magic",
-        "body": "Every morning at four, the oven light comes on before we do. Our bakers knead, shape, and wait, watching the dough slowly rise and colour in the heat — a small magic that happens daily, yet never grows old. We keep our batches deliberately limited, not to manufacture scarcity, but so that every loaf gets the care, the bake, and the hands it deserves before it reaches yours. Baking a little magic into every day, bringing warmth and beauty — that is the promise we make each morning, to ourselves and to you."
+        "no": "03",
+        "labelEn": "The Flower",
+        "title": "Sweetness shaped like a flower",
+        "body": "Our brand flower is drawn from petals, the setting sun, and the water's surface. In the recipes, it is longan blossom honey from Sanzhi — replacing part of the sugar, so sweetness takes the shape of a flower."
+      },
+      {
+        "no": "04",
+        "labelEn": "The Fold",
+        "title": "Twenty-seven layers",
+        "body": "A croissant's twenty-seven layers come from three letter folds. The butter must stay cold, the hands must move fast — the air folded in becomes sound when it leaves the oven."
+      },
+      {
+        "no": "05",
+        "labelEn": "The Light",
+        "title": "Fifteen minutes of sunset",
+        "body": "At half past five the sunset comes in along the river and rests on the bread shelves for fifteen minutes. We keep that light for the day's last bake."
       }
     ],
-    "quote": "Baking a little magic into every day, bringing warmth and beauty.",
-    "cta": "See what's fresh today →"
+    "quote": "Flour, flower, and the light off the river.",
+    "cta": "See what's fresh today"
   },
   "products": {
     "bannerTitle": "Products",
@@ -133,23 +139,21 @@
       "seasonal": "Seasonal Specials",
       "pastry": "Pastries"
     },
-    "limitedBadge": "Only {n} made daily",
-    "soldOutBadge": "Sold out today",
     "footnote": "Daily quantities are limited — reservations by phone are recommended.",
     "footnoteCta": "Call to reserve",
     "items": [
-      { "id": "longan-tangzhong-toast", "category": "classic", "name": "Longan Honey Tangzhong Toast", "description": "Tangzhong method locks in moisture, with a soft, faintly honeyed sweetness", "price": 180, "dailyLimit": 15, "soldOut": false },
-      { "id": "lean-country-loaf", "category": "classic", "name": "Levain Country Loaf", "description": "Long-fermented natural levain, crackling crust and a chewy, moist crumb", "price": 220, "dailyLimit": 12, "soldOut": false },
-      { "id": "sea-salt-croissant", "category": "classic", "name": "Sea Salt Croissant", "description": "Buttery French croissant finished with sea salt, flaky layers of sweet and salty", "price": 68, "dailyLimit": 30, "soldOut": false },
-      { "id": "whole-wheat-walnut", "category": "classic", "name": "Whole Wheat Walnut", "description": "Whole wheat flour with toasted walnuts, earthy grain flavour with a nutty crunch", "price": 190, "dailyLimit": 20, "soldOut": false },
-      { "id": "sunset-apricot-danish", "category": "seasonal", "name": "Sunset Apricot Danish", "description": "Golden apricots over crisp danish pastry, like sunset settling onto bread", "price": 95, "dailyLimit": 18, "soldOut": false },
-      { "id": "longan-blossom-bagel", "category": "seasonal", "name": "Longan Blossom Honey Bagel", "description": "Dense, chewy bagel folded with longan blossom honey for a natural sweetness", "price": 85, "dailyLimit": 25, "soldOut": false },
-      { "id": "fig-country-loaf", "category": "seasonal", "name": "Fig Country Loaf", "description": "Dried figs baked into a country dough, rich fruit flavour and hearty texture", "price": 260, "dailyLimit": 10, "soldOut": true },
-      { "id": "osmanthus-chestnut", "category": "seasonal", "name": "Osmanthus Chestnut Bread", "description": "Fragrant osmanthus with soft chestnut filling, a gentle taste of autumn", "price": 110, "dailyLimit": 16, "soldOut": false },
-      { "id": "longan-madeleine", "category": "pastry", "name": "Longan Honey Madeleine", "description": "Shell-shaped madeleine with buttery aroma and a lingering note of longan honey", "price": 60, "dailyLimit": 40, "soldOut": false },
-      { "id": "rose-lychee-dacquoise", "category": "pastry", "name": "Rose Lychee Dacquoise", "description": "Almond meringue layered with rose and lychee cream, delicate and elegant", "price": 150, "dailyLimit": 20, "soldOut": false },
-      { "id": "rice-chiffon", "category": "pastry", "name": "Rice Flour Chiffon", "description": "Made with rice flour for a light, soft crumb — a gluten-free option", "price": 280, "dailyLimit": 8, "soldOut": false },
-      { "id": "brown-sugar-financier", "category": "pastry", "name": "Brown Sugar Financier", "description": "Caramelised brown sugar folded into buttery cake, moist and richly aromatic", "price": 140, "dailyLimit": 25, "soldOut": false }
+      { "id": "longan-tangzhong-toast", "category": "classic", "name": "Longan Honey Tangzhong Toast", "nameEn": "Longan Honey Tangzhong Toast", "description": "Tangzhong method locks in moisture, with a soft, faintly honeyed sweetness.", "price": 180, "dailyLimit": 15, "status": "limited", "soldOut": false },
+      { "id": "lean-country-loaf", "category": "classic", "name": "Levain Country Loaf", "nameEn": "Levain Country Loaf", "description": "Long-fermented natural levain, crackling crust and a chewy, moist crumb.", "price": 220, "dailyLimit": 12, "status": "limited", "soldOut": false },
+      { "id": "sea-salt-croissant", "category": "classic", "name": "Sea Salt Croissant", "nameEn": "Sea Salt Croissant", "description": "Buttery French croissant finished with sea salt, flaky layers of sweet and salty.", "price": 68, "dailyLimit": 30, "status": "available", "soldOut": false },
+      { "id": "whole-wheat-walnut", "category": "classic", "name": "Whole Wheat Walnut", "nameEn": "Whole Wheat Walnut", "description": "Whole wheat flour with toasted walnuts, earthy grain flavour with a nutty crunch.", "price": 190, "dailyLimit": 20, "status": "available", "soldOut": false },
+      { "id": "sunset-apricot-danish", "category": "seasonal", "name": "Sunset Apricot Danish", "nameEn": "Sunset Apricot Danish", "description": "Golden apricots over crisp danish pastry, like sunset settling onto bread.", "price": 95, "dailyLimit": 18, "status": "available", "soldOut": false },
+      { "id": "longan-blossom-bagel", "category": "seasonal", "name": "Longan Blossom Honey Bagel", "nameEn": "Longan Blossom Honey Bagel", "description": "Dense, chewy bagel folded with longan blossom honey for a natural sweetness.", "price": 85, "dailyLimit": 25, "status": "available", "soldOut": false },
+      { "id": "fig-country-loaf", "category": "seasonal", "name": "Fig Country Loaf", "nameEn": "Fig Country Loaf", "description": "Dried figs baked into a country dough, rich fruit flavour and hearty texture.", "price": 260, "dailyLimit": 10, "status": "soldout", "soldOut": true },
+      { "id": "osmanthus-chestnut", "category": "seasonal", "name": "Osmanthus Chestnut Bread", "nameEn": "Osmanthus Chestnut Bread", "description": "Fragrant osmanthus with soft chestnut filling, a taste of autumn.", "price": 110, "dailyLimit": 16, "status": "available", "soldOut": false },
+      { "id": "longan-madeleine", "category": "pastry", "name": "Longan Honey Madeleine", "nameEn": "Longan Honey Madeleine", "description": "Shell-shaped madeleine with buttery aroma and a lingering note of longan honey.", "price": 60, "dailyLimit": 40, "status": "available", "soldOut": false },
+      { "id": "rose-lychee-dacquoise", "category": "pastry", "name": "Rose Lychee Dacquoise", "nameEn": "Rose Lychee Dacquoise", "description": "Almond meringue layered with rose and lychee cream, delicate and elegant.", "price": 150, "dailyLimit": 20, "status": "available", "soldOut": false },
+      { "id": "rice-chiffon", "category": "pastry", "name": "Rice Flour Chiffon", "nameEn": "Rice Flour Chiffon", "description": "Made with rice flour for a light, soft crumb — a gluten-free option.", "price": 280, "dailyLimit": 8, "status": "limited", "soldOut": false },
+      { "id": "brown-sugar-financier", "category": "pastry", "name": "Brown Sugar Financier", "nameEn": "Brown Sugar Financier", "description": "Caramelised brown sugar folded into buttery cake, moist and richly aromatic.", "price": 140, "dailyLimit": 25, "status": "available", "soldOut": false }
     ]
   },
   "service": {
@@ -181,7 +185,7 @@
       "heading": "Can't find your answer?",
       "callCta": "Call us",
       "lineCta": "Message us on LINE",
-      "contactCta": "Go to Contact →"
+      "contactCta": "Go to Contact"
     }
   },
   "contact": {
@@ -220,7 +224,7 @@
     "title": "Privacy Policy",
     "lastUpdated": "This policy template was drafted by AI based on common industry practice. We recommend legal review before launch.",
     "sections": [
-      { "heading": "Scope", "body": "This policy explains how the flour flour BAKERY website (\"this website\") collects, processes and uses the personal data you provide to us. It does not apply to any linked website outside this domain, nor to any party not authorized or engaged by this website." },
+      { "heading": "Scope", "body": "This policy explains how the FlourFlour BAKERY website (\"this website\") collects, processes and uses the personal data you provide to us. It does not apply to any linked website outside this domain, nor to any party not authorized or engaged by this website." },
       { "heading": "How We Collect Personal Data, and What We Collect", "body": "When you contact us through the \"Contact Us\" form on this website, we collect the name, phone number, email address and message content you provide. If you contact us by phone or our LINE account and place an order, we also receive the contact and pickup details you give us so we can plan the bake and arrange collection." },
       { "heading": "Purpose of Collection", "body": "This information is used solely to respond to your inquiry, confirm and arrange your order, coordinate pickup, and — where you have agreed — provide you with product and service information. It is never used beyond these purposes." },
       { "heading": "Retention Period", "body": "Your personal data is retained for a reasonable period after your inquiry or order is completed, after which it is deleted or de-identified as required." },
@@ -236,6 +240,6 @@
   "notFound": {
     "message": "Looks like this loaf has already been sold.",
     "homeCta": "Back to home",
-    "productsCta": "See what's fresh today →"
+    "productsCta": "See what's fresh today"
   }
 }

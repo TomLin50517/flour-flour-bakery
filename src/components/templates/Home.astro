@@ -1,6 +1,6 @@
 ---
-// 首頁模板 — editorial 版型(9 區塊):透明 header / 全螢幕 hero / 品牌宣言 / 招牌單品 / 今日出爐(3款)
-// / 老屋河岸故事 / 禮盒 / 來店資訊 / 極簡 footer(Base 內建)
+// 首頁 — 安靜奢華編輯版型:Hero(92vh 單張攝影)→ Manifesto(純文字留白)→ Signature(非對稱)
+// → The Place(河岸場域)→ Today's Bake(3 款)→ Gift(深色)→ Visit → Minimal Footer(Base 內建)
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../ProductCard.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
@@ -13,7 +13,7 @@ const { lang } = Astro.props;
 const t = getDict(lang);
 const p = localePrefix[lang];
 
-const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
+const featured = t.products.items.filter((item) => item.status !== 'soldout').slice(0, 3);
 ---
 
 <Base
@@ -23,97 +23,91 @@ const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
   description={t.pageMeta.home.description}
   transparentHeader
 >
-  <!-- 1+2. 全螢幕 hero(透明 header 疊於其上) -->
+  <!-- 1. Hero:單張淡水夕陽攝影(暫以光感漸層佔位),克制 overlay,單一文字 CTA -->
   <section class="hero">
     <div class="hero__media" aria-hidden="true"></div>
     <div class="hero__scrim" aria-hidden="true"></div>
     <div class="container hero__content">
-      <p class="eyebrow hero__eyebrow">{t.home.hero.eyebrow}</p>
-      <h1 class="hero__title">{t.home.hero.title}</h1>
+      <p class="eyebrow hero__eyebrow">FLOUR · FLOWER · TAMSUI</p>
+      <h1 class="hero__title">Baked by the River.</h1>
       <p class="hero__subtitle">{t.home.hero.subtitle}</p>
-      <div class="hero__actions">
-        <a class="btn btn--on-dark" href={`${p}/story`}>{t.home.hero.cta}</a>
-        <a class="link-arrow" href="#today-fresh">{t.home.hero.cta2}</a>
-      </div>
+      <a class="link-arrow hero__cta" href={`${p}/story`}>Discover FlourFlour →</a>
     </div>
   </section>
 
-  <!-- 3. 品牌宣言 -->
-  <section class="section manifesto">
-    <div class="container reading-column manifesto__inner fade-up">
-      <p class="eyebrow">{t.home.manifesto.eyebrow}</p>
-      <p class="manifesto__text">{t.home.manifesto.text}</p>
+  <!-- 2. Brand Manifesto:純文字、留白 ≥160px、寬 ≤720px -->
+  <section class="manifesto">
+    <div class="container manifesto__inner reveal-text">
+      <p class="manifesto__en">Flour is where we begin.<br />Time is what allows flavour to bloom.</p>
+      {t.home.manifesto.text && <p class="manifesto__local">{t.home.manifesto.text}</p>}
     </div>
   </section>
 
-  <!-- 4. 招牌單品 -->
+  <!-- 3. Signature Product:非對稱,圖佔約 65%,無價格 -->
   <section class="section signature">
     <div class="container signature__grid">
-      <div class="signature__image reveal-scale" aria-hidden="true">
-        <span>4:5</span>
+      <div class="signature__media reveal-media">
+        <div class="signature__image" aria-hidden="true">4:5</div>
       </div>
-      <div class="signature__content fade-up">
-        <p class="eyebrow">{t.home.signature.eyebrow}</p>
+      <div class="signature__content reveal-text">
+        <p class="eyebrow">SIGNATURE</p>
         <h2>{t.home.signature.name}</h2>
-        <p class="signature__desc">{t.home.signature.description}</p>
-        <p class="signature__price">{t.home.signature.price}</p>
-        <a class="link-arrow" href={`${p}/products`}>{t.home.signature.cta}</a>
+        {t.home.signature.nameEn !== t.home.signature.name && (
+          <p class="signature__name-en">{t.home.signature.nameEn}</p>
+        )}
+        <p class="signature__body">{t.home.signature.body}</p>
+        <a class="link-arrow" href={`${p}/products`}>{t.home.signature.cta} →</a>
       </div>
     </div>
   </section>
 
-  <!-- 5. 今日出爐(僅 3 款) -->
+  <!-- 4. The River / The Place:品牌場域 -->
+  <section class="section place">
+    <div class="container place__grid">
+      <div class="place__content reveal-text">
+        <p class="eyebrow">THE PLACE</p>
+        <h2>{t.home.place.title}</h2>
+        <p class="place__body">{t.home.place.body}</p>
+        <a class="link-arrow" href={`${p}/story`}>{t.home.place.cta} →</a>
+      </div>
+      <div class="place__media reveal-media">
+        <div class="place__image" aria-hidden="true">3:4</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Today's Bake:三款 -->
   <section class="section today" id="today-fresh">
     <div class="container">
-      <div class="today__header fade-up">
-        <p class="eyebrow">{t.home.todayFresh.eyebrow}</p>
+      <div class="today__header reveal-text">
+        <p class="eyebrow">TODAY'S BAKE</p>
         <h2>{t.home.todayFresh.heading}</h2>
       </div>
       <div class="today__grid">
         {featured.map((item) => (
-          <ProductCard item={item} limitedBadgeTemplate={t.products.limitedBadge} soldOutBadge={t.products.soldOutBadge} />
+          <ProductCard item={item} />
         ))}
       </div>
-      <p class="today__cta fade-up">
-        <a class="link-arrow" href={`${p}/products`}>{t.home.todayFresh.cta}</a>
+      <p class="today__cta reveal-text">
+        <a class="link-arrow" href={`${p}/products`}>{t.home.todayFresh.cta} →</a>
       </p>
     </div>
   </section>
 
-  <!-- 6. 老屋與河岸的故事 -->
-  <section class="section story">
-    <div class="container story__grid">
-      <div class="story__image reveal-scale" aria-hidden="true">
-        <span>3:4</span>
-      </div>
-      <div class="story__content fade-up">
-        <p class="eyebrow">{t.home.story.eyebrow}</p>
-        <h2>{t.home.story.heading}</h2>
-        <p>{t.home.story.body}</p>
-        <a class="link-arrow" href={`${p}/story`}>{t.home.story.cta}</a>
-      </div>
+  <!-- 6. Gift Collection:深色區塊 -->
+  <section class="gift">
+    <div class="container gift__inner reveal-text">
+      <p class="eyebrow gift__eyebrow">GIFT</p>
+      <h2>{t.home.gift.heading}</h2>
+      <p class="gift__body">{t.home.gift.body}</p>
+      <a class="link-arrow gift__cta" href={`${p}/products`}>{t.home.gift.cta} →</a>
     </div>
   </section>
 
-  <!-- 7. 禮盒 -->
-  <section class="section gift">
-    <div class="container gift__grid">
-      <div class="gift__content fade-up">
-        <p class="eyebrow">{t.home.gift.eyebrow}</p>
-        <h2>{t.home.gift.heading}</h2>
-        <p>{t.home.gift.body}</p>
-        <a class="btn" href={`${p}/products`}>{t.home.gift.cta}</a>
-      </div>
-      <div class="gift__image reveal-scale" aria-hidden="true">
-        <span>4:5</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. 來店資訊 -->
+  <!-- 7. Visit FlourFlour -->
   <section class="section visit">
-    <div class="container reading-column visit__inner fade-up">
-      <p class="eyebrow">{t.home.visit.eyebrow}</p>
+    <div class="container reading-column visit__inner reveal-text">
+      <p class="eyebrow">VISIT</p>
       <h2>{t.home.visit.heading}</h2>
       <dl class="visit__details">
         <div>
@@ -129,35 +123,34 @@ const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
           <dd>{t.home.visit.phoneValue}</dd>
         </div>
       </dl>
-      <a class="btn btn--primary" href={`${p}/contact`}>{t.home.visit.cta}</a>
+      <a class="link-arrow" href={`${p}/contact`}>{t.home.visit.cta} →</a>
     </div>
   </section>
-
-  <!-- 9. footer 由 Base.astro 內建的極簡編輯感 Footer 元件提供 -->
 </Base>
 
 <style>
-  /* ---- 1+2. hero ---- */
+  /* ---- 1. hero:92vh,單張影像,克制 overlay ---- */
   .hero {
     position: relative;
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: 92vh;
+    min-height: 92svh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
   }
+  /* TODO: 品牌攝影到位後改為 <img>/background-image(淡水夕陽河面);現以光感漸層佔位 */
   .hero__media {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 50% at 28% 78%, rgba(169, 111, 78, 0.35), transparent 60%),
-      linear-gradient(180deg, var(--cocoa-brown) 0%, var(--ink-brown) 75%);
+      radial-gradient(ellipse 70% 45% at 50% 72%, rgba(161, 108, 76, 0.5), transparent 65%),
+      linear-gradient(180deg, #6d625a 0%, #51443b 45%, #211e1b 100%);
   }
   .hero__scrim {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(41, 36, 31, 0.1) 0%, rgba(41, 36, 31, 0.55) 100%);
+    background: linear-gradient(180deg, rgba(33, 30, 27, 0.08) 0%, rgba(33, 30, 27, 0.38) 100%);
   }
   .hero__content {
     position: relative;
@@ -168,10 +161,11 @@ const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
     gap: var(--space-3);
     text-align: center;
     color: var(--flour-white);
-    max-width: 780px;
+    max-width: 820px;
   }
   .hero__eyebrow {
-    color: var(--honey-amber);
+    color: var(--flour-white);
+    opacity: 0.85;
   }
   h1.hero__title {
     font-family: var(--font-heading-en);
@@ -179,52 +173,58 @@ const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
     font-weight: 500;
     font-size: var(--text-5xl);
     letter-spacing: 0;
-    line-height: 1.15;
+    line-height: 1.12;
   }
   .hero__subtitle {
     font-family: var(--font-body-locale);
     font-size: var(--text-lg);
-    color: var(--warm-ivory);
+    color: var(--flour-white);
+    opacity: 0.92;
     max-width: var(--reading-max-width);
   }
-  .hero__actions {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-    margin-top: var(--space-3);
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .hero__content .link-arrow {
+  .hero__cta {
     color: var(--flour-white);
+    margin-top: var(--space-2);
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
-  /* ---- 3. manifesto ---- */
+  /* ---- 2. manifesto ---- */
+  .manifesto {
+    background: var(--flour-white);
+    padding-block: var(--space-9);
+  }
   .manifesto__inner {
+    max-width: 720px;
+    margin-inline: auto;
     text-align: center;
   }
-  .manifesto__text {
-    font-family: var(--font-heading-locale);
-    font-style: var(--display-italic);
+  .manifesto__en {
+    font-family: var(--font-heading-en);
+    font-style: italic;
     font-weight: 500;
     font-size: var(--text-2xl);
     line-height: 1.6;
     color: var(--color-ink);
-    margin-top: var(--space-3);
+  }
+  .manifesto__local {
+    font-family: var(--font-heading-locale);
+    font-size: var(--text-xl);
+    line-height: 1.9;
+    color: var(--color-ink-soft);
+    margin-top: var(--space-4);
   }
 
-  /* ---- shared editorial split layout (signature / story / gift) ---- */
-  .signature__grid,
-  .story__grid,
-  .gift__grid {
+  /* ---- 3. signature:非對稱 65/35 ---- */
+  .signature__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-6);
+    grid-template-columns: 65fr 35fr;
+    gap: var(--space-7);
     align-items: center;
   }
-  .signature__image,
-  .story__image,
-  .gift__image {
+  .signature__image {
     aspect-ratio: 4 / 5;
     background: var(--color-surface);
     display: flex;
@@ -233,39 +233,57 @@ const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
     color: var(--color-ink-soft);
     font-size: var(--text-sm);
   }
-  .story__image {
-    aspect-ratio: 3 / 4;
-  }
-  .signature__content h2,
-  .story__content h2,
-  .gift__content h2 {
+  .signature__content h2 {
     font-size: var(--text-3xl);
     margin-top: var(--space-2);
   }
-  .signature__desc,
-  .story__content p,
-  .gift__content p {
+  .signature__name-en {
+    font-family: var(--font-body-en);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+    margin-top: var(--space-1);
+  }
+  .signature__body {
+    color: var(--color-ink-soft);
+    margin-top: var(--space-3);
+    max-width: 52ch;
+  }
+  .signature__content .link-arrow {
+    margin-top: var(--space-4);
+  }
+
+  /* ---- 4. the place ---- */
+  .place {
+    background: var(--color-surface);
+  }
+  .place__grid {
+    display: grid;
+    grid-template-columns: 45fr 55fr;
+    gap: var(--space-7);
+    align-items: center;
+  }
+  .place__image {
+    aspect-ratio: 3 / 4;
+    background: var(--flour-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-ink-soft);
+    font-size: var(--text-sm);
+  }
+  .place__content h2 {
+    font-size: var(--text-3xl);
+    margin-top: var(--space-2);
+  }
+  .place__body {
     color: var(--color-ink-soft);
     margin-top: var(--space-3);
     max-width: var(--reading-max-width);
   }
-  .signature__price {
-    font-family: var(--font-heading-en);
-    font-size: var(--text-xl);
-    color: var(--color-ink);
-    margin-top: var(--space-3);
-  }
-  .signature__content .link-arrow,
-  .story__content .link-arrow {
-    display: inline-block;
+  .place__content .link-arrow {
     margin-top: var(--space-4);
-  }
-  .gift__content .btn {
-    margin-top: var(--space-4);
-  }
-
-  .gift {
-    background: var(--color-surface);
   }
 
   /* ---- 5. today's bake ---- */
@@ -287,7 +305,34 @@ const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
     margin-top: var(--space-6);
   }
 
-  /* ---- 8. visit ---- */
+  /* ---- 6. gift:深色 ---- */
+  .gift {
+    background: var(--deep-ink);
+    color: var(--flour-white);
+    padding-block: var(--space-8);
+  }
+  .gift__inner {
+    max-width: 720px;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .gift__eyebrow {
+    color: var(--sunset-copper);
+  }
+  .gift__inner h2 {
+    font-size: var(--text-3xl);
+    margin-top: var(--space-2);
+  }
+  .gift__body {
+    color: rgba(243, 239, 232, 0.82);
+    margin-top: var(--space-3);
+  }
+  .gift__cta {
+    color: var(--flour-white);
+    margin-top: var(--space-4);
+  }
+
+  /* ---- 7. visit ---- */
   .visit__inner {
     text-align: center;
   }
@@ -302,8 +347,9 @@ const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
     margin-block: var(--space-6);
   }
   .visit__details dt {
+    font-family: var(--font-body-en);
     font-size: var(--text-eyebrow);
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-ink-soft);
   }
@@ -315,20 +361,24 @@ const featured = t.products.items.filter((item) => !item.soldOut).slice(0, 3);
 
   @media (max-width: 900px) {
     .signature__grid,
-    .story__grid,
-    .gift__grid {
+    .place__grid {
       grid-template-columns: 1fr;
+      gap: var(--space-5);
     }
-    .gift__image {
+    .place__media {
       order: -1;
     }
     .today__grid {
       grid-template-columns: 1fr;
     }
+    .manifesto {
+      padding-block: var(--space-8);
+    }
   }
   @media (min-width: 900px) and (max-width: 1120px) {
     .today__grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
     }
   }
 </style>

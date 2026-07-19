@@ -1,5 +1,6 @@
 ---
-// 品牌故事模板 — editorial 版型:安靜頁首 + 三段式敘事(左右交錯)+ 理念金句(深色滿版)+ CTA
+// 品牌故事 — 五章編輯版型(01 The River / 02 The Flour / 03 The Flower / 04 The Fold / 05 The Light):
+// 每章一張大圖 + 英文小標 + 在地語標題 + 40–80 字內文,無卡片框;結尾深色金句 + CTA
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../PageHeader.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
@@ -16,70 +17,88 @@ const p = localePrefix[lang];
 <Base lang={lang} path="/story" title={t.pageMeta.story.title} description={t.pageMeta.story.description}>
   <PageHeader eyebrow="OUR STORY" title={t.story.pageTitle} />
 
-  {t.story.sections.map((section, i) => (
-    <section class="section container">
-      <div class:list={['story-section', { 'story-section--reverse': i % 2 === 1 }]}>
-        <div class="story-section__image reveal-scale" aria-hidden="true">3:4</div>
-        <div class="story-section__content fade-up">
-          <h2>{section.title}</h2>
-          <p>{section.body}</p>
+  {t.story.chapters.map((ch, i) => (
+    <section class="chapter">
+      <div class:list={['container', 'chapter__grid', { 'chapter__grid--flip': i % 2 === 1 }]}>
+        <div class="chapter__media reveal-media">
+          <div class="chapter__image" aria-hidden="true">{ch.no}</div>
+        </div>
+        <div class="chapter__text reveal-text">
+          <p class="chapter__no">{ch.no}</p>
+          <p class="eyebrow">{ch.labelEn.toUpperCase()}</p>
+          <h2>{ch.title}</h2>
+          <p class="chapter__body">{ch.body}</p>
         </div>
       </div>
     </section>
   ))}
 
   <section class="story-quote">
-    <div class="container fade-up">
-      <img src="/images/logo-flower.png" alt="flour flour BAKERY" class="story-quote__logo" />
+    <div class="container reveal-text">
+      <img src="/images/logo-flower-ink.png" alt="" class="story-quote__logo" />
       <p>{t.story.quote}</p>
     </div>
   </section>
 
-  <section class="section container story-cta fade-up">
-    <a class="btn btn--primary" href={`${p}/products`}>{t.story.cta}</a>
+  <section class="section container story-cta reveal-text">
+    <a class="link-arrow" href={`${p}/products`}>{t.story.cta} →</a>
   </section>
 </Base>
 
 <style>
-  .story-section {
+  .chapter {
+    padding-block: var(--space-7);
+  }
+  .chapter__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-6);
+    grid-template-columns: 60fr 40fr;
+    gap: var(--space-7);
     align-items: center;
   }
-  .story-section--reverse {
-    direction: rtl;
+  .chapter__grid--flip .chapter__media {
+    order: 2;
   }
-  .story-section--reverse > * {
-    direction: ltr;
-  }
-  .story-section__image {
-    aspect-ratio: 3 / 4;
+  .chapter__image {
+    aspect-ratio: 4 / 3;
     background: var(--color-surface);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-ink-soft);
-    font-size: var(--text-sm);
-  }
-  .story-section__content h2 {
+    font-family: var(--font-heading-en);
     font-size: var(--text-2xl);
+    color: var(--color-muted);
   }
-  .story-section__content p {
-    margin-top: var(--space-3);
+  .chapter__no {
+    font-family: var(--font-heading-en);
+    font-size: var(--text-2xl);
+    color: var(--color-muted);
+  }
+  .chapter__text .eyebrow {
+    margin-top: var(--space-2);
+  }
+  .chapter__text h2 {
+    font-size: var(--text-3xl);
+    margin-top: var(--space-2);
+  }
+  .chapter__body {
     color: var(--color-ink-soft);
-    max-width: var(--reading-max-width);
+    margin-top: var(--space-3);
+    max-width: 46ch;
   }
+
   .story-quote {
-    background: var(--color-ink);
-    color: var(--warm-ivory);
+    background: var(--deep-ink);
+    color: var(--flour-white);
     text-align: center;
     padding-block: var(--space-8);
+    margin-top: var(--space-7);
   }
   .story-quote__logo {
     height: 40px;
     width: auto;
     margin-inline: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
   }
   .story-quote p {
     font-family: var(--font-heading-locale);
@@ -94,11 +113,17 @@ const p = localePrefix[lang];
     text-align: center;
   }
 
-  @media (max-width: 768px) {
-    .story-section,
-    .story-section--reverse {
+  @media (max-width: 900px) {
+    .chapter {
+      padding-block: var(--space-5);
+    }
+    .chapter__grid,
+    .chapter__grid--flip {
       grid-template-columns: 1fr;
-      direction: ltr;
+      gap: var(--space-4);
+    }
+    .chapter__grid--flip .chapter__media {
+      order: 0;
     }
   }
 </style>

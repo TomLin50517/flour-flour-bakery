@@ -1,27 +1,23 @@
-/* flour flour BAKERY — design tokens: quiet luxury / editorial / warm minimalism */
+/* FlourFlour BAKERY — design tokens: quiet luxury / editorial / Tamsui riverside */
 
 :root {
-  /* ---- raw brand palette ---- */
+  /* ---- raw brand palette(60% flour white / 25% deep ink / 10% river grey / 5% copper)---- */
   --flour-white: #F3EFE8;
-  --warm-ivory: #E8E0D4;
-  --ink-brown: #29241F;
-  --cocoa-brown: #58463A;
-  --sunset-copper: #A96F4E;
-  --honey-amber: #C79652;
-  --river-grey: #7D8582;
-  --dusk-blue: #4D5862;
+  --paper-white: #FAF8F4;
+  --deep-ink: #211E1B;
+  --cocoa: #51443B;
+  --river-grey: #777D79;
+  --sunset-copper: #A16C4C;
 
   /* ---- semantic color tokens ---- */
   --color-bg: var(--flour-white);
-  --color-surface: var(--warm-ivory);
-  --color-ink: var(--ink-brown);
-  --color-ink-soft: var(--cocoa-brown);
+  --color-surface: var(--paper-white);
+  --color-ink: var(--deep-ink);
+  --color-ink-soft: var(--cocoa);
   --color-muted: var(--river-grey); /* decorative/large-scale only — fails AA at body-text size */
-  --color-accent: var(--sunset-copper); /* large-scale accent: icons, borders, hover fills — sparingly */
-  --color-accent-warm: var(--honey-amber); /* secondary warm accent, sparingly */
-  --color-accent-text: #8A5A3D; /* darkened copper, AA-safe for small links/prices */
-  --color-deep: var(--dusk-blue); /* cool accent, used for focus rings */
-  --color-line: var(--warm-ivory);
+  --color-accent: var(--sunset-copper); /* sparingly: eyebrows, hairline hovers, focus */
+  --color-accent-text: #7E5238; /* darkened copper, AA-safe for small links/prices */
+  --color-line: #E3DDD1;
 
   /* ---- typography: serif headings / sans body per locale ---- */
   --font-heading-en: 'Playfair Display', 'Noto Serif TC', serif;
@@ -73,10 +69,12 @@
   --bp-tablet: 768px;
   --bp-desktop: 1120px;
 
-  /* motion: slow, restrained — fade / reveal / subtle scale only */
-  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
-  --duration-slow: 900ms;
-  --duration-base: 600ms;
+  /* motion: line reveal / curtain reveal / slow drift only, 700–1200ms */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-reveal: 900ms;
+  --duration-curtain: 1000ms;
+  --duration-drift: 1200ms;
+  --duration-base: 700ms;
 }
 
 *,
@@ -169,8 +167,9 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
+summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--color-deep);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
 }
 
@@ -287,35 +286,45 @@ textarea:focus-visible,
   background-size: 100% 1px;
 }
 
-/* ---- motion: slow, restrained fade / reveal / subtle scale ---- */
-.fade-up {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity var(--duration-slow) var(--ease-editorial),
-    transform var(--duration-slow) var(--ease-editorial);
+/* ---- motion: three sanctioned patterns only ----
+   .reveal-text  — line-based rise:文字由下往上、被自身區塊裁切浮現
+   .reveal-media — curtain reveal:影像由下而上拉開簾幕
+   (media 內容同時帶 extremely slow drift:scale 1.05 → 1) */
+.reveal-text {
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(20px);
+  transition: clip-path var(--duration-reveal) var(--ease-editorial),
+    transform var(--duration-reveal) var(--ease-editorial);
 }
 
-.fade-up.is-visible {
-  opacity: 1;
+.reveal-text.is-visible {
+  clip-path: inset(0 0 -12% 0);
   transform: translateY(0);
 }
 
-.reveal-scale {
-  opacity: 0;
-  transform: scale(1.03);
-  transition: opacity var(--duration-slow) var(--ease-editorial),
-    transform var(--duration-slow) var(--ease-editorial);
+.reveal-media {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path var(--duration-curtain) var(--ease-editorial);
 }
 
-.reveal-scale.is-visible {
-  opacity: 1;
+.reveal-media > * {
+  transform: scale(1.05);
+  transition: transform var(--duration-drift) var(--ease-editorial);
+}
+
+.reveal-media.is-visible {
+  clip-path: inset(0 0 0 0);
+}
+
+.reveal-media.is-visible > * {
   transform: scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fade-up,
-  .reveal-scale {
-    opacity: 1;
+  .reveal-text,
+  .reveal-media,
+  .reveal-media > * {
+    clip-path: none;
     transform: none;
     transition: none;
   }

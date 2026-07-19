@@ -1,37 +1,108 @@
 ---
-// LangSwitcher.astro — 語言切換器(spec §4):切換時停留在同一頁面的對應語系
+// LangSwitcher.astro — 語言切換:dropdown(桌面 header)或 inline(mobile 選單);切換後停留在同頁對應語系
 export interface Props {
   lang: 'zh-hant' | 'en' | 'ja' | 'ko';
   path: string; // 不含語系前綴,如 '/', '/story'
   labels: Record<string, string>;
+  variant?: 'dropdown' | 'inline';
 }
 
-const { lang, path, labels } = Astro.props;
+const { lang, path, labels, variant = 'dropdown' } = Astro.props;
 
 const localePrefix = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' } as const;
 const locales = ['zh-hant', 'en', 'ja', 'ko'] as const;
 ---
 
-<nav class="lang-switcher" aria-label={labels.label}>
-  {locales.map((l) => (
-    <a href={`${localePrefix[l]}${path}`} aria-current={l === lang ? 'true' : undefined}>
-      {labels[l]}
-    </a>
-  ))}
-</nav>
+{
+  variant === 'dropdown' ? (
+    <details class="lang-menu">
+      <summary aria-label={labels.label}>{labels[lang]}</summary>
+      <ul>
+        {locales.map((l) => (
+          <li>
+            <a href={`${localePrefix[l]}${path}`} aria-current={l === lang ? 'true' : undefined}>
+              {labels[l]}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  ) : (
+    <nav class="lang-inline" aria-label={labels.label}>
+      {locales.map((l) => (
+        <a href={`${localePrefix[l]}${path}`} aria-current={l === lang ? 'true' : undefined}>
+          {labels[l]}
+        </a>
+      ))}
+    </nav>
+  )
+}
 
 <style>
-  .lang-switcher {
+  .lang-menu {
+    position: relative;
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+  }
+  .lang-menu summary {
+    list-style: none;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    color: var(--lang-switcher-color, var(--color-ink));
+    padding-bottom: 2px;
+  }
+  .lang-menu summary::-webkit-details-marker {
+    display: none;
+  }
+  .lang-menu summary::after {
+    content: ' ▾';
+    font-size: 10px;
+    opacity: 0.6;
+  }
+  .lang-menu[open] ul {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    margin: 0;
+    padding: var(--space-2) var(--space-3);
+    list-style: none;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-width: 96px;
+    z-index: 50;
+  }
+  .lang-menu a {
+    text-decoration: none;
+    color: var(--color-ink-soft);
+    white-space: nowrap;
+  }
+  .lang-menu a[aria-current='true'] {
+    color: var(--color-accent-text);
+  }
+
+  .lang-inline {
     display: flex;
     gap: var(--space-2);
     font-family: var(--font-ui);
     font-size: var(--text-sm);
   }
-  .lang-switcher a {
+  .lang-inline a {
     text-decoration: none;
-    color: var(--lang-switcher-color, var(--color-ink-soft));
+    color: var(--color-ink-soft);
   }
-  .lang-switcher a[aria-current='true'] {
-    color: var(--lang-switcher-active-color, var(--color-accent-text));
+  .lang-inline a[aria-current='true'] {
+    color: var(--color-accent-text);
   }
 </style>
+
+<script>
+  // 點擊選單外自動收合
+  document.querySelectorAll<HTMLDetailsElement>('.lang-menu').forEach((menu) => {
+    document.addEventListener('click', (e) => {
+      if (menu.open && !menu.contains(e.target as Node)) menu.open = false;
+    });
+  });
+</script>

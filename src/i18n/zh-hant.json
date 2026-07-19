@@ -1,35 +1,35 @@
 {
   "meta": {
-    "siteName": "flour flour BAKERY",
-    "titleSuffix": " | flour flour BAKERY"
+    "siteName": "FlourFlour BAKERY",
+    "titleSuffix": " | FlourFlour BAKERY"
   },
   "pageMeta": {
     "home": {
-      "title": "flour flour BAKERY｜為每一天,帶來美好與溫暖",
-      "description": "淡水在地精品烘焙 flour flour BAKERY,以夕陽、河岸與花卉為靈感,用魔法般的烘焙為每一天帶來美好與溫暖。"
+      "title": "FlourFlour BAKERY｜Baked by the River — 淡水河岸的精品烘焙",
+      "description": "開在淡水中正路老街屋裡的小烘焙店。湯種吐司、可頌與常溫甜點，以三芝龍眼花蜜與時間慢慢完成。"
     },
     "story": {
-      "title": "品牌故事 | flour flour BAKERY",
-      "description": "2024 年創立於淡水河岸,flour flour 以夕陽、花卉與職人烘焙的日常魔法,說一個屬於淡水的溫柔故事。"
+      "title": "我們的故事 | FlourFlour BAKERY",
+      "description": "河、粉、花、摺、光——五個章節，說我們如何在淡水河邊烤麵包。"
     },
     "products": {
-      "title": "產品介紹 | flour flour BAKERY",
-      "description": "經典麵包、季節限定與常溫甜點,融入龍眼花蜜與在地素材,每日限量出爐。"
+      "title": "產品介紹 | FlourFlour BAKERY",
+      "description": "經典麵包、季節限定與常溫甜點，以三芝龍眼花蜜與在地素材製作，每日限量出爐。"
     },
     "service": {
-      "title": "客服中心 | flour flour BAKERY",
-      "description": "訂購方式、保存須知與常見問題,找不到答案歡迎致電或加 LINE 詢問。"
+      "title": "客服中心 | FlourFlour BAKERY",
+      "description": "訂購方式、保存須知與常見問題。找不到答案，歡迎致電或加 LINE 詢問。"
     },
     "contact": {
-      "title": "聯絡我們 | flour flour BAKERY",
-      "description": "flour flour BAKERY 店址、電話、營業時間與聯絡表單,歡迎來店或來電預訂。"
+      "title": "聯絡我們 | FlourFlour BAKERY",
+      "description": "FlourFlour BAKERY 店址、電話、營業時間與聯絡表單。歡迎來店或來電預訂。"
     },
     "privacy": {
-      "title": "隱私權政策 | flour flour BAKERY",
-      "description": "flour flour BAKERY 個人資料蒐集、處理與利用政策說明。"
+      "title": "隱私權政策 | FlourFlour BAKERY",
+      "description": "FlourFlour BAKERY 個人資料蒐集、處理與利用政策說明。"
     },
     "notFound": {
-      "title": "找不到頁面 | flour flour BAKERY",
+      "title": "找不到頁面 | FlourFlour BAKERY",
       "description": "這片麵包好像被買走了。"
     }
   },
@@ -48,56 +48,44 @@
   },
   "announcement": {
     "enabled": false,
-    "text": "7/21–7/22 店休調整公告,詳情請見門市公告或 LINE 官方帳號。"
+    "text": "7/21–7/22 店休調整公告，詳情請見門市公告或 LINE 官方帳號。"
   },
   "footer": {
-    "tagline": "為每一天,帶來美好與溫暖。",
-    "quickLinksHeading": "快速連結",
-    "contactHeading": "聯絡資訊",
-    "hoursHeading": "營業時間",
-    "hoursValue": "週三–週日 11:00–19:00(週一、二公休)",
-    "copyright": "© 2026 flour flour BAKERY · EST. 2024",
+    "visitHeading": "Visit",
+    "followHeading": "Follow",
+    "infoHeading": "Information",
+    "copyright": "© 2026 FlourFlour BAKERY · EST. 2024",
     "privacyLink": "隱私權政策"
   },
   "home": {
     "hero": {
-      "eyebrow": "FLOUR · FLOWER · TAMSUI",
-      "title": "A Quiet Taste of Tamsui.",
-      "subtitle": "把淡水的光、花與風景,烘進每日出爐的香氣裡。",
-      "cta": "認識 FlourFlour",
-      "cta2": "今日出爐"
+      "subtitle": "把淡水的光，摺進每一層酥香裡。"
     },
     "manifesto": {
-      "eyebrow": "MANIFESTO",
-      "text": "我們相信,真正的奢侈,是慢下來的時間。淡水的風、老屋的光、花與麵粉的氣味,都值得被溫柔以待——這是 flour flour 每天清晨,唯一想做好的一件事。"
+      "text": "麵粉是開始，而時間，讓風味慢慢開花。"
     },
     "signature": {
-      "eyebrow": "SIGNATURE",
       "name": "龍眼蜜湯種吐司",
-      "description": "以湯種工法鎖住水分,揉入在地龍眼花蜜——這是我們從第一天就沒有改變過的配方,也是最能代表 flour flour 對淡水風土理解的一款吐司。",
-      "price": "NT$ 180",
-      "cta": "了解這款吐司"
+      "nameEn": "Longan Honey Tangzhong Toast",
+      "body": "清晨四點的爐火，湯種在前一夜便已備好。我們把三芝龍眼花蜜換掉部分砂糖，讓甜味帶著花的餘韻——切開時，斷面還留著河邊晨霧般的濕潤。",
+      "cta": "認識這款吐司"
+    },
+    "place": {
+      "title": "河岸邊的老屋",
+      "body": "店開在中正路的老街屋裡，木窗外就是渡船頭。傍晚五點半，夕陽會沿著河面走進店裡，在麵包架上停留十五分鐘。",
+      "cta": "閱讀品牌故事"
     },
     "todayFresh": {
-      "eyebrow": "TODAY'S BAKE",
       "heading": "今日出爐",
       "cta": "查看全部產品"
     },
-    "story": {
-      "eyebrow": "OUR STORY",
-      "heading": "老屋、河岸與我們的故事",
-      "body": "flour flour 誕生於淡水的夕陽與河岸,將龍眼花蜜與在地滋味揉進每一次發酵。我們相信,一片麵包也能傳遞魔法般的溫暖。",
-      "cta": "閱讀完整故事"
-    },
     "gift": {
-      "eyebrow": "GIFT",
-      "heading": "送一份,淡水的溫柔",
-      "body": "無論是節日、婚禮或日常心意,flour flour 的禮盒選品,把河岸的溫暖包進每一份心意裡。",
+      "heading": "淡水的禮",
+      "body": "以龍眼蜜瑪德蓮與費南雪為主的常溫禮盒，襯上印著品牌花的米色包裝紙——給遠方的人，一小片淡水的河光。",
       "cta": "選購禮盒"
     },
     "visit": {
-      "eyebrow": "VISIT",
-      "heading": "來店裡,坐坐",
+      "heading": "來店裡，坐坐",
       "hoursLabel": "營業時間",
       "hoursValue": "週三–週日 11:00–19:00",
       "addressLabel": "地址",
@@ -109,22 +97,40 @@
   },
   "story": {
     "pageTitle": "我們的故事",
-    "sections": [
+    "chapters": [
       {
-        "title": "河岸的起點",
-        "body": "2024 年,flour flour 從淡水河畔的一盞燈開始。每天傍晚,夕陽把整條老街染成蜜糖色,河風裡帶著鹹鹹的水氣與麵包剛出爐的香氣。我們在這裡落腳,不只是因為喜歡這片風景,更因為河岸教會我們耐心——等待潮汐、等待發酵、等待每一天最好的光線落下。從一台小烤箱開始,我們決定用淡水的日常,烘焙出屬於這座河岸城市的溫柔滋味。"
+        "no": "01",
+        "labelEn": "The River",
+        "title": "河",
+        "body": "二○二四年，我們在淡水河邊點亮第一盞爐燈。漲潮與退潮教會我們等待——等麵團醒來，也等一天裡最好的光。"
       },
       {
-        "title": "花與麵粉",
-        "body": "flour flour 的品牌花,揉合了自然花卉的柔美、淡水夕陽的光暈、龍眼花的清甜,以及可頌捲曲的弧度——這四個元素,也是我們烘焙時最重要的堅持。我們選用在地龍眼花蜜取代部分精製糖,讓每一口都帶著淡淡蜜香;麵團採用長時間低溫發酵,讓小麥與空氣中的酵母慢慢對話。麵粉與花,看似無關,卻在我們手中,一起長成了同一種溫柔。"
+        "no": "02",
+        "labelEn": "The Flour",
+        "title": "粉",
+        "body": "日本粉與台灣本地小麥各取所長。湯種前夜備好，低溫長時間發酵——麥子和酵母的對話，急不得。"
       },
       {
-        "title": "每日的魔法",
-        "body": "每天清晨四點,烤爐的燈先我們一步亮起。師傅們揉麵、整形、等待,看著麵團在爐火中緩緩膨脹、上色,像是一場每天都會發生、卻永遠不會膩的魔法。我們刻意維持限量出爐,不是為了製造稀有感,而是希望每一款產品,都能被好好對待、好好烘烤、好好交到你手上。用魔法般的烘焙,為每一天帶來美好與溫暖——這是我們每天清晨,對自己也對你的承諾。"
+        "no": "03",
+        "labelEn": "The Flower",
+        "title": "花",
+        "body": "品牌花由花瓣、夕陽與水面組成。配方裡則是三芝的龍眼花蜜——替換部分砂糖，甜味便有了花的形狀。"
+      },
+      {
+        "no": "04",
+        "labelEn": "The Fold",
+        "title": "摺",
+        "body": "可頌的二十七層，來自三次三摺。奶油要冷，手要快——摺進去的空氣，出爐時會變成聲音。"
+      },
+      {
+        "no": "05",
+        "labelEn": "The Light",
+        "title": "光",
+        "body": "傍晚五點半，夕陽沿河面進店，在麵包架上停留十五分鐘。我們把這段光，留給當天最後一爐。"
       }
     ],
-    "quote": "用魔法般的烘焙,為每一天帶來美好與溫暖。",
-    "cta": "看看今天的麵包 →"
+    "quote": "麵粉、花，與河面的光。",
+    "cta": "看看今天的麵包"
   },
   "products": {
     "bannerTitle": "產品介紹",
@@ -133,23 +139,21 @@
       "seasonal": "季節限定",
       "pastry": "常溫甜點"
     },
-    "limitedBadge": "每日限量 {n} 個",
-    "soldOutBadge": "本日完售",
-    "footnote": "產品每日限量,建議來電預留",
+    "footnote": "產品每日限量，建議來電預留。",
     "footnoteCta": "致電預訂",
     "items": [
-      { "id": "longan-tangzhong-toast", "category": "classic", "name": "龍眼蜜湯種吐司", "description": "湯種工法鎖住水分,淡淡龍眼蜜香,口感綿密回甘", "price": 180, "dailyLimit": 15, "soldOut": false },
-      { "id": "lean-country-loaf", "category": "classic", "name": "魯邦鄉村", "description": "天然魯邦種長時間發酵,外皮酥脆、內裡濕潤有嚼勁", "price": 220, "dailyLimit": 12, "soldOut": false },
-      { "id": "sea-salt-croissant", "category": "classic", "name": "海鹽可頌", "description": "法式奶油可頌撒上海鹽,層層酥脆、鹹甜交織", "price": 68, "dailyLimit": 30, "soldOut": false },
-      { "id": "whole-wheat-walnut", "category": "classic", "name": "全麥核桃", "description": "全麥麵粉搭配烤核桃,樸實麥香中帶著堅果脆度", "price": 190, "dailyLimit": 20, "soldOut": false },
-      { "id": "sunset-apricot-danish", "category": "seasonal", "name": "夕陽杏桃丹麥", "description": "橙黃杏桃鋪滿酥脆丹麥,如夕陽落在麵包上", "price": 95, "dailyLimit": 18, "soldOut": false },
-      { "id": "longan-blossom-bagel", "category": "seasonal", "name": "龍眼花蜜貝果", "description": "紮實有嚼勁的貝果,拌入龍眼花蜜提升自然甜香", "price": 85, "dailyLimit": 25, "soldOut": false },
-      { "id": "fig-country-loaf", "category": "seasonal", "name": "無花果鄉村", "description": "無花果乾與鄉村麵團同烤,果香濃郁、口感豐富", "price": 260, "dailyLimit": 10, "soldOut": true },
-      { "id": "osmanthus-chestnut", "category": "seasonal", "name": "桂花栗子麵包", "description": "桂花香氣點綴綿密栗子餡,秋日限定的溫柔滋味", "price": 110, "dailyLimit": 16, "soldOut": false },
-      { "id": "longan-madeleine", "category": "pastry", "name": "龍眼蜜瑪德蓮", "description": "貝殼造型瑪德蓮,奶油香氣中帶著龍眼蜜的餘韻", "price": 60, "dailyLimit": 40, "soldOut": false },
-      { "id": "rose-lychee-dacquoise", "category": "pastry", "name": "玫瑰荔枝達克瓦茲", "description": "杏仁蛋白餅夾著玫瑰荔枝奶油,細緻優雅的甜點", "price": 150, "dailyLimit": 20, "soldOut": false },
-      { "id": "rice-chiffon", "category": "pastry", "name": "米粉戚風", "description": "以米穀粉製作,口感輕盈綿密,無麩質選擇", "price": 280, "dailyLimit": 8, "soldOut": false },
-      { "id": "brown-sugar-financier", "category": "pastry", "name": "黑糖費南雪", "description": "黑糖焦香融入奶油蛋糕體,濕潤紮實、香氣持久", "price": 140, "dailyLimit": 25, "soldOut": false }
+      { "id": "longan-tangzhong-toast", "category": "classic", "name": "龍眼蜜湯種吐司", "nameEn": "Longan Honey Tangzhong Toast", "description": "湯種工法鎖住水分，淡淡龍眼蜜香，口感綿密回甘。", "price": 180, "dailyLimit": 15, "status": "limited", "soldOut": false },
+      { "id": "lean-country-loaf", "category": "classic", "name": "魯邦鄉村", "nameEn": "Levain Country Loaf", "description": "天然魯邦種長時間發酵，外皮酥脆、內裡濕潤有嚼勁。", "price": 220, "dailyLimit": 12, "status": "limited", "soldOut": false },
+      { "id": "sea-salt-croissant", "category": "classic", "name": "海鹽可頌", "nameEn": "Sea Salt Croissant", "description": "法式奶油可頌撒上海鹽，層層酥脆、鹹甜交織。", "price": 68, "dailyLimit": 30, "status": "available", "soldOut": false },
+      { "id": "whole-wheat-walnut", "category": "classic", "name": "全麥核桃", "nameEn": "Whole Wheat Walnut", "description": "全麥麵粉搭配烤核桃，樸實麥香中帶著堅果脆度。", "price": 190, "dailyLimit": 20, "status": "available", "soldOut": false },
+      { "id": "sunset-apricot-danish", "category": "seasonal", "name": "夕陽杏桃丹麥", "nameEn": "Sunset Apricot Danish", "description": "橙黃杏桃鋪滿酥脆丹麥，如夕陽落在麵包上。", "price": 95, "dailyLimit": 18, "status": "available", "soldOut": false },
+      { "id": "longan-blossom-bagel", "category": "seasonal", "name": "龍眼花蜜貝果", "nameEn": "Longan Blossom Honey Bagel", "description": "紮實有嚼勁的貝果，拌入龍眼花蜜提升自然甜香。", "price": 85, "dailyLimit": 25, "status": "available", "soldOut": false },
+      { "id": "fig-country-loaf", "category": "seasonal", "name": "無花果鄉村", "nameEn": "Fig Country Loaf", "description": "無花果乾與鄉村麵團同烤，果香濃郁、口感豐富。", "price": 260, "dailyLimit": 10, "status": "soldout", "soldOut": true },
+      { "id": "osmanthus-chestnut", "category": "seasonal", "name": "桂花栗子麵包", "nameEn": "Osmanthus Chestnut Bread", "description": "桂花香氣點綴綿密栗子餡，秋日限定的滋味。", "price": 110, "dailyLimit": 16, "status": "available", "soldOut": false },
+      { "id": "longan-madeleine", "category": "pastry", "name": "龍眼蜜瑪德蓮", "nameEn": "Longan Honey Madeleine", "description": "貝殼造型瑪德蓮，奶油香氣中帶著龍眼蜜的餘韻。", "price": 60, "dailyLimit": 40, "status": "available", "soldOut": false },
+      { "id": "rose-lychee-dacquoise", "category": "pastry", "name": "玫瑰荔枝達克瓦茲", "nameEn": "Rose Lychee Dacquoise", "description": "杏仁蛋白餅夾著玫瑰荔枝奶油，細緻優雅的甜點。", "price": 150, "dailyLimit": 20, "status": "available", "soldOut": false },
+      { "id": "rice-chiffon", "category": "pastry", "name": "米粉戚風", "nameEn": "Rice Flour Chiffon", "description": "以米穀粉製作，口感輕盈綿密，無麩質選擇。", "price": 280, "dailyLimit": 8, "status": "limited", "soldOut": false },
+      { "id": "brown-sugar-financier", "category": "pastry", "name": "黑糖費南雪", "nameEn": "Brown Sugar Financier", "description": "黑糖焦香融入奶油蛋糕體，濕潤紮實、香氣持久。", "price": 140, "dailyLimit": 25, "status": "available", "soldOut": false }
     ]
   },
   "service": {
@@ -157,31 +161,31 @@
     "faq": {
       "orderingHeading": "訂購",
       "orderingItems": [
-        { "question": "如何預訂?", "answer": "歡迎於營業時間致電 02-2621-XXXX,或透過 LINE 官方帳號 @flourflour 留言預訂,我們會盡快為您確認取貨時間。" },
-        { "question": "可否宅配?", "answer": "常溫甜點(瑪德蓮、達克瓦茲、戚風、費南雪)可宅配寄送;麵包類因新鮮度考量,目前僅提供店取,暫不宅配。" },
-        { "question": "大量訂購?", "answer": "婚禮小物、企業禮盒等大量訂購,請於 3 日前致電或透過 LINE 與我們聯繫,以便安排烘焙數量與取貨時間。" }
+        { "question": "如何預訂？", "answer": "歡迎於營業時間致電 02-2621-XXXX，或透過 LINE 官方帳號 @flourflour 留言預訂，我們會盡快為您確認取貨時間。" },
+        { "question": "可否宅配？", "answer": "常溫甜點（瑪德蓮、達克瓦茲、戚風、費南雪）可宅配寄送；麵包類因新鮮度考量，目前僅提供店取，暫不宅配。" },
+        { "question": "大量訂購？", "answer": "婚禮小物、企業禮盒等大量訂購，請於 3 日前致電或透過 LINE 與我們聯繫，以便安排烘焙數量與取貨時間。" }
       ],
       "productHeading": "商品",
       "productItems": [
-        { "question": "保存方式與期限", "answer": "麵包建議常溫保存並於購買當日或隔日食用完畢;常溫甜點可冷藏保存 3–5 天,食用前回溫風味更佳。" },
-        { "question": "過敏原標示", "answer": "產品可能含有麩質、蛋、奶製品及堅果,詳細過敏原標示請於現場詢問門市人員,或於訂購時告知我們協助確認。" },
-        { "question": "是否有素食選項", "answer": "目前部分產品含有奶油、蜂蜜等成分,尚無全素選項;若有飲食禁忌,歡迎訂購前先與我們聯繫確認成分。" }
+        { "question": "保存方式與期限", "answer": "麵包建議常溫保存並於購買當日或隔日食用完畢；常溫甜點可冷藏保存 3–5 天，食用前回溫風味更佳。" },
+        { "question": "過敏原標示", "answer": "產品可能含有麩質、蛋、奶製品及堅果，詳細過敏原標示請於現場詢問門市人員，或於訂購時告知我們協助確認。" },
+        { "question": "是否有素食選項", "answer": "目前部分產品含有奶油、蜂蜜等成分，尚無全素選項；若有飲食禁忌，歡迎訂購前先與我們聯繫確認成分。" }
       ]
     },
     "orderInfo": {
       "heading": "訂購須知",
       "pickupLabel": "取貨時間",
-      "pickupValue": "訂購商品請於約定時間內至店內取貨,逾時未取將視情況保留或取消訂單。",
+      "pickupValue": "訂購商品請於約定時間內至店內取貨，逾時未取將視情況保留或取消訂單。",
       "paymentLabel": "付款方式",
       "paymentValue": "現金 / 轉帳 / LINE Pay",
       "cancellationLabel": "取消政策",
-      "cancellationValue": "取消訂單請於取貨前一日告知;當日取消或未取貨恕無法退款。"
+      "cancellationValue": "取消訂單請於取貨前一日告知；當日取消或未取貨恕無法退款。"
     },
     "sidebar": {
-      "heading": "找不到答案?",
+      "heading": "找不到答案？",
       "callCta": "致電詢問",
       "lineCta": "加 LINE 詢問",
-      "contactCta": "前往聯絡我們 →"
+      "contactCta": "前往聯絡我們"
     }
   },
   "contact": {
@@ -192,9 +196,9 @@
     "emailLabel": "Email",
     "emailValue": "hello@flourflour.com.tw",
     "addressLabel": "地址",
-    "addressValue": "新北市淡水區中正路 123 號(近淡水老街/河岸)",
+    "addressValue": "新北市淡水區中正路 123 號（近淡水老街／河岸）",
     "hoursLabel": "營業時間",
-    "hoursValue": "週三–週日 11:00–19:00(週一、二公休)",
+    "hoursValue": "週三–週日 11:00–19:00（週一、二公休）",
     "socialLabel": "社群",
     "instagram": "@flourflour.bakery",
     "line": "@flourflour",
@@ -208,7 +212,7 @@
       "subjectOptions": ["一般詢問", "大量訂購", "合作提案"],
       "messageLabel": "訊息",
       "submitCta": "送出",
-      "successMessage": "已收到您的訊息,我們會盡快回覆。",
+      "successMessage": "已收到您的訊息，我們會盡快回覆。",
       "errorRequired": "此欄位為必填",
       "errorEmail": "請輸入正確的 Email 格式",
       "privacyNotePrefix": "送出表示您同意我們依",
@@ -218,24 +222,24 @@
   },
   "privacy": {
     "title": "隱私權政策",
-    "lastUpdated": "本政策範本由 AI 參考業界慣例產出,正式上線前建議由法務或專業人士審閱。",
+    "lastUpdated": "本政策範本由 AI 參考業界慣例產出，正式上線前建議由法務或專業人士審閱。",
     "sections": [
-      { "heading": "適用範圍", "body": "本政策說明 flour flour BAKERY 官方網站(以下稱「本網站」)如何蒐集、處理及利用您透過網站所提供的個人資料。本政策不適用於本網站以外之連結網站,亦不適用於非本網站授權或委託之人員。" },
-      { "heading": "個人資料的蒐集方式與項目", "body": "當您透過本網站「聯絡我們」表單與我們聯繫時,我們會蒐集您填寫的姓名、電話、Email 及訊息內容;若您透過電話或 LINE 官方帳號與我們聯繫並完成訂購,我們也會取得您提供的聯絡方式與取貨資訊,以利安排烘焙與交付。" },
-      { "heading": "個人資料蒐集之目的", "body": "上述資訊僅用於回覆您的詢問、確認與安排訂單內容、聯繫取貨相關事宜,以及在您同意的範圍內提供產品與服務資訊,不會用於前述目的以外之用途。" },
-      { "heading": "個人資料之保存期限", "body": "您的個人資料將保存至詢問或訂單完成後之合理期間,逾期將依規定刪除或進行去識別化處理。" },
-      { "heading": "資料之保護", "body": "本網站對於個人資料之保護採取合理之安全防護措施,僅授權必要人員得以接觸您的個人資料並使其負保密義務;如委託協力廠商(如網站代管、電子郵件服務)協助處理相關資料,亦會要求其遵守相同之保密義務。" },
-      { "heading": "網站對外的相關連結", "body": "本網站上之 Instagram、LINE 官方帳號等外部連結,由該平台依其自身隱私權政策各自管理,與本網站之隱私權保護政策無涉;當您點選連結進入其他網站時,建議您詳閱該網站之隱私權保護政策。" },
-      { "heading": "與第三人共用個人資料之政策", "body": "本網站絕不會將您的個人資料提供、交換、出租或出售予任何其他個人、團體、私人企業或公務機關,除非事先取得您的書面同意,或法律另有規定。" },
-      { "heading": "Cookie 之使用", "body": "本網站目前未安裝流量分析或廣告追蹤工具,不會透過 Cookie 蒐集您的瀏覽行為;若未來因網站優化需求安裝相關工具,將於本政策更新後另行公告。" },
-      { "heading": "個人資料之查閱、更正與刪除", "body": "您可隨時透過下方聯絡窗口,要求查詢、複製、補充、更正您的個人資料,或要求本網站停止蒐集、處理及利用您的個人資料;我們將於合理期間內處理您的請求。" },
-      { "heading": "隱私權保護政策之修正", "body": "本政策將因應法令及網站服務調整而修正,修正後之內容將公告於本頁面,請您隨時留意本頁面之更新。" },
-      { "heading": "聯絡窗口", "body": "如對本政策或您的個人資料有任何疑問,歡迎透過 Email hello@flourflour.com.tw 或電話 02-2621-XXXX 與我們聯繫。" }
+      { "heading": "適用範圍", "body": "本政策說明 FlourFlour BAKERY 官方網站（以下稱「本網站」）如何蒐集、處理及利用您透過網站所提供的個人資料。本政策不適用於本網站以外之連結網站，亦不適用於非本網站授權或委託之人員。" },
+      { "heading": "個人資料的蒐集方式與項目", "body": "當您透過本網站「聯絡我們」表單與我們聯繫時，我們會蒐集您填寫的姓名、電話、Email 及訊息內容；若您透過電話或 LINE 官方帳號與我們聯繫並完成訂購，我們也會取得您提供的聯絡方式與取貨資訊，以利安排烘焙與交付。" },
+      { "heading": "個人資料蒐集之目的", "body": "上述資訊僅用於回覆您的詢問、確認與安排訂單內容、聯繫取貨相關事宜，以及在您同意的範圍內提供產品與服務資訊，不會用於前述目的以外之用途。" },
+      { "heading": "個人資料之保存期限", "body": "您的個人資料將保存至詢問或訂單完成後之合理期間，逾期將依規定刪除或進行去識別化處理。" },
+      { "heading": "資料之保護", "body": "本網站對於個人資料之保護採取合理之安全防護措施，僅授權必要人員得以接觸您的個人資料並使其負保密義務；如委託協力廠商（如網站代管、電子郵件服務）協助處理相關資料，亦會要求其遵守相同之保密義務。" },
+      { "heading": "網站對外的相關連結", "body": "本網站上之 Instagram、LINE 官方帳號等外部連結，由該平台依其自身隱私權政策各自管理，與本網站之隱私權保護政策無涉；當您點選連結進入其他網站時，建議您詳閱該網站之隱私權保護政策。" },
+      { "heading": "與第三人共用個人資料之政策", "body": "本網站絕不會將您的個人資料提供、交換、出租或出售予任何其他個人、團體、私人企業或公務機關，除非事先取得您的書面同意，或法律另有規定。" },
+      { "heading": "Cookie 之使用", "body": "本網站目前未安裝流量分析或廣告追蹤工具，不會透過 Cookie 蒐集您的瀏覽行為；若未來因網站優化需求安裝相關工具，將於本政策更新後另行公告。" },
+      { "heading": "個人資料之查閱、更正與刪除", "body": "您可隨時透過下方聯絡窗口，要求查詢、複製、補充、更正您的個人資料，或要求本網站停止蒐集、處理及利用您的個人資料；我們將於合理期間內處理您的請求。" },
+      { "heading": "隱私權保護政策之修正", "body": "本政策將因應法令及網站服務調整而修正，修正後之內容將公告於本頁面，請您隨時留意本頁面之更新。" },
+      { "heading": "聯絡窗口", "body": "如對本政策或您的個人資料有任何疑問，歡迎透過 Email hello@flourflour.com.tw 或電話 02-2621-XXXX 與我們聯繫。" }
     ]
   },
   "notFound": {
     "message": "這片麵包好像被買走了。",
     "homeCta": "回首頁",
-    "productsCta": "看看今天的麵包 →"
+    "productsCta": "看看今天的麵包"
   }
 }

@@ -51,20 +51,20 @@ const jsonLd = {
 
   {categoryOrder.map((cat) => (
     <section class="section container" id={cat}>
-      <h2 class="category-heading fade-up">{t.products.categories[cat]}</h2>
+      <h2 class="category-heading reveal-text">{t.products.categories[cat]}</h2>
       <div class="product-grid">
         {t.products.items
           .filter((item) => item.category === cat)
           .map((item) => (
-            <ProductCard item={item} limitedBadgeTemplate={t.products.limitedBadge} soldOutBadge={t.products.soldOutBadge} />
+            <ProductCard item={item} />
           ))}
       </div>
     </section>
   ))}
 
-  <section class="container products-footnote fade-up">
+  <section class="container products-footnote reveal-text">
     <p>{t.products.footnote}</p>
-    <a class="btn" href={`tel:${t.contact.phoneValue.replace(/-/g, '')}`}>{t.products.footnoteCta}</a>
+    <a class="link-arrow" href={`tel:${t.contact.phoneValue.replace(/-/g, '')}`}>{t.products.footnoteCta} →</a>
   </section>
 </Base>
 

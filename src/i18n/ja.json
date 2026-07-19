@@ -1,35 +1,35 @@
 {
   "meta": {
-    "siteName": "flour flour BAKERY",
-    "titleSuffix": " | flour flour BAKERY"
+    "siteName": "FlourFlour BAKERY",
+    "titleSuffix": " | FlourFlour BAKERY"
   },
   "pageMeta": {
     "home": {
-      "title": "flour flour BAKERY|毎日に、やさしいぬくもりを",
-      "description": "淡水の河岸に佇む精品ベーカリー flour flour BAKERY。夕陽と花々にインスパイアされた、魔法のような焼きたてパンで毎日にぬくもりを。"
+      "title": "FlourFlour BAKERY|Baked by the River — 淡水・川辺のベーカリー",
+      "description": "淡水・中正路の古い街屋に佇む小さなベーカリー。湯種食パンやクロワッサン、焼き菓子を、三芝の龍眼花蜜と時間をかけて仕上げます。"
     },
     "story": {
-      "title": "ブランドストーリー | flour flour BAKERY",
-      "description": "2024年、淡水の河岸で生まれた flour flour。夕陽と花、職人の日々の魔法が紡ぐ、やさしい物語。"
+      "title": "私たちの物語 | FlourFlour BAKERY",
+      "description": "川、粉、花、折り、光——五つの章で綴る、淡水河のほとりでパンを焼く日々。"
     },
     "products": {
-      "title": "商品紹介 | flour flour BAKERY",
-      "description": "定番パン、季節限定、焼き菓子。龍眼の花蜜と地元の素材を使い、毎日少量ずつ焼き上げています。"
+      "title": "商品紹介 | FlourFlour BAKERY",
+      "description": "定番パン、季節限定、焼き菓子。三芝の龍眼花蜜と地元の素材を使い、毎日少量ずつ焼き上げています。"
     },
     "service": {
-      "title": "カスタマーサービス | flour flour BAKERY",
+      "title": "カスタマーサービス | FlourFlour BAKERY",
       "description": "ご注文方法、保存方法、よくあるご質問。お答えが見つからない場合はお電話または LINE でお問い合わせください。"
     },
     "contact": {
-      "title": "お問い合わせ | flour flour BAKERY",
-      "description": "flour flour BAKERY の住所・電話番号・営業時間・お問い合わせフォームはこちら。ご来店、お電話でのご予約をお待ちしております。"
+      "title": "お問い合わせ | FlourFlour BAKERY",
+      "description": "FlourFlour BAKERY の住所・電話番号・営業時間・お問い合わせフォームはこちら。ご来店、お電話でのご予約をお待ちしております。"
     },
     "privacy": {
-      "title": "プライバシーポリシー | flour flour BAKERY",
-      "description": "flour flour BAKERY における個人情報の収集・利用・保護についてのご案内。"
+      "title": "プライバシーポリシー | FlourFlour BAKERY",
+      "description": "FlourFlour BAKERY における個人情報の収集・利用・保護についてのご案内。"
     },
     "notFound": {
-      "title": "ページが見つかりません | flour flour BAKERY",
+      "title": "ページが見つかりません | FlourFlour BAKERY",
       "description": "このパンはもう売り切れてしまったようです。"
     }
   },
@@ -51,52 +51,40 @@
     "text": "7/21〜7/22 は営業時間を変更いたします。詳細は LINE 公式アカウントをご確認ください。"
   },
   "footer": {
-    "tagline": "毎日に、やさしいぬくもりを。",
-    "quickLinksHeading": "クイックリンク",
-    "contactHeading": "お問い合わせ先",
-    "hoursHeading": "営業時間",
-    "hoursValue": "水曜〜日曜 11:00〜19:00(月・火定休)",
-    "copyright": "© 2026 flour flour BAKERY · EST. 2024",
+    "visitHeading": "Visit",
+    "followHeading": "Follow",
+    "infoHeading": "Information",
+    "copyright": "© 2026 FlourFlour BAKERY · EST. 2024",
     "privacyLink": "プライバシーポリシー"
   },
   "home": {
     "hero": {
-      "eyebrow": "FLOUR · FLOWER · TAMSUI",
-      "title": "A Quiet Taste of Tamsui.",
-      "subtitle": "淡水の光、花、そして景色を、毎朝焼きたての香りに閉じ込めて。",
-      "cta": "FlourFlourを知る",
-      "cta2": "本日の焼きたて"
+      "subtitle": "淡水の光を、幾重もの生地に折り込んで。"
     },
     "manifesto": {
-      "eyebrow": "MANIFESTO",
-      "text": "本当の贅沢とは、急がない時間だと私たちは考えています。淡水を渡る風、古い家に差し込む光、小麦粉と花の香り——そのひとつひとつに、やさしく向き合う価値がある。それが flour flour が毎朝、ただひとつ大切にしていることです。"
+      "text": "小麦粉から、すべてが始まる。そして時間が、風味をゆっくり開かせる。"
     },
     "signature": {
-      "eyebrow": "SIGNATURE",
       "name": "龍眼蜂蜜湯種食パン",
-      "description": "湯種製法で水分を閉じ込め、地元産の龍眼花蜜を練り込んだ——創業以来変わらないレシピであり、flour flour が淡水の風土をどう見つめているかを最もよく表す一斤です。",
-      "price": "NT$ 180",
+      "nameEn": "Longan Honey Tangzhong Toast",
+      "body": "窯に火が入るのは朝四時。湯種は前の晩に仕込んでおきます。砂糖の一部を三芝産の龍眼花蜜に置き換え、甘さに花の余韻を。切り分けると、断面には川辺の朝霧のような潤いが残ります。",
       "cta": "この食パンを知る"
     },
+    "place": {
+      "title": "川辺の古い家",
+      "body": "店は中正路の古い街屋にあります。木の窓の向こうは渡し場。夕方五時半になると、夕陽が川面を伝って店に入り、パン棚の上に十五分だけとどまります。",
+      "cta": "物語を読む"
+    },
     "todayFresh": {
-      "eyebrow": "TODAY'S BAKE",
       "heading": "本日の焼きたて",
       "cta": "すべての商品を見る"
     },
-    "story": {
-      "eyebrow": "OUR STORY",
-      "heading": "古い家、河岸、そして私たちの物語",
-      "body": "flour flour は淡水の夕陽と河岸から生まれました。龍眼の花蜜と地元の味わいを、ひとつひとつの発酵に込めています。一切れのパンにも、魔法のようなぬくもりを届けられると信じて。",
-      "cta": "物語の続きを読む"
-    },
     "gift": {
-      "eyebrow": "GIFT",
-      "heading": "淡水のやさしさを、贈りものに",
-      "body": "季節の行事にも、結婚のお祝いにも、日々のちょっとした気持ちにも。flour flour のギフトセレクションが、河岸のぬくもりをひと箱に込めてお届けします。",
+      "heading": "淡水からの贈りもの",
+      "body": "龍眼蜜マドレーヌとフィナンシェを中心に詰めた常温ギフト。ブランドフラワーを刷った生成りの包み紙で。遠くの誰かに、淡水の川明かりをひとかけら。",
       "cta": "ギフトを見る"
     },
     "visit": {
-      "eyebrow": "VISIT",
       "heading": "お店で、ゆっくりと",
       "hoursLabel": "営業時間",
       "hoursValue": "水曜〜日曜 11:00〜19:00",
@@ -109,22 +97,40 @@
   },
   "story": {
     "pageTitle": "私たちの物語",
-    "sections": [
+    "chapters": [
       {
-        "title": "河岸からはじまった",
-        "body": "2024年、flour flour は淡水河のほとりにともった、ひとつの灯りから始まりました。夕暮れどき、街並みは蜂蜜色に染まり、川風には潮の香りと焼きたてパンの匂いが混ざり合います。私たちがこの場所を選んだのは、景色が好きだからだけではありません。河岸は、潮の満ち引きを待つように、発酵を待つように、そして一日でいちばん美しい光を待つように、私たちに「待つこと」の大切さを教えてくれました。小さなオーブンひとつから、淡水の日常をそのままパンに焼き込むことを決めたのです。"
+        "no": "01",
+        "labelEn": "The River",
+        "title": "川",
+        "body": "二〇二四年、淡水河のほとりで最初の窯の灯りをともしました。満ち引きが教えてくれたのは、待つこと。生地が目覚めるのを、そして一日でいちばんいい光を。"
       },
       {
-        "title": "花と小麦粉",
-        "body": "flour flour のブランドフラワーは、自然の花々のやわらかさ、淡水の夕陽のきらめき、龍眼の花の甘さ、そしてクロワッサンの丸みという4つの要素を重ね合わせています。これらは、私たちがパンを焼くうえで大切にしていることそのものです。精製された砂糖の一部を地元の龍眼花蜜に置き換え、ほのかな蜜の香りを一口ごとに。生地は低温でじっくりと長時間発酵させ、小麦と酵母が静かに対話する時間をつくります。花と小麦粉、一見関係のないふたつが、私たちの手の中でひとつのやさしさへと育っていきます。"
+        "no": "02",
+        "labelEn": "The Flour",
+        "title": "粉",
+        "body": "日本の粉と台湾の小麦、それぞれの持ち味を生かして。湯種は前夜に仕込み、低温でじっくり発酵。麦と酵母の対話は、急かせません。"
       },
       {
-        "title": "毎朝の魔法",
-        "body": "毎朝4時、私たちより先にオーブンの灯りがともります。生地をこね、成形し、じっと待つ――炉の中でゆっくりと膨らみ、色づいていく様子は、毎日繰り返されても決して飽きることのない小さな魔法のようです。数量をあえて限定しているのは、希少性を演出するためではなく、一つひとつの商品を丁寧に扱い、丁寧に焼き上げ、丁寧にお客様の手にお届けしたいから。魔法のような焼きたてで、毎日にぬくもりを――それが私たちが毎朝、自分自身とお客様に交わす約束です。"
+        "no": "03",
+        "labelEn": "The Flower",
+        "title": "花",
+        "body": "ブランドフラワーは花びらと夕陽、水面から生まれました。配合にあるのは三芝の龍眼花蜜。砂糖の一部を置き換えると、甘さは花のかたちになります。"
+      },
+      {
+        "no": "04",
+        "labelEn": "The Fold",
+        "title": "折り",
+        "body": "クロワッサンの二十七層は、三つ折りを三回重ねたもの。バターは冷たく、手は速く。折り込んだ空気は、窯から出るとき音に変わります。"
+      },
+      {
+        "no": "05",
+        "labelEn": "The Light",
+        "title": "光",
+        "body": "夕方五時半、夕陽が川面を伝って店に入り、パン棚に十五分とどまります。その光は、その日最後の一窯のために。"
       }
     ],
-    "quote": "魔法のような焼きたてで、毎日にぬくもりを。",
-    "cta": "本日の焼きたてを見る →"
+    "quote": "粉と花と、川面の光。",
+    "cta": "本日の焼きたてを見る"
   },
   "products": {
     "bannerTitle": "商品紹介",
@@ -133,23 +139,21 @@
       "seasonal": "季節限定",
       "pastry": "焼き菓子"
     },
-    "limitedBadge": "1日{n}個限定",
-    "soldOutBadge": "本日完売",
     "footnote": "商品は数量限定です。お電話でのご予約をおすすめします。",
     "footnoteCta": "電話で予約する",
     "items": [
-      { "id": "longan-tangzhong-toast", "category": "classic", "name": "龍眼蜂蜜湯種食パン", "description": "湯種製法で水分を閉じ込め、ほんのり龍眼蜜が香るしっとり食パン", "price": 180, "dailyLimit": 15, "soldOut": false },
-      { "id": "lean-country-loaf", "category": "classic", "name": "ルヴァン・カンパーニュ", "description": "天然ルヴァン種でじっくり発酵、パリッとした皮ともちもちの中身", "price": 220, "dailyLimit": 12, "soldOut": false },
-      { "id": "sea-salt-croissant", "category": "classic", "name": "海塩クロワッサン", "description": "バター香るフレンチクロワッサンに海塩をひとふり、甘塩っぱい層の食感", "price": 68, "dailyLimit": 30, "soldOut": false },
-      { "id": "whole-wheat-walnut", "category": "classic", "name": "全粒粉くるみパン", "description": "全粒粉とローストくるみ、素朴な麦の香りとナッツの食感", "price": 190, "dailyLimit": 20, "soldOut": false },
-      { "id": "sunset-apricot-danish", "category": "seasonal", "name": "夕陽アプリコットデニッシュ", "description": "サクサクのデニッシュに黄金色のアプリコット、夕陽が舞い降りたよう", "price": 95, "dailyLimit": 18, "soldOut": false },
-      { "id": "longan-blossom-bagel", "category": "seasonal", "name": "龍眼花蜜ベーグル", "description": "しっかりもちもちのベーグルに龍眼花蜜を練り込み、自然な甘さを添えて", "price": 85, "dailyLimit": 25, "soldOut": false },
-      { "id": "fig-country-loaf", "category": "seasonal", "name": "いちじくカンパーニュ", "description": "ドライいちじくをカンパーニュ生地に練り込んだ、豊かな果実の風味", "price": 260, "dailyLimit": 10, "soldOut": true },
-      { "id": "osmanthus-chestnut", "category": "seasonal", "name": "金木犀と栗のパン", "description": "金木犀の香りとしっとり栗餡、秋限定のやさしい味わい", "price": 110, "dailyLimit": 16, "soldOut": false },
-      { "id": "longan-madeleine", "category": "pastry", "name": "龍眼蜜マドレーヌ", "description": "貝殻型のマドレーヌ、バターの香りに龍眼蜜の余韻がふんわりと", "price": 60, "dailyLimit": 40, "soldOut": false },
-      { "id": "rose-lychee-dacquoise", "category": "pastry", "name": "ローズライチダックワーズ", "description": "アーモンドのメレンゲにローズとライチのクリーム、繊細で上品な味わい", "price": 150, "dailyLimit": 20, "soldOut": false },
-      { "id": "rice-chiffon", "category": "pastry", "name": "米粉シフォンケーキ", "description": "米粉を使用し、ふんわり軽い口当たり。グルテンフリーの選択肢に", "price": 280, "dailyLimit": 8, "soldOut": false },
-      { "id": "brown-sugar-financier", "category": "pastry", "name": "黒糖フィナンシェ", "description": "香ばしい黒糖をバター生地に練り込み、しっとり濃厚な味わいが続く", "price": 140, "dailyLimit": 25, "soldOut": false }
+      { "id": "longan-tangzhong-toast", "category": "classic", "name": "龍眼蜂蜜湯種食パン", "nameEn": "Longan Honey Tangzhong Toast", "description": "湯種製法で水分を閉じ込め、ほんのり龍眼蜜が香るしっとり食パン。", "price": 180, "dailyLimit": 15, "status": "limited", "soldOut": false },
+      { "id": "lean-country-loaf", "category": "classic", "name": "ルヴァン・カンパーニュ", "nameEn": "Levain Country Loaf", "description": "天然ルヴァン種でじっくり発酵、パリッとした皮ともちもちの中身。", "price": 220, "dailyLimit": 12, "status": "limited", "soldOut": false },
+      { "id": "sea-salt-croissant", "category": "classic", "name": "海塩クロワッサン", "nameEn": "Sea Salt Croissant", "description": "バター香るフレンチクロワッサンに海塩をひとふり、甘塩っぱい層の食感。", "price": 68, "dailyLimit": 30, "status": "available", "soldOut": false },
+      { "id": "whole-wheat-walnut", "category": "classic", "name": "全粒粉くるみパン", "nameEn": "Whole Wheat Walnut", "description": "全粒粉とローストくるみ、素朴な麦の香りとナッツの食感。", "price": 190, "dailyLimit": 20, "status": "available", "soldOut": false },
+      { "id": "sunset-apricot-danish", "category": "seasonal", "name": "夕陽アプリコットデニッシュ", "nameEn": "Sunset Apricot Danish", "description": "サクサクのデニッシュに黄金色のアプリコット、夕陽が舞い降りたよう。", "price": 95, "dailyLimit": 18, "status": "available", "soldOut": false },
+      { "id": "longan-blossom-bagel", "category": "seasonal", "name": "龍眼花蜜ベーグル", "nameEn": "Longan Blossom Honey Bagel", "description": "しっかりもちもちのベーグルに龍眼花蜜を練り込み、自然な甘さを添えて。", "price": 85, "dailyLimit": 25, "status": "available", "soldOut": false },
+      { "id": "fig-country-loaf", "category": "seasonal", "name": "いちじくカンパーニュ", "nameEn": "Fig Country Loaf", "description": "ドライいちじくをカンパーニュ生地に練り込んだ、豊かな果実の風味。", "price": 260, "dailyLimit": 10, "status": "soldout", "soldOut": true },
+      { "id": "osmanthus-chestnut", "category": "seasonal", "name": "金木犀と栗のパン", "nameEn": "Osmanthus Chestnut Bread", "description": "金木犀の香りとしっとり栗餡、秋限定の味わい。", "price": 110, "dailyLimit": 16, "status": "available", "soldOut": false },
+      { "id": "longan-madeleine", "category": "pastry", "name": "龍眼蜜マドレーヌ", "nameEn": "Longan Honey Madeleine", "description": "貝殻型のマドレーヌ、バターの香りに龍眼蜜の余韻がふんわりと。", "price": 60, "dailyLimit": 40, "status": "available", "soldOut": false },
+      { "id": "rose-lychee-dacquoise", "category": "pastry", "name": "ローズライチダックワーズ", "nameEn": "Rose Lychee Dacquoise", "description": "アーモンドのメレンゲにローズとライチのクリーム、繊細で上品な味わい。", "price": 150, "dailyLimit": 20, "status": "available", "soldOut": false },
+      { "id": "rice-chiffon", "category": "pastry", "name": "米粉シフォンケーキ", "nameEn": "Rice Flour Chiffon", "description": "米粉を使用し、ふんわり軽い口当たり。グルテンフリーの選択肢に。", "price": 280, "dailyLimit": 8, "status": "limited", "soldOut": false },
+      { "id": "brown-sugar-financier", "category": "pastry", "name": "黒糖フィナンシェ", "nameEn": "Brown Sugar Financier", "description": "香ばしい黒糖をバター生地に練り込み、しっとり濃厚な味わいが続く。", "price": 140, "dailyLimit": 25, "status": "available", "soldOut": false }
     ]
   },
   "service": {
@@ -157,15 +161,15 @@
     "faq": {
       "orderingHeading": "ご注文について",
       "orderingItems": [
-        { "question": "予約方法を教えてください", "answer": "営業時間内にお電話(02-2621-XXXX)いただくか、LINE公式アカウント「@flourflour」にてメッセージをお送りください。折り返しお受け取り日時をご案内いたします。" },
-        { "question": "配送はできますか?", "answer": "焼き菓子(マドレーヌ、ダックワーズ、シフォン、フィナンシェ)は配送可能です。パン類は鮮度保持のため、現在は店舗でのお受け取りのみとなります。" },
-        { "question": "大量注文はできますか?", "answer": "引き出物や企業向けギフトなど大量のご注文は、焼成数や受け取り日時の調整のため、3日前までにお電話またはLINEにてご連絡ください。" }
+        { "question": "予約方法を教えてください", "answer": "営業時間内にお電話（02-2621-XXXX）いただくか、LINE公式アカウント「@flourflour」にてメッセージをお送りください。折り返しお受け取り日時をご案内いたします。" },
+        { "question": "配送はできますか？", "answer": "焼き菓子（マドレーヌ、ダックワーズ、シフォン、フィナンシェ）は配送可能です。パン類は鮮度保持のため、現在は店舗でのお受け取りのみとなります。" },
+        { "question": "大量注文はできますか？", "answer": "引き出物や企業向けギフトなど大量のご注文は、焼成数や受け取り日時の調整のため、3日前までにお電話またはLINEにてご連絡ください。" }
       ],
       "productHeading": "商品について",
       "productItems": [
         { "question": "保存方法と賞味期限について", "answer": "パンは常温保存のうえ、購入当日または翌日中にお召し上がりください。焼き菓子は冷蔵で3〜5日ほど保存可能です。常温に戻すとより美味しくお召し上がりいただけます。" },
         { "question": "アレルギー表示について", "answer": "商品には小麦・卵・乳製品・ナッツ類が含まれる場合があります。詳しいアレルギー表示は店頭スタッフまでお尋ねいただくか、ご注文時にお申し付けください。" },
-        { "question": "ヴィーガン対応商品はありますか?", "answer": "現在はバターやはちみつなどを使用しているため、完全なヴィーガン対応商品はご用意しておりません。食事制限がある場合は、ご注文前にご相談ください。" }
+        { "question": "ヴィーガン対応商品はありますか？", "answer": "現在はバターやはちみつなどを使用しているため、完全なヴィーガン対応商品はご用意しておりません。食事制限がある場合は、ご注文前にご相談ください。" }
       ]
     },
     "orderInfo": {
@@ -178,10 +182,10 @@
       "cancellationValue": "キャンセルはお受け取り前日までにご連絡ください。当日キャンセルおよび無断でのお受け取りなしの場合、返金はいたしかねます。"
     },
     "sidebar": {
-      "heading": "お答えが見つかりませんか?",
+      "heading": "お答えが見つかりませんか？",
       "callCta": "お電話でお問い合わせ",
       "lineCta": "LINEでお問い合わせ",
-      "contactCta": "お問い合わせページへ →"
+      "contactCta": "お問い合わせページへ"
     }
   },
   "contact": {
@@ -192,9 +196,9 @@
     "emailLabel": "Email",
     "emailValue": "hello@flourflour.com.tw",
     "addressLabel": "住所",
-    "addressValue": "新北市淡水區中正路123號(淡水老街・河岸エリア近く)",
+    "addressValue": "新北市淡水區中正路123號（淡水老街・河岸エリア近く）",
     "hoursLabel": "営業時間",
-    "hoursValue": "水曜〜日曜 11:00〜19:00(月・火定休)",
+    "hoursValue": "水曜〜日曜 11:00〜19:00（月・火定休）",
     "socialLabel": "SNS",
     "instagram": "@flourflour.bakery",
     "line": "@flourflour",
@@ -220,13 +224,13 @@
     "title": "プライバシーポリシー",
     "lastUpdated": "本ポリシーは業界の一般的な慣行を参考にAIが作成した草案です。公開前に法務担当者等による確認をおすすめします。",
     "sections": [
-      { "heading": "適用範囲", "body": "本ポリシーは、flour flour BAKERY 公式サイト(以下「本サイト」)が、お客様よりご提供いただいた個人情報をどのように収集・処理・利用するかについて定めるものです。本ポリシーは、本サイト以外の外部リンク先サイト、および本サイトが権限を委託していない第三者には適用されません。" },
+      { "heading": "適用範囲", "body": "本ポリシーは、FlourFlour BAKERY 公式サイト（以下「本サイト」）が、お客様よりご提供いただいた個人情報をどのように収集・処理・利用するかについて定めるものです。本ポリシーは、本サイト以外の外部リンク先サイト、および本サイトが権限を委託していない第三者には適用されません。" },
       { "heading": "個人情報の収集方法と収集項目", "body": "本サイトの「お問い合わせ」フォームからご連絡いただく際、ご入力いただいたお名前、電話番号、Emailアドレス、メッセージ内容を収集いたします。また、お電話やLINE公式アカウントを通じてご連絡・ご注文いただいた場合も、受け取りの手配のためにご提供いただいた連絡先や受け取り情報を取得いたします。" },
       { "heading": "収集する個人情報の利用目的", "body": "収集した情報は、お問い合わせへの返信、ご注文内容の確認・調整、お受け取りに関するご連絡、および同意をいただいた範囲内での商品・サービスに関するご案内のためにのみ使用し、それ以外の目的には使用いたしません。" },
       { "heading": "個人情報の保存期間", "body": "お客様の個人情報は、お問い合わせまたはご注文完了後、合理的な期間保存したのち、規定に基づき削除または匿名化いたします。" },
       { "heading": "個人情報の保護", "body": "本サイトは個人情報の保護のため合理的な安全対策を講じており、必要な権限を持つ担当者のみが守秘義務のもとお客様の個人情報にアクセスできます。ウェブサイト運営やメール配信等を委託する協力会社に対しても、同様の守秘義務を求めております。" },
       { "heading": "外部リンクについて", "body": "本サイトに掲載しているInstagramやLINE公式アカウント等の外部リンク先は、各プラットフォーム独自のプライバシーポリシーに基づき運営されており、本ポリシーの適用対象ではありません。リンク先サイトをご利用の際は、当該サイトのプライバシーポリシーをご確認ください。" },
-      { "heading": "第三者との個人情報の共有について", "body": "本サイトは、事前の書面による同意をいただいた場合、または法令に基づく場合を除き、お客様の個人情報を第三者(個人・団体・民間企業・行政機関を含む)に提供・交換・貸与・売却することは一切ございません。" },
+      { "heading": "第三者との個人情報の共有について", "body": "本サイトは、事前の書面による同意をいただいた場合、または法令に基づく場合を除き、お客様の個人情報を第三者（個人・団体・民間企業・行政機関を含む）に提供・交換・貸与・売却することは一切ございません。" },
       { "heading": "Cookieの使用について", "body": "本サイトは現在、アクセス解析ツールや広告トラッキングツールを導入しておらず、Cookieによる閲覧行動の収集も行っておりません。今後、サイト改善のためこれらのツールを導入する場合は、本ポリシーを更新のうえ本ページにて改めてお知らせいたします。" },
       { "heading": "個人情報の開示・訂正・削除について", "body": "お客様はいつでも下記の連絡先を通じて、ご自身の個人情報の開示・複写・追加・訂正をご請求いただけるほか、収集・処理・利用の停止をご請求いただけます。ご請求いただいた内容には、合理的な期間内に対応いたします。" },
       { "heading": "本ポリシーの改定について", "body": "本ポリシーは、関連法令や本サイトのサービス内容の変更に応じて改定される場合がございます。改定後の内容は本ページにて公表いたしますので、随時ご確認ください。" },
@@ -236,6 +240,6 @@
   "notFound": {
     "message": "このパンはもう売り切れてしまったようです。",
     "homeCta": "トップページへ戻る",
-    "productsCta": "本日の焼きたてを見る →"
+    "productsCta": "本日の焼きたてを見る"
   }
 }
