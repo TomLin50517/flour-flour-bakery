@@ -59,7 +59,7 @@ const navLeft = [
       <a href={reserveHref}>Reserve</a>
     </nav>
     <div class="mobile-menu__lang">
-      <LangSwitcher lang={lang} path={path} labels={langLabels} size="sm" />
+      <LangSwitcher lang={lang} path={path} labels={langLabels} />
     </div>
   </div>
 </header>
@@ -141,8 +141,6 @@ const navLeft = [
   }
   .site-header--transparent .site-header__right {
     --lang-switcher-color: var(--flour-white);
-    --lang-switcher-active-bg: var(--flour-white);
-    --lang-switcher-active-color: var(--deep-ink);
   }
   .site-header--transparent .site-header__toggle span {
     background-color: var(--flour-white);
@@ -161,8 +159,6 @@ const navLeft = [
   }
   .site-header--transparent.is-scrolled .site-header__right {
     --lang-switcher-color: var(--color-ink-soft);
-    --lang-switcher-active-bg: var(--color-ink);
-    --lang-switcher-active-color: var(--flour-white);
   }
   .site-header--transparent.is-scrolled .site-header__toggle span {
     background-color: var(--color-ink);

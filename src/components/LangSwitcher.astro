@@ -1,68 +1,101 @@
 ---
-// LangSwitcher.astro — 一排語系徽章(圓形短碼,非國旗——語言≠國籍),四語一次呈現、無需點開即可辨識;
-// 切換後停留在同頁對應語系。size="sm" 給 mobile 選單用,略縮小間距。
+// LangSwitcher.astro — 語言切換下拉:收合時直接顯示目前語言的完整原生名稱(如「繁體中文」)+ ▼,
+// 而非圖示/縮寫/國旗,讓第一次使用的人一眼就能認出這是語言切換;點開後列出四語系完整名稱。
 export interface Props {
   lang: 'zh-hant' | 'en' | 'ja' | 'ko';
   path: string; // 不含語系前綴,如 '/', '/story'
   labels: Record<string, string>;
-  size?: 'md' | 'sm';
 }
 
-const { lang, path, labels, size = 'md' } = Astro.props;
+const { lang, path, labels } = Astro.props;
 
 const localePrefix = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' } as const;
 const locales = ['zh-hant', 'en', 'ja', 'ko'] as const;
-const badge = { 'zh-hant': '繁', en: 'EN', ja: '日', ko: '한' } as const;
 ---
 
-<nav class:list={['lang-badges', `lang-badges--${size}`]} aria-label={labels.label}>
-  {locales.map((l) => (
-    <a
-      href={`${localePrefix[l]}${path}`}
-      aria-current={l === lang ? 'true' : undefined}
-      aria-label={labels[l]}
-      title={labels[l]}
-      data-lang-link={l}
-    >
-      {badge[l]}
-    </a>
-  ))}
-</nav>
+<details class="lang-select">
+  <summary aria-label={labels.label}>
+    <span>{labels[lang]}</span>
+    <span class="lang-select__caret" aria-hidden="true">▼</span>
+  </summary>
+  <ul>
+    {locales.map((l) => (
+      <li>
+        <a href={`${localePrefix[l]}${path}`} aria-current={l === lang ? 'true' : undefined}>
+          {labels[l]}
+        </a>
+      </li>
+    ))}
+  </ul>
+</details>
 
 <style>
-  .lang-badges {
-    display: flex;
-    gap: 6px;
-  }
-  .lang-badges a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 1px solid var(--lang-switcher-color, var(--color-ink-soft));
-    color: var(--lang-switcher-color, var(--color-ink-soft));
+  .lang-select {
+    position: relative;
     font-family: var(--font-ui);
-    font-size: 11px;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    transition: background var(--duration-base) var(--ease-editorial),
-      color var(--duration-base) var(--ease-editorial),
-      border-color var(--duration-base) var(--ease-editorial);
+    font-size: var(--text-sm);
   }
-  .lang-badges--sm a {
-    width: 26px;
-    height: 26px;
-    font-size: 10px;
+  .lang-select summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    color: var(--lang-switcher-color, var(--color-ink));
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: color var(--duration-base) var(--ease-editorial);
   }
-  .lang-badges a:hover {
-    border-color: var(--sunset-copper);
+  .lang-select summary::-webkit-details-marker {
+    display: none;
+  }
+  .lang-select summary:hover {
     color: var(--sunset-copper);
   }
-  .lang-badges a[aria-current='true'] {
-    background: var(--lang-switcher-active-bg, var(--color-ink));
-    border-color: var(--lang-switcher-active-bg, var(--color-ink));
-    color: var(--lang-switcher-active-color, var(--flour-white));
+  .lang-select__caret {
+    font-size: 8px;
+    opacity: 0.7;
+    transition: transform var(--duration-base) var(--ease-editorial);
+  }
+  .lang-select[open] .lang-select__caret {
+    transform: rotate(180deg);
+  }
+  .lang-select[open] ul {
+    position: absolute;
+    top: calc(100% + 14px);
+    right: 0;
+    margin: 0;
+    padding: var(--space-2) 0;
+    list-style: none;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+    z-index: 50;
+  }
+  .lang-select a {
+    display: block;
+    padding: 8px var(--space-3);
+    text-decoration: none;
+    color: var(--color-ink-soft);
+    white-space: nowrap;
+  }
+  .lang-select a:hover {
+    color: var(--color-accent-text);
+  }
+  .lang-select a[aria-current='true'] {
+    color: var(--color-ink);
+    font-weight: 500;
   }
 </style>
+
+<script>
+  // 點擊選單外自動收合
+  document.querySelectorAll<HTMLDetailsElement>('.lang-select').forEach((menu) => {
+    document.addEventListener('click', (e) => {
+      if (menu.open && !menu.contains(e.target as Node)) menu.open = false;
+    });
+  });
+</script>

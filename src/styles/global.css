@@ -19,6 +19,10 @@
   --color-accent-text: #7E5238; /* darkened copper, AA-safe for small links/prices */
   --color-line: #E3DDD1;
 
+  /* 攝影佔位系統:灰白底 + 細框,取代工程師風格的純比例文字;正式攝影到位後整組替換 */
+  --placeholder-bg: color-mix(in srgb, var(--paper-white), var(--river-grey) 12%);
+  --placeholder-border: color-mix(in srgb, var(--river-grey), transparent 55%);
+
   /* ---- typography: serif headings / sans body per locale ---- */
   --font-heading-en: 'Playfair Display', 'Noto Serif TC', serif;
   --font-body-en: 'Inter', 'Noto Sans TC', sans-serif;

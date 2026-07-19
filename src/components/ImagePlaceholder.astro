@@ -1,0 +1,47 @@
+---
+// ImagePlaceholder.astro — 全站統一攝影佔位樣式(灰白底、細框、置中文字),
+// 標示影像分類、比例與拍攝備註,方便正式攝影到位後直接替換為 <img>。
+export interface Props {
+  label: string; // 影像分類,如 "Hero Photography"
+  ratio: string; // 比例標示文字,如 "16:9"
+  note?: string; // 拍攝風格備註(選填),如 "Editorial Style"
+  aspect: string; // CSS aspect-ratio 值,如 "16 / 9"
+  class?: string;
+}
+
+const { label, ratio, note, aspect, class: className } = Astro.props;
+---
+
+<div class:list={['image-placeholder', className]} style={`aspect-ratio: ${aspect};`} aria-hidden="true">
+  <span class="image-placeholder__label">{label}</span>
+  <span class="image-placeholder__ratio">{ratio}</span>
+  {note && <span class="image-placeholder__note">{note}</span>}
+</div>
+
+<style>
+  .image-placeholder {
+    background: var(--placeholder-bg);
+    border: 1px solid var(--placeholder-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    text-align: center;
+    padding: var(--space-2);
+  }
+  .image-placeholder__label {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+  }
+  .image-placeholder__ratio,
+  .image-placeholder__note {
+    font-family: var(--font-ui);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.06em;
+    color: var(--color-muted);
+  }
+</style>

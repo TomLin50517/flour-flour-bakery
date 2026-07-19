@@ -41,8 +41,8 @@
   },
   "langSwitcher": {
     "label": "言語を選択",
-    "zh-hant": "繁中",
-    "en": "EN",
+    "zh-hant": "繁體中文",
+    "en": "English",
     "ja": "日本語",
     "ko": "한국어"
   },
@@ -142,18 +142,138 @@
     "footnote": "商品は数量限定です。お電話でのご予約をおすすめします。",
     "footnoteCta": "電話で予約する",
     "items": [
-      { "id": "longan-tangzhong-toast", "category": "classic", "name": "龍眼蜂蜜湯種食パン", "nameEn": "Longan Honey Tangzhong Toast", "description": "湯種製法で水分を閉じ込め、ほんのり龍眼蜜が香るしっとり食パン。", "price": 180, "dailyLimit": 15, "status": "limited", "soldOut": false },
-      { "id": "lean-country-loaf", "category": "classic", "name": "ルヴァン・カンパーニュ", "nameEn": "Levain Country Loaf", "description": "天然ルヴァン種でじっくり発酵、パリッとした皮ともちもちの中身。", "price": 220, "dailyLimit": 12, "status": "limited", "soldOut": false },
-      { "id": "sea-salt-croissant", "category": "classic", "name": "海塩クロワッサン", "nameEn": "Sea Salt Croissant", "description": "バター香るフレンチクロワッサンに海塩をひとふり、甘塩っぱい層の食感。", "price": 68, "dailyLimit": 30, "status": "available", "soldOut": false },
-      { "id": "whole-wheat-walnut", "category": "classic", "name": "全粒粉くるみパン", "nameEn": "Whole Wheat Walnut", "description": "全粒粉とローストくるみ、素朴な麦の香りとナッツの食感。", "price": 190, "dailyLimit": 20, "status": "available", "soldOut": false },
-      { "id": "sunset-apricot-danish", "category": "seasonal", "name": "夕陽アプリコットデニッシュ", "nameEn": "Sunset Apricot Danish", "description": "サクサクのデニッシュに黄金色のアプリコット、夕陽が舞い降りたよう。", "price": 95, "dailyLimit": 18, "status": "available", "soldOut": false },
-      { "id": "longan-blossom-bagel", "category": "seasonal", "name": "龍眼花蜜ベーグル", "nameEn": "Longan Blossom Honey Bagel", "description": "しっかりもちもちのベーグルに龍眼花蜜を練り込み、自然な甘さを添えて。", "price": 85, "dailyLimit": 25, "status": "available", "soldOut": false },
-      { "id": "fig-country-loaf", "category": "seasonal", "name": "いちじくカンパーニュ", "nameEn": "Fig Country Loaf", "description": "ドライいちじくをカンパーニュ生地に練り込んだ、豊かな果実の風味。", "price": 260, "dailyLimit": 10, "status": "soldout", "soldOut": true },
-      { "id": "osmanthus-chestnut", "category": "seasonal", "name": "金木犀と栗のパン", "nameEn": "Osmanthus Chestnut Bread", "description": "金木犀の香りとしっとり栗餡、秋限定の味わい。", "price": 110, "dailyLimit": 16, "status": "available", "soldOut": false },
-      { "id": "longan-madeleine", "category": "pastry", "name": "龍眼蜜マドレーヌ", "nameEn": "Longan Honey Madeleine", "description": "貝殻型のマドレーヌ、バターの香りに龍眼蜜の余韻がふんわりと。", "price": 60, "dailyLimit": 40, "status": "available", "soldOut": false },
-      { "id": "rose-lychee-dacquoise", "category": "pastry", "name": "ローズライチダックワーズ", "nameEn": "Rose Lychee Dacquoise", "description": "アーモンドのメレンゲにローズとライチのクリーム、繊細で上品な味わい。", "price": 150, "dailyLimit": 20, "status": "available", "soldOut": false },
-      { "id": "rice-chiffon", "category": "pastry", "name": "米粉シフォンケーキ", "nameEn": "Rice Flour Chiffon", "description": "米粉を使用し、ふんわり軽い口当たり。グルテンフリーの選択肢に。", "price": 280, "dailyLimit": 8, "status": "limited", "soldOut": false },
-      { "id": "brown-sugar-financier", "category": "pastry", "name": "黒糖フィナンシェ", "nameEn": "Brown Sugar Financier", "description": "香ばしい黒糖をバター生地に練り込み、しっとり濃厚な味わいが続く。", "price": 140, "dailyLimit": 25, "status": "available", "soldOut": false }
+      {
+        "id": "longan-tangzhong-toast",
+        "category": "classic",
+        "name": "龍眼蜂蜜湯種食パン",
+        "nameEn": "Longan Honey Tangzhong Toast",
+        "description": "湯種製法で水分を閉じ込め、ほんのり龍眼蜜が香るしっとり食パン。",
+        "price": 180,
+        "dailyLimit": 15,
+        "status": "limited",
+        "soldOut": false
+      },
+      {
+        "id": "lean-country-loaf",
+        "category": "classic",
+        "name": "ルヴァン・カンパーニュ",
+        "nameEn": "Levain Country Loaf",
+        "description": "天然ルヴァン種でじっくり発酵、パリッとした皮ともちもちの中身。",
+        "price": 220,
+        "dailyLimit": 12,
+        "status": "limited",
+        "soldOut": false
+      },
+      {
+        "id": "sea-salt-croissant",
+        "category": "classic",
+        "name": "海塩クロワッサン",
+        "nameEn": "Sea Salt Croissant",
+        "description": "バター香るフレンチクロワッサンに海塩をひとふり、甘塩っぱい層の食感。",
+        "price": 68,
+        "dailyLimit": 30,
+        "status": "available",
+        "soldOut": false
+      },
+      {
+        "id": "whole-wheat-walnut",
+        "category": "classic",
+        "name": "全粒粉くるみパン",
+        "nameEn": "Whole Wheat Walnut",
+        "description": "全粒粉とローストくるみ、素朴な麦の香りとナッツの食感。",
+        "price": 190,
+        "dailyLimit": 20,
+        "status": "available",
+        "soldOut": false
+      },
+      {
+        "id": "sunset-apricot-danish",
+        "category": "seasonal",
+        "name": "夕陽アプリコットデニッシュ",
+        "nameEn": "Sunset Apricot Danish",
+        "description": "サクサクのデニッシュに黄金色のアプリコット、夕陽が舞い降りたよう。",
+        "price": 95,
+        "dailyLimit": 18,
+        "status": "seasonal",
+        "soldOut": false
+      },
+      {
+        "id": "longan-blossom-bagel",
+        "category": "seasonal",
+        "name": "龍眼花蜜ベーグル",
+        "nameEn": "Longan Blossom Honey Bagel",
+        "description": "しっかりもちもちのベーグルに龍眼花蜜を練り込み、自然な甘さを添えて。",
+        "price": 85,
+        "dailyLimit": 25,
+        "status": "seasonal",
+        "soldOut": false
+      },
+      {
+        "id": "fig-country-loaf",
+        "category": "seasonal",
+        "name": "いちじくカンパーニュ",
+        "nameEn": "Fig Country Loaf",
+        "description": "ドライいちじくをカンパーニュ生地に練り込んだ、豊かな果実の風味。",
+        "price": 260,
+        "dailyLimit": 10,
+        "status": "soldout",
+        "soldOut": true
+      },
+      {
+        "id": "osmanthus-chestnut",
+        "category": "seasonal",
+        "name": "金木犀と栗のパン",
+        "nameEn": "Osmanthus Chestnut Bread",
+        "description": "金木犀の香りとしっとり栗餡、秋限定の味わい。",
+        "price": 110,
+        "dailyLimit": 16,
+        "status": "seasonal",
+        "soldOut": false
+      },
+      {
+        "id": "longan-madeleine",
+        "category": "pastry",
+        "name": "龍眼蜜マドレーヌ",
+        "nameEn": "Longan Honey Madeleine",
+        "description": "貝殻型のマドレーヌ、バターの香りに龍眼蜜の余韻がふんわりと。",
+        "price": 60,
+        "dailyLimit": 40,
+        "status": "available",
+        "soldOut": false
+      },
+      {
+        "id": "rose-lychee-dacquoise",
+        "category": "pastry",
+        "name": "ローズライチダックワーズ",
+        "nameEn": "Rose Lychee Dacquoise",
+        "description": "アーモンドのメレンゲにローズとライチのクリーム、繊細で上品な味わい。",
+        "price": 150,
+        "dailyLimit": 20,
+        "status": "available",
+        "soldOut": false
+      },
+      {
+        "id": "rice-chiffon",
+        "category": "pastry",
+        "name": "米粉シフォンケーキ",
+        "nameEn": "Rice Flour Chiffon",
+        "description": "米粉を使用し、ふんわり軽い口当たり。グルテンフリーの選択肢に。",
+        "price": 280,
+        "dailyLimit": 8,
+        "status": "limited",
+        "soldOut": false
+      },
+      {
+        "id": "brown-sugar-financier",
+        "category": "pastry",
+        "name": "黒糖フィナンシェ",
+        "nameEn": "Brown Sugar Financier",
+        "description": "香ばしい黒糖をバター生地に練り込み、しっとり濃厚な味わいが続く。",
+        "price": 140,
+        "dailyLimit": 25,
+        "status": "available",
+        "soldOut": false
+      }
     ]
   },
   "service": {
@@ -161,15 +281,33 @@
     "faq": {
       "orderingHeading": "ご注文について",
       "orderingItems": [
-        { "question": "予約方法を教えてください", "answer": "営業時間内にお電話（02-2621-XXXX）いただくか、LINE公式アカウント「@flourflour」にてメッセージをお送りください。折り返しお受け取り日時をご案内いたします。" },
-        { "question": "配送はできますか？", "answer": "焼き菓子（マドレーヌ、ダックワーズ、シフォン、フィナンシェ）は配送可能です。パン類は鮮度保持のため、現在は店舗でのお受け取りのみとなります。" },
-        { "question": "大量注文はできますか？", "answer": "引き出物や企業向けギフトなど大量のご注文は、焼成数や受け取り日時の調整のため、3日前までにお電話またはLINEにてご連絡ください。" }
+        {
+          "question": "予約方法を教えてください",
+          "answer": "営業時間内にお電話（02-2621-XXXX）いただくか、LINE公式アカウント「@flourflour」にてメッセージをお送りください。折り返しお受け取り日時をご案内いたします。"
+        },
+        {
+          "question": "配送はできますか？",
+          "answer": "焼き菓子（マドレーヌ、ダックワーズ、シフォン、フィナンシェ）は配送可能です。パン類は鮮度保持のため、現在は店舗でのお受け取りのみとなります。"
+        },
+        {
+          "question": "大量注文はできますか？",
+          "answer": "引き出物や企業向けギフトなど大量のご注文は、焼成数や受け取り日時の調整のため、3日前までにお電話またはLINEにてご連絡ください。"
+        }
       ],
       "productHeading": "商品について",
       "productItems": [
-        { "question": "保存方法と賞味期限について", "answer": "パンは常温保存のうえ、購入当日または翌日中にお召し上がりください。焼き菓子は冷蔵で3〜5日ほど保存可能です。常温に戻すとより美味しくお召し上がりいただけます。" },
-        { "question": "アレルギー表示について", "answer": "商品には小麦・卵・乳製品・ナッツ類が含まれる場合があります。詳しいアレルギー表示は店頭スタッフまでお尋ねいただくか、ご注文時にお申し付けください。" },
-        { "question": "ヴィーガン対応商品はありますか？", "answer": "現在はバターやはちみつなどを使用しているため、完全なヴィーガン対応商品はご用意しておりません。食事制限がある場合は、ご注文前にご相談ください。" }
+        {
+          "question": "保存方法と賞味期限について",
+          "answer": "パンは常温保存のうえ、購入当日または翌日中にお召し上がりください。焼き菓子は冷蔵で3〜5日ほど保存可能です。常温に戻すとより美味しくお召し上がりいただけます。"
+        },
+        {
+          "question": "アレルギー表示について",
+          "answer": "商品には小麦・卵・乳製品・ナッツ類が含まれる場合があります。詳しいアレルギー表示は店頭スタッフまでお尋ねいただくか、ご注文時にお申し付けください。"
+        },
+        {
+          "question": "ヴィーガン対応商品はありますか？",
+          "answer": "現在はバターやはちみつなどを使用しているため、完全なヴィーガン対応商品はご用意しておりません。食事制限がある場合は、ご注文前にご相談ください。"
+        }
       ]
     },
     "orderInfo": {
@@ -209,7 +347,11 @@
       "phoneLabel": "電話番号",
       "emailLabel": "Email",
       "subjectLabel": "お問い合わせ内容",
-      "subjectOptions": ["一般的なお問い合わせ", "大量注文", "コラボ・提携のご提案"],
+      "subjectOptions": [
+        "一般的なお問い合わせ",
+        "大量注文",
+        "コラボ・提携のご提案"
+      ],
       "messageLabel": "メッセージ",
       "submitCta": "送信する",
       "successMessage": "メッセージを受け付けました。担当より折り返しご連絡いたします。",
@@ -224,17 +366,50 @@
     "title": "プライバシーポリシー",
     "lastUpdated": "本ポリシーは業界の一般的な慣行を参考にAIが作成した草案です。公開前に法務担当者等による確認をおすすめします。",
     "sections": [
-      { "heading": "適用範囲", "body": "本ポリシーは、FlourFlour BAKERY 公式サイト（以下「本サイト」）が、お客様よりご提供いただいた個人情報をどのように収集・処理・利用するかについて定めるものです。本ポリシーは、本サイト以外の外部リンク先サイト、および本サイトが権限を委託していない第三者には適用されません。" },
-      { "heading": "個人情報の収集方法と収集項目", "body": "本サイトの「お問い合わせ」フォームからご連絡いただく際、ご入力いただいたお名前、電話番号、Emailアドレス、メッセージ内容を収集いたします。また、お電話やLINE公式アカウントを通じてご連絡・ご注文いただいた場合も、受け取りの手配のためにご提供いただいた連絡先や受け取り情報を取得いたします。" },
-      { "heading": "収集する個人情報の利用目的", "body": "収集した情報は、お問い合わせへの返信、ご注文内容の確認・調整、お受け取りに関するご連絡、および同意をいただいた範囲内での商品・サービスに関するご案内のためにのみ使用し、それ以外の目的には使用いたしません。" },
-      { "heading": "個人情報の保存期間", "body": "お客様の個人情報は、お問い合わせまたはご注文完了後、合理的な期間保存したのち、規定に基づき削除または匿名化いたします。" },
-      { "heading": "個人情報の保護", "body": "本サイトは個人情報の保護のため合理的な安全対策を講じており、必要な権限を持つ担当者のみが守秘義務のもとお客様の個人情報にアクセスできます。ウェブサイト運営やメール配信等を委託する協力会社に対しても、同様の守秘義務を求めております。" },
-      { "heading": "外部リンクについて", "body": "本サイトに掲載しているInstagramやLINE公式アカウント等の外部リンク先は、各プラットフォーム独自のプライバシーポリシーに基づき運営されており、本ポリシーの適用対象ではありません。リンク先サイトをご利用の際は、当該サイトのプライバシーポリシーをご確認ください。" },
-      { "heading": "第三者との個人情報の共有について", "body": "本サイトは、事前の書面による同意をいただいた場合、または法令に基づく場合を除き、お客様の個人情報を第三者（個人・団体・民間企業・行政機関を含む）に提供・交換・貸与・売却することは一切ございません。" },
-      { "heading": "Cookieの使用について", "body": "本サイトは現在、アクセス解析ツールや広告トラッキングツールを導入しておらず、Cookieによる閲覧行動の収集も行っておりません。今後、サイト改善のためこれらのツールを導入する場合は、本ポリシーを更新のうえ本ページにて改めてお知らせいたします。" },
-      { "heading": "個人情報の開示・訂正・削除について", "body": "お客様はいつでも下記の連絡先を通じて、ご自身の個人情報の開示・複写・追加・訂正をご請求いただけるほか、収集・処理・利用の停止をご請求いただけます。ご請求いただいた内容には、合理的な期間内に対応いたします。" },
-      { "heading": "本ポリシーの改定について", "body": "本ポリシーは、関連法令や本サイトのサービス内容の変更に応じて改定される場合がございます。改定後の内容は本ページにて公表いたしますので、随時ご確認ください。" },
-      { "heading": "お問い合わせ窓口", "body": "本ポリシーまたはお客様の個人情報に関するご質問は、Email hello@flourflour.com.tw、またはお電話 02-2621-XXXX までご連絡ください。" }
+      {
+        "heading": "適用範囲",
+        "body": "本ポリシーは、FlourFlour BAKERY 公式サイト（以下「本サイト」）が、お客様よりご提供いただいた個人情報をどのように収集・処理・利用するかについて定めるものです。本ポリシーは、本サイト以外の外部リンク先サイト、および本サイトが権限を委託していない第三者には適用されません。"
+      },
+      {
+        "heading": "個人情報の収集方法と収集項目",
+        "body": "本サイトの「お問い合わせ」フォームからご連絡いただく際、ご入力いただいたお名前、電話番号、Emailアドレス、メッセージ内容を収集いたします。また、お電話やLINE公式アカウントを通じてご連絡・ご注文いただいた場合も、受け取りの手配のためにご提供いただいた連絡先や受け取り情報を取得いたします。"
+      },
+      {
+        "heading": "収集する個人情報の利用目的",
+        "body": "収集した情報は、お問い合わせへの返信、ご注文内容の確認・調整、お受け取りに関するご連絡、および同意をいただいた範囲内での商品・サービスに関するご案内のためにのみ使用し、それ以外の目的には使用いたしません。"
+      },
+      {
+        "heading": "個人情報の保存期間",
+        "body": "お客様の個人情報は、お問い合わせまたはご注文完了後、合理的な期間保存したのち、規定に基づき削除または匿名化いたします。"
+      },
+      {
+        "heading": "個人情報の保護",
+        "body": "本サイトは個人情報の保護のため合理的な安全対策を講じており、必要な権限を持つ担当者のみが守秘義務のもとお客様の個人情報にアクセスできます。ウェブサイト運営やメール配信等を委託する協力会社に対しても、同様の守秘義務を求めております。"
+      },
+      {
+        "heading": "外部リンクについて",
+        "body": "本サイトに掲載しているInstagramやLINE公式アカウント等の外部リンク先は、各プラットフォーム独自のプライバシーポリシーに基づき運営されており、本ポリシーの適用対象ではありません。リンク先サイトをご利用の際は、当該サイトのプライバシーポリシーをご確認ください。"
+      },
+      {
+        "heading": "第三者との個人情報の共有について",
+        "body": "本サイトは、事前の書面による同意をいただいた場合、または法令に基づく場合を除き、お客様の個人情報を第三者（個人・団体・民間企業・行政機関を含む）に提供・交換・貸与・売却することは一切ございません。"
+      },
+      {
+        "heading": "Cookieの使用について",
+        "body": "本サイトは現在、アクセス解析ツールや広告トラッキングツールを導入しておらず、Cookieによる閲覧行動の収集も行っておりません。今後、サイト改善のためこれらのツールを導入する場合は、本ポリシーを更新のうえ本ページにて改めてお知らせいたします。"
+      },
+      {
+        "heading": "個人情報の開示・訂正・削除について",
+        "body": "お客様はいつでも下記の連絡先を通じて、ご自身の個人情報の開示・複写・追加・訂正をご請求いただけるほか、収集・処理・利用の停止をご請求いただけます。ご請求いただいた内容には、合理的な期間内に対応いたします。"
+      },
+      {
+        "heading": "本ポリシーの改定について",
+        "body": "本ポリシーは、関連法令や本サイトのサービス内容の変更に応じて改定される場合がございます。改定後の内容は本ページにて公表いたしますので、随時ご確認ください。"
+      },
+      {
+        "heading": "お問い合わせ窓口",
+        "body": "本ポリシーまたはお客様の個人情報に関するご質問は、Email hello@flourflour.com.tw、またはお電話 02-2621-XXXX までご連絡ください。"
+      }
     ]
   },
   "notFound": {

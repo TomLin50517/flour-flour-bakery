@@ -41,8 +41,8 @@
   },
   "langSwitcher": {
     "label": "Select language",
-    "zh-hant": "繁中",
-    "en": "EN",
+    "zh-hant": "繁體中文",
+    "en": "English",
     "ja": "日本語",
     "ko": "한국어"
   },
@@ -142,18 +142,138 @@
     "footnote": "Daily quantities are limited — reservations by phone are recommended.",
     "footnoteCta": "Call to reserve",
     "items": [
-      { "id": "longan-tangzhong-toast", "category": "classic", "name": "Longan Honey Tangzhong Toast", "nameEn": "Longan Honey Tangzhong Toast", "description": "Tangzhong method locks in moisture, with a soft, faintly honeyed sweetness.", "price": 180, "dailyLimit": 15, "status": "limited", "soldOut": false },
-      { "id": "lean-country-loaf", "category": "classic", "name": "Levain Country Loaf", "nameEn": "Levain Country Loaf", "description": "Long-fermented natural levain, crackling crust and a chewy, moist crumb.", "price": 220, "dailyLimit": 12, "status": "limited", "soldOut": false },
-      { "id": "sea-salt-croissant", "category": "classic", "name": "Sea Salt Croissant", "nameEn": "Sea Salt Croissant", "description": "Buttery French croissant finished with sea salt, flaky layers of sweet and salty.", "price": 68, "dailyLimit": 30, "status": "available", "soldOut": false },
-      { "id": "whole-wheat-walnut", "category": "classic", "name": "Whole Wheat Walnut", "nameEn": "Whole Wheat Walnut", "description": "Whole wheat flour with toasted walnuts, earthy grain flavour with a nutty crunch.", "price": 190, "dailyLimit": 20, "status": "available", "soldOut": false },
-      { "id": "sunset-apricot-danish", "category": "seasonal", "name": "Sunset Apricot Danish", "nameEn": "Sunset Apricot Danish", "description": "Golden apricots over crisp danish pastry, like sunset settling onto bread.", "price": 95, "dailyLimit": 18, "status": "available", "soldOut": false },
-      { "id": "longan-blossom-bagel", "category": "seasonal", "name": "Longan Blossom Honey Bagel", "nameEn": "Longan Blossom Honey Bagel", "description": "Dense, chewy bagel folded with longan blossom honey for a natural sweetness.", "price": 85, "dailyLimit": 25, "status": "available", "soldOut": false },
-      { "id": "fig-country-loaf", "category": "seasonal", "name": "Fig Country Loaf", "nameEn": "Fig Country Loaf", "description": "Dried figs baked into a country dough, rich fruit flavour and hearty texture.", "price": 260, "dailyLimit": 10, "status": "soldout", "soldOut": true },
-      { "id": "osmanthus-chestnut", "category": "seasonal", "name": "Osmanthus Chestnut Bread", "nameEn": "Osmanthus Chestnut Bread", "description": "Fragrant osmanthus with soft chestnut filling, a taste of autumn.", "price": 110, "dailyLimit": 16, "status": "available", "soldOut": false },
-      { "id": "longan-madeleine", "category": "pastry", "name": "Longan Honey Madeleine", "nameEn": "Longan Honey Madeleine", "description": "Shell-shaped madeleine with buttery aroma and a lingering note of longan honey.", "price": 60, "dailyLimit": 40, "status": "available", "soldOut": false },
-      { "id": "rose-lychee-dacquoise", "category": "pastry", "name": "Rose Lychee Dacquoise", "nameEn": "Rose Lychee Dacquoise", "description": "Almond meringue layered with rose and lychee cream, delicate and elegant.", "price": 150, "dailyLimit": 20, "status": "available", "soldOut": false },
-      { "id": "rice-chiffon", "category": "pastry", "name": "Rice Flour Chiffon", "nameEn": "Rice Flour Chiffon", "description": "Made with rice flour for a light, soft crumb — a gluten-free option.", "price": 280, "dailyLimit": 8, "status": "limited", "soldOut": false },
-      { "id": "brown-sugar-financier", "category": "pastry", "name": "Brown Sugar Financier", "nameEn": "Brown Sugar Financier", "description": "Caramelised brown sugar folded into buttery cake, moist and richly aromatic.", "price": 140, "dailyLimit": 25, "status": "available", "soldOut": false }
+      {
+        "id": "longan-tangzhong-toast",
+        "category": "classic",
+        "name": "Longan Honey Tangzhong Toast",
+        "nameEn": "Longan Honey Tangzhong Toast",
+        "description": "Tangzhong method locks in moisture, with a soft, faintly honeyed sweetness.",
+        "price": 180,
+        "dailyLimit": 15,
+        "status": "limited",
+        "soldOut": false
+      },
+      {
+        "id": "lean-country-loaf",
+        "category": "classic",
+        "name": "Levain Country Loaf",
+        "nameEn": "Levain Country Loaf",
+        "description": "Long-fermented natural levain, crackling crust and a chewy, moist crumb.",
+        "price": 220,
+        "dailyLimit": 12,
+        "status": "limited",
+        "soldOut": false
+      },
+      {
+        "id": "sea-salt-croissant",
+        "category": "classic",
+        "name": "Sea Salt Croissant",
+        "nameEn": "Sea Salt Croissant",
+        "description": "Buttery French croissant finished with sea salt, flaky layers of sweet and salty.",
+        "price": 68,
+        "dailyLimit": 30,
+        "status": "available",
+        "soldOut": false
+      },
+      {
+        "id": "whole-wheat-walnut",
+        "category": "classic",
+        "name": "Whole Wheat Walnut",
+        "nameEn": "Whole Wheat Walnut",
+        "description": "Whole wheat flour with toasted walnuts, earthy grain flavour with a nutty crunch.",
+        "price": 190,
+        "dailyLimit": 20,
+        "status": "available",
+        "soldOut": false
+      },
+      {
+        "id": "sunset-apricot-danish",
+        "category": "seasonal",
+        "name": "Sunset Apricot Danish",
+        "nameEn": "Sunset Apricot Danish",
+        "description": "Golden apricots over crisp danish pastry, like sunset settling onto bread.",
+        "price": 95,
+        "dailyLimit": 18,
+        "status": "seasonal",
+        "soldOut": false
+      },
+      {
+        "id": "longan-blossom-bagel",
+        "category": "seasonal",
+        "name": "Longan Blossom Honey Bagel",
+        "nameEn": "Longan Blossom Honey Bagel",
+        "description": "Dense, chewy bagel folded with longan blossom honey for a natural sweetness.",
+        "price": 85,
+        "dailyLimit": 25,
+        "status": "seasonal",
+        "soldOut": false
+      },
+      {
+        "id": "fig-country-loaf",
+        "category": "seasonal",
+        "name": "Fig Country Loaf",
+        "nameEn": "Fig Country Loaf",
+        "description": "Dried figs baked into a country dough, rich fruit flavour and hearty texture.",
+        "price": 260,
+        "dailyLimit": 10,
+        "status": "soldout",
+        "soldOut": true
+      },
+      {
+        "id": "osmanthus-chestnut",
+        "category": "seasonal",
+        "name": "Osmanthus Chestnut Bread",
+        "nameEn": "Osmanthus Chestnut Bread",
+        "description": "Fragrant osmanthus with soft chestnut filling, a taste of autumn.",
+        "price": 110,
+        "dailyLimit": 16,
+        "status": "seasonal",
+        "soldOut": false
+      },
+      {
+        "id": "longan-madeleine",
+        "category": "pastry",
+        "name": "Longan Honey Madeleine",
+        "nameEn": "Longan Honey Madeleine",
+        "description": "Shell-shaped madeleine with buttery aroma and a lingering note of longan honey.",
+        "price": 60,
+        "dailyLimit": 40,
+        "status": "available",
+        "soldOut": false
+      },
+      {
+        "id": "rose-lychee-dacquoise",
+        "category": "pastry",
+        "name": "Rose Lychee Dacquoise",
+        "nameEn": "Rose Lychee Dacquoise",
+        "description": "Almond meringue layered with rose and lychee cream, delicate and elegant.",
+        "price": 150,
+        "dailyLimit": 20,
+        "status": "available",
+        "soldOut": false
+      },
+      {
+        "id": "rice-chiffon",
+        "category": "pastry",
+        "name": "Rice Flour Chiffon",
+        "nameEn": "Rice Flour Chiffon",
+        "description": "Made with rice flour for a light, soft crumb — a gluten-free option.",
+        "price": 280,
+        "dailyLimit": 8,
+        "status": "limited",
+        "soldOut": false
+      },
+      {
+        "id": "brown-sugar-financier",
+        "category": "pastry",
+        "name": "Brown Sugar Financier",
+        "nameEn": "Brown Sugar Financier",
+        "description": "Caramelised brown sugar folded into buttery cake, moist and richly aromatic.",
+        "price": 140,
+        "dailyLimit": 25,
+        "status": "available",
+        "soldOut": false
+      }
     ]
   },
   "service": {
@@ -161,15 +281,33 @@
     "faq": {
       "orderingHeading": "Ordering",
       "orderingItems": [
-        { "question": "How do I place an order?", "answer": "Call us at 02-2621-XXXX during business hours, or message our LINE account @flourflour. We'll confirm a pickup time as soon as possible." },
-        { "question": "Do you ship?", "answer": "Our shelf-stable pastries (madeleines, dacquoise, chiffon, financiers) can be shipped; breads are pickup-only for now to ensure freshness." },
-        { "question": "Can I place a bulk order?", "answer": "For wedding favours, corporate gifts and other bulk orders, please call or message us on LINE at least 3 days in advance so we can plan the bake and pickup time." }
+        {
+          "question": "How do I place an order?",
+          "answer": "Call us at 02-2621-XXXX during business hours, or message our LINE account @flourflour. We'll confirm a pickup time as soon as possible."
+        },
+        {
+          "question": "Do you ship?",
+          "answer": "Our shelf-stable pastries (madeleines, dacquoise, chiffon, financiers) can be shipped; breads are pickup-only for now to ensure freshness."
+        },
+        {
+          "question": "Can I place a bulk order?",
+          "answer": "For wedding favours, corporate gifts and other bulk orders, please call or message us on LINE at least 3 days in advance so we can plan the bake and pickup time."
+        }
       ],
       "productHeading": "Products",
       "productItems": [
-        { "question": "Storage and shelf life", "answer": "Bread is best kept at room temperature and enjoyed the day of purchase or the next day; shelf-stable pastries keep refrigerated for 3–5 days and taste best brought back to room temperature." },
-        { "question": "Allergen information", "answer": "Our products may contain gluten, egg, dairy and nuts. Please ask our staff in store, or let us know when ordering so we can help confirm ingredients." },
-        { "question": "Do you have vegan options?", "answer": "Most of our products currently contain butter, honey and similar ingredients, so we don't yet offer fully vegan options. Please contact us before ordering if you have dietary restrictions." }
+        {
+          "question": "Storage and shelf life",
+          "answer": "Bread is best kept at room temperature and enjoyed the day of purchase or the next day; shelf-stable pastries keep refrigerated for 3–5 days and taste best brought back to room temperature."
+        },
+        {
+          "question": "Allergen information",
+          "answer": "Our products may contain gluten, egg, dairy and nuts. Please ask our staff in store, or let us know when ordering so we can help confirm ingredients."
+        },
+        {
+          "question": "Do you have vegan options?",
+          "answer": "Most of our products currently contain butter, honey and similar ingredients, so we don't yet offer fully vegan options. Please contact us before ordering if you have dietary restrictions."
+        }
       ]
     },
     "orderInfo": {
@@ -209,7 +347,11 @@
       "phoneLabel": "Phone",
       "emailLabel": "Email",
       "subjectLabel": "Subject",
-      "subjectOptions": ["General inquiry", "Bulk order", "Partnership proposal"],
+      "subjectOptions": [
+        "General inquiry",
+        "Bulk order",
+        "Partnership proposal"
+      ],
       "messageLabel": "Message",
       "submitCta": "Submit",
       "successMessage": "Thanks — we've received your message and will get back to you soon.",
@@ -224,17 +366,50 @@
     "title": "Privacy Policy",
     "lastUpdated": "This policy template was drafted by AI based on common industry practice. We recommend legal review before launch.",
     "sections": [
-      { "heading": "Scope", "body": "This policy explains how the FlourFlour BAKERY website (\"this website\") collects, processes and uses the personal data you provide to us. It does not apply to any linked website outside this domain, nor to any party not authorized or engaged by this website." },
-      { "heading": "How We Collect Personal Data, and What We Collect", "body": "When you contact us through the \"Contact Us\" form on this website, we collect the name, phone number, email address and message content you provide. If you contact us by phone or our LINE account and place an order, we also receive the contact and pickup details you give us so we can plan the bake and arrange collection." },
-      { "heading": "Purpose of Collection", "body": "This information is used solely to respond to your inquiry, confirm and arrange your order, coordinate pickup, and — where you have agreed — provide you with product and service information. It is never used beyond these purposes." },
-      { "heading": "Retention Period", "body": "Your personal data is retained for a reasonable period after your inquiry or order is completed, after which it is deleted or de-identified as required." },
-      { "heading": "How We Protect Your Data", "body": "We apply reasonable safeguards to protect your personal data. Only authorized staff who are bound by confidentiality obligations may access it, and any third-party providers we engage (such as website hosting or email services) are held to the same confidentiality standard." },
-      { "heading": "Links to Other Websites", "body": "Links on this website to Instagram, our LINE account, and other external platforms are governed by each platform's own privacy policy, not this one. Please review the privacy policy of any external site before providing information there." },
-      { "heading": "Sharing Data with Third Parties", "body": "We will never provide, exchange, rent, or sell your personal data to any other individual, organization, private business, or government agency, except with your prior written consent or as otherwise required by law." },
-      { "heading": "Use of Cookies", "body": "This website does not currently use analytics or advertising trackers, and does not use cookies to collect your browsing behavior. Should we add such tools in a future update, we will announce it here alongside a revised policy." },
-      { "heading": "Accessing, Correcting, and Deleting Your Data", "body": "You may at any time contact us below to request access to, a copy of, or a correction to your personal data, or to request that we stop collecting, processing or using it. We will respond to your request within a reasonable time." },
-      { "heading": "Changes to This Policy", "body": "This policy may be revised as laws or our services change. Any revisions will be posted on this page, so please check back periodically." },
-      { "heading": "Contact", "body": "For any questions about this policy or your personal data, please email hello@flourflour.com.tw or call 02-2621-XXXX." }
+      {
+        "heading": "Scope",
+        "body": "This policy explains how the FlourFlour BAKERY website (\"this website\") collects, processes and uses the personal data you provide to us. It does not apply to any linked website outside this domain, nor to any party not authorized or engaged by this website."
+      },
+      {
+        "heading": "How We Collect Personal Data, and What We Collect",
+        "body": "When you contact us through the \"Contact Us\" form on this website, we collect the name, phone number, email address and message content you provide. If you contact us by phone or our LINE account and place an order, we also receive the contact and pickup details you give us so we can plan the bake and arrange collection."
+      },
+      {
+        "heading": "Purpose of Collection",
+        "body": "This information is used solely to respond to your inquiry, confirm and arrange your order, coordinate pickup, and — where you have agreed — provide you with product and service information. It is never used beyond these purposes."
+      },
+      {
+        "heading": "Retention Period",
+        "body": "Your personal data is retained for a reasonable period after your inquiry or order is completed, after which it is deleted or de-identified as required."
+      },
+      {
+        "heading": "How We Protect Your Data",
+        "body": "We apply reasonable safeguards to protect your personal data. Only authorized staff who are bound by confidentiality obligations may access it, and any third-party providers we engage (such as website hosting or email services) are held to the same confidentiality standard."
+      },
+      {
+        "heading": "Links to Other Websites",
+        "body": "Links on this website to Instagram, our LINE account, and other external platforms are governed by each platform's own privacy policy, not this one. Please review the privacy policy of any external site before providing information there."
+      },
+      {
+        "heading": "Sharing Data with Third Parties",
+        "body": "We will never provide, exchange, rent, or sell your personal data to any other individual, organization, private business, or government agency, except with your prior written consent or as otherwise required by law."
+      },
+      {
+        "heading": "Use of Cookies",
+        "body": "This website does not currently use analytics or advertising trackers, and does not use cookies to collect your browsing behavior. Should we add such tools in a future update, we will announce it here alongside a revised policy."
+      },
+      {
+        "heading": "Accessing, Correcting, and Deleting Your Data",
+        "body": "You may at any time contact us below to request access to, a copy of, or a correction to your personal data, or to request that we stop collecting, processing or using it. We will respond to your request within a reasonable time."
+      },
+      {
+        "heading": "Changes to This Policy",
+        "body": "This policy may be revised as laws or our services change. Any revisions will be posted on this page, so please check back periodically."
+      },
+      {
+        "heading": "Contact",
+        "body": "For any questions about this policy or your personal data, please email hello@flourflour.com.tw or call 02-2621-XXXX."
+      }
     ]
   },
   "notFound": {

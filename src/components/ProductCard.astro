@@ -1,13 +1,16 @@
 ---
-// ProductCard.astro — 極簡編輯感:4:5 影像(curtain reveal + slow drift)→ 名稱 → 英文名 → 價格・狀態
-// 狀態僅三種(Available Today / Limited Bake / Sold Out,全語系皆用英文編輯體);描述與數量留給商品詳細頁
+// ProductCard.astro — 極簡編輯感:4:5 影像佔位(curtain reveal + slow drift)→ 名稱 → 英文名 → 價格・狀態
+// 狀態六種,全語系皆用英文編輯體;Seasonal/Holiday Edition 用低彩度小型 tag,其餘維持純文字。
+// 描述與確切數量留給商品詳細頁(之後可接每日少量製作/售完為止或訂單系統)。
+import ImagePlaceholder from './ImagePlaceholder.astro';
+
 export interface Props {
   item: {
     id: string;
     name: string;
     nameEn: string;
     price: number;
-    status: 'available' | 'limited' | 'soldout';
+    status: 'available' | 'limited' | 'seasonal' | 'holiday' | 'weekend' | 'soldout';
   };
 }
 
@@ -15,20 +18,28 @@ const { item } = Astro.props;
 const statusLabels = {
   available: 'Available Today',
   limited: 'Limited Bake',
+  seasonal: 'Seasonal',
+  holiday: 'Holiday Edition',
+  weekend: 'Weekend Only',
   soldout: 'Sold Out',
 } as const;
+const tagStatuses = new Set(['seasonal', 'holiday']);
 ---
 
 <article class:list={['product-card', { 'product-card--sold-out': item.status === 'soldout' }]} data-product-id={item.id}>
   <div class="product-card__frame reveal-media">
-    <div class="product-card__image" aria-hidden="true">4:5</div>
+    <ImagePlaceholder label="Product Photography" ratio="4:5" aspect="4 / 5" class="product-card__placeholder" />
   </div>
   <div class="product-card__body reveal-text">
     <h3>{item.name}</h3>
     {item.nameEn !== item.name && <p class="product-card__name-en">{item.nameEn}</p>}
     <p class="product-card__meta">
       <span class="product-card__price">NT$ {item.price}</span>
-      <span class:list={['product-card__status', `product-card__status--${item.status}`]}>{statusLabels[item.status]}</span>
+      {tagStatuses.has(item.status) ? (
+        <span class:list={['product-card__tag', `product-card__tag--${item.status}`]}>{statusLabels[item.status]}</span>
+      ) : (
+        <span class:list={['product-card__status', `product-card__status--${item.status}`]}>{statusLabels[item.status]}</span>
+      )}
     </p>
   </div>
 </article>
@@ -36,15 +47,6 @@ const statusLabels = {
 <style>
   .product-card__frame {
     overflow: hidden;
-  }
-  .product-card__image {
-    aspect-ratio: 4 / 5;
-    background: var(--color-surface);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-ink-soft);
-    font-size: var(--text-sm);
   }
   .product-card__body {
     padding-top: var(--space-2);
@@ -79,10 +81,22 @@ const statusLabels = {
     text-transform: uppercase;
     color: var(--color-ink-soft);
   }
-  .product-card__status--limited {
+  .product-card__status--limited,
+  .product-card__status--weekend {
     color: var(--color-accent-text);
   }
-  .product-card--sold-out .product-card__image {
+  .product-card__tag {
+    font-family: var(--font-body-en);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+    background: var(--placeholder-bg);
+    border: 1px solid var(--placeholder-border);
+    border-radius: var(--radius-pill);
+    padding: 3px 10px;
+  }
+  .product-card--sold-out :global(.product-card__placeholder) {
     filter: saturate(0.4);
     opacity: 0.55;
   }

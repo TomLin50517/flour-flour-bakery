@@ -3,6 +3,7 @@
 // → The Place(河岸場域)→ Today's Bake(3 款)→ Gift(深色)→ Visit → Minimal Footer(Base 內建)
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../ProductCard.astro';
+import ImagePlaceholder from '../ImagePlaceholder.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
 
 export interface Props {
@@ -23,10 +24,11 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
   description={t.pageMeta.home.description}
   transparentHeader
 >
-  <!-- 1. Hero:單張淡水夕陽攝影(暫以光感漸層佔位),克制 overlay,單一文字 CTA -->
+  <!-- 1. Hero:單張攝影佔位(待正式攝影替換),克制 overlay,單一文字 CTA -->
   <section class="hero">
     <div class="hero__media" aria-hidden="true"></div>
     <div class="hero__scrim" aria-hidden="true"></div>
+    <p class="hero__placeholder-note" aria-hidden="true">Hero Photography · 16:9 · Editorial Style</p>
     <div class="container hero__content">
       <p class="eyebrow hero__eyebrow">FLOUR · FLOWER · TAMSUI</p>
       <h1 class="hero__title">Baked by the River.</h1>
@@ -47,10 +49,10 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
   <section class="section signature">
     <div class="container signature__grid">
       <div class="signature__media reveal-media">
-        <div class="signature__image" aria-hidden="true">4:5</div>
+        <ImagePlaceholder label="Signature Product" ratio="4:5" aspect="4 / 5" />
       </div>
       <div class="signature__content reveal-text">
-        <p class="eyebrow">SIGNATURE</p>
+        <p class="eyebrow">HOUSE CLASSIC</p>
         <h2>{t.home.signature.name}</h2>
         {t.home.signature.nameEn !== t.home.signature.name && (
           <p class="signature__name-en">{t.home.signature.nameEn}</p>
@@ -71,7 +73,7 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
         <a class="link-arrow" href={`${p}/story`}>{t.home.place.cta} →</a>
       </div>
       <div class="place__media reveal-media">
-        <div class="place__image" aria-hidden="true">3:4</div>
+        <ImagePlaceholder label="Place Photography" ratio="3:2" aspect="3 / 2" />
       </div>
     </div>
   </section>
@@ -96,11 +98,16 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
 
   <!-- 6. Gift Collection:深色區塊 -->
   <section class="gift">
-    <div class="container gift__inner reveal-text">
-      <p class="eyebrow gift__eyebrow">GIFT</p>
-      <h2>{t.home.gift.heading}</h2>
-      <p class="gift__body">{t.home.gift.body}</p>
-      <a class="link-arrow gift__cta" href={`${p}/products`}>{t.home.gift.cta} →</a>
+    <div class="container gift__inner">
+      <div class="gift__media reveal-media">
+        <ImagePlaceholder label="Gift Photography" ratio="3:2" aspect="3 / 2" class="gift__placeholder" />
+      </div>
+      <div class="reveal-text">
+        <p class="eyebrow gift__eyebrow">GIFT</p>
+        <h2>{t.home.gift.heading}</h2>
+        <p class="gift__body">{t.home.gift.body}</p>
+        <a class="link-arrow gift__cta" href={`${p}/products`}>{t.home.gift.cta} →</a>
+      </div>
     </div>
   </section>
 
@@ -139,18 +146,28 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
     justify-content: center;
     overflow: hidden;
   }
-  /* TODO: 品牌攝影到位後改為 <img>/background-image(淡水夕陽河面);現以光感漸層佔位 */
+  /* TODO: 待正式攝影到位後,將 .hero__media 換成 <img>(16:9,淡水夕陽河面,自然窗光,老屋材質,
+     左右留白放文案,不用白底);.hero__scrim 為文字可讀性用的暗化疊層,正式照片仍會需要。 */
   .hero__media {
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(ellipse 70% 45% at 50% 72%, rgba(161, 108, 76, 0.5), transparent 65%),
-      linear-gradient(180deg, #6d625a 0%, #51443b 45%, #211e1b 100%);
+    background: var(--cocoa);
   }
   .hero__scrim {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(33, 30, 27, 0.08) 0%, rgba(33, 30, 27, 0.38) 100%);
+  }
+  .hero__placeholder-note {
+    position: absolute;
+    z-index: 1;
+    right: var(--space-3);
+    bottom: var(--space-3);
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.06em;
+    color: rgba(243, 239, 232, 0.55);
   }
   .hero__content {
     position: relative;
@@ -224,15 +241,6 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
     gap: var(--space-7);
     align-items: center;
   }
-  .signature__image {
-    aspect-ratio: 4 / 5;
-    background: var(--color-surface);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-ink-soft);
-    font-size: var(--text-sm);
-  }
   .signature__content h2 {
     font-size: var(--text-3xl);
     margin-top: var(--space-2);
@@ -263,15 +271,6 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
     grid-template-columns: 45fr 55fr;
     gap: var(--space-7);
     align-items: center;
-  }
-  .place__image {
-    aspect-ratio: 3 / 4;
-    background: var(--flour-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-ink-soft);
-    font-size: var(--text-sm);
   }
   .place__content h2 {
     font-size: var(--text-3xl);
@@ -312,9 +311,16 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
     padding-block: var(--space-8);
   }
   .gift__inner {
-    max-width: 720px;
+    max-width: 560px;
     margin-inline: auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-5);
+  }
+  .gift__media {
+    width: 100%;
   }
   .gift__eyebrow {
     color: var(--sunset-copper);

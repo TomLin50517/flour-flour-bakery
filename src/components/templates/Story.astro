@@ -3,6 +3,7 @@
 // 每章一張大圖 + 英文小標 + 在地語標題 + 40–80 字內文,無卡片框;結尾深色金句 + CTA
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../PageHeader.astro';
+import ImagePlaceholder from '../ImagePlaceholder.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
 
 export interface Props {
@@ -12,6 +13,15 @@ export interface Props {
 const { lang } = Astro.props;
 const t = getDict(lang);
 const p = localePrefix[lang];
+
+// 各章影像分類:01 河岸/05 光影屬「場域」(Place),02 麵粉/03 花蜜/04 摺疊屬「工藝過程」(Craft)
+const chapterImage = [
+  { label: 'Place Photography', ratio: '3:2', aspect: '3 / 2' },
+  { label: 'Craft Photography', ratio: '4:5', aspect: '4 / 5' },
+  { label: 'Craft Photography', ratio: '4:5', aspect: '4 / 5' },
+  { label: 'Craft Photography', ratio: '4:5', aspect: '4 / 5' },
+  { label: 'Place Photography', ratio: '3:2', aspect: '3 / 2' },
+] as const;
 ---
 
 <Base lang={lang} path="/story" title={t.pageMeta.story.title} description={t.pageMeta.story.description}>
@@ -21,7 +31,11 @@ const p = localePrefix[lang];
     <section class="chapter">
       <div class:list={['container', 'chapter__grid', { 'chapter__grid--flip': i % 2 === 1 }]}>
         <div class="chapter__media reveal-media">
-          <div class="chapter__image" aria-hidden="true">{ch.no}</div>
+          <ImagePlaceholder
+            label={chapterImage[i].label}
+            ratio={chapterImage[i].ratio}
+            aspect={chapterImage[i].aspect}
+          />
         </div>
         <div class="chapter__text reveal-text">
           <p class="chapter__no">{ch.no}</p>
@@ -57,16 +71,6 @@ const p = localePrefix[lang];
   }
   .chapter__grid--flip .chapter__media {
     order: 2;
-  }
-  .chapter__image {
-    aspect-ratio: 4 / 3;
-    background: var(--color-surface);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-heading-en);
-    font-size: var(--text-2xl);
-    color: var(--color-muted);
   }
   .chapter__no {
     font-family: var(--font-heading-en);
