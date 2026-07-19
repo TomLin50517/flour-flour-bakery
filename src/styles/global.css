@@ -289,41 +289,46 @@ summary:focus-visible,
 /* ---- motion: three sanctioned patterns only ----
    .reveal-text  — line-based rise:文字由下往上、被自身區塊裁切浮現
    .reveal-media — curtain reveal:影像由下而上拉開簾幕
-   (media 內容同時帶 extremely slow drift:scale 1.05 → 1) */
-.reveal-text {
+   (media 內容同時帶 extremely slow drift:scale 1.05 → 1)
+
+   漸進增強:內容預設完全可見(不依賴 JS)。只有在 <html class="js"> 存在時
+   (由 Base.astro 開頭的 inline script 同步加上)才進入「等待進場」狀態,
+   並由 IntersectionObserver 加上 .is-visible 觸發進場;script 內另有逾時
+   保險,避免 observer 因任何原因未觸發導致內容永久不可見。 */
+html.js .reveal-text {
   clip-path: inset(0 0 100% 0);
   transform: translateY(20px);
   transition: clip-path var(--duration-reveal) var(--ease-editorial),
     transform var(--duration-reveal) var(--ease-editorial);
 }
 
-.reveal-text.is-visible {
+html.js .reveal-text.is-visible {
   clip-path: inset(0 0 -12% 0);
   transform: translateY(0);
 }
 
-.reveal-media {
+html.js .reveal-media {
   clip-path: inset(100% 0 0 0);
   transition: clip-path var(--duration-curtain) var(--ease-editorial);
 }
 
-.reveal-media > * {
+html.js .reveal-media > * {
   transform: scale(1.05);
   transition: transform var(--duration-drift) var(--ease-editorial);
 }
 
-.reveal-media.is-visible {
+html.js .reveal-media.is-visible {
   clip-path: inset(0 0 0 0);
 }
 
-.reveal-media.is-visible > * {
+html.js .reveal-media.is-visible > * {
   transform: scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal-text,
-  .reveal-media,
-  .reveal-media > * {
+  html.js .reveal-text,
+  html.js .reveal-media,
+  html.js .reveal-media > * {
     clip-path: none;
     transform: none;
     transition: none;

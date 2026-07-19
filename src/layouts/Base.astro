@@ -59,6 +59,11 @@ const jsonLd = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 漸進增強:先同步標記 JS 可用,.reveal-text/.reveal-media 的進場隱藏樣式只在此 class 存在時生效
+         (見 global.css)。JS 關閉或載入失敗時,內容維持一般可見,不依賴後續進場動畫。 -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={`${siteUrl}${canonicalPath}`} />
@@ -112,18 +117,32 @@ const jsonLd = {
     <Footer lang={lang} footer={t.footer} nav={t.nav} contact={t.contact} />
 
     <script>
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
-      document.querySelectorAll('.reveal-text, .reveal-media').forEach((el) => observer.observe(el));
+      const revealEls = document.querySelectorAll('.reveal-text, .reveal-media');
+
+      // 保險機制:若元素在進入視窗後 2.5 秒內仍未被 observer 標記可見(無論何種原因),
+      // 強制加上 is-visible,確保內容不會永久卡在隱藏狀態。
+      const revealNow = (el: Element) => el.classList.add('is-visible');
+      const scheduleFallback = (el: Element) => setTimeout(() => revealNow(el), 2500);
+
+      if (!('IntersectionObserver' in window)) {
+        revealEls.forEach(revealNow);
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                revealNow(entry.target);
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+        );
+        revealEls.forEach((el) => {
+          observer.observe(el);
+          scheduleFallback(el);
+        });
+      }
     </script>
   </body>
 </html>
