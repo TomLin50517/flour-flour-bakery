@@ -3,7 +3,6 @@
 // → The Place(河岸場域)→ Today's Bake(3 款)→ Gift(深色)→ Visit → Minimal Footer(Base 內建)
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../ProductCard.astro';
-import ImagePlaceholder from '../ImagePlaceholder.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
 
 export interface Props {
@@ -39,8 +38,8 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
   <!-- 2. Brand Manifesto:純文字、留白 ≥160px、寬 ≤720px -->
   <section class="manifesto">
     <div class="container manifesto__inner reveal-text">
-      <p class="manifesto__en">Flour is where we begin.<br />Time is what allows flavour to bloom.</p>
-      {t.home.manifesto.text && <p class="manifesto__local">{t.home.manifesto.text}</p>}
+      <p class="manifesto__heading">{t.home.manifesto.heading}</p>
+      {t.home.manifesto.body && <p class="manifesto__body">{t.home.manifesto.body}</p>}
     </div>
   </section>
 
@@ -72,7 +71,7 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
         <a class="link-arrow" href={`${p}/story`}>{t.home.place.cta} →</a>
       </div>
       <div class="place__media reveal-media">
-        <ImagePlaceholder label="Place Photography" ratio="3:2" aspect="3 / 2" />
+        <img src="/images/place-tamsui-oldhouse.jpg" alt={t.home.place.title} class="place__photo" width="1200" height="800" loading="lazy" />
       </div>
     </div>
   </section>
@@ -86,7 +85,7 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
       </div>
       <div class="today__grid">
         {featured.map((item) => (
-          <ProductCard item={item} />
+          <ProductCard item={item} showPrice={false} />
         ))}
       </div>
       <p class="today__cta reveal-text">
@@ -99,7 +98,7 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
   <section class="gift">
     <div class="container gift__inner">
       <div class="gift__media reveal-media">
-        <ImagePlaceholder label="Gift Photography" ratio="3:2" aspect="3 / 2" class="gift__placeholder" />
+        <img src="/images/gift-saltedyolk-cheese.jpg" alt={t.home.gift.heading} class="gift__photo" width="1114" height="1469" loading="lazy" />
       </div>
       <div class="reveal-text">
         <p class="eyebrow gift__eyebrow">GIFT</p>
@@ -204,20 +203,22 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
     margin-inline: auto;
     text-align: center;
   }
-  .manifesto__en {
-    font-family: var(--font-heading-en);
-    font-style: italic;
+  .manifesto__heading {
+    font-family: var(--font-heading-locale);
+    font-style: var(--display-italic);
     font-weight: 500;
     font-size: var(--text-2xl);
-    line-height: 1.6;
+    line-height: 1.5;
     color: var(--color-ink);
   }
-  .manifesto__local {
-    font-family: var(--font-heading-locale);
-    font-size: var(--text-xl);
-    line-height: 1.9;
+  .manifesto__body {
+    font-family: var(--font-body-locale);
+    font-size: var(--text-lg);
+    line-height: var(--body-line-height);
     color: var(--color-ink-soft);
     margin-top: var(--space-4);
+    max-width: var(--reading-max-width);
+    margin-inline: auto;
   }
 
   /* ---- 3. signature:非對稱 65/35 ---- */
@@ -275,6 +276,11 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
   .place__content .link-arrow {
     margin-top: var(--space-4);
   }
+  .place__photo {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
 
   /* ---- 5. today's bake ---- */
   .today__header {
@@ -312,6 +318,10 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
   }
   .gift__media {
     width: 100%;
+  }
+  .gift__photo {
+    width: 100%;
+    height: auto;
   }
   .gift__eyebrow {
     color: var(--sunset-copper);

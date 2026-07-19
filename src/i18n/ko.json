@@ -62,7 +62,8 @@
       "subtitle": "단수이의 빛을, 겹겹의 결 사이에 접어 넣습니다."
     },
     "manifesto": {
-      "text": "밀가루에서 모든 것이 시작되고, 시간이 풍미를 천천히 피워냅니다."
+      "heading": "평범한 하루를, 오래 기억에 남을 하루로 구워냅니다.",
+      "body": "강물은 조용히 흐르고, 빛은 나직이 내려앉습니다. 오직 시간을 들여, 크루아상의 결 하나하나를 집으로 가져가고 싶은 기억으로 접어 넣습니다."
     },
     "signature": {
       "name": "대만식 요우티아오 데니시",
@@ -81,7 +82,7 @@
     },
     "gift": {
       "heading": "단수이가 보내는 선물",
-      "body": "용안꿀 마들렌과 피낭시에를 중심으로 꾸린 상온 선물 상자. 브랜드 플라워를 새긴 아이보리 포장지에 담아, 멀리 있는 이에게 단수이의 강빛 한 조각을 보냅니다.",
+      "body": "바삭한 쿠키에 커스터드와 소금에 절인 노른자·치즈 필링을 더했습니다. 처음엔 우유 향, 이어 소금에 절인 노른자와 치즈의 짭짤함이 퍼지며 단맛과 짠맛이 풍부하게 어우러집니다.",
       "cta": "선물 컬렉션 보기"
     },
     "visit": {
@@ -135,13 +136,49 @@
   "products": {
     "bannerTitle": "제품 소개",
     "categories": {
-      "classic": "클래식 브레드",
+      "classic": "클래식 크루아상",
       "seasonal": "시즌 한정",
       "pastry": "상온 디저트"
     },
     "footnote": "제품은 매일 한정 수량으로 준비됩니다. 전화 예약을 권장드립니다.",
     "footnoteCta": "전화로 예약하기",
     "items": [
+      {
+        "id": "pistachio-croissant",
+        "category": "classic",
+        "name": "피스타치오 크루아상",
+        "nameEn": "Pistachio Croissant",
+        "description": "스물일곱 겹 버터 크루아상에 시칠리아산 피스타치오 크림, 은은한 견과 향의 여운.",
+        "price": 120,
+        "dailyLimit": 12,
+        "status": "limited",
+        "soldOut": false,
+        "image": "/images/croissant-pistachio.jpg"
+      },
+      {
+        "id": "plain-croissant",
+        "category": "classic",
+        "name": "플레인 크루아상",
+        "nameEn": "Plain Croissant",
+        "description": "버터와 시간만으로, 세 번 접어 완성한 순수한 크루아상. 겹겹마다 바삭한 공기.",
+        "price": 75,
+        "dailyLimit": 30,
+        "status": "available",
+        "soldOut": false,
+        "image": "/images/croissant-plain.jpg"
+      },
+      {
+        "id": "chocolate-croissant",
+        "category": "classic",
+        "name": "초콜릿 크루아상",
+        "nameEn": "Chocolate Croissant",
+        "description": "코코아를 살짝 입힌 크루아상, 속에는 살짝 쌉싸름한 초콜릿. 달지만 물리지 않습니다.",
+        "price": 95,
+        "dailyLimit": 18,
+        "status": "limited",
+        "soldOut": false,
+        "image": "/images/croissant-chocolate.jpg"
+      },
       {
         "id": "longan-tangzhong-toast",
         "category": "classic",

@@ -62,7 +62,8 @@
       "subtitle": "The light of Tamsui, folded into every layer."
     },
     "manifesto": {
-      "text": ""
+      "heading": "An ordinary day, baked into one worth remembering.",
+      "body": "The river drifts quietly by; the light settles soft and low. With time alone, we fold each layer of croissant into a memory worth carrying home."
     },
     "signature": {
       "name": "Taiwanese Youtiao Danish",
@@ -81,7 +82,7 @@
     },
     "gift": {
       "heading": "A gift from Tamsui",
-      "body": "Shelf-stable boxes built around longan honey madeleines and financiers, wrapped in ivory paper printed with our brand flower — a small piece of Tamsui river light, for someone far away.",
+      "body": "Crisp shortbread sandwiched with a custard, salted egg yolk and cheese filling — milk on the first bite, then the savoury depth of salted yolk and cheese: a rich, balanced play of salt and sweet.",
       "cta": "View the gift collection"
     },
     "visit": {
@@ -135,13 +136,49 @@
   "products": {
     "bannerTitle": "Products",
     "categories": {
-      "classic": "Classic Breads",
+      "classic": "Classic Croissants",
       "seasonal": "Seasonal Specials",
       "pastry": "Pastries"
     },
     "footnote": "Daily quantities are limited — reservations by phone are recommended.",
     "footnoteCta": "Call to reserve",
     "items": [
+      {
+        "id": "pistachio-croissant",
+        "category": "classic",
+        "name": "Pistachio Croissant",
+        "nameEn": "Pistachio Croissant",
+        "description": "Twenty-seven buttery layers finished with Sicilian pistachio cream, closing on a warm, nutty note.",
+        "price": 120,
+        "dailyLimit": 12,
+        "status": "limited",
+        "soldOut": false,
+        "image": "/images/croissant-pistachio.jpg"
+      },
+      {
+        "id": "plain-croissant",
+        "category": "classic",
+        "name": "Plain Croissant",
+        "nameEn": "Plain Croissant",
+        "description": "Only butter and time — a pure croissant, folded three by three, crisp air in every layer.",
+        "price": 75,
+        "dailyLimit": 30,
+        "status": "available",
+        "soldOut": false,
+        "image": "/images/croissant-plain.jpg"
+      },
+      {
+        "id": "chocolate-croissant",
+        "category": "classic",
+        "name": "Chocolate Croissant",
+        "nameEn": "Chocolate Croissant",
+        "description": "A croissant dusted with cocoa, a lightly bitter chocolate hidden within — sweet, never cloying.",
+        "price": 95,
+        "dailyLimit": 18,
+        "status": "limited",
+        "soldOut": false,
+        "image": "/images/croissant-chocolate.jpg"
+      },
       {
         "id": "longan-tangzhong-toast",
         "category": "classic",

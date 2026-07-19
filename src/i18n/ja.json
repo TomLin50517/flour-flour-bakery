@@ -62,7 +62,8 @@
       "subtitle": "淡水の光を、幾重もの生地に折り込んで。"
     },
     "manifesto": {
-      "text": "小麦粉から、すべてが始まる。そして時間が、風味をゆっくり開かせる。"
+      "heading": "ありふれた一日を、心に残る一日へ焼き上げる。",
+      "body": "川は静かに流れ、光はそっと落ちる。ただ時間をかけて、クロワッサンの層を、持ち帰りたくなる記憶へと折り込む。"
     },
     "signature": {
       "name": "台湾油條デニッシュ",
@@ -81,7 +82,7 @@
     },
     "gift": {
       "heading": "淡水からの贈りもの",
-      "body": "龍眼蜜マドレーヌとフィナンシェを中心に詰めた常温ギフト。ブランドフラワーを刷った生成りの包み紙で。遠くの誰かに、淡水の川明かりをひとかけら。",
+      "body": "さくさくのクッキーに、カスタードと塩漬け卵黄・チーズのフィリング。最初にミルクの香り、続いて塩漬け卵黄とチーズの塩気が広がり、甘さと塩気が豊かに調和します。",
       "cta": "ギフトを見る"
     },
     "visit": {
@@ -135,13 +136,49 @@
   "products": {
     "bannerTitle": "商品紹介",
     "categories": {
-      "classic": "定番パン",
+      "classic": "定番クロワッサン",
       "seasonal": "季節限定",
       "pastry": "焼き菓子"
     },
     "footnote": "商品は数量限定です。お電話でのご予約をおすすめします。",
     "footnoteCta": "電話で予約する",
     "items": [
+      {
+        "id": "pistachio-croissant",
+        "category": "classic",
+        "name": "ピスタチオ・クロワッサン",
+        "nameEn": "Pistachio Croissant",
+        "description": "二十七層のバタークロワッサンに、シチリア産ピスタチオクリーム。ほのかなナッツの余韻。",
+        "price": 120,
+        "dailyLimit": 12,
+        "status": "limited",
+        "soldOut": false,
+        "image": "/images/croissant-pistachio.jpg"
+      },
+      {
+        "id": "plain-croissant",
+        "category": "classic",
+        "name": "プレーン・クロワッサン",
+        "nameEn": "Plain Croissant",
+        "description": "バターと時間だけ。三つ折りを三度重ねた純粋なクロワッサン、層ごとにさっくりとした空気。",
+        "price": 75,
+        "dailyLimit": 30,
+        "status": "available",
+        "soldOut": false,
+        "image": "/images/croissant-plain.jpg"
+      },
+      {
+        "id": "chocolate-croissant",
+        "category": "classic",
+        "name": "ショコラ・クロワッサン",
+        "nameEn": "Chocolate Croissant",
+        "description": "ココアをまとわせたクロワッサン。中にはほろ苦いチョコレート、甘すぎない味わい。",
+        "price": 95,
+        "dailyLimit": 18,
+        "status": "limited",
+        "soldOut": false,
+        "image": "/images/croissant-chocolate.jpg"
+      },
       {
         "id": "longan-tangzhong-toast",
         "category": "classic",

@@ -11,10 +11,14 @@ export interface Props {
     nameEn: string;
     price: number;
     status: 'available' | 'limited' | 'seasonal' | 'holiday' | 'weekend' | 'soldout';
+    image?: string; // 正式攝影路徑;未提供則沿用佔位系統
   };
+  // 首頁「今日出爐」以情緒與攝影帶場,不出現價格(emotion before information);
+  // 售賣意圖留在商品頁,故該頁維持 showPrice=true。
+  showPrice?: boolean;
 }
 
-const { item } = Astro.props;
+const { item, showPrice = true } = Astro.props;
 const statusLabels = {
   available: 'Available Today',
   limited: 'Limited Bake',
@@ -28,13 +32,17 @@ const tagStatuses = new Set(['seasonal', 'holiday']);
 
 <article class:list={['product-card', { 'product-card--sold-out': item.status === 'soldout' }]} data-product-id={item.id}>
   <div class="product-card__frame reveal-media">
-    <ImagePlaceholder label="Product Photography" ratio="4:5" aspect="4 / 5" class="product-card__placeholder" />
+    {item.image ? (
+      <img src={item.image} alt={item.name} class="product-card__photo" width="800" height="1000" loading="lazy" />
+    ) : (
+      <ImagePlaceholder label="Product Photography" ratio="4:5" aspect="4 / 5" class="product-card__placeholder" />
+    )}
   </div>
   <div class="product-card__body reveal-text">
     <h3>{item.name}</h3>
     {item.nameEn !== item.name && <p class="product-card__name-en">{item.nameEn}</p>}
-    <p class="product-card__meta">
-      <span class="product-card__price">NT$ {item.price}</span>
+    <p class:list={['product-card__meta', { 'product-card__meta--no-price': !showPrice }]}>
+      {showPrice && <span class="product-card__price">NT$ {item.price}</span>}
       {tagStatuses.has(item.status) ? (
         <span class:list={['product-card__tag', `product-card__tag--${item.status}`]}>{statusLabels[item.status]}</span>
       ) : (
@@ -47,6 +55,11 @@ const tagStatuses = new Set(['seasonal', 'holiday']);
 <style>
   .product-card__frame {
     overflow: hidden;
+  }
+  .product-card__photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
   }
   .product-card__body {
     padding-top: var(--space-2);
@@ -68,6 +81,10 @@ const tagStatuses = new Set(['seasonal', 'holiday']);
     justify-content: space-between;
     gap: var(--space-2);
     margin-top: var(--space-2);
+  }
+  /* 無價格時,狀態文字靠左對齊,維持與名稱同一條垂直節奏 */
+  .product-card__meta--no-price {
+    justify-content: flex-start;
   }
   .product-card__price {
     font-family: var(--font-heading-en);
@@ -96,7 +113,8 @@ const tagStatuses = new Set(['seasonal', 'holiday']);
     border-radius: var(--radius-pill);
     padding: 3px 10px;
   }
-  .product-card--sold-out :global(.product-card__placeholder) {
+  .product-card--sold-out :global(.product-card__placeholder),
+  .product-card--sold-out .product-card__photo {
     filter: saturate(0.4);
     opacity: 0.55;
   }

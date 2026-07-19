@@ -62,7 +62,8 @@
       "subtitle": "把淡水的光，摺進每一層酥香裡。"
     },
     "manifesto": {
-      "text": "麵粉是開始，而時間，讓風味慢慢開花。"
+      "heading": "把平凡的一天，烘焙成值得回味的一天。",
+      "body": "河流緩緩流過，光影靜靜落下。我們只是用時間，把每一層可頌，摺成一份值得帶回家的記憶。"
     },
     "signature": {
       "name": "丹麥油條棒",
@@ -81,7 +82,7 @@
     },
     "gift": {
       "heading": "淡水的禮",
-      "body": "以龍眼蜜瑪德蓮與費南雪為主的常溫禮盒，襯上印著品牌花的米色包裝紙——給遠方的人，一小片淡水的河光。",
+      "body": "酥脆餅乾搭配奶黃鹹蛋黃與起司內餡，入口先有奶香，帶出鹹蛋黃與起司的鹹香，鹹甜平衡層次豐富。",
       "cta": "選購禮盒"
     },
     "visit": {
@@ -135,13 +136,49 @@
   "products": {
     "bannerTitle": "產品介紹",
     "categories": {
-      "classic": "經典麵包",
+      "classic": "經典可頌",
       "seasonal": "季節限定",
       "pastry": "常溫甜點"
     },
     "footnote": "產品每日限量，建議來電預留。",
     "footnoteCta": "致電預訂",
     "items": [
+      {
+        "id": "pistachio-croissant",
+        "category": "classic",
+        "name": "開心果可頌",
+        "nameEn": "Pistachio Croissant",
+        "description": "二十七層奶油可頌，抹上西西里開心果醬，尾韻是溫潤的堅果香。",
+        "price": 120,
+        "dailyLimit": 12,
+        "status": "limited",
+        "soldOut": false,
+        "image": "/images/croissant-pistachio.jpg"
+      },
+      {
+        "id": "plain-croissant",
+        "category": "classic",
+        "name": "原味可頌",
+        "nameEn": "Plain Croissant",
+        "description": "只用奶油與時間，三摺三次的純粹可頌，咬下是層層酥脆的空氣。",
+        "price": 75,
+        "dailyLimit": 30,
+        "status": "available",
+        "soldOut": false,
+        "image": "/images/croissant-plain.jpg"
+      },
+      {
+        "id": "chocolate-croissant",
+        "category": "classic",
+        "name": "巧克力可頌",
+        "nameEn": "Chocolate Croissant",
+        "description": "可可粉輕撲的可頌，內裡藏著微苦巧克力，甜而不膩。",
+        "price": 95,
+        "dailyLimit": 18,
+        "status": "limited",
+        "soldOut": false,
+        "image": "/images/croissant-chocolate.jpg"
+      },
       {
         "id": "longan-tangzhong-toast",
         "category": "classic",
