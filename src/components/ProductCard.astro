@@ -13,7 +13,7 @@ export interface Props {
     status: 'available' | 'limited' | 'seasonal' | 'holiday' | 'weekend' | 'soldout';
     image?: string; // 正式攝影路徑;未提供則沿用佔位系統
   };
-  // 首頁「今日出爐」以情緒與攝影帶場,不出現價格(emotion before information);
+  // 首頁「特別推薦」以情緒與攝影帶場,不出現價格(emotion before information);
   // 售賣意圖留在商品頁,故該頁維持 showPrice=true。
   showPrice?: boolean;
 }
