@@ -4,6 +4,7 @@
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../ProductCard.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
+import { getProducts } from '../../data/products';
 
 export interface Props {
   lang: Lang;
@@ -13,7 +14,7 @@ const { lang } = Astro.props;
 const t = getDict(lang);
 const p = localePrefix[lang];
 
-const featured = t.products.items.filter((item) => item.status !== 'soldout').slice(0, 3);
+const featured = getProducts(lang).slice(0, 3);
 ---
 
 <Base

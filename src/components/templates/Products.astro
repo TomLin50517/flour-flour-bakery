@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import PageHeader from '../PageHeader.astro';
 import ProductCard from '../ProductCard.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
+import { getProducts, getCategories } from '../../data/products';
 
 export interface Props {
   lang: Lang;
@@ -13,23 +14,24 @@ const { lang } = Astro.props;
 const t = getDict(lang);
 const p = localePrefix[lang];
 
-const categoryOrder = ['classic', 'seasonal', 'pastry'] as const;
+const categories = getCategories(lang);
+const products = getProducts(lang);
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  itemListElement: t.products.items.map((item, i) => ({
+  itemListElement: products.map((item, i) => ({
     '@type': 'ListItem',
     position: i + 1,
     item: {
       '@type': 'Product',
       name: item.name,
-      description: item.description,
+      description: item.tagline,
       offers: {
         '@type': 'Offer',
         priceCurrency: 'TWD',
         price: item.price,
-        availability: item.soldOut ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
+        availability: 'https://schema.org/InStock',
       },
     },
   })),
@@ -43,18 +45,18 @@ const jsonLd = {
 
   <nav class="category-tabs" aria-label="product categories">
     <div class="container category-tabs__inner">
-      {categoryOrder.map((cat) => (
-        <a href={`#${cat}`}>{t.products.categories[cat]}</a>
+      {categories.map((cat) => (
+        <a href={`#${cat.key}`}>{cat.label}</a>
       ))}
     </div>
   </nav>
 
-  {categoryOrder.map((cat) => (
-    <section class="section container" id={cat}>
-      <h2 class="category-heading reveal-text">{t.products.categories[cat]}</h2>
+  {categories.map((cat) => (
+    <section class="section container" id={cat.key}>
+      <h2 class="category-heading reveal-text">{cat.label}</h2>
       <div class="product-grid">
-        {t.products.items
-          .filter((item) => item.category === cat)
+        {products
+          .filter((item) => item.category === cat.key)
           .map((item) => (
             <ProductCard item={item} alcoholLabel={t.products.alcoholLabel} />
           ))}
@@ -94,9 +96,9 @@ const jsonLd = {
     font-size: var(--text-2xl);
     margin-bottom: var(--space-6);
   }
-  #classic,
-  #seasonal,
-  #pastry {
+  #croissant,
+  #danish,
+  #gift {
     scroll-margin-top: 64px;
   }
   .product-grid {

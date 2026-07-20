@@ -26,5 +26,6 @@ pnpm-debug.log*
 # Claude Code local permission overrides (machine-specific)
 .claude/settings.local.json
 
-# 開發用 AI 規則文件,非程式碼,不上傳
-Doc/
+# 開發用 AI 規則文件,非程式碼,不上傳;但產品資料來源 Product.xlsx 需進版控
+Doc/*
+!Doc/Product.xlsx
