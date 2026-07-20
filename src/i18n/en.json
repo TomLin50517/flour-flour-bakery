@@ -142,6 +142,7 @@
     },
     "footnote": "Daily quantities are limited — reservations by phone are recommended.",
     "footnoteCta": "Call to reserve",
+    "alcoholLabel": "Contains Alcohol",
     "items": [
       {
         "id": "pistachio-croissant",
@@ -310,6 +311,18 @@
         "dailyLimit": 25,
         "status": "available",
         "soldOut": false
+      },
+      {
+        "id": "tiramisu",
+        "category": "pastry",
+        "name": "Tiramisu",
+        "nameEn": "Tiramisu",
+        "description": "Ladyfingers soaked in espresso and Marsala, silky mascarpone, a lightly bitter finish.",
+        "price": 160,
+        "dailyLimit": 10,
+        "status": "limited",
+        "soldOut": false,
+        "containsAlcohol": true
       }
     ]
   },

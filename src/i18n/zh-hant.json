@@ -142,6 +142,7 @@
     },
     "footnote": "產品每日限量，建議來電預留。",
     "footnoteCta": "致電預訂",
+    "alcoholLabel": "含酒精",
     "items": [
       {
         "id": "pistachio-croissant",
@@ -310,6 +311,18 @@
         "dailyLimit": 25,
         "status": "available",
         "soldOut": false
+      },
+      {
+        "id": "tiramisu",
+        "category": "pastry",
+        "name": "提拉米蘇",
+        "nameEn": "Tiramisu",
+        "description": "手指餅乾吸飽義式濃縮與瑪薩拉酒，馬斯卡彭綿密，尾韻微苦回甘。",
+        "price": 160,
+        "dailyLimit": 10,
+        "status": "limited",
+        "soldOut": false,
+        "containsAlcohol": true
       }
     ]
   },

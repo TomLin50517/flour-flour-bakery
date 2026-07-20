@@ -85,7 +85,7 @@ const featured = t.products.items.filter((item) => item.status !== 'soldout').sl
       </div>
       <div class="today__grid">
         {featured.map((item) => (
-          <ProductCard item={item} showPrice={false} />
+          <ProductCard item={item} showPrice={false} alcoholLabel={t.products.alcoholLabel} />
         ))}
       </div>
       <p class="today__cta reveal-text">

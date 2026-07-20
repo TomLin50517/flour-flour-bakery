@@ -12,13 +12,16 @@ export interface Props {
     price: number;
     status: 'available' | 'limited' | 'seasonal' | 'holiday' | 'weekend' | 'soldout';
     image?: string; // 正式攝影路徑;未提供則沿用佔位系統
+    containsAlcohol?: boolean; // 飲食資訊,與 status 正交;為 true 時額外顯示「含酒精」標籤
   };
   // 首頁「特別推薦」以情緒與攝影帶場,不出現價格(emotion before information);
   // 售賣意圖留在商品頁,故該頁維持 showPrice=true。
   showPrice?: boolean;
+  // 「含酒精」標籤文字,隨語系傳入(products.alcoholLabel);未傳則退回英文。
+  alcoholLabel?: string;
 }
 
-const { item, showPrice = true } = Astro.props;
+const { item, showPrice = true, alcoholLabel = 'Contains Alcohol' } = Astro.props;
 const statusLabels = {
   available: 'Available Today',
   limited: 'Limited Bake',
@@ -43,11 +46,16 @@ const tagStatuses = new Set(['seasonal', 'holiday']);
     {item.nameEn !== item.name && <p class="product-card__name-en">{item.nameEn}</p>}
     <p class:list={['product-card__meta', { 'product-card__meta--no-price': !showPrice }]}>
       {showPrice && <span class="product-card__price">NT$ {item.price}</span>}
-      {tagStatuses.has(item.status) ? (
-        <span class:list={['product-card__tag', `product-card__tag--${item.status}`]}>{statusLabels[item.status]}</span>
-      ) : (
-        <span class:list={['product-card__status', `product-card__status--${item.status}`]}>{statusLabels[item.status]}</span>
-      )}
+      <span class="product-card__labels">
+        {tagStatuses.has(item.status) ? (
+          <span class:list={['product-card__tag', `product-card__tag--${item.status}`]}>{statusLabels[item.status]}</span>
+        ) : (
+          <span class:list={['product-card__status', `product-card__status--${item.status}`]}>{statusLabels[item.status]}</span>
+        )}
+        {item.containsAlcohol && (
+          <span class="product-card__tag product-card__tag--alcohol">{alcoholLabel}</span>
+        )}
+      </span>
     </p>
   </div>
 </article>
@@ -87,6 +95,14 @@ const tagStatuses = new Set(['seasonal', 'holiday']);
   .product-card__meta--no-price {
     justify-content: flex-start;
   }
+  /* 狀態 + 含酒精等標籤右側成組,可換行 */
+  .product-card__labels {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+  }
   .product-card__price {
     font-family: var(--font-heading-en);
     color: var(--color-ink);
@@ -113,6 +129,14 @@ const tagStatuses = new Set(['seasonal', 'holiday']);
     border: 1px solid var(--placeholder-border);
     border-radius: var(--radius-pill);
     padding: 3px 10px;
+  }
+  /* 含酒精:飲食提示,以克制的銅色點出,字型走全語系備援鏈(標籤文字會在地化) */
+  .product-card__tag--alcohol {
+    font-family: var(--font-ui);
+    letter-spacing: 0.08em;
+    color: var(--color-accent-text);
+    background: color-mix(in srgb, var(--color-accent), transparent 92%);
+    border-color: color-mix(in srgb, var(--color-accent), transparent 55%);
   }
   .product-card--sold-out :global(.product-card__placeholder),
   .product-card--sold-out .product-card__photo {

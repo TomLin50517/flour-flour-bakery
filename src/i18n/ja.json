@@ -142,6 +142,7 @@
     },
     "footnote": "商品は数量限定です。お電話でのご予約をおすすめします。",
     "footnoteCta": "電話で予約する",
+    "alcoholLabel": "アルコール含む",
     "items": [
       {
         "id": "pistachio-croissant",
@@ -310,6 +311,18 @@
         "dailyLimit": 25,
         "status": "available",
         "soldOut": false
+      },
+      {
+        "id": "tiramisu",
+        "category": "pastry",
+        "name": "ティラミス",
+        "nameEn": "Tiramisu",
+        "description": "エスプレッソとマルサラ酒を含ませたフィンガービスケット、なめらかなマスカルポーネ、ほろ苦い余韻。",
+        "price": 160,
+        "dailyLimit": 10,
+        "status": "limited",
+        "soldOut": false,
+        "containsAlcohol": true
       }
     ]
   },
