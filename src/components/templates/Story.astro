@@ -14,37 +14,42 @@ const { lang } = Astro.props;
 const t = getDict(lang);
 const p = localePrefix[lang];
 
-// 各章影像統一 3:2 橫幅。src 未提供時仍回退佔位系統。
-// 05 光為直幅夕陽,3:2 置中會裁掉太陽,故 focus 上偏保留地平線與日落倒影。
-const chapterImage: { label: string; ratio: string; aspect: string; src?: string; focus?: string }[] = [
-  { label: 'Place Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-river.jpg' },
-  { label: 'Craft Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-flour.jpg' },
-  { label: 'Craft Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-flower.jpg' },
-  { label: 'Craft Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-fold.jpg' },
-  { label: 'Place Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-light.jpg', focus: 'center 30%' },
-];
+// 各章影像設定,以章節英文標題(labelEn,四語一致)為鍵,與 i18n 的 story.chapters 對應。
+// 不再依賴陣列位置,新增/調整/重排章節時不會與文字錯位;查無對應時回退佔位系統。
+// 各章統一 3:2 橫幅。05 光為直幅夕陽,3:2 置中會裁掉太陽,故 focus 上偏保留地平線與日落倒影。
+type ChapterMedia = { label: string; ratio: string; aspect: string; src?: string; focus?: string };
+const chapterMedia: Record<string, ChapterMedia> = {
+  'The River': { label: 'Place Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-river.jpg' },
+  'The Flour': { label: 'Craft Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-flour.jpg' },
+  'The Flower': { label: 'Craft Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-flower.jpg' },
+  'The Fold': { label: 'Craft Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-fold.jpg' },
+  'The Light': { label: 'Place Photography', ratio: '3:2', aspect: '3 / 2', src: '/images/story-light.jpg', focus: 'center 30%' },
+};
+const fallbackMedia: ChapterMedia = { label: 'Story Photography', ratio: '3:2', aspect: '3 / 2' };
 ---
 
 <Base lang={lang} path="/story" title={t.pageMeta.story.title} description={t.pageMeta.story.description}>
   <PageHeader eyebrow="OUR STORY" title={t.story.pageTitle} />
 
-  {t.story.chapters.map((ch, i) => (
+  {t.story.chapters.map((ch, i) => {
+    const media = chapterMedia[ch.labelEn] ?? fallbackMedia;
+    return (
     <section class="chapter">
       <div class:list={['container', 'chapter__grid', { 'chapter__grid--flip': i % 2 === 1 }]}>
         <div class="chapter__media reveal-media">
-          {chapterImage[i].src ? (
+          {media.src ? (
             <img
-              src={chapterImage[i].src}
+              src={media.src}
               alt={ch.title}
               class="chapter__photo"
-              style={`aspect-ratio: ${chapterImage[i].aspect};${chapterImage[i].focus ? ` object-position: ${chapterImage[i].focus};` : ''}`}
+              style={`aspect-ratio: ${media.aspect};${media.focus ? ` object-position: ${media.focus};` : ''}`}
               loading="lazy"
             />
           ) : (
             <ImagePlaceholder
-              label={chapterImage[i].label}
-              ratio={chapterImage[i].ratio}
-              aspect={chapterImage[i].aspect}
+              label={media.label}
+              ratio={media.ratio}
+              aspect={media.aspect}
             />
           )}
         </div>
@@ -56,7 +61,8 @@ const chapterImage: { label: string; ratio: string; aspect: string; src?: string
         </div>
       </div>
     </section>
-  ))}
+    );
+  })}
 
   <section class="story-quote">
     <div class="container reveal-text">

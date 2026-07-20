@@ -18,6 +18,20 @@ const defaultDict = getDict('zh-hant');
     <title>{defaultDict.pageMeta.notFound.title}</title>
     <meta name="description" content={defaultDict.pageMeta.notFound.description} />
     <meta name="robots" content="noindex" />
+    <script is:inline>
+      // 於繪製前依網址前綴判定語系,設定 <html data-lang>(供 CSS 只顯示對應區塊,避免其他語系閃現繁中)與 lang。
+      (function () {
+        var p = location.pathname;
+        var lang = 'zh-hant';
+        if (p === '/en' || p.indexOf('/en/') === 0) lang = 'en';
+        else if (p === '/ja' || p.indexOf('/ja/') === 0) lang = 'ja';
+        else if (p === '/ko' || p.indexOf('/ko/') === 0) lang = 'ko';
+        var htmlLang = { 'zh-hant': 'zh-Hant', en: 'en', ja: 'ja', ko: 'ko' }[lang];
+        var de = document.documentElement;
+        de.setAttribute('data-lang', lang);
+        de.setAttribute('lang', htmlLang);
+      })();
+    </script>
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -33,7 +47,14 @@ const defaultDict = getDict('zh-hant');
       const t = getDict(lang);
       const p = localePrefix[lang];
       return (
-        <div class="notfound-locale" data-lang={lang} data-html-lang={htmlLang[lang]} hidden={lang !== 'zh-hant'}>
+        <div
+          class="notfound-locale"
+          data-lang={lang}
+          data-html-lang={htmlLang[lang]}
+          data-title={t.pageMeta.notFound.title}
+          data-description={t.pageMeta.notFound.description}
+          hidden={lang !== 'zh-hant'}
+        >
           <Header lang={lang} path="/404" langLabels={t.langSwitcher} reserveEmail={t.contact.emailValue} />
           <main class="notfound">
             <div class="container notfound__inner">
@@ -50,23 +71,44 @@ const defaultDict = getDict('zh-hant');
       );
     })}
 
-    <script>
-      const path = window.location.pathname;
-      let lang = 'zh-hant';
-      if (path.startsWith('/en/') || path === '/en') lang = 'en';
-      else if (path.startsWith('/ja/') || path === '/ja') lang = 'ja';
-      else if (path.startsWith('/ko/') || path === '/ko') lang = 'ko';
-
-      document.querySelectorAll<HTMLElement>('.notfound-locale').forEach((el) => {
-        const isMatch = el.dataset.lang === lang;
-        el.hidden = !isMatch;
-        if (isMatch) document.documentElement.lang = el.dataset.htmlLang || 'zh-Hant';
-      });
+    <script is:inline>
+      // 語系已由 <head> 的 inline script 寫入 <html data-lang>;此處據此同步顯示區塊與 head 標題/描述。
+      (function () {
+        var de = document.documentElement;
+        var lang = de.getAttribute('data-lang') || 'zh-hant';
+        var meta = document.querySelector('meta[name="description"]');
+        document.querySelectorAll('.notfound-locale').forEach(function (el) {
+          var isMatch = el.getAttribute('data-lang') === lang;
+          el.hidden = !isMatch;
+          if (isMatch) {
+            de.setAttribute('lang', el.getAttribute('data-html-lang') || 'zh-Hant');
+            if (el.dataset.title) document.title = el.dataset.title;
+            if (meta && el.dataset.description) meta.setAttribute('content', el.dataset.description);
+          }
+        });
+      })();
     </script>
   </body>
 </html>
 
 <style>
+  /* 首次繪製即依 <html data-lang> 顯示對應語系;無 JS 時回退顯示繁中,避免其他語系閃現繁中內容。 */
+  .notfound-locale {
+    display: none;
+  }
+  .notfound-locale[data-lang='zh-hant'] {
+    display: block;
+  }
+  html[data-lang] .notfound-locale {
+    display: none;
+  }
+  html[data-lang='zh-hant'] .notfound-locale[data-lang='zh-hant'],
+  html[data-lang='en'] .notfound-locale[data-lang='en'],
+  html[data-lang='ja'] .notfound-locale[data-lang='ja'],
+  html[data-lang='ko'] .notfound-locale[data-lang='ko'] {
+    display: block;
+  }
+
   .notfound {
     display: flex;
     align-items: center;
