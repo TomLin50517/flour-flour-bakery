@@ -24,7 +24,8 @@
   --placeholder-border: color-mix(in srgb, var(--river-grey), transparent 55%);
 
   /* ---- typography: serif headings / sans body per locale ---- */
-  --font-heading-en: 'Playfair Display', 'Noto Serif TC', serif;
+  /* 英文展示標題改用 Cormorant Garamond(精品雜誌感);Noto Serif TC 為缺字備援 */
+  --font-heading-en: 'Cormorant Garamond', 'Noto Serif TC', serif;
   --font-body-en: 'Inter', 'Noto Sans TC', sans-serif;
   --font-heading-zh: 'Noto Serif TC', serif;
   --font-body-zh: 'Noto Sans TC', sans-serif;
@@ -34,6 +35,12 @@
   --font-body-ko: 'Noto Sans KR', sans-serif;
   /* UI chrome(按鈕/導覽/tab)含各語系文字,需涵蓋全部字集的備援鏈 */
   --font-ui: 'Inter', 'Noto Sans TC', 'Noto Sans JP', 'Noto Sans KR', sans-serif;
+
+  /* ---- semantic font weights — 安靜克制,避免以 600/700 製造重點,層級交給字級/字距/留白 ---- */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
 
   /* type scale */
   --text-eyebrow: 12px;
@@ -142,14 +149,24 @@ body {
 
 h1, h2, h3, h4 {
   font-family: var(--font-heading-locale);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.3;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.04em; /* 繁中標題:細緻但不鬆散 */
+  line-height: 1.35; /* CJK 標題 */
   margin: 0;
 }
 
+/* 英文標題(Cormorant Garamond):略收字距、拉近行高,取精品展示體的緊實感 */
 :lang(en) h1, :lang(en) h2, :lang(en) h3, :lang(en) h4 {
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
+  line-height: 1.12;
+}
+
+:lang(ja) h1, :lang(ja) h2, :lang(ja) h3, :lang(ja) h4 {
+  letter-spacing: 0.03em;
+}
+
+:lang(ko) h1, :lang(ko) h2, :lang(ko) h3, :lang(ko) h4 {
+  letter-spacing: 0.015em;
 }
 
 p {
@@ -210,9 +227,94 @@ summary:focus-visible,
   display: block;
   font-family: var(--font-body-en);
   font-size: var(--text-eyebrow);
-  letter-spacing: 0.28em;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--color-accent-text);
+}
+
+@media (max-width: 768px) {
+  .eyebrow {
+    letter-spacing: 0.2em;
+  }
+}
+
+/* ---- semantic typography utilities ----
+   opt-in helpers so pages needn't re-declare font-family/weight/letter-spacing.
+   既有元件多已透過 --font-*-locale 正確繼承,故此層為附加、非強制重構。 */
+.display-title {
+  font-family: var(--font-heading-locale);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--text-5xl);
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+}
+:lang(en) .display-title {
+  letter-spacing: -0.01em;
+  line-height: 1.02;
+}
+.page-title {
+  font-family: var(--font-heading-locale);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--text-4xl);
+}
+.section-title {
+  font-family: var(--font-heading-locale);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--text-3xl);
+}
+.card-title {
+  font-family: var(--font-heading-locale);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--text-lg);
+}
+.body-large {
+  font-family: var(--font-body-locale);
+  font-size: var(--text-lg);
+  line-height: var(--body-line-height);
+  letter-spacing: 0.02em;
+}
+:lang(en) .body-large {
+  letter-spacing: 0;
+}
+.body-copy {
+  font-family: var(--font-body-locale);
+  font-size: var(--text-base);
+  line-height: var(--body-line-height);
+  letter-spacing: 0.02em;
+}
+:lang(en) .body-copy {
+  letter-spacing: 0;
+}
+.body-small {
+  font-family: var(--font-body-locale);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+:lang(en) .body-small {
+  letter-spacing: 0;
+}
+.ui-label {
+  font-family: var(--font-ui);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--text-sm);
+  letter-spacing: 0.05em;
+}
+:lang(en) .ui-label {
+  letter-spacing: 0.08em;
+}
+.price {
+  font-family: var(--font-ui);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.caption {
+  font-family: var(--font-body-locale);
+  font-size: var(--text-sm);
+  letter-spacing: 0.03em;
+  color: var(--color-ink-soft);
 }
 
 .section {
@@ -234,8 +336,8 @@ summary:focus-visible,
   padding: 16px 32px;
   font-family: var(--font-ui);
   font-size: var(--text-sm);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.06em; /* 亞洲語系按鈕:克制字距,不做 uppercase */
   text-decoration: none;
   border: 1px solid var(--color-ink);
   background: transparent;
@@ -244,6 +346,12 @@ summary:focus-visible,
   transition: background var(--duration-base) var(--ease-editorial),
     color var(--duration-base) var(--ease-editorial),
     border-color var(--duration-base) var(--ease-editorial);
+}
+
+/* 英文按鈕:精品展示體，可 uppercase 並稍拉字距;中日韓不做 uppercase 轉換 */
+:lang(en) .btn {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .btn:hover {

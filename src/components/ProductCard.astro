@@ -77,8 +77,11 @@ const showMeta = showPrice || item.containsAlcohol;
     margin-top: var(--space-3);
   }
   .product-card__price {
-    font-family: var(--font-heading-en);
-    color: var(--color-ink);
+    font-family: var(--font-ui); /* 價格走無襯線數字,不用 serif,且不搶過品名 */
+    font-weight: var(--font-weight-regular);
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-ink-soft);
     font-size: var(--text-base);
   }
   /* 含酒精:飲食提示,以克制的銅色點出,字型走全語系備援鏈(標籤文字會在地化) */
