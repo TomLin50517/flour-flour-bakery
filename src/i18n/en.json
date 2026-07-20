@@ -237,7 +237,7 @@
     "environmentHeading": "The Setting",
     "environment": [
       { "title": "Golden Waterfront", "caption": "At dusk the Tamsui River turns to gold. Walk the bank and watch the sunset set the whole surface alight." },
-      { "title": "Danjiang Bridge", "caption": "The Danjiang Bridge, now under construction, will one day arch across the river mouth and add a new line to the skyline." },
+      { "title": "Danjiang Bridge", "caption": "The Danjiang Bridge now spans the river mouth, drawing a fresh new line across the skyline." },
       { "title": "The Ferry Pier", "caption": "A century-old crossing still ferries passengers today. A short boat ride to Bali on the far bank is Tamsui's oldest kind of romance." },
       { "title": "Historic Architecture", "caption": "Fort San Domingo, the Little White House and Oxford College hold Tamsui's treaty-port years between red brick and arcades." }
     ],
@@ -264,7 +264,10 @@
       { "mode": "By bicycle", "detail": "Ride in along the Golden Waterfront bike path, with the river breeze all the way." }
     ],
     "parkingHeading": "Parking",
-    "parkingNote": "There is no dedicated parking at the shop; public transport is recommended. If you drive, paid public and private car parks around Tamsui Old Street are available — exact locations and rates to be confirmed."
+    "parkingNote": "There is no dedicated parking at the shop; public transport is recommended. If you drive, a nearby paid car park is available:",
+    "parking": [
+      { "name": "Riyueting Parking (日月亭 淡水中正路停車場)", "detail": "No. 231, Zhongzheng Rd. · Open 24 hours", "mapUrl": "https://maps.app.goo.gl/gTctwkoN1R1VqK9d8" }
+    ]
   },
   "privacy": {
     "title": "Privacy Policy",

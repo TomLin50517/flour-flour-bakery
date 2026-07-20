@@ -19,12 +19,14 @@ const v = t.visit;
 const address = t.home.visit.addressValue;
 const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
 
-// 環境導覽佔位攝影規格,依 v.environment 陣列順序對應(正式照片到位後改為 <img>)
-const envPlaceholders = [
-  { label: 'Tamsui Sunset', note: 'Golden-hour riverfront' },
-  { label: 'Danjiang Bridge', note: 'River-mouth landmark' },
-  { label: 'Ferry Pier', note: 'Century-old crossing' },
-  { label: 'Historic Architecture', note: 'Red brick & arcades' },
+// 環境導覽影像,依 v.environment 陣列順序對應(金色水岸 / 淡江大橋 / 渡船頭 / 百年建築)。
+// 有 src 者渲染 <img>(附實際像素尺寸降低 CLS);未提供者退回攝影佔位系統。
+// 金色水岸 gold.jpg 尚未提供,暫以佔位框呈現。
+const envMedia = [
+  { placeholderLabel: 'Tamsui Sunset', placeholderNote: 'Golden-hour riverfront' },
+  { src: '/images/bridge.jpg', width: 1000, height: 700 },
+  { src: '/images/boat.jpg', width: 547, height: 365 },
+  { src: '/images/castle.jpg', width: 1037, height: 691 },
 ];
 ---
 
@@ -42,13 +44,25 @@ const envPlaceholders = [
     <div class="visit-env__grid">
       {v.environment.map((item, i) => (
         <figure class="visit-env__item reveal-media">
-          <ImagePlaceholder
-            label={envPlaceholders[i]?.label ?? 'Tamsui Photography'}
-            note={envPlaceholders[i]?.note}
-            ratio="3:2"
-            aspect="3 / 2"
-            class="visit-env__photo"
-          />
+          {envMedia[i]?.src ? (
+            <img
+              src={envMedia[i].src}
+              alt={item.title}
+              class="visit-env__photo"
+              width={envMedia[i].width}
+              height={envMedia[i].height}
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <ImagePlaceholder
+              label={envMedia[i]?.placeholderLabel ?? 'Tamsui Photography'}
+              note={envMedia[i]?.placeholderNote}
+              ratio="3:2"
+              aspect="3 / 2"
+              class="visit-env__photo"
+            />
+          )}
           <figcaption class="visit-env__caption reveal-text">
             <h3 class="card-title">{item.title}</h3>
             <p class="body-small">{item.caption}</p>
@@ -105,6 +119,21 @@ const envPlaceholders = [
 
         <h3 class="visit-here__subheading ui-label">{v.parkingHeading}</h3>
         <p class="body-small visit-here__parking">{v.parkingNote}</p>
+        {v.parking && v.parking.length > 0 && (
+          <ul class="visit-parking">
+            {v.parking.map((lot) => (
+              <li class="visit-parking__item">
+                <p class="card-title visit-parking__name">{lot.name}</p>
+                <p class="body-small visit-parking__detail">{lot.detail}</p>
+                {lot.mapUrl && (
+                  <a class="link-arrow visit-parking__link" href={lot.mapUrl} target="_blank" rel="noopener noreferrer">
+                    {v.directionsCta} →
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   </section>
@@ -135,6 +164,13 @@ const envPlaceholders = [
   }
   .visit-env__item {
     margin: 0;
+  }
+  img.visit-env__photo {
+    width: 100%;
+    height: auto; /* 讓 aspect-ratio 主導高度,避免 <img height> 屬性蓋掉 3/2 比例 */
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: var(--radius-card);
   }
   .visit-env__caption {
     margin-top: var(--space-2);
@@ -220,6 +256,23 @@ const envPlaceholders = [
   .visit-here__parking {
     color: var(--color-ink-soft);
     max-width: 52ch;
+  }
+  .visit-parking {
+    list-style: none;
+    margin: var(--space-3) 0 0;
+    padding: 0;
+  }
+  .visit-parking__item {
+    padding-top: var(--space-2);
+    margin-top: var(--space-2);
+    border-top: 1px solid var(--color-line);
+  }
+  .visit-parking__name {
+    margin-bottom: 4px;
+  }
+  .visit-parking__detail {
+    color: var(--color-ink-soft);
+    margin-bottom: 6px;
   }
 
   @media (max-width: 768px) {
