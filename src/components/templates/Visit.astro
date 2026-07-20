@@ -1,0 +1,232 @@
+---
+// Visit 模板 — 專程前往淡水的理由:環境導覽(佔位攝影)→ 一日遊順路推薦 → 交通與停車(click-to-load 地圖 + 導航)。
+// 文案來自 i18n visit 命名空間;照片先以全站攝影佔位系統呈現,正式照片到位後直接替換為 <img>。
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../PageHeader.astro';
+import ImagePlaceholder from '../ImagePlaceholder.astro';
+import MapEmbed from '../MapEmbed.astro';
+import { getDict, type Lang } from '../../i18n';
+
+export interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDict(lang);
+const v = t.visit;
+
+// 乾淨地址(無括註)供地圖與導航使用
+const address = t.home.visit.addressValue;
+const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
+
+// 環境導覽佔位攝影規格,依 v.environment 陣列順序對應(正式照片到位後改為 <img>)
+const envPlaceholders = [
+  { label: 'Tamsui Sunset', note: 'Golden-hour riverfront' },
+  { label: 'Danjiang Bridge', note: 'River-mouth landmark' },
+  { label: 'Ferry Pier', note: 'Century-old crossing' },
+  { label: 'Historic Architecture', note: 'Red brick & arcades' },
+];
+---
+
+<Base lang={lang} path="/visit" title={t.pageMeta.visit.title} description={t.pageMeta.visit.description}>
+  <PageHeader eyebrow={v.eyebrow} title={v.title} />
+
+  <!-- intro -->
+  <section class="section container visit-intro reveal-text">
+    <p class="visit-intro__body body-large">{v.intro}</p>
+  </section>
+
+  <!-- 1. 環境導覽 -->
+  <section class="section container visit-env">
+    <h2 class="section-title visit-env__heading reveal-text">{v.environmentHeading}</h2>
+    <div class="visit-env__grid">
+      {v.environment.map((item, i) => (
+        <figure class="visit-env__item reveal-media">
+          <ImagePlaceholder
+            label={envPlaceholders[i]?.label ?? 'Tamsui Photography'}
+            note={envPlaceholders[i]?.note}
+            ratio="3:2"
+            aspect="3 / 2"
+            class="visit-env__photo"
+          />
+          <figcaption class="visit-env__caption reveal-text">
+            <h3 class="card-title">{item.title}</h3>
+            <p class="body-small">{item.caption}</p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <!-- 2. 一日遊順路推薦 -->
+  <section class="section place-bg">
+    <div class="container visit-daytrip">
+      <h2 class="section-title visit-daytrip__heading reveal-text">{v.daytripHeading}</h2>
+      <p class="visit-daytrip__route reveal-text">
+        <span class="ui-label visit-daytrip__route-label">{v.routeLabel}</span>
+        <span class="body-copy">{v.route}</span>
+      </p>
+      <ol class="visit-daytrip__spots reveal-text">
+        {v.spots.map((spot) => (
+          <li class="visit-spot">
+            <h3 class="card-title visit-spot__name">{spot.name}</h3>
+            <p class="body-small visit-spot__blurb">{spot.blurb}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- 3. 交通與停車 -->
+  <section class="section container visit-here">
+    <h2 class="section-title visit-here__heading reveal-text">{v.gettingHereHeading}</h2>
+    <div class="visit-here__grid">
+      <div class="visit-here__map reveal-media">
+        <MapEmbed placeholderText={v.mapPlaceholder} loadCta={v.mapLoadCta} address={address} />
+        <p class="visit-here__address reveal-text">
+          <span class="ui-label">{v.addressLabel}</span>
+          <span class="body-copy">{address}</span>
+        </p>
+        <a class="link-arrow visit-here__directions" href={directionsHref} target="_blank" rel="noopener noreferrer">
+          {v.directionsCta} →
+        </a>
+      </div>
+
+      <div class="visit-here__info reveal-text">
+        <h3 class="visit-here__subheading ui-label">{v.transitHeading}</h3>
+        <dl class="visit-transit">
+          {v.transit.map((row) => (
+            <div class="visit-transit__row">
+              <dt class="card-title visit-transit__mode">{row.mode}</dt>
+              <dd class="body-small visit-transit__detail">{row.detail}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <h3 class="visit-here__subheading ui-label">{v.parkingHeading}</h3>
+        <p class="body-small visit-here__parking">{v.parkingNote}</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* intro */
+  .visit-intro {
+    max-width: var(--reading-max-width);
+    text-align: center;
+    padding-bottom: 0;
+  }
+  .visit-intro__body {
+    color: var(--color-ink-soft);
+  }
+
+  /* 1. environment */
+  .visit-env__heading,
+  .visit-daytrip__heading,
+  .visit-here__heading {
+    text-align: center;
+    margin-bottom: var(--space-6);
+  }
+  .visit-env__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6) var(--space-5);
+  }
+  .visit-env__item {
+    margin: 0;
+  }
+  .visit-env__caption {
+    margin-top: var(--space-2);
+  }
+  .visit-env__caption h3 {
+    margin-bottom: 6px;
+  }
+  .visit-env__caption p {
+    color: var(--color-ink-soft);
+    max-width: 46ch;
+  }
+
+  /* 2. day-trip:安靜的暖白區塊,與其他頁面 place 底色一致 */
+  .place-bg {
+    background: var(--color-surface);
+  }
+  .visit-daytrip__route {
+    text-align: center;
+    max-width: var(--reading-max-width);
+    margin: 0 auto var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .visit-daytrip__route-label {
+    color: var(--color-accent-text);
+  }
+  .visit-daytrip__spots {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+    max-width: 900px;
+    margin-inline: auto;
+    counter-reset: spot;
+  }
+  .visit-spot {
+    border-top: 1px solid var(--color-line);
+    padding-top: var(--space-2);
+  }
+  .visit-spot__name {
+    margin-bottom: 4px;
+  }
+  .visit-spot__blurb {
+    color: var(--color-ink-soft);
+  }
+
+  /* 3. getting here */
+  .visit-here__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+  .visit-here__address {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: var(--space-3);
+  }
+  .visit-here__directions {
+    margin-top: var(--space-2);
+  }
+  .visit-here__subheading {
+    color: var(--color-accent-text);
+    margin-bottom: var(--space-2);
+  }
+  .visit-here__subheading:not(:first-child) {
+    margin-top: var(--space-5);
+  }
+  .visit-transit__row {
+    padding-block: var(--space-2);
+    border-top: 1px solid var(--color-line);
+  }
+  .visit-transit__mode {
+    margin-bottom: 4px;
+  }
+  .visit-transit__detail {
+    color: var(--color-ink-soft);
+  }
+  .visit-here__parking {
+    color: var(--color-ink-soft);
+    max-width: 52ch;
+  }
+
+  @media (max-width: 768px) {
+    .visit-env__grid,
+    .visit-daytrip__spots,
+    .visit-here__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

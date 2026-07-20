@@ -24,6 +24,10 @@
       "title": "お問い合わせ | FlourFlour BAKERY",
       "description": "FlourFlour BAKERY の住所・電話番号・営業時間・お問い合わせフォームはこちら。ご来店、お電話でのご予約をお待ちしております。"
     },
+    "visit": {
+      "title": "淡水を訪ねる | FlourFlour BAKERY",
+      "description": "淡水の川と光に会いに、わざわざ訪れる価値のある町。風景の案内、淡水老街の一日プラン、FlourFlour へのアクセスと駐車場情報。"
+    },
     "privacy": {
       "title": "プライバシーポリシー | FlourFlour BAKERY",
       "description": "FlourFlour BAKERY における個人情報の収集・利用・保護についてのご案内。"
@@ -91,7 +95,7 @@
       "hoursLabel": "営業時間",
       "hoursValue": "水曜〜日曜 11:00〜19:00",
       "addressLabel": "住所",
-      "addressValue": "新北市淡水區中正路123號",
+      "addressValue": "251 新北市淡水區中正路21巷8號",
       "phoneLabel": "電話",
       "phoneValue": "02-2621-XXXX",
       "cta": "詳しい情報を見る"
@@ -198,7 +202,7 @@
     "emailLabel": "Email",
     "emailValue": "hello@flourflour.com.tw",
     "addressLabel": "住所",
-    "addressValue": "新北市淡水區中正路123號（淡水老街・河岸エリア近く）",
+    "addressValue": "251 新北市淡水區中正路21巷8號（淡水老街・河岸エリア近く）",
     "hoursLabel": "営業時間",
     "hoursValue": "水曜〜日曜 11:00〜19:00（月・火定休）",
     "socialLabel": "SNS",
@@ -225,6 +229,42 @@
       "privacyNoteLink": "プライバシーポリシー",
       "privacyNoteSuffix": "に基づく個人情報の取り扱いに同意したものとみなされます。"
     }
+  },
+  "visit": {
+    "eyebrow": "WHY TAMSUI",
+    "title": "川面の光に会いに、淡水へ",
+    "intro": "淡水には、淡水の時間が流れています。潮が満ち引きし、夕陽が川面をすべり落ち、老街のアーケードには焼き菓子の香り。FlourFlour への道のりそのものが、わざわざ訪れる理由になります。",
+    "environmentHeading": "淡水の風景",
+    "environment": [
+      { "title": "金色の水辺", "caption": "夕暮れの淡水河は金色に染まります。川沿いを歩けば、沈む夕陽が水面いっぱいを照らします。" },
+      { "title": "淡江大橋", "caption": "建設中の淡江大橋は、いずれ河口をまたぎ、淡水のスカイラインに新しい線を描きます。" },
+      { "title": "渡し場", "caption": "百年の渡し場は、今も船を渡します。対岸の八里へ渡る小さな船旅は、淡水でいちばん古いロマンです。" },
+      { "title": "百年の建築", "caption": "紅毛城、小白宮、そして牛津学堂。開港の時代を、赤煉瓦とアーケードのあいだに留めています。" }
+    ],
+    "daytripHeading": "寄り道して",
+    "routeLabel": "おすすめルート",
+    "route": "FlourFlour → 淡水老街 → 渡し場 → 紅毛城・小白宮 → 漁人碼頭で夕陽",
+    "spots": [
+      { "name": "淡水老街", "blurb": "中正路から川辺まで食べ歩き。伝統の点心と新旧の小さな店が並びます。" },
+      { "name": "渡し場", "blurb": "八里へ渡し船に乗るもよし、川辺に座って船を眺めるもよし。" },
+      { "name": "紅毛城", "blurb": "十七世紀の赤煉瓦の城塞。淡水を代表する史跡です。" },
+      { "name": "小白宮", "blurb": "白壁とアーケードの旧税関官舎。高台から河口を見渡します。" },
+      { "name": "漁人碼頭・情人橋", "blurb": "淡水の夕陽の名所。白い斜張橋が夕暮れに輝きます。" }
+    ],
+    "gettingHereHeading": "アクセス",
+    "addressLabel": "住所",
+    "directionsCta": "Google マップで開く",
+    "mapPlaceholder": "地図プレビュー",
+    "mapLoadCta": "地図を読み込む",
+    "transitHeading": "交通手段",
+    "transit": [
+      { "mode": "MRT", "detail": "淡水信義線「淡水」駅で下車し、中正路を老街方面へ進むと到着します。" },
+      { "mode": "バス", "detail": "淡水老街方面のバスに乗り、中正路付近で下車して徒歩。" },
+      { "mode": "お車", "detail": "台２線（淡金公路）から淡水市街に入り、中正路へ。老街周辺は週末混雑するため、時間に余裕を。" },
+      { "mode": "自転車", "detail": "金色水岸サイクリングロードを、川風とともに。" }
+    ],
+    "parkingHeading": "駐車場",
+    "parkingNote": "店舗専用の駐車場はございません。公共交通機関のご利用をおすすめします。お車の場合は淡水老街周辺の有料駐車場（公営・民営）をご利用いただけます。詳しい場所と料金は追ってご案内します。"
   },
   "privacy": {
     "title": "プライバシーポリシー",

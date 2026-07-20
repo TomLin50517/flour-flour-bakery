@@ -24,6 +24,10 @@
       "title": "聯絡我們 | FlourFlour BAKERY",
       "description": "FlourFlour BAKERY 店址、電話、營業時間與聯絡表單。歡迎來店或來電預訂。"
     },
+    "visit": {
+      "title": "造訪淡水 | FlourFlour BAKERY",
+      "description": "為淡水的河與光，值得專程走一趟。環境導覽、淡水老街一日遊路線，以及前往 FlourFlour 的交通與停車資訊。"
+    },
     "privacy": {
       "title": "隱私權政策 | FlourFlour BAKERY",
       "description": "FlourFlour BAKERY 個人資料蒐集、處理與利用政策說明。"
@@ -91,7 +95,7 @@
       "hoursLabel": "營業時間",
       "hoursValue": "週三–週日 11:00–19:00",
       "addressLabel": "地址",
-      "addressValue": "新北市淡水區中正路 123 號",
+      "addressValue": "251 新北市淡水區中正路 21 巷 8 號",
       "phoneLabel": "電話",
       "phoneValue": "02-2621-XXXX",
       "cta": "查看完整資訊"
@@ -198,7 +202,7 @@
     "emailLabel": "Email",
     "emailValue": "hello@flourflour.com.tw",
     "addressLabel": "地址",
-    "addressValue": "新北市淡水區中正路 123 號（近淡水老街／河岸）",
+    "addressValue": "251 新北市淡水區中正路 21 巷 8 號（近淡水老街／河岸）",
     "hoursLabel": "營業時間",
     "hoursValue": "週三–週日 11:00–19:00（週一、二公休）",
     "socialLabel": "社群",
@@ -225,6 +229,42 @@
       "privacyNoteLink": "隱私權政策",
       "privacyNoteSuffix": "處理您的個人資料。"
     }
+  },
+  "visit": {
+    "eyebrow": "WHY TAMSUI",
+    "title": "為一條河的光，走一趟",
+    "intro": "淡水不趕時間。潮水來去，夕陽沿著河面落下，老街的騎樓下飄著點心香。來 FlourFlour 的路上，這座小鎮本身，就是專程前往的理由。",
+    "environmentHeading": "環境導覽",
+    "environment": [
+      { "title": "金色水岸", "caption": "傍晚的淡水河會鍍上一層金。沿著河岸散步，看夕陽把整片河面點亮。" },
+      { "title": "淡江大橋", "caption": "興建中的淡江大橋，未來將橫跨淡水河口，為小鎮的天際線添上新的線條。" },
+      { "title": "渡船頭", "caption": "百年渡口至今仍在擺渡。搭一段船到對岸八里，是淡水最老的一種浪漫。" },
+      { "title": "百年建築", "caption": "紅毛城、小白宮與牛津學堂，把淡水的開港歲月，留在紅磚與拱廊之間。" }
+    ],
+    "daytripHeading": "順路走走",
+    "routeLabel": "建議動線",
+    "route": "FlourFlour → 淡水老街 → 渡船頭 → 紅毛城・小白宮 → 漁人碼頭看夕陽",
+    "spots": [
+      { "name": "淡水老街", "blurb": "從中正路一路吃到河邊，傳統點心與新舊小店交錯。" },
+      { "name": "渡船頭", "blurb": "搭渡輪往八里，或只是坐在河邊，看船來船往。" },
+      { "name": "紅毛城", "blurb": "十七世紀的紅磚城堡，淡水最具代表性的古蹟。" },
+      { "name": "小白宮", "blurb": "白牆拱廊的前清海關官邸，居高俯瞰河口。" },
+      { "name": "漁人碼頭・情人橋", "blurb": "淡水看夕陽的經典位置，白色斜張橋在暮色裡發亮。" }
+    ],
+    "gettingHereHeading": "如何抵達",
+    "addressLabel": "地址",
+    "directionsCta": "在 Google 地圖導航",
+    "mapPlaceholder": "地圖示意",
+    "mapLoadCta": "載入地圖",
+    "transitHeading": "交通方式",
+    "transit": [
+      { "mode": "捷運", "detail": "搭乘淡水信義線至「淡水站」，沿中正路往老街方向即可抵達。" },
+      { "mode": "公車", "detail": "可搭乘往淡水老街方向的公車，於中正路一帶下車後步行前往。" },
+      { "mode": "開車", "detail": "由台２線（淡金公路）進入淡水市區後接中正路；老街周邊假日車多，建議預留時間。" },
+      { "mode": "單車", "detail": "沿金色水岸自行車道騎行，一路有河風相伴。" }
+    ],
+    "parkingHeading": "停車資訊",
+    "parkingNote": "店內無專屬停車位，建議多加利用大眾運輸。開車前來可停放於淡水老街周邊之公有及民營付費停車場，詳細地點與費率將於確認後補上。"
   },
   "privacy": {
     "title": "隱私權政策",

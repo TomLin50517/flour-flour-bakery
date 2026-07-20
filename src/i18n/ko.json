@@ -24,6 +24,10 @@
       "title": "문의하기 | FlourFlour BAKERY",
       "description": "FlourFlour BAKERY의 주소, 전화번호, 영업시간과 문의 폼을 확인하세요. 방문 및 전화 예약을 환영합니다."
     },
+    "visit": {
+      "title": "단수이 방문 | FlourFlour BAKERY",
+      "description": "강과 빛을 위해 일부러 찾을 가치가 있는 단수이. 풍경 안내와 옛거리 하루 코스, 그리고 FlourFlour로 오시는 교통·주차 정보."
+    },
     "privacy": {
       "title": "개인정보처리방침 | FlourFlour BAKERY",
       "description": "FlourFlour BAKERY의 개인정보 수집, 이용 및 보호에 관한 안내입니다."
@@ -91,7 +95,7 @@
       "hoursLabel": "영업시간",
       "hoursValue": "수~일 11:00~19:00",
       "addressLabel": "주소",
-      "addressValue": "신베이시 단수이구 중정로 123호",
+      "addressValue": "251 신베이시 단수이구 중정로 21길 8호",
       "phoneLabel": "전화",
       "phoneValue": "02-2621-XXXX",
       "cta": "자세히 보기"
@@ -198,7 +202,7 @@
     "emailLabel": "이메일",
     "emailValue": "hello@flourflour.com.tw",
     "addressLabel": "주소",
-    "addressValue": "신베이시 단수이구 중정로 123호(단수이 옛거리·강변 인근)",
+    "addressValue": "251 신베이시 단수이구 중정로 21길 8호(단수이 옛거리·강변 인근)",
     "hoursLabel": "영업시간",
     "hoursValue": "수~일 11:00~19:00(월, 화 휴무)",
     "socialLabel": "소셜 미디어",
@@ -225,6 +229,42 @@
       "privacyNoteLink": "개인정보처리방침",
       "privacyNoteSuffix": "에 따라 개인정보 처리에 동의하는 것으로 간주됩니다."
     }
+  },
+  "visit": {
+    "eyebrow": "WHY TAMSUI",
+    "title": "강 위의 빛을 만나러, 단수이로",
+    "intro": "단수이에는 단수이만의 느린 시간이 흐릅니다. 물때가 오가고, 노을이 강물을 따라 내려앉고, 옛거리 아케이드에는 구움과자 향이 감돕니다. FlourFlour로 향하는 길, 그 자체가 일부러 찾아올 이유가 됩니다.",
+    "environmentHeading": "단수이의 풍경",
+    "environment": [
+      { "title": "금빛 강변", "caption": "해질 무렵 단수이 강은 금빛으로 물듭니다. 강변을 걸으며 노을이 강 전체를 밝히는 순간을 만나 보세요." },
+      { "title": "단장대교", "caption": "건설 중인 단장대교는 머지않아 강 하구를 가로지르며 단수이의 스카이라인에 새로운 선을 더할 것입니다." },
+      { "title": "나루터", "caption": "백 년의 나루터는 지금도 배를 건넵니다. 강 건너 바리로 향하는 짧은 뱃길은 단수이에서 가장 오래된 낭만입니다." },
+      { "title": "100년의 건축", "caption": "훙마오청, 소백궁, 그리고 옥스퍼드 학당이 개항의 시절을 붉은 벽돌과 아케이드 사이에 담고 있습니다." }
+    ],
+    "daytripHeading": "가는 길에 들러 보세요",
+    "routeLabel": "추천 동선",
+    "route": "FlourFlour → 단수이 옛거리 → 나루터 → 훙마오청·소백궁 → 어인부두에서 노을",
+    "spots": [
+      { "name": "단수이 옛거리", "blurb": "중정로에서 강변까지 먹으며 걷는 길. 전통 간식과 새 가게들이 어우러집니다." },
+      { "name": "나루터", "blurb": "바리로 가는 배를 타거나, 그저 강가에 앉아 오가는 배를 바라보세요." },
+      { "name": "훙마오청", "blurb": "17세기의 붉은 벽돌 요새, 단수이를 대표하는 사적입니다." },
+      { "name": "소백궁", "blurb": "흰 벽과 아케이드의 옛 세관 관사, 높은 곳에서 강 하구를 내려다봅니다." },
+      { "name": "어인부두·연인교", "blurb": "단수이 노을의 대표 명소, 흰 사장교가 저녁빛에 빛납니다." }
+    ],
+    "gettingHereHeading": "오시는 길",
+    "addressLabel": "주소",
+    "directionsCta": "Google 지도에서 열기",
+    "mapPlaceholder": "지도 미리보기",
+    "mapLoadCta": "지도 불러오기",
+    "transitHeading": "교통편",
+    "transit": [
+      { "mode": "지하철(MRT)", "detail": "단수이신이선 '단수이역'에서 내려 중정로를 따라 옛거리 방향으로 오시면 됩니다." },
+      { "mode": "버스", "detail": "단수이 옛거리 방면 버스를 타고 중정로 부근에서 내려 도보로 이동하세요." },
+      { "mode": "자동차", "detail": "성도2호선(단진로)으로 단수이 시내에 진입해 중정로로. 옛거리 주변은 주말에 붐비니 여유 있게 오세요." },
+      { "mode": "자전거", "detail": "금빛 강변 자전거길을 따라, 강바람과 함께." }
+    ],
+    "parkingHeading": "주차 안내",
+    "parkingNote": "매장 전용 주차장은 없습니다. 대중교통 이용을 권장합니다. 차량 이용 시 단수이 옛거리 주변 공영·민영 유료 주차장을 이용하실 수 있으며, 정확한 위치와 요금은 확인 후 안내드리겠습니다."
   },
   "privacy": {
     "title": "개인정보처리방침",

@@ -24,6 +24,10 @@
       "title": "Contact Us | FlourFlour BAKERY",
       "description": "Find FlourFlour BAKERY's address, phone number, opening hours and contact form. Visits and phone orders are welcome."
     },
+    "visit": {
+      "title": "Visit Tamsui | FlourFlour BAKERY",
+      "description": "Tamsui is worth a special trip — for the river and the light. A guide to the setting, an old-street day-trip route, and how to reach FlourFlour, with transport and parking."
+    },
     "privacy": {
       "title": "Privacy Policy | FlourFlour BAKERY",
       "description": "How FlourFlour BAKERY collects, uses and protects your personal data."
@@ -91,7 +95,7 @@
       "hoursLabel": "Hours",
       "hoursValue": "Wed–Sun 11:00–19:00",
       "addressLabel": "Address",
-      "addressValue": "No. 123, Zhongzheng Rd., Tamsui Dist., New Taipei City",
+      "addressValue": "No. 8, Ln. 21, Zhongzheng Rd., Tamsui Dist., New Taipei City 251",
       "phoneLabel": "Phone",
       "phoneValue": "02-2621-XXXX",
       "cta": "See full details"
@@ -198,7 +202,7 @@
     "emailLabel": "Email",
     "emailValue": "hello@flourflour.com.tw",
     "addressLabel": "Address",
-    "addressValue": "No. 123, Zhongzheng Rd., Tamsui Dist., New Taipei City (near Tamsui Old Street / riverside)",
+    "addressValue": "No. 8, Ln. 21, Zhongzheng Rd., Tamsui Dist., New Taipei City 251 (near Tamsui Old Street / riverside)",
     "hoursLabel": "Hours",
     "hoursValue": "Wed–Sun 11:00–19:00 (Closed Mon & Tue)",
     "socialLabel": "Social",
@@ -225,6 +229,42 @@
       "privacyNoteLink": "Privacy Policy",
       "privacyNoteSuffix": "for how we handle your personal data."
     }
+  },
+  "visit": {
+    "eyebrow": "WHY TAMSUI",
+    "title": "Come for the light on the river",
+    "intro": "Tamsui keeps its own slow time. The tide comes and goes, the sunset slides down the river, and the scent of pastries drifts under the old-street arcades. On the way to FlourFlour, the town itself is reason enough to make the trip.",
+    "environmentHeading": "The Setting",
+    "environment": [
+      { "title": "Golden Waterfront", "caption": "At dusk the Tamsui River turns to gold. Walk the bank and watch the sunset set the whole surface alight." },
+      { "title": "Danjiang Bridge", "caption": "The Danjiang Bridge, now under construction, will one day arch across the river mouth and add a new line to the skyline." },
+      { "title": "The Ferry Pier", "caption": "A century-old crossing still ferries passengers today. A short boat ride to Bali on the far bank is Tamsui's oldest kind of romance." },
+      { "title": "Historic Architecture", "caption": "Fort San Domingo, the Little White House and Oxford College hold Tamsui's treaty-port years between red brick and arcades." }
+    ],
+    "daytripHeading": "Along the Way",
+    "routeLabel": "Suggested route",
+    "route": "FlourFlour → Tamsui Old Street → the Ferry Pier → Fort San Domingo & the Little White House → sunset at Fisherman's Wharf",
+    "spots": [
+      { "name": "Tamsui Old Street", "blurb": "Eat your way from Zhongzheng Road down to the river, past traditional snacks and small new shops." },
+      { "name": "The Ferry Pier", "blurb": "Take the ferry to Bali, or simply sit by the water and watch the boats come and go." },
+      { "name": "Fort San Domingo", "blurb": "A seventeenth-century red-brick fort — Tamsui's most iconic monument." },
+      { "name": "The Little White House", "blurb": "A white-arcaded former Qing customs residence, looking out over the river mouth." },
+      { "name": "Fisherman's Wharf & Lover's Bridge", "blurb": "The classic spot for a Tamsui sunset, its white cable-stayed bridge glowing at dusk." }
+    ],
+    "gettingHereHeading": "Getting Here",
+    "addressLabel": "Address",
+    "directionsCta": "Open in Google Maps",
+    "mapPlaceholder": "Map preview",
+    "mapLoadCta": "Load map",
+    "transitHeading": "How to get here",
+    "transit": [
+      { "mode": "MRT", "detail": "Take the Tamsui–Xinyi Line to Tamsui Station, then follow Zhongzheng Road toward the old street." },
+      { "mode": "Bus", "detail": "Take any bus heading for Tamsui Old Street and alight around Zhongzheng Road, then walk." },
+      { "mode": "By car", "detail": "Enter Tamsui via Provincial Highway 2 (Danjin Road) and join Zhongzheng Road; the old-street area is busy on weekends, so allow extra time." },
+      { "mode": "By bicycle", "detail": "Ride in along the Golden Waterfront bike path, with the river breeze all the way." }
+    ],
+    "parkingHeading": "Parking",
+    "parkingNote": "There is no dedicated parking at the shop; public transport is recommended. If you drive, paid public and private car parks around Tamsui Old Street are available — exact locations and rates to be confirmed."
   },
   "privacy": {
     "title": "Privacy Policy",
