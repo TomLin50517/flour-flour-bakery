@@ -6,7 +6,7 @@
   "pageMeta": {
     "home": {
       "title": "FlourFlour BAKERY|A Quiet Taste of Tamsui. — 淡水・川辺のベーカリー",
-      "description": "淡水・中正路の古い街屋に佇む小さなベーカリー。湯種食パンやクロワッサン、焼き菓子を、三芝の龍眼花蜜と時間をかけて仕上げます。"
+      "description": "FlourFlourは淡水生まれのクロワッサンとデニッシュのベーカリー。台湾風デニッシュ、油條デニッシュ、淡水らしい焼き菓子ギフトを届けます。"
     },
     "story": {
       "title": "私たちの物語 | FlourFlour BAKERY",
@@ -59,7 +59,9 @@
   },
   "home": {
     "hero": {
-      "subtitle": "淡水の光を、幾重もの生地に折り込んで。"
+      "subtitle": "淡水の光を、幾重もの生地に折り込んで。",
+      "category": "淡水生まれのクロワッサン、デニッシュと焼き菓子ギフト",
+      "cta": "FlourFlourについて"
     },
     "manifesto": {
       "heading": "ありふれた一日を、心に残る一日へ焼き上げる。",

@@ -6,7 +6,7 @@
   "pageMeta": {
     "home": {
       "title": "FlourFlour BAKERY | A Quiet Taste of Tamsui. — 단수이 강변의 베이커리",
-      "description": "단수이 중정로의 오래된 상가 주택에 자리한 작은 베이커리. 탕종 식빵과 크루아상, 구움과자를 싼즈의 용안 꽃꿀과 시간을 들여 완성합니다."
+      "description": "FlourFlour는 단수이에서 시작된 크루아상과 데니시 전문 베이커리로, 대만식 요우탸오 데니시와 지역의 맛을 담은 베이커리 선물을 선보입니다."
     },
     "story": {
       "title": "우리의 이야기 | FlourFlour BAKERY",
@@ -59,7 +59,9 @@
   },
   "home": {
     "hero": {
-      "subtitle": "단수이의 빛을, 겹겹의 결 사이에 접어 넣습니다."
+      "subtitle": "단수이의 빛을, 겹겹의 결 사이에 접어 넣습니다.",
+      "category": "단수이에서 만든 크루아상, 데니시와 베이커리 선물",
+      "cta": "FlourFlour 알아보기"
     },
     "manifesto": {
       "heading": "평범한 하루를, 오래 기억에 남을 하루로 구워냅니다.",

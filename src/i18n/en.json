@@ -6,7 +6,7 @@
   "pageMeta": {
     "home": {
       "title": "FlourFlour BAKERY | A Quiet Taste of Tamsui. — a Tamsui riverside bakery",
-      "description": "A small bakery in an old shophouse on Tamsui's Zhongzheng Road. Tangzhong toast, croissants and pastries, finished slowly with longan blossom honey from Sanzhi."
+      "description": "FlourFlour is a Tamsui-born bakery specialising in croissants and Danish pastries, known for its Taiwanese Youtiao Danish, locally inspired flavours and baked gifts."
     },
     "story": {
       "title": "Our Story | FlourFlour BAKERY",
@@ -59,7 +59,9 @@
   },
   "home": {
     "hero": {
-      "subtitle": "The light of Tamsui, folded into every layer."
+      "subtitle": "The light of Tamsui, folded into every layer.",
+      "category": "Croissants, Danish Pastries & Gifts from Tamsui",
+      "cta": "Discover FlourFlour"
     },
     "manifesto": {
       "heading": "An ordinary day, baked into one worth remembering.",

@@ -6,7 +6,7 @@
   "pageMeta": {
     "home": {
       "title": "FlourFlour BAKERY｜A Quiet Taste of Tamsui. — 淡水河岸的精品烘焙",
-      "description": "開在淡水中正路老街屋裡的小烘焙店。湯種吐司、可頌與常溫甜點，以三芝龍眼花蜜與時間慢慢完成。"
+      "description": "FlourFlour 是誕生於淡水的精品可頌與丹麥烘焙品牌，以丹麥油條棒、台灣風味酥皮與淡水伴手禮，摺出屬於河岸的味道。"
     },
     "story": {
       "title": "我們的故事 | FlourFlour BAKERY",
@@ -59,7 +59,9 @@
   },
   "home": {
     "hero": {
-      "subtitle": "把淡水的光，摺進每一層酥香裡。"
+      "subtitle": "把淡水的光，摺進每一層酥香裡。",
+      "category": "淡水河岸的可頌、丹麥與烘焙伴手禮",
+      "cta": "認識 FlourFlour"
     },
     "manifesto": {
       "heading": "把平凡的一天，烘焙成值得回味的一天。",
