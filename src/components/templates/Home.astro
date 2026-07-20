@@ -29,10 +29,9 @@ const featured = getProducts(lang).slice(0, 3);
     <div class="hero__media" aria-hidden="true"></div>
     <div class="hero__scrim" aria-hidden="true"></div>
     <div class="container hero__content">
-      <p class="eyebrow hero__eyebrow">FLOUR · FLOWER · TAMSUI</p>
+      <p class="eyebrow hero__eyebrow">CROISSANTS · DANISH · TAMSUI</p>
       <h1 class="hero__title">A Quiet Taste of Tamsui.</h1>
       <p class="hero__subtitle">{t.home.hero.subtitle}</p>
-      <p class="hero__category">{t.home.hero.category}</p>
       <a class="link-arrow hero__cta" href={`${p}/story`}>{t.home.hero.cta} →</a>
     </div>
   </section>
@@ -185,15 +184,6 @@ const featured = getProducts(lang).slice(0, 3);
     color: var(--flour-white);
     opacity: 0.92;
     max-width: var(--reading-max-width);
-  }
-  .hero__category {
-    font-family: var(--font-body-locale);
-    font-size: var(--text-base);
-    color: var(--flour-white);
-    opacity: 0.82;
-    letter-spacing: 0.01em;
-    max-width: var(--reading-max-width);
-    text-wrap: balance;
   }
   .hero__cta {
     color: var(--flour-white);
