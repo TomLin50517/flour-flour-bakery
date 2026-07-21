@@ -32,7 +32,7 @@
     {
       "id": "plain-croissant",
       "category": "croissant",
-      "price": 120,
+      "price": 80,
       "containsAlcohol": false,
       "image": "/images/products/plain-croissant.jpg",
       "name": {
@@ -42,35 +42,35 @@
         "ko": "플레인 크루아상"
       },
       "tagline": {
-        "zh-hant": "一切美好，從奶香開始",
+        "zh-hant": "奶香，是旅程的開始",
         "en": "Where every good thing begins — with butter.",
         "ja": "すべての幸せは、バターの香りから。",
         "ko": "모든 좋은 것은 버터 향에서 시작됩니다."
       }
     },
     {
-      "id": "rose-croissant",
+      "id": "lemon-croissant",
       "category": "croissant",
-      "price": 160,
+      "price": 135,
       "containsAlcohol": false,
-      "image": "/images/products/rose-croissant.jpg",
+      "image": "/images/products/lemon-croissant.jpg",
       "name": {
-        "zh-hant": "玫瑰可頌",
-        "en": "Rose Croissant",
-        "ja": "ローズ・クロワッサン",
-        "ko": "로즈 크루아상"
+        "zh-hant": "檸檬可頌",
+        "en": "Lemon Croissant",
+        "ja": "レモン・クロワッサン",
+        "ko": "레몬 크루아상"
       },
       "tagline": {
-        "zh-hant": "花開時，香氣剛剛好",
-        "en": "When the roses bloom, the scent falls just right.",
-        "ja": "花咲くころ、香りはちょうどいい。",
-        "ko": "꽃 필 무렵, 향기가 딱 알맞게."
+        "zh-hant": "晨光般的清新酸香",
+        "en": "A bright, citrus freshness, like morning light.",
+        "ja": "朝の光のような、爽やかな酸味。",
+        "ko": "아침 햇살 같은 상큼한 산미."
       }
     },
     {
       "id": "chocolate-croissant",
       "category": "croissant",
-      "price": 160,
+      "price": 135,
       "containsAlcohol": false,
       "image": "/images/products/chocolate-croissant.jpg",
       "name": {
@@ -80,35 +80,35 @@
         "ko": "초콜릿 크루아상"
       },
       "tagline": {
-        "zh-hant": "濃郁，是最溫柔的答案",
+        "zh-hant": "深邃可可，靜靜綻放",
         "en": "Richness — the gentlest of answers.",
         "ja": "濃厚さは、いちばん優しい答え。",
         "ko": "진함은 가장 부드러운 답입니다."
       }
     },
     {
-      "id": "tiramisu-croissant",
+      "id": "honey-longan-croissant",
       "category": "croissant",
-      "price": 180,
+      "price": 135,
       "containsAlcohol": true,
-      "image": "/images/products/tiramisu-croissant.jpg",
+      "image": "/images/products/honey-longan-croissant.jpg",
       "name": {
-        "zh-hant": "提拉米蘇可頌",
-        "en": "Tiramisu Croissant",
-        "ja": "ティラミス・クロワッサン",
-        "ko": "티라미수 크루아상"
+        "zh-hant": "蜜香龍眼可頌",
+        "en": "Honey Longan Croissant",
+        "ja": "蜜香龍眼クロワッサン",
+        "ko": "룽옌 꿀 크루아상"
       },
       "tagline": {
-        "zh-hant": "微醺一口，時光慢了些",
-        "en": "One tipsy bite, and time slows a little.",
-        "ja": "ほろ酔いの一口、時間が少しゆるむ。",
-        "ko": "살짝 취하는 한 입, 시간이 느려집니다."
+        "zh-hant": "蜜香流轉，餘韻悠長",
+        "en": "Longan honey, lingering long on the palate.",
+        "ja": "蜜の香りが流れ、余韻は長く。",
+        "ko": "꿀 향이 흐르고, 여운은 길게."
       }
     },
     {
       "id": "matcha-croissant",
       "category": "croissant",
-      "price": 180,
+      "price": 135,
       "containsAlcohol": false,
       "image": "/images/products/matcha-croissant.jpg",
       "name": {
@@ -118,73 +118,92 @@
         "ko": "말차 크루아상"
       },
       "tagline": {
-        "zh-hant": "靜靜品味，一抹茶香",
+        "zh-hant": "一抹茶韻，靜心回甘",
         "en": "Savour it quietly — a note of matcha.",
         "ja": "静かに味わう、一抹の茶の香り。",
         "ko": "조용히 음미하는 한 줄기 찻향."
       }
     },
     {
-      "id": "salted-yolk-croissant",
+      "id": "black-sesame-croissant",
       "category": "croissant",
-      "price": 180,
+      "price": 150,
       "containsAlcohol": false,
-      "image": "/images/products/salted-yolk-croissant.jpg",
+      "image": "/images/products/black-sesame-croissant.jpg",
       "name": {
-        "zh-hant": "金沙可頌",
-        "en": "Salted Egg Yolk Croissant",
-        "ja": "塩漬け卵黄クロワッサン",
-        "ko": "소금 노른자 크루아상"
+        "zh-hant": "黑芝麻可頌",
+        "en": "Black Sesame Croissant",
+        "ja": "黒ごまクロワッサン",
+        "ko": "흑임자 크루아상"
       },
       "tagline": {
-        "zh-hant": "鹹香之中，藏著驚喜",
-        "en": "A savoury surprise, hidden within.",
-        "ja": "塩気の中に、隠れた驚き。",
-        "ko": "짭짤함 속에 숨은 놀라움."
+        "zh-hant": "芝麻醇厚，溫柔留香",
+        "en": "Deep, mellow sesame that lingers gently.",
+        "ja": "香ばしいごまの、やわらかな余韻。",
+        "ko": "진하고 부드러운 참깨의 여운."
       }
     },
     {
-      "id": "pistachio-croissant",
+      "id": "sunset-yolk-croissant",
       "category": "croissant",
-      "price": 180,
+      "price": 150,
       "containsAlcohol": false,
-      "image": "/images/products/pistachio-croissant.jpg",
+      "image": "/images/products/sunset-yolk-croissant.jpg",
       "name": {
-        "zh-hant": "開心果可頌",
-        "en": "Pistachio Croissant",
-        "ja": "ピスタチオ・クロワッサン",
-        "ko": "피스타치오 크루아상"
+        "zh-hant": "夕陽金沙可頌",
+        "en": "Sunset Salted-Yolk Croissant",
+        "ja": "夕陽 塩漬け卵黄クロワッサン",
+        "ko": "석양 소금 노른자 크루아상"
       },
       "tagline": {
-        "zh-hant": "每一口，都值得珍藏",
-        "en": "Every bite worth keeping.",
-        "ja": "一口ごとに、大切にしたくなる。",
-        "ko": "한 입마다 간직하고 싶은."
+        "zh-hant": "把夕陽烘進每一口",
+        "en": "The Tamsui sunset, baked into every bite.",
+        "ja": "夕陽を、ひと口ずつ焼き込んで。",
+        "ko": "석양을 한 입마다 구워 넣다."
       }
     },
     {
-      "id": "taiwan-ice-croissant",
+      "id": "tiramisu-croissant",
       "category": "croissant",
-      "price": 160,
-      "containsAlcohol": false,
-      "image": "/images/products/taiwan-ice-croissant.jpg",
+      "price": 150,
+      "containsAlcohol": true,
+      "image": "/images/products/tiramisu-croissant.jpg",
       "name": {
-        "zh-hant": "台灣古早冰可頌",
-        "en": "Taiwanese Ice-Cream Croissant",
-        "ja": "台湾懐かしアイスクロワッサン",
-        "ko": "대만 옛날 아이스 크루아상"
+        "zh-hant": "提拉米蘇可頌",
+        "en": "Tiramisu Croissant",
+        "ja": "ティラミス・クロワッサン",
+        "ko": "티라미수 크루아상"
       },
       "tagline": {
-        "zh-hant": "冰涼與酥香的邂逅",
-        "en": "Where cool meets crisp.",
-        "ja": "ひんやりとサクサクの出会い。",
-        "ko": "시원함과 바삭함의 만남."
+        "zh-hant": "微醺可可，慢享時光",
+        "en": "One tipsy bite, and time slows a little.",
+        "ja": "ほろ酔いの一口、時間が少しゆるむ。",
+        "ko": "살짝 취하는 한 입, 시간이 느려집니다."
+      }
+    },
+    {
+      "id": "rose-raspberry-croissant",
+      "category": "croissant",
+      "price": 150,
+      "containsAlcohol": false,
+      "image": "/images/products/rose-raspberry-croissant.jpg",
+      "name": {
+        "zh-hant": "玫瑰覆盆子可頌",
+        "en": "Rose Raspberry Croissant",
+        "ja": "ローズ&ラズベリー・クロワッサン",
+        "ko": "로즈 라즈베리 크루아상"
+      },
+      "tagline": {
+        "zh-hant": "花果芬芳，浪漫盛放",
+        "en": "Rose and raspberry, in romantic full bloom.",
+        "ja": "花と果実が香る、ロマンティックな満開。",
+        "ko": "장미와 라즈베리, 낭만의 만개."
       }
     },
     {
       "id": "longan-tea-danish",
       "category": "danish",
-      "price": 380,
+      "price": 550,
       "containsAlcohol": false,
       "image": "/images/products/longan-tea-danish.jpg",
       "name": {
@@ -203,7 +222,7 @@
     {
       "id": "youtiao-danish",
       "category": "danish",
-      "price": 380,
+      "price": 600,
       "containsAlcohol": false,
       "image": "/images/products/youtiao-danish.jpg",
       "name": {
@@ -222,7 +241,7 @@
     {
       "id": "sunset-yolk-cookies",
       "category": "gift",
-      "price": 520,
+      "price": 550,
       "containsAlcohol": false,
       "image": "/images/products/sunset-yolk-cookies.jpg",
       "name": {
@@ -241,7 +260,7 @@
     {
       "id": "pineapple-cake",
       "category": "gift",
-      "price": 640,
+      "price": 680,
       "containsAlcohol": false,
       "image": "/images/products/pineapple-cake.jpg",
       "name": {

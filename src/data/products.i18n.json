@@ -36,6 +36,36 @@
       "ja": { "name": "抹茶クロワッサン", "tagline": "静かに味わう、一抹の茶の香り。" },
       "ko": { "name": "말차 크루아상", "tagline": "조용히 음미하는 한 줄기 찻향." }
     },
+    "檸檬可頌": {
+      "id": "lemon-croissant",
+      "en": { "name": "Lemon Croissant", "tagline": "A bright, citrus freshness, like morning light." },
+      "ja": { "name": "レモン・クロワッサン", "tagline": "朝の光のような、爽やかな酸味。" },
+      "ko": { "name": "레몬 크루아상", "tagline": "아침 햇살 같은 상큼한 산미." }
+    },
+    "蜜香龍眼可頌": {
+      "id": "honey-longan-croissant",
+      "en": { "name": "Honey Longan Croissant", "tagline": "Longan honey, lingering long on the palate." },
+      "ja": { "name": "蜜香龍眼クロワッサン", "tagline": "蜜の香りが流れ、余韻は長く。" },
+      "ko": { "name": "룽옌 꿀 크루아상", "tagline": "꿀 향이 흐르고, 여운은 길게." }
+    },
+    "黑芝麻可頌": {
+      "id": "black-sesame-croissant",
+      "en": { "name": "Black Sesame Croissant", "tagline": "Deep, mellow sesame that lingers gently." },
+      "ja": { "name": "黒ごまクロワッサン", "tagline": "香ばしいごまの、やわらかな余韻。" },
+      "ko": { "name": "흑임자 크루아상", "tagline": "진하고 부드러운 참깨의 여운." }
+    },
+    "夕陽金沙可頌": {
+      "id": "sunset-yolk-croissant",
+      "en": { "name": "Sunset Salted-Yolk Croissant", "tagline": "The Tamsui sunset, baked into every bite." },
+      "ja": { "name": "夕陽 塩漬け卵黄クロワッサン", "tagline": "夕陽を、ひと口ずつ焼き込んで。" },
+      "ko": { "name": "석양 소금 노른자 크루아상", "tagline": "석양을 한 입마다 구워 넣다." }
+    },
+    "玫瑰覆盆子可頌": {
+      "id": "rose-raspberry-croissant",
+      "en": { "name": "Rose Raspberry Croissant", "tagline": "Rose and raspberry, in romantic full bloom." },
+      "ja": { "name": "ローズ&ラズベリー・クロワッサン", "tagline": "花と果実が香る、ロマンティックな満開。" },
+      "ko": { "name": "로즈 라즈베리 크루아상", "tagline": "장미와 라즈베리, 낭만의 만개." }
+    },
     "金沙可頌": {
       "id": "salted-yolk-croissant",
       "en": { "name": "Salted Egg Yolk Croissant", "tagline": "A savoury surprise, hidden within." },
