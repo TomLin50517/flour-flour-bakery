@@ -17,6 +17,9 @@ const { lang, footer, nav, contact } = Astro.props;
 const localePrefix = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' } as const;
 const p = localePrefix[lang];
 const igHref = `https://www.instagram.com/${contact.instagram.replace('@', '')}/`;
+// Footer 為窄欄位:移除地址末尾的括註(如「（近淡水老街／河岸）」),保持精簡;
+// 完整含括註的地址仍保留在聯絡頁。
+const footerAddress = contact.addressValue.replace(/[（(][^）)]*[）)]\s*$/, '').trim();
 ---
 
 <footer class="site-footer">
@@ -28,7 +31,7 @@ const igHref = `https://www.instagram.com/${contact.instagram.replace('@', '')}/
     <div class="site-footer__columns">
       <div class="site-footer__col">
         <h3>{footer.visitHeading}</h3>
-        <p>{contact.addressValue}</p>
+        <p>{footerAddress}</p>
         <p>{contact.hoursValue}</p>
         <p>{contact.phoneValue}</p>
       </div>
@@ -91,6 +94,12 @@ const igHref = `https://www.instagram.com/${contact.instagram.replace('@', '')}/
     color: var(--flour-white);
     text-decoration: none;
     margin-top: var(--space-1);
+  }
+  /* 窄欄位裡的地址/時間:優先在空白處斷行,讓 CJK 詞組(如「河岸」與括註)不被拆開;
+     overflow-wrap 作為安全網,避免無空白的日文地址在窄欄溢出。 */
+  .site-footer__col p {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
   }
   .site-footer__col a {
     width: fit-content;
