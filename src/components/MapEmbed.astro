@@ -1,25 +1,38 @@
 ---
-// MapEmbed.astro(spec §5.5):click-to-load 門面,避免第三方資源拖累效能與預先載入 cookie
+// MapEmbed.astro(spec §5.5):click-to-load 門面。
+// 使用者點擊前「不會」對 Google 發出任何請求,也不會預先寫入第三方 cookie —— GDPR / ePrivacy 友善。
+// 門面以純 CSS 繪製地圖示意底圖;若提供 previewImage(本地靜態截圖,零第三方請求)則優先顯示。
 export interface Props {
   placeholderText: string;
   loadCta: string;
   address: string;
-  autoload?: boolean; // true 時直接內嵌地圖(不需點擊);預設維持 click-to-load
+  previewImage?: string; // 選填:本地靜態地圖縮圖路徑(例如 /map-preview.jpg)
 }
 
-const { placeholderText, loadCta, address, autoload = false } = Astro.props;
+const { placeholderText, loadCta, address, previewImage } = Astro.props;
 const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
 ---
 
 <div class="map-embed" data-map-src={mapSrc}>
-  {autoload ? (
-    <iframe src={mapSrc} loading="lazy" title="Google Maps" class="map-embed__iframe"></iframe>
-  ) : (
-    <div class="map-embed__placeholder">
-      <p>{placeholderText}</p>
-      <button type="button" class="btn map-embed__load-btn">{loadCta}</button>
-    </div>
-  )}
+  <button
+    type="button"
+    class="map-embed__facade"
+    data-has-image={previewImage ? 'true' : 'false'}
+    style={previewImage ? `background-image:url('${previewImage}')` : undefined}
+    aria-label={loadCta}
+  >
+    <span class="map-embed__pin" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="44" height="44">
+        <path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 6.6 11.3 7.3 11.9a1 1 0 0 0 1.4 0C13.4 21.3 20 15.4 20 10c0-4.4-3.6-8-8-8z" fill="var(--color-accent)"></path>
+        <circle cx="12" cy="10" r="3" fill="var(--color-surface)"></circle>
+      </svg>
+    </span>
+    <span class="map-embed__brand" aria-hidden="true">Google Maps</span>
+    <span class="map-embed__caption">
+      <span class="map-embed__caption-note">{placeholderText}</span>
+      <span class="map-embed__cta">{loadCta}</span>
+    </span>
+  </button>
 </div>
 
 <style>
@@ -29,38 +42,127 @@ const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(address)}&out
     overflow: hidden;
     border: 1px solid var(--color-line);
   }
-  .map-embed__iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    display: block;
-  }
-  .map-embed__placeholder {
+
+  /* ---- 門面:純 CSS 地圖示意底圖,點擊前不載入任何第三方資源 ---- */
+  .map-embed__facade {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 16px;
-    background: var(--color-line);
+    gap: 14px;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
     color: var(--color-ink-soft);
+    background-color: #EDE8DE;
+    background-size: cover;
+    background-position: center;
+    transition: filter 0.2s ease;
+  }
+
+  /* 未提供截圖時,用漸層描出「街道 + 街廓」的地圖感 */
+  .map-embed__facade[data-has-image='false'] {
+    background-image:
+      /* 主要斜向道路 */
+      linear-gradient(115deg, transparent calc(50% - 4px), #F5F1E9 calc(50% - 4px), #F5F1E9 calc(50% + 4px), transparent calc(50% + 4px)),
+      /* 直向街道 */
+      repeating-linear-gradient(90deg, transparent 0 46px, rgba(255, 255, 255, 0.55) 46px 50px),
+      /* 橫向街道 */
+      repeating-linear-gradient(0deg, transparent 0 46px, rgba(255, 255, 255, 0.55) 46px 50px),
+      /* 綠地色塊 */
+      radial-gradient(circle at 78% 26%, rgba(150, 168, 120, 0.35) 0 60px, transparent 62px),
+      /* 水域色塊 */
+      radial-gradient(ellipse at 15% 82%, rgba(120, 158, 176, 0.35) 0 90px, transparent 92px);
+  }
+
+  .map-embed__facade[data-has-image='true'] .map-embed__caption-note {
+    display: none; /* 有真實截圖時,不再需要「地圖示意」字樣 */
+  }
+
+  .map-embed__facade:hover,
+  .map-embed__facade:focus-visible {
+    filter: brightness(0.97);
+  }
+
+  .map-embed__facade:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -3px;
+  }
+
+  .map-embed__pin {
+    line-height: 0;
+    filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.22));
+    animation: map-pin-drop 0.5s ease;
+  }
+
+  .map-embed__brand {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.02em;
+    color: var(--color-ink-soft);
+    background: rgba(255, 255, 255, 0.82);
+    padding: 3px 8px;
+    border-radius: var(--radius-pill);
+  }
+
+  .map-embed__caption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .map-embed__caption-note {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--color-ink-soft);
+  }
+
+  .map-embed__cta {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-bg);
+    background: var(--color-ink);
+    padding: 9px 20px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
+
+  @keyframes map-pin-drop {
+    from { transform: translateY(-8px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .map-embed__pin { animation: none; }
   }
 </style>
 
 <script>
   document.querySelectorAll<HTMLElement>('.map-embed').forEach((container) => {
-    const btn = container.querySelector('.map-embed__load-btn');
-    btn?.addEventListener('click', () => {
+    const facade = container.querySelector<HTMLButtonElement>('.map-embed__facade');
+    facade?.addEventListener('click', () => {
       const src = container.dataset.mapSrc;
       if (!src) return;
       const iframe = document.createElement('iframe');
       iframe.src = src;
       iframe.loading = 'lazy';
       iframe.title = 'Google Maps';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
       iframe.style.width = '100%';
       iframe.style.height = '100%';
       iframe.style.border = '0';
+      iframe.style.display = 'block';
       container.innerHTML = '';
       container.appendChild(iframe);
     });
