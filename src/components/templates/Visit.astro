@@ -97,7 +97,7 @@ const envMedia = [
     <h2 class="section-title visit-here__heading reveal-text">{v.gettingHereHeading}</h2>
     <div class="visit-here__grid">
       <div class="visit-here__map reveal-media">
-        <MapEmbed placeholderText={v.mapPlaceholder} loadCta={v.mapLoadCta} address={coords} />
+        <MapEmbed placeholderText={v.mapPlaceholder} loadCta={v.mapLoadCta} address={coords} autoload />
         <p class="visit-here__address reveal-text">
           <span class="ui-label">{v.addressLabel}</span>
           <span class="body-copy">{address}</span>
