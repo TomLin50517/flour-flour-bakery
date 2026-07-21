@@ -20,14 +20,15 @@ const address = t.home.visit.addressValue;
 const coords = '25.1727784,121.4357401';
 const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${coords}`;
 
-// 環境導覽影像,依 v.environment 陣列順序對應(金色水岸 / 淡江大橋 / 渡船頭 / 百年建築)。
+// 環境導覽影像,依 v.environment 陣列順序對應(金色水岸 / 淡江大橋 / 渡船頭 / 百年建築 / 淡水老街 / 榕堤河岸)。
 // 有 src 者渲染 <img>(附實際像素尺寸降低 CLS);未提供者退回攝影佔位系統。
-// 金色水岸 gold.jpg 尚未提供,暫以佔位框呈現。
 const envMedia = [
   { src: '/images/gold.jpg', width: 547, height: 365 },
   { src: '/images/bridge.jpg', width: 1000, height: 700 },
   { src: '/images/boat.jpg', width: 547, height: 365 },
   { src: '/images/castle.jpg', width: 1037, height: 691 },
+  { src: '/images/tamsui-street.jpg', width: 387, height: 516 },
+  { src: '/images/waterfront.jpg', width: 1000, height: 667 },
 ];
 ---
 
