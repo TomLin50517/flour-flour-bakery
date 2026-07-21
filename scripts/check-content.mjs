@@ -1,0 +1,44 @@
+// check-content.mjs — 上線前防呆:確認單一來源內容檔(faq / announcement)四語齊全。
+// 由 `npm run build` 於 astro build 前執行;缺任何語言就讓 build 失敗,避免半套翻譯上線。
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const LOCALES = ['zh-hant', 'en', 'ja', 'ko'];
+const errors = [];
+
+const read = (rel) => JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8'));
+const nonEmpty = (v) => typeof v === 'string' && v.trim().length > 0;
+
+// ---- FAQ:每題需有 id、group,且四語都有非空的 q 與 a ----
+const faq = read('src/data/faq.json');
+if (!Array.isArray(faq.items)) errors.push('faq.json:缺少 items 陣列');
+const seenIds = new Set();
+for (const [i, item] of (faq.items || []).entries()) {
+  const where = `faq.json[${i}]${item?.id ? ` (${item.id})` : ''}`;
+  if (!nonEmpty(item?.id)) errors.push(`${where}:缺少 id`);
+  else if (seenIds.has(item.id)) errors.push(`${where}:id 重複`);
+  else seenIds.add(item.id);
+  if (!nonEmpty(item?.group)) errors.push(`${where}:缺少 group`);
+  for (const l of LOCALES) {
+    if (!item?.[l] || !nonEmpty(item[l].q) || !nonEmpty(item[l].a)) {
+      errors.push(`${where}:缺少 ${l} 的 q/a`);
+    }
+  }
+}
+
+// ---- 公告:四語 text 都要有(即使目前 enabled=false) ----
+const ann = read('src/data/announcement.json');
+if (typeof ann.enabled !== 'boolean') errors.push('announcement.json:enabled 必須是 true/false');
+for (const l of LOCALES) {
+  if (!nonEmpty(ann?.[l])) errors.push(`announcement.json:缺少 ${l} 文字`);
+}
+
+if (errors.length) {
+  console.error('\n✗ 內容完整性檢查未通過:');
+  for (const e of errors) console.error('  - ' + e);
+  console.error(`\n共 ${errors.length} 項問題,請補齊四語後再上線。\n`);
+  process.exit(1);
+}
+console.log(`✓ 內容完整性檢查通過:FAQ ${faq.items.length} 題、公告四語齊全。`);

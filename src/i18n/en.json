@@ -50,10 +50,6 @@
     "ja": "日本語",
     "ko": "한국어"
   },
-  "announcement": {
-    "enabled": false,
-    "text": "Store hours will be adjusted 7/21–7/22 — see our Facebook page for details."
-  },
   "footer": {
     "visitHeading": "Visit",
     "followHeading": "Follow",
@@ -148,35 +144,7 @@
     "bannerTitle": "Customer Service",
     "faq": {
       "orderingHeading": "Ordering",
-      "orderingItems": [
-        {
-          "question": "How do I place an order?",
-          "answer": "Call us at 02-2621-XXXX during business hours, or message us on Facebook. We'll confirm a pickup time as soon as possible."
-        },
-        {
-          "question": "Do you ship?",
-          "answer": "Our shelf-stable pastries (madeleines, dacquoise, chiffon, financiers) can be shipped; breads are pickup-only for now to ensure freshness."
-        },
-        {
-          "question": "Can I place a bulk order?",
-          "answer": "For wedding favours, corporate gifts and other bulk orders, please call or message us on Facebook at least 3 days in advance so we can plan the bake and pickup time."
-        }
-      ],
-      "productHeading": "Products",
-      "productItems": [
-        {
-          "question": "Storage and shelf life",
-          "answer": "Bread is best kept at room temperature and enjoyed the day of purchase or the next day; shelf-stable pastries keep refrigerated for 3–5 days and taste best brought back to room temperature."
-        },
-        {
-          "question": "Allergen information",
-          "answer": "Our products may contain gluten, egg, dairy and nuts. Please ask our staff in store, or let us know when ordering so we can help confirm ingredients."
-        },
-        {
-          "question": "Do you have vegan options?",
-          "answer": "Most of our products currently contain butter, honey and similar ingredients, so we don't yet offer fully vegan options. Please contact us before ordering if you have dietary restrictions."
-        }
-      ]
+      "productHeading": "Products"
     },
     "orderInfo": {
       "heading": "Ordering Notes",
@@ -236,22 +204,55 @@
     "intro": "Tamsui keeps its own slow time. The tide comes and goes, the sunset slides down the river, and the scent of pastries drifts under the old-street arcades. On the way to FlourFlour, the town itself is reason enough to make the trip.",
     "environmentHeading": "The Town of Tamsui",
     "environment": [
-      { "title": "Golden Waterfront", "caption": "At dusk the Tamsui River turns to gold. Walk the bank and watch the sunset set the whole surface alight." },
-      { "title": "Danjiang Bridge", "caption": "The Danjiang Bridge now spans the river mouth, drawing a fresh new line across the skyline." },
-      { "title": "The Ferry Pier", "caption": "A century-old crossing still ferries passengers today. A short boat ride to Bali on the far bank is Tamsui's oldest kind of romance." },
-      { "title": "Historic Architecture", "caption": "Fort San Domingo, the Little White House and Oxford College hold Tamsui's treaty-port years between red brick and arcades." },
-      { "title": "Tamsui Old Street", "caption": "Eat your way from Zhongzheng Road down to the river — a-gei, fish crackers and fresh-baked snacks fill Tamsui's liveliest lane." },
-      { "title": "Rongti Waterfront", "caption": "Old banyan trees shade the river's edge. Sit beneath them and watch the sun sink into the estuary — Tamsui at its most unhurried." }
+      {
+        "title": "Golden Waterfront",
+        "caption": "At dusk the Tamsui River turns to gold. Walk the bank and watch the sunset set the whole surface alight."
+      },
+      {
+        "title": "Danjiang Bridge",
+        "caption": "The Danjiang Bridge now spans the river mouth, drawing a fresh new line across the skyline."
+      },
+      {
+        "title": "The Ferry Pier",
+        "caption": "A century-old crossing still ferries passengers today. A short boat ride to Bali on the far bank is Tamsui's oldest kind of romance."
+      },
+      {
+        "title": "Historic Architecture",
+        "caption": "Fort San Domingo, the Little White House and Oxford College hold Tamsui's treaty-port years between red brick and arcades."
+      },
+      {
+        "title": "Tamsui Old Street",
+        "caption": "Eat your way from Zhongzheng Road down to the river — a-gei, fish crackers and fresh-baked snacks fill Tamsui's liveliest lane."
+      },
+      {
+        "title": "Rongti Waterfront",
+        "caption": "Old banyan trees shade the river's edge. Sit beneath them and watch the sun sink into the estuary — Tamsui at its most unhurried."
+      }
     ],
     "daytripHeading": "Along the Way",
     "routeLabel": "Suggested route",
     "route": "FlourFlour → Tamsui Old Street → the Ferry Pier → Fort San Domingo & the Little White House → sunset at Fisherman's Wharf",
     "spots": [
-      { "name": "Tamsui Old Street", "blurb": "Eat your way from Zhongzheng Road down to the river, past traditional snacks and small new shops." },
-      { "name": "The Ferry Pier", "blurb": "Take the ferry to Bali, or simply sit by the water and watch the boats come and go." },
-      { "name": "Fort San Domingo", "blurb": "A seventeenth-century red-brick fort — Tamsui's most iconic monument." },
-      { "name": "The Little White House", "blurb": "A white-arcaded former Qing customs residence, looking out over the river mouth." },
-      { "name": "Fisherman's Wharf & Lover's Bridge", "blurb": "The classic spot for a Tamsui sunset, its white cable-stayed bridge glowing at dusk." }
+      {
+        "name": "Tamsui Old Street",
+        "blurb": "Eat your way from Zhongzheng Road down to the river, past traditional snacks and small new shops."
+      },
+      {
+        "name": "The Ferry Pier",
+        "blurb": "Take the ferry to Bali, or simply sit by the water and watch the boats come and go."
+      },
+      {
+        "name": "Fort San Domingo",
+        "blurb": "A seventeenth-century red-brick fort — Tamsui's most iconic monument."
+      },
+      {
+        "name": "The Little White House",
+        "blurb": "A white-arcaded former Qing customs residence, looking out over the river mouth."
+      },
+      {
+        "name": "Fisherman's Wharf & Lover's Bridge",
+        "blurb": "The classic spot for a Tamsui sunset, its white cable-stayed bridge glowing at dusk."
+      }
     ],
     "gettingHereHeading": "Getting Here",
     "addressLabel": "Address",
@@ -260,15 +261,31 @@
     "mapLoadCta": "Load map",
     "transitHeading": "How to get here",
     "transit": [
-      { "mode": "MRT", "detail": "Take the Tamsui–Xinyi Line to Tamsui Station, then follow Zhongzheng Road toward the old street." },
-      { "mode": "Bus", "detail": "Take any bus heading for Tamsui Old Street and alight around Zhongzheng Road, then walk." },
-      { "mode": "By car", "detail": "Enter Tamsui via Provincial Highway 2 (Danjin Road) and join Zhongzheng Road; the old-street area is busy on weekends, so allow extra time." },
-      { "mode": "By bicycle", "detail": "Ride in along the Golden Waterfront bike path, with the river breeze all the way." }
+      {
+        "mode": "MRT",
+        "detail": "Take the Tamsui–Xinyi Line to Tamsui Station, then follow Zhongzheng Road toward the old street."
+      },
+      {
+        "mode": "Bus",
+        "detail": "Take any bus heading for Tamsui Old Street and alight around Zhongzheng Road, then walk."
+      },
+      {
+        "mode": "By car",
+        "detail": "Enter Tamsui via Provincial Highway 2 (Danjin Road) and join Zhongzheng Road; the old-street area is busy on weekends, so allow extra time."
+      },
+      {
+        "mode": "By bicycle",
+        "detail": "Ride in along the Golden Waterfront bike path, with the river breeze all the way."
+      }
     ],
     "parkingHeading": "Parking",
     "parkingNote": "There is no dedicated parking at the shop; public transport is recommended. If you drive, a nearby paid car park is available:",
     "parking": [
-      { "name": "Riyueting Parking (日月亭 淡水中正路停車場)", "detail": "No. 231, Zhongzheng Rd. · Open 24 hours", "mapUrl": "https://maps.app.goo.gl/gTctwkoN1R1VqK9d8" }
+      {
+        "name": "Riyueting Parking (日月亭 淡水中正路停車場)",
+        "detail": "No. 231, Zhongzheng Rd. · Open 24 hours",
+        "mapUrl": "https://maps.app.goo.gl/gTctwkoN1R1VqK9d8"
+      }
     ]
   },
   "privacy": {

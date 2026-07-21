@@ -7,8 +7,9 @@
   },
   "scripts": {
     "products": "node scripts/build-products.mjs",
+    "check:content": "node scripts/check-content.mjs",
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/check-content.mjs && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

@@ -1,0 +1,124 @@
+{
+  "items": [
+    {
+      "id": "how-to-order",
+      "group": "ordering",
+      "zh-hant": {
+        "q": "如何預訂？",
+        "a": "歡迎於營業時間致電 02-2621-XXXX，或透過 Facebook 粉專私訊預訂，我們會盡快為您確認取貨時間。"
+      },
+      "en": {
+        "q": "How do I place an order?",
+        "a": "Call us at 02-2621-XXXX during business hours, or message us on Facebook. We'll confirm a pickup time as soon as possible."
+      },
+      "ja": {
+        "q": "予約方法を教えてください",
+        "a": "営業時間内にお電話（02-2621-XXXX）いただくか、Facebook公式ページのメッセージにてお送りください。折り返しお受け取り日時をご案内いたします。"
+      },
+      "ko": {
+        "q": "예약은 어떻게 하나요?",
+        "a": "영업시간 내 02-2621-XXXX로 전화 주시거나, 페이스북 페이지로 메시지를 남겨 주세요. 확인 후 픽업 시간을 안내해 드립니다."
+      }
+    },
+    {
+      "id": "delivery",
+      "group": "ordering",
+      "zh-hant": {
+        "q": "可否宅配？",
+        "a": "常溫甜點（瑪德蓮、達克瓦茲、戚風、費南雪）可宅配寄送；麵包類因新鮮度考量，目前僅提供店取，暫不宅配。"
+      },
+      "en": {
+        "q": "Do you ship?",
+        "a": "Our shelf-stable pastries (madeleines, dacquoise, chiffon, financiers) can be shipped; breads are pickup-only for now to ensure freshness."
+      },
+      "ja": {
+        "q": "配送はできますか？",
+        "a": "焼き菓子（マドレーヌ、ダックワーズ、シフォン、フィナンシェ）は配送可能です。パン類は鮮度保持のため、現在は店舗でのお受け取りのみとなります。"
+      },
+      "ko": {
+        "q": "택배 배송이 가능한가요?",
+        "a": "상온 디저트(마들렌, 다쿠아즈, 시폰, 피낭시에)는 배송이 가능합니다. 빵류는 신선도 유지를 위해 현재는 매장 픽업만 가능합니다."
+      }
+    },
+    {
+      "id": "bulk-order",
+      "group": "ordering",
+      "zh-hant": {
+        "q": "大量訂購？",
+        "a": "婚禮小物、企業禮盒等大量訂購，請於 3 日前致電或透過 Facebook 私訊與我們聯繫，以便安排烘焙數量與取貨時間。"
+      },
+      "en": {
+        "q": "Can I place a bulk order?",
+        "a": "For wedding favours, corporate gifts and other bulk orders, please call or message us on Facebook at least 3 days in advance so we can plan the bake and pickup time."
+      },
+      "ja": {
+        "q": "大量注文はできますか？",
+        "a": "引き出物や企業向けギフトなど大量のご注文は、焼成数や受け取り日時の調整のため、3日前までにお電話またはFacebookにてご連絡ください。"
+      },
+      "ko": {
+        "q": "대량 주문도 가능한가요?",
+        "a": "답례품, 기업 선물 등 대량 주문은 제작 수량과 픽업 일정 조율을 위해 3일 전까지 전화 또는 페이스북으로 연락해 주세요."
+      }
+    },
+    {
+      "id": "storage",
+      "group": "product",
+      "zh-hant": {
+        "q": "保存方式與期限",
+        "a": "麵包建議常溫保存並於購買當日或隔日食用完畢；常溫甜點可冷藏保存 3–5 天，食用前回溫風味更佳。"
+      },
+      "en": {
+        "q": "Storage and shelf life",
+        "a": "Bread is best kept at room temperature and enjoyed the day of purchase or the next day; shelf-stable pastries keep refrigerated for 3–5 days and taste best brought back to room temperature."
+      },
+      "ja": {
+        "q": "保存方法と賞味期限について",
+        "a": "パンは常温保存のうえ、購入当日または翌日中にお召し上がりください。焼き菓子は冷蔵で3〜5日ほど保存可能です。常温に戻すとより美味しくお召し上がりいただけます。"
+      },
+      "ko": {
+        "q": "보관 방법과 유통기한",
+        "a": "빵은 상온 보관 후 구매 당일 또는 다음 날까지 드시는 것을 권장합니다. 상온 디저트는 냉장 보관 시 3~5일 가능하며, 실온에 두었다가 드시면 더욱 맛있습니다."
+      }
+    },
+    {
+      "id": "allergens",
+      "group": "product",
+      "zh-hant": {
+        "q": "過敏原標示",
+        "a": "產品可能含有麩質、蛋、奶製品及堅果，詳細過敏原標示請於現場詢問門市人員，或於訂購時告知我們協助確認。"
+      },
+      "en": {
+        "q": "Allergen information",
+        "a": "Our products may contain gluten, egg, dairy and nuts. Please ask our staff in store, or let us know when ordering so we can help confirm ingredients."
+      },
+      "ja": {
+        "q": "アレルギー表示について",
+        "a": "商品には小麦・卵・乳製品・ナッツ類が含まれる場合があります。詳しいアレルギー表示は店頭スタッフまでお尋ねいただくか、ご注文時にお申し付けください。"
+      },
+      "ko": {
+        "q": "알레르기 표시 안내",
+        "a": "제품에는 글루텐, 계란, 유제품, 견과류가 포함될 수 있습니다. 자세한 알레르기 표시는 매장 직원에게 문의하시거나 주문 시 말씀해 주시면 확인해 드립니다."
+      }
+    },
+    {
+      "id": "vegetarian",
+      "group": "product",
+      "zh-hant": {
+        "q": "是否有素食選項",
+        "a": "目前部分產品含有奶油、蜂蜜等成分，尚無全素選項；若有飲食禁忌，歡迎訂購前先與我們聯繫確認成分。"
+      },
+      "en": {
+        "q": "Do you have vegan options?",
+        "a": "Most of our products currently contain butter, honey and similar ingredients, so we don't yet offer fully vegan options. Please contact us before ordering if you have dietary restrictions."
+      },
+      "ja": {
+        "q": "ヴィーガン対応商品はありますか？",
+        "a": "現在はバターやはちみつなどを使用しているため、完全なヴィーガン対応商品はご用意しておりません。食事制限がある場合は、ご注文前にご相談ください。"
+      },
+      "ko": {
+        "q": "비건 옵션이 있나요?",
+        "a": "현재 일부 제품에 버터, 꿀 등이 포함되어 있어 완전한 비건 옵션은 준비되어 있지 않습니다. 식이 제한이 있으신 경우 주문 전 미리 문의해 주세요."
+      }
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import PageHeader from '../PageHeader.astro';
 import FAQAccordion from '../FAQAccordion.astro';
 import { getDict, localePrefix, type Lang } from '../../i18n';
+import faqData from '../../data/faq.json';
 
 export interface Props {
   lang: Lang;
@@ -14,6 +15,17 @@ const t = getDict(lang);
 const p = localePrefix[lang];
 
 const phoneHref = `tel:${t.contact.phoneValue.replace(/-/g, '')}`;
+
+// FAQ 內容來自單一來源 src/data/faq.json(以 id 為鍵、四語並排),依 group 取當前語系。
+const faqByGroup = (group: string) =>
+  faqData.items
+    .filter((item) => item.group === group)
+    .map((item) => {
+      const loc = (item as Record<string, { q: string; a: string }>)[lang];
+      return { question: loc.q, answer: loc.a };
+    });
+const orderingItems = faqByGroup('ordering');
+const productItems = faqByGroup('product');
 ---
 
 <Base lang={lang} path="/service" title={t.pageMeta.service.title} description={t.pageMeta.service.description}>
@@ -23,11 +35,11 @@ const phoneHref = `tel:${t.contact.phoneValue.replace(/-/g, '')}`;
     <div class="service-layout__main">
       <div class="reveal-text">
         <h2 class="service-heading">{t.service.faq.orderingHeading}</h2>
-        <FAQAccordion items={t.service.faq.orderingItems} groupId="ordering" />
+        <FAQAccordion items={orderingItems} groupId="ordering" />
       </div>
       <div class="reveal-text service-layout__gap">
         <h2 class="service-heading">{t.service.faq.productHeading}</h2>
-        <FAQAccordion items={t.service.faq.productItems} groupId="product" />
+        <FAQAccordion items={productItems} groupId="product" />
       </div>
 
       <div class="order-info reveal-text">
