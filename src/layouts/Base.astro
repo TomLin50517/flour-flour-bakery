@@ -137,7 +137,8 @@ const jsonLd = {
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-    <!-- TODO 字型:v1 先用 Google Fonts CDN 連結(下方),之後改自架子集 woff2(public/fonts/,spec §3.2/§6） -->
+    <!-- TODO 字型:v1 先用 Google Fonts CDN 連結(下方),之後改自架 woff2(public/fonts/,spec §3.2/§6)。
+         ⚠️ 上線前必做(GDPR:CDN 會把訪客 IP 傳給 Google)。詳見 /PRE-LAUNCH.md。 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
