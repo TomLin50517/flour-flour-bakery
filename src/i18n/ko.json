@@ -93,9 +93,9 @@
     "visit": {
       "heading": "매장에 들러 잠시 쉬어가세요",
       "hoursLabel": "영업시간",
-      "hoursValue": "수~일 11:00~19:00",
+      "hoursValue": "월~일 11:00~19:00",
       "addressLabel": "주소",
-      "addressValue": "251 신베이시 단수이구 중정로 21길 8호",
+      "addressValue": "251 신베이시 단수이구 중정로 21길 6호",
       "phoneLabel": "전화",
       "phoneValue": "02-2621-XXXX",
       "cta": "자세히 보기"
@@ -202,9 +202,9 @@
     "emailLabel": "이메일",
     "emailValue": "hello@flourflour.com.tw",
     "addressLabel": "주소",
-    "addressValue": "251 신베이시 단수이구 중정로 21길 8호(단수이 옛거리·강변 인근)",
+    "addressValue": "251 신베이시 단수이구 중정로 21길 6호(단수이 옛거리·강변 인근)",
     "hoursLabel": "영업시간",
-    "hoursValue": "수~일 11:00~19:00(월, 화 휴무)",
+    "hoursValue": "월~일 11:00~19:00",
     "socialLabel": "소셜 미디어",
     "instagram": "@flourflour.bakery",
     "line": "@flourflour",
