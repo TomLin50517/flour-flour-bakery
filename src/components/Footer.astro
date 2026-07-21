@@ -10,14 +10,13 @@ export interface Props {
     privacyLink: string;
   };
   nav: { story: string; products: string; service: string; contact: string };
-  contact: { phoneValue: string; emailValue: string; addressValue: string; hoursValue: string; instagram: string; line: string };
+  contact: { phoneValue: string; emailValue: string; addressValue: string; hoursValue: string; instagram: string; facebook: string };
 }
 
 const { lang, footer, nav, contact } = Astro.props;
 const localePrefix = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' } as const;
 const p = localePrefix[lang];
 const igHref = `https://www.instagram.com/${contact.instagram.replace('@', '')}/`;
-const lineHref = `https://line.me/R/ti/p/${encodeURIComponent(contact.line)}`;
 ---
 
 <footer class="site-footer">
@@ -36,7 +35,7 @@ const lineHref = `https://line.me/R/ti/p/${encodeURIComponent(contact.line)}`;
       <div class="site-footer__col">
         <h3>{footer.followHeading}</h3>
         <a href={igHref} target="_blank" rel="noopener">Instagram</a>
-        <a href={lineHref} target="_blank" rel="noopener">LINE</a>
+        <a href={contact.facebook} target="_blank" rel="noopener">Facebook</a>
       </div>
       <div class="site-footer__col">
         <h3>{footer.infoHeading}</h3>

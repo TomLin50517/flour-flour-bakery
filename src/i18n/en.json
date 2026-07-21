@@ -18,7 +18,7 @@
     },
     "service": {
       "title": "Customer Service | FlourFlour BAKERY",
-      "description": "How to order, storage tips, and frequently asked questions. Can't find your answer? Call us or message us on LINE."
+      "description": "How to order, storage tips, and frequently asked questions. Can't find your answer? Call us or message us on Facebook."
     },
     "contact": {
       "title": "Contact Us | FlourFlour BAKERY",
@@ -52,7 +52,7 @@
   },
   "announcement": {
     "enabled": false,
-    "text": "Store hours will be adjusted 7/21–7/22 — see our LINE account for details."
+    "text": "Store hours will be adjusted 7/21–7/22 — see our Facebook page for details."
   },
   "footer": {
     "visitHeading": "Visit",
@@ -151,7 +151,7 @@
       "orderingItems": [
         {
           "question": "How do I place an order?",
-          "answer": "Call us at 02-2621-XXXX during business hours, or message our LINE account @flourflour. We'll confirm a pickup time as soon as possible."
+          "answer": "Call us at 02-2621-XXXX during business hours, or message us on Facebook. We'll confirm a pickup time as soon as possible."
         },
         {
           "question": "Do you ship?",
@@ -159,7 +159,7 @@
         },
         {
           "question": "Can I place a bulk order?",
-          "answer": "For wedding favours, corporate gifts and other bulk orders, please call or message us on LINE at least 3 days in advance so we can plan the bake and pickup time."
+          "answer": "For wedding favours, corporate gifts and other bulk orders, please call or message us on Facebook at least 3 days in advance so we can plan the bake and pickup time."
         }
       ],
       "productHeading": "Products",
@@ -190,7 +190,7 @@
     "sidebar": {
       "heading": "Can't find your answer?",
       "callCta": "Call us",
-      "lineCta": "Message us on LINE",
+      "facebookCta": "Message us on Facebook",
       "contactCta": "Go to Contact"
     }
   },
@@ -207,7 +207,7 @@
     "hoursValue": "Mon–Sun 11:00–19:00",
     "socialLabel": "Social",
     "instagram": "@flourflour.bakery",
-    "line": "@flourflour",
+    "facebook": "https://www.facebook.com/WaterFrontBali.restaurant",
     "mapPlaceholder": "Map preview",
     "mapLoadCta": "Load map",
     "form": {
@@ -281,7 +281,7 @@
       },
       {
         "heading": "How We Collect Personal Data, and What We Collect",
-        "body": "When you contact us through the \"Contact Us\" form on this website, we collect the name, phone number, email address and message content you provide. If you contact us by phone or our LINE account and place an order, we also receive the contact and pickup details you give us so we can plan the bake and arrange collection."
+        "body": "When you contact us through the \"Contact Us\" form on this website, we collect the name, phone number, email address and message content you provide. If you contact us by phone or our Facebook page and place an order, we also receive the contact and pickup details you give us so we can plan the bake and arrange collection."
       },
       {
         "heading": "Purpose of Collection",
@@ -297,7 +297,7 @@
       },
       {
         "heading": "Links to Other Websites",
-        "body": "Links on this website to Instagram, our LINE account, and other external platforms are governed by each platform's own privacy policy, not this one. Please review the privacy policy of any external site before providing information there."
+        "body": "Links on this website to Instagram, our Facebook page, and other external platforms are governed by each platform's own privacy policy, not this one. Please review the privacy policy of any external site before providing information there."
       },
       {
         "heading": "Sharing Data with Third Parties",
