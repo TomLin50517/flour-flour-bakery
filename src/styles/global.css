@@ -80,12 +80,12 @@
   --bp-tablet: 768px;
   --bp-desktop: 1120px;
 
-  /* motion: line reveal / curtain reveal / slow drift only, 700–1200ms */
+  /* motion: line reveal / curtain reveal only(安靜、無 scale)。進場 700–1000ms;微互動 260ms */
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
   --duration-reveal: 900ms;
   --duration-curtain: 1000ms;
-  --duration-drift: 1200ms;
   --duration-base: 700ms;
+  --duration-micro: 260ms; /* hover / focus 等微互動:俐落但不急促 */
 }
 
 *,
@@ -153,6 +153,7 @@ h1, h2, h3, h4 {
   letter-spacing: 0.04em; /* 繁中標題:細緻但不鬆散 */
   line-height: 1.35; /* CJK 標題 */
   margin: 0;
+  text-wrap: balance; /* 標題避免落單字/長短行,精品編輯質感(不支援則自動忽略) */
 }
 
 /* 英文標題(Cormorant Garamond):略收字距、拉近行高,取精品展示體的緊實感 */
@@ -171,6 +172,7 @@ h1, h2, h3, h4 {
 
 p {
   margin: 0;
+  text-wrap: pretty; /* 內文避免末行落單字,改善閱讀節奏(漸進增強) */
 }
 
 a {
@@ -343,9 +345,9 @@ summary:focus-visible,
   background: transparent;
   color: var(--color-ink);
   cursor: pointer;
-  transition: background var(--duration-base) var(--ease-editorial),
-    color var(--duration-base) var(--ease-editorial),
-    border-color var(--duration-base) var(--ease-editorial);
+  transition: background var(--duration-micro) var(--ease-editorial),
+    color var(--duration-micro) var(--ease-editorial),
+    border-color var(--duration-micro) var(--ease-editorial);
 }
 
 /* 英文按鈕:精品展示體，可 uppercase 並稍拉字距;中日韓不做 uppercase 轉換 */
@@ -391,17 +393,18 @@ summary:focus-visible,
   background-repeat: no-repeat;
   background-size: 0% 1px;
   padding-bottom: 2px;
-  transition: background-size var(--duration-base) var(--ease-editorial);
+  transition: background-size var(--duration-micro) var(--ease-editorial),
+    color var(--duration-micro) var(--ease-editorial);
 }
 
 .link-arrow:hover {
   background-size: 100% 1px;
+  color: var(--color-ink);
 }
 
-/* ---- motion: three sanctioned patterns only ----
-   .reveal-text  — line-based rise:文字由下往上、被自身區塊裁切浮現
-   .reveal-media — curtain reveal:影像由下而上拉開簾幕
-   (media 內容同時帶 extremely slow drift:scale 1.05 → 1)
+/* ---- motion: two sanctioned patterns only(安靜、無 scale/bounce/rotate/parallax)----
+   .reveal-text  — line-based rise:文字由下往上、被自身區塊裁切浮現(translateY + clip)
+   .reveal-media — curtain reveal:影像由下而上拉開簾幕(clip-path;不再做 scale 漂移)
 
    漸進增強:內容預設完全可見(不依賴 JS)。只有在 <html class="js"> 存在時
    (由 Base.astro 開頭的 inline script 同步加上)才進入「等待進場」狀態,
@@ -424,23 +427,13 @@ html.js .reveal-media {
   transition: clip-path var(--duration-curtain) var(--ease-editorial);
 }
 
-html.js .reveal-media > * {
-  transform: scale(1.05);
-  transition: transform var(--duration-drift) var(--ease-editorial);
-}
-
 html.js .reveal-media.is-visible {
   clip-path: inset(0 0 0 0);
 }
 
-html.js .reveal-media.is-visible > * {
-  transform: scale(1);
-}
-
 @media (prefers-reduced-motion: reduce) {
   html.js .reveal-text,
-  html.js .reveal-media,
-  html.js .reveal-media > * {
+  html.js .reveal-media {
     clip-path: none;
     transform: none;
     transition: none;

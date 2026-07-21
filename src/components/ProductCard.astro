@@ -53,6 +53,16 @@ const showMeta = showPrice || item.containsAlcohol;
     height: auto; /* 讓 aspect-ratio 主導高度,否則 <img height> 屬性會蓋掉比例 */
     aspect-ratio: 4 / 5;
     object-fit: cover;
+    transition: opacity var(--duration-micro) var(--ease-editorial);
+  }
+  /* 極克制的 hover:影像微微沉一階,策展感的「呼吸」,不用 scale */
+  .product-card:hover .product-card__photo {
+    opacity: 0.9;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .product-card__photo {
+      transition: none;
+    }
   }
   .product-card__body {
     padding-top: var(--space-2);
