@@ -135,6 +135,11 @@ const jsonLd = {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
+    {/* 首頁 Hero 為 LCP 影像:預先載入以縮短最大內容繪製時間(僅首頁載入) */}
+    {path === '/' && (
+      <link rel="preload" as="image" href="/images/hero-tamsui-bridge.jpg" fetchpriority="high" />
+    )}
+
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <!-- TODO 字型:v1 先用 Google Fonts CDN 連結(下方),之後改自架 woff2(public/fonts/,spec §3.2/§6)。

@@ -34,6 +34,7 @@ const featured = getProducts(lang).slice(0, 3);
       <p class="hero__subtitle">{t.home.hero.subtitle}</p>
       <a class="link-arrow hero__cta" href={`${p}/story`}>{t.home.hero.cta} →</a>
     </div>
+    <span class="hero__scroll-cue" aria-hidden="true"></span>
   </section>
 
   <!-- 2. Brand Manifesto:純文字、留白 ≥160px、寬 ≤720px -->
@@ -105,7 +106,7 @@ const featured = getProducts(lang).slice(0, 3);
         <p class="eyebrow gift__eyebrow">GIFT</p>
         <h2>{t.home.gift.heading}</h2>
         <p class="gift__body">{t.home.gift.body}</p>
-        <a class="link-arrow gift__cta" href={`${p}/products`}>{t.home.gift.cta} →</a>
+        <a class="btn btn--on-dark gift__cta" href={`${p}/products`}>{t.home.gift.cta}</a>
       </div>
     </div>
   </section>
@@ -194,6 +195,38 @@ const featured = getProducts(lang).slice(0, 3);
     text-transform: uppercase;
   }
 
+  /* Hero scroll cue:底部細長髮絲線,向下漸隱,暗示下方尚有內容。極克制、無迴圈動畫 */
+  .hero__scroll-cue {
+    position: absolute;
+    left: 50%;
+    bottom: var(--space-4);
+    z-index: 1;
+    width: 1px;
+    height: 48px;
+    transform: translateX(-50%);
+    background: linear-gradient(to bottom, rgba(243, 239, 232, 0.7), rgba(243, 239, 232, 0));
+    pointer-events: none;
+  }
+  /* 一次性淡入進場(≤700ms);JS 關閉時直接顯示,不依賴動畫 */
+  html.js .hero__scroll-cue {
+    animation: hero-cue-in 600ms var(--ease-editorial) 450ms both;
+  }
+  @keyframes hero-cue-in {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -8px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .hero__scroll-cue {
+      animation: none;
+    }
+  }
+
   /* ---- 2. manifesto ---- */
   .manifesto {
     background: var(--flour-white);
@@ -211,6 +244,7 @@ const featured = getProducts(lang).slice(0, 3);
     font-size: var(--text-2xl);
     line-height: 1.5;
     color: var(--color-ink);
+    text-wrap: balance; /* 主張句均衡斷行,避免落單字 */
   }
   .manifesto__body {
     font-family: var(--font-body-locale);
@@ -273,7 +307,7 @@ const featured = getProducts(lang).slice(0, 3);
   .place__body {
     color: var(--color-ink-soft);
     margin-top: var(--space-3);
-    max-width: var(--reading-max-width);
+    max-width: 42ch; /* teaser 感:短行、留白多,不像整段 summary */
   }
   .place__content .link-arrow {
     margin-top: var(--space-4);
@@ -321,6 +355,8 @@ const featured = getProducts(lang).slice(0, 3);
   }
   .gift__media {
     width: 100%;
+    max-width: 360px; /* 禮盒影像收斂為珠寶級尺度,四周留更多深色留白,更高級而非更大 */
+    margin-inline: auto;
   }
   .gift__photo {
     width: 100%;
@@ -338,8 +374,7 @@ const featured = getProducts(lang).slice(0, 3);
     margin-top: var(--space-3);
   }
   .gift__cta {
-    color: var(--flour-white);
-    margin-top: var(--space-4);
+    margin-top: var(--space-2); /* 已是按鈕(自帶內距),與內文的間距略收 */
   }
 
   /* ---- 7. visit ---- */
