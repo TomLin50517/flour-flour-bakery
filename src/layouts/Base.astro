@@ -4,8 +4,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
-import { getDict, localePrefix, locales, type Lang } from '../i18n';
-import zhHant from '../i18n/zh-hant.json';
+import { getDict, getBusinessInfo, localePrefix, locales, type Lang } from '../i18n';
 import announcement from '../data/announcement.json';
 
 export interface Props {
@@ -20,6 +19,8 @@ const { lang, title, description, path, transparentHeader = false } = Astro.prop
 
 const htmlLang = { 'zh-hant': 'zh-Hant', en: 'en', ja: 'ja', ko: 'ko' } as const;
 const t = getDict(lang);
+const b = getBusinessInfo(lang);
+const bizZh = getBusinessInfo('zh-hant'); // JSON-LD 採繁中原文為單一標準值
 
 const siteUrl = 'https://flourflour.com.tw';
 const canonicalPath = `${localePrefix[lang]}${path}`;
@@ -32,11 +33,11 @@ const jsonLd = {
   name: 'FlourFlour BAKERY',
   description,
   url: `${siteUrl}${canonicalPath}`,
-  telephone: zhHant.contact.phoneValue,
-  email: zhHant.contact.emailValue,
+  telephone: bizZh.phone,
+  email: bizZh.email,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: zhHant.contact.addressValue,
+    streetAddress: bizZh.address,
     addressLocality: '淡水區',
     addressRegion: '新北市',
     addressCountry: 'TW',
@@ -52,7 +53,7 @@ const jsonLd = {
     opens: '11:00',
     closes: '19:00',
   },
-  sameAs: [`https://www.instagram.com/${zhHant.contact.instagram.replace('@', '')}/`],
+  sameAs: [`https://www.instagram.com/${bizZh.instagram.replace('@', '')}/`],
 };
 ---
 
@@ -166,12 +167,12 @@ const jsonLd = {
       path={path}
       langLabels={t.langSwitcher}
       transparent={transparentHeader}
-      reserveEmail={t.contact.emailValue}
+      reserveEmail={b.email}
     />
     <main id="main-content">
       <slot />
     </main>
-    <Footer lang={lang} footer={t.footer} nav={t.nav} contact={t.contact} />
+    <Footer lang={lang} footer={t.footer} nav={t.nav} />
     <CookieConsent lang={lang} consent={t.cookieConsent} />
 
     <script>

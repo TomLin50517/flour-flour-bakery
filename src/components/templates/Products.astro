@@ -3,7 +3,7 @@
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../PageHeader.astro';
 import ProductCard from '../ProductCard.astro';
-import { getDict, localePrefix, type Lang } from '../../i18n';
+import { getDict, getBusinessInfo, localePrefix, type Lang } from '../../i18n';
 import { getProducts, getCategories } from '../../data/products';
 
 export interface Props {
@@ -12,6 +12,7 @@ export interface Props {
 
 const { lang } = Astro.props;
 const t = getDict(lang);
+const b = getBusinessInfo(lang);
 const p = localePrefix[lang];
 
 const categories = getCategories(lang);
@@ -66,7 +67,7 @@ const jsonLd = {
 
   <section class="container products-footnote reveal-text">
     <p>{t.products.footnote}</p>
-    <a class="link-arrow" href={`tel:${t.contact.phoneValue.replace(/-/g, '')}`}>{t.products.footnoteCta} →</a>
+    <a class="link-arrow" href={`tel:${b.phone.replace(/-/g, '')}`}>{t.products.footnoteCta} →</a>
   </section>
 </Base>
 

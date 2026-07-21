@@ -35,10 +35,21 @@ for (const l of LOCALES) {
   if (!nonEmpty(ann?.[l])) errors.push(`announcement.json:缺少 ${l} 文字`);
 }
 
+// ---- 聯絡事實:電話/Email/社群非空;營業時間/地址/括註四語齊全 ----
+const biz = read('src/data/business-info.json');
+for (const k of ['phone', 'email', 'instagram', 'facebook']) {
+  if (!nonEmpty(biz?.[k])) errors.push(`business-info.json:缺少 ${k}`);
+}
+for (const field of ['hours', 'address', 'addressNote']) {
+  for (const l of LOCALES) {
+    if (!nonEmpty(biz?.[field]?.[l])) errors.push(`business-info.json:${field} 缺少 ${l}`);
+  }
+}
+
 if (errors.length) {
   console.error('\n✗ 內容完整性檢查未通過:');
   for (const e of errors) console.error('  - ' + e);
   console.error(`\n共 ${errors.length} 項問題,請補齊四語後再上線。\n`);
   process.exit(1);
 }
-console.log(`✓ 內容完整性檢查通過:FAQ ${faq.items.length} 題、公告四語齊全。`);
+console.log(`✓ 內容完整性檢查通過:FAQ ${faq.items.length} 題、公告與聯絡事實四語齊全。`);

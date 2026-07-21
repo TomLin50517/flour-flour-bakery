@@ -89,11 +89,8 @@
     "visit": {
       "heading": "Come sit with us",
       "hoursLabel": "Hours",
-      "hoursValue": "Mon–Sun 11:00–19:00",
       "addressLabel": "Address",
-      "addressValue": "No. 6, Ln. 21, Zhongzheng Rd., Tamsui Dist., New Taipei City 251",
       "phoneLabel": "Phone",
-      "phoneValue": "02-2621-XXXX",
       "cta": "See full details"
     }
   },
@@ -166,16 +163,10 @@
     "bannerTitle": "Contact Us",
     "infoHeading": "Contact Info",
     "phoneLabel": "Phone",
-    "phoneValue": "02-2621-XXXX",
     "emailLabel": "Email",
-    "emailValue": "hello@flourflour.com.tw",
     "addressLabel": "Address",
-    "addressValue": "No. 6, Ln. 21, Zhongzheng Rd., Tamsui Dist., New Taipei City 251 (near Tamsui Old Street / riverside)",
     "hoursLabel": "Hours",
-    "hoursValue": "Mon–Sun 11:00–19:00",
     "socialLabel": "Social",
-    "instagram": "@flourflour.bakery",
-    "facebook": "https://www.facebook.com/WaterFrontBali.restaurant",
     "mapPlaceholder": "Map preview",
     "mapLoadCta": "Load map",
     "form": {

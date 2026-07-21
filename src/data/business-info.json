@@ -1,0 +1,24 @@
+{
+  "phone": "02-2621-XXXX",
+  "email": "hello@flourflour.com.tw",
+  "instagram": "@flourflour.bakery",
+  "facebook": "https://www.facebook.com/WaterFrontBali.restaurant",
+  "hours": {
+    "zh-hant": "週一至週日 11:00–19:00",
+    "en": "Mon–Sun 11:00–19:00",
+    "ja": "月曜〜日曜 11:00〜19:00",
+    "ko": "월~일 11:00~19:00"
+  },
+  "address": {
+    "zh-hant": "251 新北市淡水區中正路 21 巷 6 號",
+    "en": "No. 6, Ln. 21, Zhongzheng Rd., Tamsui Dist., New Taipei City 251",
+    "ja": "251 新北市淡水區中正路21巷6號",
+    "ko": "251 신베이시 단수이구 중정로 21길 6호"
+  },
+  "addressNote": {
+    "zh-hant": "（近淡水老街／河岸）",
+    "en": "(near Tamsui Old Street / riverside)",
+    "ja": "（淡水老街・河岸エリア近く）",
+    "ko": "(단수이 옛거리·강변 인근)"
+  }
+}

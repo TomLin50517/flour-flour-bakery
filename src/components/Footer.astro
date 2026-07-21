@@ -1,7 +1,9 @@
 ---
 // Footer.astro — 深墨底、大量留白:左側大字 A Quiet Taste of Tamsui.,右側 Visit / Follow / Information
+import { getBusinessInfo, type Lang } from '../i18n';
+
 export interface Props {
-  lang: 'zh-hant' | 'en' | 'ja' | 'ko';
+  lang: Lang;
   footer: {
     visitHeading: string;
     followHeading: string;
@@ -10,16 +12,14 @@ export interface Props {
     privacyLink: string;
   };
   nav: { story: string; products: string; service: string; contact: string };
-  contact: { phoneValue: string; emailValue: string; addressValue: string; hoursValue: string; instagram: string; facebook: string };
 }
 
-const { lang, footer, nav, contact } = Astro.props;
+const { lang, footer, nav } = Astro.props;
 const localePrefix = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' } as const;
 const p = localePrefix[lang];
-const igHref = `https://www.instagram.com/${contact.instagram.replace('@', '')}/`;
-// Footer 為窄欄位:移除地址末尾的括註(如「（近淡水老街／河岸）」),保持精簡;
-// 完整含括註的地址仍保留在聯絡頁。
-const footerAddress = contact.addressValue.replace(/[（(][^）)]*[）)]\s*$/, '').trim();
+// 聯絡事實來自單一來源 business-info;b.address 已是短版(不含括註),適合窄欄位。
+const b = getBusinessInfo(lang);
+const igHref = `https://www.instagram.com/${b.instagram.replace('@', '')}/`;
 ---
 
 <footer class="site-footer">
@@ -31,14 +31,14 @@ const footerAddress = contact.addressValue.replace(/[（(][^）)]*[）)]\s*$/, '
     <div class="site-footer__columns">
       <div class="site-footer__col">
         <h3>{footer.visitHeading}</h3>
-        <p>{footerAddress}</p>
-        <p>{contact.hoursValue}</p>
-        <p>{contact.phoneValue}</p>
+        <p>{b.address}</p>
+        <p>{b.hours}</p>
+        <p>{b.phone}</p>
       </div>
       <div class="site-footer__col">
         <h3>{footer.followHeading}</h3>
         <a href={igHref} target="_blank" rel="noopener">Instagram</a>
-        <a href={contact.facebook} target="_blank" rel="noopener">Facebook</a>
+        <a href={b.facebook} target="_blank" rel="noopener">Facebook</a>
       </div>
       <div class="site-footer__col">
         <h3>{footer.infoHeading}</h3>

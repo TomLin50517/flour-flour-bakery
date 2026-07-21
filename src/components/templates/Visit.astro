@@ -5,7 +5,7 @@ import Base from '../../layouts/Base.astro';
 import PageHeader from '../PageHeader.astro';
 import ImagePlaceholder from '../ImagePlaceholder.astro';
 import MapEmbed from '../MapEmbed.astro';
-import { getDict, type Lang } from '../../i18n';
+import { getDict, getBusinessInfo, type Lang } from '../../i18n';
 
 export interface Props {
   lang: Lang;
@@ -16,7 +16,7 @@ const t = getDict(lang);
 const v = t.visit;
 
 // 乾淨地址(無括註)供顯示;地圖圖釘與導航改用店家實際經緯度,落點精準
-const address = t.home.visit.addressValue;
+const address = getBusinessInfo(lang).address;
 const coords = '25.1723491,121.4362253';
 const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${coords}`;
 

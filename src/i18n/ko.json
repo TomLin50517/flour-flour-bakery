@@ -89,11 +89,8 @@
     "visit": {
       "heading": "매장에 들러 잠시 쉬어가세요",
       "hoursLabel": "영업시간",
-      "hoursValue": "월~일 11:00~19:00",
       "addressLabel": "주소",
-      "addressValue": "251 신베이시 단수이구 중정로 21길 6호",
       "phoneLabel": "전화",
-      "phoneValue": "02-2621-XXXX",
       "cta": "자세히 보기"
     }
   },
@@ -166,16 +163,10 @@
     "bannerTitle": "문의하기",
     "infoHeading": "문의처",
     "phoneLabel": "전화",
-    "phoneValue": "02-2621-XXXX",
     "emailLabel": "이메일",
-    "emailValue": "hello@flourflour.com.tw",
     "addressLabel": "주소",
-    "addressValue": "251 신베이시 단수이구 중정로 21길 6호(단수이 옛거리·강변 인근)",
     "hoursLabel": "영업시간",
-    "hoursValue": "월~일 11:00~19:00",
     "socialLabel": "소셜 미디어",
-    "instagram": "@flourflour.bakery",
-    "facebook": "https://www.facebook.com/WaterFrontBali.restaurant",
     "mapPlaceholder": "지도 미리보기",
     "mapLoadCta": "지도 불러오기",
     "form": {

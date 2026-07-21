@@ -3,7 +3,7 @@
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../PageHeader.astro';
 import FAQAccordion from '../FAQAccordion.astro';
-import { getDict, localePrefix, type Lang } from '../../i18n';
+import { getDict, getBusinessInfo, localePrefix, type Lang } from '../../i18n';
 import faqData from '../../data/faq.json';
 
 export interface Props {
@@ -12,9 +12,10 @@ export interface Props {
 
 const { lang } = Astro.props;
 const t = getDict(lang);
+const b = getBusinessInfo(lang);
 const p = localePrefix[lang];
 
-const phoneHref = `tel:${t.contact.phoneValue.replace(/-/g, '')}`;
+const phoneHref = `tel:${b.phone.replace(/-/g, '')}`;
 
 // FAQ 內容來自單一來源 src/data/faq.json(以 id 為鍵、四語並排),依 group 取當前語系。
 const faqByGroup = (group: string) =>
@@ -58,7 +59,7 @@ const productItems = faqByGroup('product');
     <aside class="service-sidebar reveal-text">
       <h3>{t.service.sidebar.heading}</h3>
       <a class="btn" href={phoneHref}>{t.service.sidebar.callCta}</a>
-      <a class="btn" href={t.contact.facebook} target="_blank" rel="noopener">{t.service.sidebar.facebookCta}</a>
+      <a class="btn" href={b.facebook} target="_blank" rel="noopener">{t.service.sidebar.facebookCta}</a>
       <a class="link-arrow" href={`${p}/contact`}>{t.service.sidebar.contactCta} →</a>
     </aside>
   </section>

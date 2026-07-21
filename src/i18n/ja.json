@@ -89,11 +89,8 @@
     "visit": {
       "heading": "お店で、ゆっくりと",
       "hoursLabel": "営業時間",
-      "hoursValue": "月曜〜日曜 11:00〜19:00",
       "addressLabel": "住所",
-      "addressValue": "251 新北市淡水區中正路21巷6號",
       "phoneLabel": "電話",
-      "phoneValue": "02-2621-XXXX",
       "cta": "詳しい情報を見る"
     }
   },
@@ -166,16 +163,10 @@
     "bannerTitle": "お問い合わせ",
     "infoHeading": "お問い合わせ先",
     "phoneLabel": "電話",
-    "phoneValue": "02-2621-XXXX",
     "emailLabel": "Email",
-    "emailValue": "hello@flourflour.com.tw",
     "addressLabel": "住所",
-    "addressValue": "251 新北市淡水區中正路21巷6號（淡水老街・河岸エリア近く）",
     "hoursLabel": "営業時間",
-    "hoursValue": "月曜〜日曜 11:00〜19:00",
     "socialLabel": "SNS",
-    "instagram": "@flourflour.bakery",
-    "facebook": "https://www.facebook.com/WaterFrontBali.restaurant",
     "mapPlaceholder": "地図プレビュー",
     "mapLoadCta": "地図を読み込む",
     "form": {

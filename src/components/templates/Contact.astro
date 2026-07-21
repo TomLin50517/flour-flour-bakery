@@ -4,7 +4,7 @@ import Base from '../../layouts/Base.astro';
 import PageHeader from '../PageHeader.astro';
 import MapEmbed from '../MapEmbed.astro';
 import ContactForm from '../ContactForm.astro';
-import { getDict, localePrefix, type Lang } from '../../i18n';
+import { getDict, getBusinessInfo, localePrefix, type Lang } from '../../i18n';
 
 export interface Props {
   lang: Lang;
@@ -12,10 +12,11 @@ export interface Props {
 
 const { lang } = Astro.props;
 const t = getDict(lang);
+const b = getBusinessInfo(lang);
 const p = localePrefix[lang];
 
-const phoneHref = `tel:${t.contact.phoneValue.replace(/-/g, '')}`;
-const emailHref = `mailto:${t.contact.emailValue}`;
+const phoneHref = `tel:${b.phone.replace(/-/g, '')}`;
+const emailHref = `mailto:${b.email}`;
 ---
 
 <Base lang={lang} path="/contact" title={t.pageMeta.contact.title} description={t.pageMeta.contact.description}>
@@ -26,20 +27,20 @@ const emailHref = `mailto:${t.contact.emailValue}`;
       <h2 class="contact-heading">{t.contact.infoHeading}</h2>
       <dl>
         <dt>{t.contact.phoneLabel}</dt>
-        <dd><a href={phoneHref}>{t.contact.phoneValue}</a></dd>
+        <dd><a href={phoneHref}>{b.phone}</a></dd>
         <dt>{t.contact.emailLabel}</dt>
-        <dd><a href={emailHref}>{t.contact.emailValue}</a></dd>
+        <dd><a href={emailHref}>{b.email}</a></dd>
         <dt>{t.contact.addressLabel}</dt>
-        <dd>{t.contact.addressValue}</dd>
+        <dd>{b.addressFull}</dd>
         <dt>{t.contact.hoursLabel}</dt>
-        <dd>{t.contact.hoursValue}</dd>
+        <dd>{b.hours}</dd>
         <dt>{t.contact.socialLabel}</dt>
-        <dd>Instagram {t.contact.instagram} · <a href={t.contact.facebook} target="_blank" rel="noopener">Facebook</a></dd>
+        <dd>Instagram {b.instagram} · <a href={b.facebook} target="_blank" rel="noopener">Facebook</a></dd>
       </dl>
     </div>
 
     <div class="contact-map reveal-text">
-      <MapEmbed placeholderText={t.contact.mapPlaceholder} loadCta={t.contact.mapLoadCta} address={t.contact.addressValue} />
+      <MapEmbed placeholderText={t.contact.mapPlaceholder} loadCta={t.contact.mapLoadCta} address={b.address} />
     </div>
   </section>
 

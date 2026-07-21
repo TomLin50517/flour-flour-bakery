@@ -3,7 +3,7 @@
 // → The Place(河岸場域)→ Today's Bake(3 款)→ Gift(深色)→ Visit → Minimal Footer(Base 內建)
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../ProductCard.astro';
-import { getDict, localePrefix, type Lang } from '../../i18n';
+import { getDict, getBusinessInfo, localePrefix, type Lang } from '../../i18n';
 import { getProducts } from '../../data/products';
 
 export interface Props {
@@ -12,6 +12,7 @@ export interface Props {
 
 const { lang } = Astro.props;
 const t = getDict(lang);
+const b = getBusinessInfo(lang);
 const p = localePrefix[lang];
 
 const featured = getProducts(lang).slice(0, 3);
@@ -119,15 +120,15 @@ const featured = getProducts(lang).slice(0, 3);
       <dl class="visit__details">
         <div>
           <dt>{t.home.visit.hoursLabel}</dt>
-          <dd>{t.home.visit.hoursValue}</dd>
+          <dd>{b.hours}</dd>
         </div>
         <div>
           <dt>{t.home.visit.addressLabel}</dt>
-          <dd>{t.home.visit.addressValue}</dd>
+          <dd>{b.address}</dd>
         </div>
         <div>
           <dt>{t.home.visit.phoneLabel}</dt>
-          <dd>{t.home.visit.phoneValue}</dd>
+          <dd>{b.phone}</dd>
         </div>
       </dl>
       <a class="link-arrow" href={`${p}/contact`}>{t.home.visit.cta} →</a>
