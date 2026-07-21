@@ -323,5 +323,11 @@
     "message": "這片麵包好像被買走了。",
     "homeCta": "回首頁",
     "productsCta": "看看今天的麵包"
+  },
+  "cookieConsent": {
+    "message": "我們使用 Cookie 來嵌入 Google 地圖,方便你找到我們的位置。你可以自行選擇是否允許。",
+    "accept": "接受",
+    "decline": "拒絕",
+    "learnMore": "隱私權政策"
   }
 }

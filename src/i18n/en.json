@@ -323,5 +323,11 @@
     "message": "Looks like this loaf has already been sold.",
     "homeCta": "Back to home",
     "productsCta": "See what's fresh today"
+  },
+  "cookieConsent": {
+    "message": "We use cookies to embed Google Maps so you can find us. You can choose whether to allow them.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "learnMore": "Privacy Policy"
   }
 }

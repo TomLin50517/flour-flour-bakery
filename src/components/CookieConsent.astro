@@ -1,0 +1,166 @@
+---
+// CookieConsent.astro — 全站 Cookie 同意橫幅(GDPR / ePrivacy)。
+// 僅治理「地圖等第三方嵌入」這類非必要 cookie:使用者未同意前,Google 地圖不自動載入。
+// 選擇存於 localStorage('ff-consent-maps' = 'granted' | 'denied');已選擇者不再顯示橫幅。
+// 按下「接受」會即時廣播 ff-consent-maps-granted 事件,讓當頁地圖立刻載入(無需重新整理)。
+import { localePrefix, type Lang } from '../i18n';
+
+export interface Props {
+  lang: Lang;
+  consent: {
+    message: string;
+    accept: string;
+    decline: string;
+    learnMore: string;
+  };
+}
+
+const { lang, consent } = Astro.props;
+const privacyHref = `${localePrefix[lang]}/privacy`;
+---
+
+<div class="cookie-consent" data-cookie-consent hidden>
+  <p class="cookie-consent__text">
+    {consent.message}
+    <a href={privacyHref} class="cookie-consent__link">{consent.learnMore}</a>
+  </p>
+  <div class="cookie-consent__actions">
+    <button type="button" class="cookie-consent__btn cookie-consent__btn--ghost" data-consent-decline>
+      {consent.decline}
+    </button>
+    <button type="button" class="cookie-consent__btn cookie-consent__btn--solid" data-consent-accept>
+      {consent.accept}
+    </button>
+  </div>
+</div>
+
+<style>
+  .cookie-consent {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 200;
+    max-width: 720px;
+    margin-inline: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 20px;
+    padding: 16px 20px;
+    background: var(--color-surface);
+    color: var(--color-ink);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14);
+    animation: cookie-rise 0.35s ease;
+  }
+
+  .cookie-consent[hidden] {
+    display: none;
+  }
+
+  .cookie-consent__text {
+    flex: 1 1 260px;
+    margin: 0;
+    font-family: var(--font-body-locale);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+  }
+
+  .cookie-consent__link {
+    color: var(--color-accent-text);
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+
+  .cookie-consent__actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .cookie-consent__btn {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: var(--font-weight-medium);
+    padding: 9px 20px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: filter 0.2s ease, background 0.2s ease;
+  }
+
+  .cookie-consent__btn--solid {
+    background: var(--color-ink);
+    color: var(--color-bg);
+    border: 1px solid var(--color-ink);
+  }
+
+  .cookie-consent__btn--ghost {
+    background: transparent;
+    color: var(--color-ink-soft);
+    border: 1px solid var(--color-line);
+  }
+
+  .cookie-consent__btn--solid:hover,
+  .cookie-consent__btn--solid:focus-visible {
+    filter: brightness(1.25);
+  }
+
+  .cookie-consent__btn--ghost:hover,
+  .cookie-consent__btn--ghost:focus-visible {
+    background: var(--color-line);
+  }
+
+  .cookie-consent__btn:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  @keyframes cookie-rise {
+    from { transform: translateY(12px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cookie-consent { animation: none; }
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = 'ff-consent-maps';
+  const banner = document.querySelector<HTMLElement>('[data-cookie-consent]');
+  if (banner) {
+    let stored: string | null = null;
+    try {
+      stored = localStorage.getItem(STORAGE_KEY);
+    } catch (e) {
+      /* localStorage 不可用時,保守起見顯示橫幅 */
+    }
+
+    // 尚未做過選擇才顯示橫幅
+    if (stored !== 'granted' && stored !== 'denied') {
+      banner.hidden = false;
+    }
+
+    const persist = (value: 'granted' | 'denied') => {
+      try {
+        localStorage.setItem(STORAGE_KEY, value);
+      } catch (e) {
+        /* 忽略寫入失敗 */
+      }
+      banner.hidden = true;
+    };
+
+    banner.querySelector('[data-consent-accept]')?.addEventListener('click', () => {
+      persist('granted');
+      // 即時通知當頁的地圖元件載入(免重新整理)
+      window.dispatchEvent(new CustomEvent('ff-consent-maps-granted'));
+    });
+
+    banner.querySelector('[data-consent-decline]')?.addEventListener('click', () => {
+      persist('denied');
+    });
+  }
+</script>

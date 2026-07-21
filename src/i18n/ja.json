@@ -323,5 +323,11 @@
     "message": "このパンはもう売り切れてしまったようです。",
     "homeCta": "トップページへ戻る",
     "productsCta": "本日の焼きたてを見る"
+  },
+  "cookieConsent": {
+    "message": "当店では、道案内のため Google マップの埋め込みに Cookie を使用します。許可するかどうかお選びいただけます。",
+    "accept": "同意する",
+    "decline": "拒否する",
+    "learnMore": "プライバシーポリシー"
   }
 }

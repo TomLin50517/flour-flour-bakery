@@ -148,23 +148,49 @@ const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(address)}&out
 </style>
 
 <script>
-  document.querySelectorAll<HTMLElement>('.map-embed').forEach((container) => {
+  const CONSENT_KEY = 'ff-consent-maps';
+
+  function injectMap(container: HTMLElement) {
+    if (container.querySelector('iframe')) return; // 已載入,避免重複
+    const src = container.dataset.mapSrc;
+    if (!src) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = src;
+    iframe.loading = 'lazy';
+    iframe.title = 'Google Maps';
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = '0';
+    iframe.style.display = 'block';
+    container.innerHTML = '';
+    container.appendChild(iframe);
+  }
+
+  function hasMapsConsent(): boolean {
+    try {
+      return localStorage.getItem(CONSENT_KEY) === 'granted';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  const containers = document.querySelectorAll<HTMLElement>('.map-embed');
+
+  // 已同意 → 頁面載入時自動嵌入地圖
+  if (hasMapsConsent()) {
+    containers.forEach(injectMap);
+  }
+
+  // 使用者在 Cookie 橫幅按「接受」→ 當頁地圖立即載入(免重新整理)
+  window.addEventListener('ff-consent-maps-granted', () => {
+    document.querySelectorAll<HTMLElement>('.map-embed').forEach(injectMap);
+  });
+
+  // 尚未同意 / 已拒絕時,門面仍可手動點擊載入(個別、明確的動作)
+  containers.forEach((container) => {
     const facade = container.querySelector<HTMLButtonElement>('.map-embed__facade');
-    facade?.addEventListener('click', () => {
-      const src = container.dataset.mapSrc;
-      if (!src) return;
-      const iframe = document.createElement('iframe');
-      iframe.src = src;
-      iframe.loading = 'lazy';
-      iframe.title = 'Google Maps';
-      iframe.setAttribute('allowfullscreen', '');
-      iframe.referrerPolicy = 'no-referrer-when-downgrade';
-      iframe.style.width = '100%';
-      iframe.style.height = '100%';
-      iframe.style.border = '0';
-      iframe.style.display = 'block';
-      container.innerHTML = '';
-      container.appendChild(iframe);
-    });
+    facade?.addEventListener('click', () => injectMap(container));
   });
 </script>

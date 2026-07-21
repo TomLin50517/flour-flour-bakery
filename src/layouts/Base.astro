@@ -3,6 +3,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import { getDict, localePrefix, locales, type Lang } from '../i18n';
 import zhHant from '../i18n/zh-hant.json';
 
@@ -164,6 +165,7 @@ const jsonLd = {
       <slot />
     </main>
     <Footer lang={lang} footer={t.footer} nav={t.nav} contact={t.contact} />
+    <CookieConsent lang={lang} consent={t.cookieConsent} />
 
     <script>
       const revealEls = document.querySelectorAll('.reveal-text, .reveal-media');
