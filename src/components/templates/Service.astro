@@ -14,7 +14,6 @@ const t = getDict(lang);
 const p = localePrefix[lang];
 
 const phoneHref = `tel:${t.contact.phoneValue.replace(/-/g, '')}`;
-const lineHref = `https://line.me/R/ti/p/${encodeURIComponent(t.contact.line)}`;
 ---
 
 <Base lang={lang} path="/service" title={t.pageMeta.service.title} description={t.pageMeta.service.description}>
@@ -47,7 +46,7 @@ const lineHref = `https://line.me/R/ti/p/${encodeURIComponent(t.contact.line)}`;
     <aside class="service-sidebar reveal-text">
       <h3>{t.service.sidebar.heading}</h3>
       <a class="btn" href={phoneHref}>{t.service.sidebar.callCta}</a>
-      <a class="btn" href={lineHref} target="_blank" rel="noopener">{t.service.sidebar.lineCta}</a>
+      <a class="btn" href={t.contact.facebook} target="_blank" rel="noopener">{t.service.sidebar.facebookCta}</a>
       <a class="link-arrow" href={`${p}/contact`}>{t.service.sidebar.contactCta} →</a>
     </aside>
   </section>
