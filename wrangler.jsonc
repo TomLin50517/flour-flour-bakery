@@ -1,0 +1,11 @@
+{
+  // Cloudflare Workers 靜態資源部署設定(純靜態站,無 Worker 腳本)。
+  // 關鍵:not_found_handling 讓「找不到的網址」服務我們的 dist/404.html,
+  // 而不是回傳瀏覽器的預設錯誤頁。
+  "name": "flour-flour-bakery",
+  "compatibility_date": "2026-07-22",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
