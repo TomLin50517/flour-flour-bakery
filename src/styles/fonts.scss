@@ -1,0 +1,41 @@
+// fonts.scss — 自架字型單一入口(取代 Google Fonts CDN,GDPR)。
+// 改用 @fontsource 的 SCSS mixins 產生 @font-face,解決兩個問題:
+//   1) font-display:@fontsource 的預設 CSS 寫死 swap(先系統字→載入後換字,造成「明顯閃一下」)。
+//      這裡改成 fallback:約 100ms 隱形 block 期,快取/快速連線幾乎不再看到換字閃爍,
+//      同時仍保證最終顯示品牌字型(不像 optional 會在慢速首載整頁卡在系統字)。
+//   2) 子集:預設 CSS 會把希臘/斯拉夫/越南文一起帶進來(淡水烘焙站用不到)。
+//      這裡只挑實際需要的:拉丁站 latin/latin-ext;CJK 各自的中/日/韓子集 → 更少 @font-face 與下載。
+//
+// 注意 $directory:mixin 預設產生 webpack 風格的 `url(~@fontsource/...)`,Vite 不認得那個 `~`
+// 會導致 woff2 不被打包(404)。這裡改成不帶 `~` 的 `@fontsource/<id>/files`,讓 Vite 正常解析並雜湊輸出。
+//
+// 若日後想「完全零閃爍(可接受慢速首載暫時顯示系統字)」,把下面 $display 改成 optional 即可。
+$display: fallback;
+
+@use '@fontsource/cormorant-garamond/scss/mixins' as Cormorant;
+@use '@fontsource/inter/scss/mixins' as Inter;
+@use '@fontsource/noto-serif-tc/scss/mixins' as NotoSerifTC;
+@use '@fontsource/noto-sans-tc/scss/mixins' as NotoSansTC;
+@use '@fontsource/shippori-mincho/scss/mixins' as Shippori;
+@use '@fontsource/noto-sans-jp/scss/mixins' as NotoSansJP;
+@use '@fontsource/noto-serif-kr/scss/mixins' as NotoSerifKR;
+@use '@fontsource/noto-sans-kr/scss/mixins' as NotoSansKR;
+
+// 英文標題 Cormorant Garamond — 正體 400/500/600 + 斜體 400/500(對齊原 Google 請求)
+@include Cormorant.faces($weights: (400, 500, 600), $styles: (normal), $subsets: (latin, latin-ext), $display: $display, $directory: '@fontsource/cormorant-garamond/files');
+@include Cormorant.faces($weights: (400, 500), $styles: (italic), $subsets: (latin, latin-ext), $display: $display, $directory: '@fontsource/cormorant-garamond/files');
+
+// UI / 英文內文 Inter
+@include Inter.faces($weights: (400, 500), $styles: (normal), $subsets: (latin, latin-ext), $display: $display, $directory: '@fontsource/inter/files');
+
+// 繁中 — Noto Serif TC(標題)/ Noto Sans TC(內文・UI 備援)
+@include NotoSerifTC.faces($weights: (400, 500), $subsets: (chinese-traditional, latin, latin-ext), $display: $display, $directory: '@fontsource/noto-serif-tc/files');
+@include NotoSansTC.faces($weights: (300, 400, 500), $subsets: (chinese-traditional, latin, latin-ext), $display: $display, $directory: '@fontsource/noto-sans-tc/files');
+
+// 日文 — Shippori Mincho(標題)/ Noto Sans JP(內文)
+@include Shippori.faces($weights: (400, 500), $subsets: (japanese, latin, latin-ext), $display: $display, $directory: '@fontsource/shippori-mincho/files');
+@include NotoSansJP.faces($weights: (300, 400, 500), $subsets: (japanese, latin, latin-ext), $display: $display, $directory: '@fontsource/noto-sans-jp/files');
+
+// 韓文 — Noto Serif KR(標題)/ Noto Sans KR(內文)
+@include NotoSerifKR.faces($weights: (400, 500), $subsets: (korean, latin, latin-ext), $display: $display, $directory: '@fontsource/noto-serif-kr/files');
+@include NotoSansKR.faces($weights: (300, 400, 500), $subsets: (korean, latin, latin-ext), $display: $display, $directory: '@fontsource/noto-sans-kr/files');

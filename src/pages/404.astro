@@ -2,7 +2,7 @@
 // 404 頁(spec §5.6):靜態主機僅一份 404.html,無法按語系預產生;
 // 預設顯示繁中,JS 依 location.pathname 前綴切換為對應語系文案(四語文案內嵌於同一頁)
 import '../styles/global.css';
-import '../styles/fonts.css'; // 自架字型(與 Base.astro 同源);404 頁不走 Base,需各自引入
+import '../styles/fonts.scss'; // 自架字型(與 Base.astro 同源);404 頁不走 Base,需各自引入
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getDict, getBusinessInfo, localePrefix, locales, type Lang } from '../i18n';
