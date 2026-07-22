@@ -5,9 +5,16 @@
 
 ---
 
-## 🔤 字型自架（GDPR 合規 + 效能)— **必做**
+## 🔤 字型自架（GDPR 合規 + 效能)— ✅ **已完成（2026-07）**
 
-**現況**:字型透過 Google Fonts CDN 載入（見 `src/layouts/Base.astro` 的 `<head>`)。
+**現況**:字型已自架,改用 `@fontsource/*` 的 range-based woff2 子集,單一入口在
+`src/styles/fonts.css`(Base.astro 與 404.astro 皆引用)。已移除所有 Google Fonts CDN
+連結與 preconnect;建置產出中無任何 `fonts.googleapis` / `fonts.gstatic` 殘留,
+四語系(zh-hant / en / ja / ko)顯示皆已驗證正常。以下保留原始說明作為背景與日後升級參考。
+
+<details><summary>原始需求與作法(背景)</summary>
+
+**先前狀況**:字型透過 Google Fonts CDN 載入（見 `src/layouts/Base.astro` 的 `<head>`)。
 
 **為什麼要改**:
 - Google Fonts CDN 會在每次載入時把**訪客 IP 傳給 Google**。IP 在 GDPR 下屬個人資料,未經同意傳送有合規風險(參考德國 LG München I, 2022 判例)。
@@ -27,12 +34,18 @@
 
 > 💡 **若股東要換字型**:換字型跟自架是同一道工序,到時一次做完即可,不會白工。
 
-參考:規格書 §3.2 / §6;`src/layouts/Base.astro` `<head>` 的 TODO 註解。
+參考:規格書 §3.2 / §6。
+
+</details>
 
 ---
 
 ## 其他上線前項目（有想到再補)
 
 - [ ] 確認 `site` 網址與 canonical / hreflang 指向正式域名(目前 `astro.config.mjs` 為 `https://flourflour.com.tw`)
-- [ ] 確認 JSON-LD 的營業資訊(地址、電話、營業時間、座標)為正式資料
+- [x] 電話已填正式號碼(`02-6688-1688`);`check-content` 已加佔位值防呆,`XXXX`/`REPLACE` 會擋建置
+- [x] JSON-LD 營業時間改讀 `business-info.json` 的 `hoursSpec`,與顯示文字同源(改一處即同步)
+- [ ] **JSON-LD `geo` 座標**待 Google 商家申請下來後更新(`src/layouts/Base.astro`;目前為淡水概略值)
+- [ ] Facebook 連結目前借用股東粉專,待自家粉專申請完成後更新 `business-info.json` 的 `facebook`
+- [ ] 聯絡表單接寄信管道(Web3Forms → 官方 Gmail),待 Gmail 申請下來 + access key
 - [ ] 流量分析工具是否安裝(目前 v1 未裝,見 `Base.astro` TODO)

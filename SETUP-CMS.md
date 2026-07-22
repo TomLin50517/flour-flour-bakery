@@ -10,6 +10,22 @@
 
 ---
 
+## 程式碼位置對照（這套 CMS 的「code」分三處）
+
+分清楚哪些是「我們自己做的、在本 repo」，哪些是「第三方開源、從 CDN 載入或另外部署」：
+
+| # | 是什麼 | 位置 | 在本 repo？ |
+|---|--------|------|:----------:|
+| 1 | **Sveltia CMS 本體**（引擎） | 原始碼 `github.com/sveltia/sveltia-cms`；網站實際載入的建置版 `unpkg.com/@sveltia/cms@0.172.3/dist/sveltia-cms.js` | ❌ 第三方開源，從 CDN 載入 |
+| 2 | **我們的 CMS 設定**（欄位、collections、後台頁） | `public/admin/index.html`、`public/admin/config.yml`（GitHub：`TomLin50517/flour-flour-bakery` → `public/admin/`）；上線後對外網址 `你的網址/admin/` | ✅ **就是我們做的部分** |
+| 3 | **認證 Worker**（只有路徑 B 需要） | 原始碼 `github.com/sveltia/sveltia-cms-auth`；部署後得到自己的 `https://xxx.workers.dev`，填進 `config.yml` 的 `base_url` | ❌ 開源，另外部署為獨立 Cloudflare Worker |
+
+> 📌 **版本鎖定**：第 1 項的 CDN 網址已鎖定版本 `@0.172.3`（見 `public/admin/index.html` 註解）。Sveltia 為 0.x 快速迭代,不鎖版本會抓最新版,上游 breaking change 或 unpkg 故障會讓 `/admin` 直接壞掉。升級時手動改該版本號並測試。
+>
+> 🔑 **密鑰去哪**：路徑 A 的個人存取權杖存在**你的瀏覽器本機**、路徑 B 的 `CLIENT_SECRET` 存在 **Cloudflare Worker 環境變數**——**兩者都不會、也絕不該 commit 進 repo**。
+
+---
+
 ## 先決條件：把 `/admin` 部署上線
 `public/admin/` 會隨網站一起部署。把本分支併入 `master`（或用 Cloudflare 的分支 preview）後，
 `你的網址/admin/` 就會出現登入畫面。

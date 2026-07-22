@@ -90,13 +90,19 @@ collections:
           - { name: instagram, label: 'Instagram 帳號（含 @）', widget: string }
           - { name: facebook, label: 'Facebook 粉專完整網址', widget: string }
           - name: hours
-            label: 營業時間
+            label: 營業時間（顯示文字）
             widget: object
             fields:
               - { name: zh-hant, label: 繁體中文, widget: string }
               - { name: en, label: English, widget: string }
               - { name: ja, label: 日本語, widget: string }
               - { name: ko, label: 한국어, widget: string }
+          - name: hoursSpec
+            label: 營業時間（給 Google 用的 24 小時制，需與上方顯示文字一致）
+            widget: object
+            fields:
+              - { name: opens, label: '開店（如 11:00）', widget: string }
+              - { name: closes, label: '打烊（如 19:00）', widget: string }
           - name: address
             label: 地址（短版，不含括註）
             widget: object

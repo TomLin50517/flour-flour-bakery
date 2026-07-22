@@ -53,7 +53,7 @@ const jsonLd = {
   </nav>
 
   {categories.map((cat) => (
-    <section class="section container" id={cat.key}>
+    <section class="section container product-category" id={cat.key}>
       <h2 class="category-heading reveal-text">{cat.label}</h2>
       <div class="product-grid">
         {products
@@ -97,9 +97,9 @@ const jsonLd = {
     font-size: var(--text-2xl);
     margin-bottom: var(--space-6);
   }
-  #croissant,
-  #danish,
-  #gift {
+  /* 錨點捲動時預留 sticky 分類列高度;用共用 class 而非硬編分類 id,
+     日後從 CMS 新增分類也會自動套用 */
+  .product-category {
     scroll-margin-top: 64px;
   }
   .product-grid {

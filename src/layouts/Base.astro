@@ -1,6 +1,9 @@
 ---
 // Base.astro — 全站共用外殼(spec §6):載入設計 token、字型、meta、hreflang、Header/Footer
 import '../styles/global.css';
+
+// 自架字型單一入口(見 src/styles/fonts.css);取代原 Google Fonts CDN(GDPR)。
+import '../styles/fonts.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
@@ -50,8 +53,8 @@ const jsonLd = {
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-    opens: '11:00',
-    closes: '19:00',
+    opens: bizZh.hoursSpec.opens, // 與 business-info.json 的 hours 顯示字串同源,改一處即同步
+    closes: bizZh.hoursSpec.closes,
   },
   sameAs: [`https://www.instagram.com/${bizZh.instagram.replace('@', '')}/`],
 };
@@ -144,14 +147,7 @@ const jsonLd = {
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-    <!-- TODO 字型:v1 先用 Google Fonts CDN 連結(下方),之後改自架 woff2(public/fonts/,spec §3.2/§6)。
-         ⚠️ 上線前必做(GDPR:CDN 會把訪客 IP 傳給 Google)。詳見 /PRE-LAUNCH.md。 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500&family=Noto+Serif+TC:wght@400;500&family=Noto+Sans+TC:wght@300;400;500&family=Shippori+Mincho:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <!-- 字型已自架(見上方 frontmatter 的 @fontsource import),不再連 Google Fonts CDN。 -->
 
     <!-- TODO: 流量分析插入點(v1 不安裝,spec §6) -->
   </head>

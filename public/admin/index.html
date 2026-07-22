@@ -8,7 +8,9 @@
     <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
   </head>
   <body>
-    <!-- Sveltia CMS(Decap 相容)— 由 CDN 載入,無需在專案安裝套件 -->
-    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+    <!-- Sveltia CMS(Decap 相容)— 由 CDN 載入,無需在專案安裝套件。
+         ⚠️ 鎖定版本:Sveltia 為 0.x 快速迭代,不鎖版本會抓到最新版,上游 breaking change
+         或 unpkg 故障會讓 /admin 直接壞掉且事先無法察覺。升級時手動改此版本號並測試。 -->
+    <script src="https://unpkg.com/@sveltia/cms@0.172.3/dist/sveltia-cms.js" type="module"></script>
   </body>
 </html>

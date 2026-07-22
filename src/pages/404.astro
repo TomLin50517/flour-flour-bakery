@@ -2,6 +2,7 @@
 // 404 頁(spec §5.6):靜態主機僅一份 404.html,無法按語系預產生;
 // 預設顯示繁中,JS 依 location.pathname 前綴切換為對應語系文案(四語文案內嵌於同一頁)
 import '../styles/global.css';
+import '../styles/fonts.css'; // 自架字型(與 Base.astro 同源);404 頁不走 Base,需各自引入
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getDict, getBusinessInfo, localePrefix, locales, type Lang } from '../i18n';
@@ -35,12 +36,7 @@ const defaultDict = getDict('zh-hant');
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500&family=Noto+Serif+TC:wght@400;500&family=Noto+Sans+TC:wght@300;400;500&family=Shippori+Mincho:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <!-- 字型已自架(見 frontmatter 的 fonts.css import),不再連 Google Fonts CDN。 -->
   </head>
   <body>
     {locales.map((lang: Lang) => {

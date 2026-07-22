@@ -45,6 +45,23 @@ for (const field of ['hours', 'address', 'addressNote']) {
     if (!nonEmpty(biz?.[field]?.[l])) errors.push(`business-info.json:${field} 缺少 ${l}`);
   }
 }
+// 營業時間結構化值(給 JSON-LD),需與 hours 顯示文字同源;缺任一則擋
+for (const k of ['opens', 'closes']) {
+  if (!nonEmpty(biz?.hoursSpec?.[k])) errors.push(`business-info.json:hoursSpec 缺少 ${k}`);
+}
+
+// ---- 佔位值防呆:非空檢查擋不掉「02-2621-XXXX」這種明顯的樣板值,遞迴掃 business-info 所有字串 ----
+const PLACEHOLDER = /XXXX|REPLACE-WITH|REPLACE_WITH|lorem ipsum|example\.com|待填|TBD|請填/i;
+const scanPlaceholder = (obj, where = 'business-info.json') => {
+  for (const [k, v] of Object.entries(obj || {})) {
+    if (typeof v === 'string') {
+      if (PLACEHOLDER.test(v)) errors.push(`${where}.${k}:疑似未替換的佔位值「${v}」`);
+    } else if (v && typeof v === 'object') {
+      scanPlaceholder(v, `${where}.${k}`);
+    }
+  }
+};
+scanPlaceholder(biz);
 
 // ---- 商品:分類四語 label;每項 id 唯一、分類有效、price 為數字、四語 name/tagline(image 可空) ----
 const products = read('src/data/products.json');

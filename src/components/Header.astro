@@ -241,17 +241,28 @@ const navLeft = [
   const toggle = document.querySelector<HTMLButtonElement>('.site-header__toggle');
   const menu = document.getElementById('mobile-menu');
 
+  const setMenu = (open: boolean) => {
+    toggle?.setAttribute('aria-expanded', String(open));
+    if (menu) menu.hidden = !open;
+    // 選單開啟時鎖住背景捲動,關閉時還原
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    // 開啟後把焦點帶進選單、關閉後(如按 Esc)交還給漢堡鈕
+    if (open) menu?.querySelector<HTMLAnchorElement>('a')?.focus();
+    else toggle?.focus();
+  };
+
   toggle?.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    if (menu) menu.hidden = expanded;
+    setMenu(toggle.getAttribute('aria-expanded') !== 'true');
   });
 
+  // 點選單內連結 → 導頁前先關閉(還原背景捲動狀態)
   menu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      toggle?.setAttribute('aria-expanded', 'false');
-      if (menu) menu.hidden = true;
-    });
+    link.addEventListener('click', () => setMenu(false));
+  });
+
+  // Esc 關閉選單
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') setMenu(false);
   });
 
   const header = document.querySelector<HTMLElement>('.site-header--transparent');
