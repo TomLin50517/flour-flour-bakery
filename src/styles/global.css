@@ -80,10 +80,11 @@
   --bp-tablet: 768px;
   --bp-desktop: 1120px;
 
-  /* motion: line reveal / curtain reveal only(安靜、無 scale)。進場 700–1000ms;微互動 260ms */
+  /* motion: line reveal / curtain reveal only(安靜、無 scale)。進場俐落浮現;微互動 260ms
+     (原 900/1000ms 每次換頁重播會覺得拖,縮短為 500/550ms:仍是浮現/簾幕效果,但換頁不再像在等) */
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
-  --duration-reveal: 900ms;
-  --duration-curtain: 1000ms;
+  --duration-reveal: 500ms;
+  --duration-curtain: 550ms;
   --duration-base: 700ms;
   --duration-micro: 260ms; /* hover / focus 等微互動:俐落但不急促 */
 }
