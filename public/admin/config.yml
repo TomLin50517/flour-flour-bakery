@@ -113,3 +113,64 @@ collections:
               - { name: en, label: English, widget: string }
               - { name: ja, label: 日本語, widget: string }
               - { name: ko, label: 한국어, widget: string }
+
+  # ---------- 商品 ----------
+  - name: products
+    label: 商品
+    files:
+      - name: products
+        label: 商品目錄
+        file: src/data/products.json
+        format: json
+        fields:
+          - name: categories
+            label: 分類（顯示名稱與排序）
+            label_singular: 分類
+            widget: list
+            fields:
+              - { name: key, label: '代號（英文，請勿更改）', widget: string }
+              - name: label
+                label: 分類名稱
+                widget: object
+                fields:
+                  - { name: zh-hant, label: 繁體中文, widget: string }
+                  - { name: en, label: English, widget: string }
+                  - { name: ja, label: 日本語, widget: string }
+                  - { name: ko, label: 한국어, widget: string }
+          - name: products
+            label: 商品
+            label_singular: 商品
+            widget: list
+            fields:
+              - { name: id, label: 'ID（英文代號，需唯一，例如 lemon-croissant）', widget: string }
+              - name: category
+                label: 分類
+                widget: select
+                options:
+                  - { label: 經典可頌, value: croissant }
+                  - { label: 丹麥棒, value: danish }
+                  - { label: 特色禮盒, value: gift }
+              - { name: price, label: '價格（數字，NT$）', widget: number, value_type: int, min: 0 }
+              - { name: containsAlcohol, label: 含酒精？, widget: boolean, default: false }
+              - name: image
+                label: 商品照片（4:5 直式為佳；留空則顯示佔位圖）
+                widget: image
+                required: false
+                media_folder: '/public/images/products'
+                public_folder: '/images/products'
+              - name: name
+                label: 品名
+                widget: object
+                fields:
+                  - { name: zh-hant, label: 繁體中文, widget: string }
+                  - { name: en, label: English, widget: string }
+                  - { name: ja, label: 日本語, widget: string }
+                  - { name: ko, label: 한국어, widget: string }
+              - name: tagline
+                label: 一句說明
+                widget: object
+                fields:
+                  - { name: zh-hant, label: 繁體中文, widget: string }
+                  - { name: en, label: English, widget: string }
+                  - { name: ja, label: 日本語, widget: string }
+                  - { name: ko, label: 한국어, widget: string }

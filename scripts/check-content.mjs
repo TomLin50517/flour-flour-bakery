@@ -46,10 +46,33 @@ for (const field of ['hours', 'address', 'addressNote']) {
   }
 }
 
+// ---- 商品:分類四語 label;每項 id 唯一、分類有效、price 為數字、四語 name/tagline(image 可空) ----
+const products = read('src/data/products.json');
+const catKeys = new Set((products.categories || []).map((c) => c.key));
+for (const [i, c] of (products.categories || []).entries()) {
+  const where = `products.json categories[${i}]${c?.key ? ` (${c.key})` : ''}`;
+  if (!nonEmpty(c?.key)) errors.push(`${where}:缺少 key`);
+  for (const l of LOCALES) if (!nonEmpty(c?.label?.[l])) errors.push(`${where}:label 缺少 ${l}`);
+}
+const seenPid = new Set();
+for (const [i, p] of (products.products || []).entries()) {
+  const where = `products.json products[${i}]${p?.id ? ` (${p.id})` : ''}`;
+  if (!nonEmpty(p?.id)) errors.push(`${where}:缺少 id`);
+  else if (seenPid.has(p.id)) errors.push(`${where}:id 重複`);
+  else seenPid.add(p.id);
+  if (!catKeys.has(p?.category)) errors.push(`${where}:分類「${p?.category}」不在 categories 清單`);
+  if (typeof p?.price !== 'number') errors.push(`${where}:price 必須是數字`);
+  for (const field of ['name', 'tagline']) {
+    for (const l of LOCALES) if (!nonEmpty(p?.[field]?.[l])) errors.push(`${where}:${field} 缺少 ${l}`);
+  }
+}
+
 if (errors.length) {
   console.error('\n✗ 內容完整性檢查未通過:');
   for (const e of errors) console.error('  - ' + e);
   console.error(`\n共 ${errors.length} 項問題,請補齊四語後再上線。\n`);
   process.exit(1);
 }
-console.log(`✓ 內容完整性檢查通過:FAQ ${faq.items.length} 題、公告與聯絡事實四語齊全。`);
+console.log(
+  `✓ 內容完整性檢查通過:FAQ ${faq.items.length} 題、商品 ${products.products.length} 項、公告與聯絡事實四語齊全。`,
+);

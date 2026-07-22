@@ -1,6 +1,6 @@
-// products.ts — 讀取 build-products.mjs 產生的 products.json,對外提供「已在地化」的產品/分類。
-// 資料來源:Doc/Product.xlsx(中文/價格/酒精/照片)+ products.i18n.json(英日韓)→ products.json。
-// 不要手改 products.json;改內容請編輯 Excel 後執行 `npm run products`。
+// products.ts — 讀取 src/data/products.json,對外提供「已在地化」的產品/分類。
+// products.json 是單一來源,由 Sveltia CMS(/admin → 商品)編輯,含四語品名/說明與照片。
+// (Excel + build-products 流程已退役,不再需要 `npm run products`。)
 import data from './products.json';
 import type { Lang } from '../i18n';
 
