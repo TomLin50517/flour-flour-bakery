@@ -1,0 +1,115 @@
+# Sveltia CMS 設定 — 對接 src/data/*.json 單一來源檔。
+# 四個語言欄位由編輯者各自填寫(繁中原稿 + 英/日/韓,不做自動翻譯)。
+backend:
+  name: github
+  repo: TomLin50517/flour-flour-bakery
+  branch: master
+  # ↓↓↓ 部署 sveltia-cms-auth Worker 後,把網址填在這裡(見 SETUP-CMS.md)↓↓↓
+  base_url: https://REPLACE-WITH-YOUR-AUTH-WORKER.workers.dev
+
+# 這三個內容檔不需上傳圖片;media_folder 為必填,指向既有資料夾即可。
+media_folder: public/images
+public_folder: /images
+
+# 送出後直接寫入 master → Cloudflare 自動重建上線。
+publish_mode: simple
+
+collections:
+  # ---------- 常見問題 ----------
+  - name: faq
+    label: 常見問題（FAQ）
+    files:
+      - name: faq
+        label: FAQ 列表
+        file: src/data/faq.json
+        format: json
+        fields:
+          - name: items
+            label: 問題
+            label_singular: 問題
+            widget: list
+            fields:
+              - { name: id, label: 'ID（英文代號，請勿更改）', widget: string }
+              - name: group
+                label: 分類
+                widget: select
+                options:
+                  - { label: 訂購, value: ordering }
+                  - { label: 商品, value: product }
+              - name: zh-hant
+                label: 繁體中文
+                widget: object
+                fields:
+                  - { name: q, label: 問題, widget: string }
+                  - { name: a, label: 答案, widget: text }
+              - name: en
+                label: English
+                widget: object
+                fields:
+                  - { name: q, label: Question, widget: string }
+                  - { name: a, label: Answer, widget: text }
+              - name: ja
+                label: 日本語
+                widget: object
+                fields:
+                  - { name: q, label: 質問, widget: string }
+                  - { name: a, label: 回答, widget: text }
+              - name: ko
+                label: 한국어
+                widget: object
+                fields:
+                  - { name: q, label: 질문, widget: string }
+                  - { name: a, label: 답변, widget: text }
+
+  # ---------- 網站公告 ----------
+  - name: announcement
+    label: 網站公告
+    files:
+      - name: announcement
+        label: 頂部公告列
+        file: src/data/announcement.json
+        format: json
+        fields:
+          - { name: enabled, label: 顯示公告？, widget: boolean, default: false }
+          - { name: zh-hant, label: 繁體中文, widget: text }
+          - { name: en, label: English, widget: text }
+          - { name: ja, label: 日本語, widget: text }
+          - { name: ko, label: 한국어, widget: text }
+
+  # ---------- 店家資訊 ----------
+  - name: business
+    label: 店家資訊
+    files:
+      - name: business-info
+        label: 電話・時間・地址・社群
+        file: src/data/business-info.json
+        format: json
+        fields:
+          - { name: phone, label: 電話, widget: string }
+          - { name: email, label: Email, widget: string }
+          - { name: instagram, label: 'Instagram 帳號（含 @）', widget: string }
+          - { name: facebook, label: 'Facebook 粉專完整網址', widget: string }
+          - name: hours
+            label: 營業時間
+            widget: object
+            fields:
+              - { name: zh-hant, label: 繁體中文, widget: string }
+              - { name: en, label: English, widget: string }
+              - { name: ja, label: 日本語, widget: string }
+              - { name: ko, label: 한국어, widget: string }
+          - name: address
+            label: 地址（短版，不含括註）
+            widget: object
+            fields:
+              - { name: zh-hant, label: 繁體中文, widget: string }
+              - { name: en, label: English, widget: string }
+              - { name: ja, label: 日本語, widget: string }
+              - { name: ko, label: 한국어, widget: string }
+          - name: addressNote
+            label: 地址括註（如「（近淡水老街／河岸）」）
+            widget: object
+            fields:
+              - { name: zh-hant, label: 繁體中文, widget: string }
+              - { name: en, label: English, widget: string }
+              - { name: ja, label: 日本語, widget: string }
+              - { name: ko, label: 한국어, widget: string }
