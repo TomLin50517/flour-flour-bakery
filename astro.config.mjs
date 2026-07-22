@@ -2,10 +2,13 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://flourflour.com.tw',
   output: 'static',
+
   i18n: {
     defaultLocale: 'zh-hant',
     locales: ['zh-hant', 'en', 'ja', 'ko'],
@@ -13,6 +16,7 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+
   integrations: [
     sitemap({
       i18n: {
@@ -26,4 +30,6 @@ export default defineConfig({
       },
     }),
   ],
+
+  adapter: cloudflare(),
 });
