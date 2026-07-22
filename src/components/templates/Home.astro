@@ -197,6 +197,8 @@ const featured = getProducts(lang).slice(0, 3);
   }
 
   /* Hero scroll cue:底部細長髮絲線,向下漸隱,暗示下方尚有內容。極克制、無迴圈動畫 */
+  /* Scroll cue:一條淡髮絲軌道 + 頂端小圓點沿線緩慢下移,明確傳達「往下捲」。
+     軌道本身很淡,靠會動的小圓點讀出「元件」感;圓點帶深色微光,疊在亮水面上也看得見。 */
   .hero__scroll-cue {
     position: absolute;
     left: 50%;
@@ -205,12 +207,30 @@ const featured = getProducts(lang).slice(0, 3);
     width: 1px;
     height: 48px;
     transform: translateX(-50%);
-    background: linear-gradient(to bottom, rgba(243, 239, 232, 0.7), rgba(243, 239, 232, 0));
+    /* 軌道:更淡,不搶戲 */
+    background: linear-gradient(to bottom, rgba(243, 239, 232, 0.35), rgba(243, 239, 232, 0.04));
     pointer-events: none;
+  }
+  /* 沿軌道下移的小圓點 */
+  .hero__scroll-cue::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--flour-white);
+    box-shadow: 0 0 6px rgba(33, 30, 27, 0.4); /* 深色微光:亮背景上也看得出來 */
+    transform: translate(-50%, 0);
   }
   /* 一次性淡入進場(≤700ms);JS 關閉時直接顯示,不依賴動畫 */
   html.js .hero__scroll-cue {
     animation: hero-cue-in 600ms var(--ease-editorial) 450ms both;
+  }
+  /* 圓點緩慢沿線下移並淡出,循環(克制、緩慢,符合安靜奢華調性) */
+  html.js .hero__scroll-cue::before {
+    animation: hero-cue-travel 2.6s var(--ease-editorial) 1100ms infinite;
   }
   @keyframes hero-cue-in {
     from {
@@ -222,8 +242,18 @@ const featured = getProducts(lang).slice(0, 3);
       transform: translate(-50%, 0);
     }
   }
+  @keyframes hero-cue-travel {
+    0% { transform: translate(-50%, 0); opacity: 0; }
+    18% { opacity: 1; }
+    72% { opacity: 1; }
+    100% { transform: translate(-50%, 42px); opacity: 0; }
+  }
+  /* 減少動態偏好:不移動、不循環,圓點靜置於軌道頂端,仍讀得出是捲動提示元件 */
   @media (prefers-reduced-motion: reduce) {
     html.js .hero__scroll-cue {
+      animation: none;
+    }
+    html.js .hero__scroll-cue::before {
       animation: none;
     }
   }
