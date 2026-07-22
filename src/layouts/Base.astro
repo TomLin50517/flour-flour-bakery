@@ -4,6 +4,12 @@ import '../styles/global.css';
 
 // 自架字型單一入口(見 src/styles/fonts.scss);取代原 Google Fonts CDN(GDPR)。
 import '../styles/fonts.scss';
+
+// 首屏最顯眼文字的字型 preload:讓「第一次訪客」在首次繪製時就有品牌字,不再先系統字→跳字。
+// ?url 取得建置後的雜湊路徑。Inter(全站 header 導覽,每頁都在首屏)+ Cormorant 斜體(首頁 Hero 大標)。
+import interLatin400 from '@fontsource/inter/files/inter-latin-400-normal.woff2?url';
+import interLatin500 from '@fontsource/inter/files/inter-latin-500-normal.woff2?url';
+import cormorantItalic500 from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-italic.woff2?url';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
@@ -140,9 +146,17 @@ const jsonLd = {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
+    {/* 首屏字型 preload:Inter(每頁 header 導覽)全站預載;Cormorant 斜體大標僅首頁 Hero 需要。
+        crossorigin 為字型 preload 必要屬性(字型一律以 CORS 模式抓取,漏了會重複下載)。 */}
+    <link rel="preload" as="font" type="font/woff2" href={interLatin400} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={interLatin500} crossorigin />
+
     {/* 首頁 Hero 為 LCP 影像:預先載入以縮短最大內容繪製時間(僅首頁載入) */}
     {path === '/' && (
-      <link rel="preload" as="image" href="/images/hero-tamsui-bridge.jpg" fetchpriority="high" />
+      <>
+        <link rel="preload" as="image" href="/images/hero-tamsui-bridge.jpg" fetchpriority="high" />
+        <link rel="preload" as="font" type="font/woff2" href={cormorantItalic500} crossorigin />
+      </>
     )}
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
