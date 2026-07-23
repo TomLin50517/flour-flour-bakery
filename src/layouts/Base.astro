@@ -188,13 +188,23 @@ const jsonLd = {
     <script>
       const revealEls = document.querySelectorAll('.reveal-text, .reveal-media');
 
-      // 保險機制:若元素在進入視窗後 2.5 秒內仍未被 observer 標記可見(無論何種原因),
+      // 只「武裝」(隱藏+等待進場)「完全在首屏以下」的元素;首屏(初次已可見/半露出)的內容
+      // 維持直接顯示、不依賴 JS → 避免 Chrome「空白一下再跳出」的頓感。門檻取整個視窗高度,
+      // 確保被武裝元素的初始隱藏動畫一定發生在畫面外(使用者看不到收合)。
+      const armThreshold = window.innerHeight;
+      const belowFold = (el: Element) => el.getBoundingClientRect().top >= armThreshold;
+
+      // 保險機制:元素被武裝後 2.5 秒內仍未被 observer 標記可見(無論何種原因),
       // 強制加上 is-visible,確保內容不會永久卡在隱藏狀態。
       const revealNow = (el: Element) => el.classList.add('is-visible');
       const scheduleFallback = (el: Element) => setTimeout(() => revealNow(el), 2500);
 
+      // 待武裝清單:僅首屏以下元素。首屏元素不加 .reveal-armed,CSS 就不會隱藏它們
+      // → 首屏內容隨頁面即時顯示、不依賴 JS,消除 Chrome「空白一下再跳出」的頓感。
+      const toArm = Array.from(revealEls).filter(belowFold);
+
       if (!('IntersectionObserver' in window)) {
-        revealEls.forEach(revealNow);
+        toArm.forEach(revealNow);
       } else {
         const observer = new IntersectionObserver(
           (entries) => {
@@ -207,7 +217,8 @@ const jsonLd = {
           },
           { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
         );
-        revealEls.forEach((el) => {
+        toArm.forEach((el) => {
+          el.classList.add('reveal-armed');
           observer.observe(el);
           scheduleFallback(el);
         });

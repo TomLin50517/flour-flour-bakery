@@ -80,11 +80,12 @@
   --bp-tablet: 768px;
   --bp-desktop: 1120px;
 
-  /* motion: line reveal / curtain reveal only(安靜、無 scale)。進場俐落浮現;微互動 260ms
-     (原 900/1000ms 每次換頁重播會覺得拖,縮短為 500/550ms:仍是浮現/簾幕效果,但換頁不再像在等) */
+  /* motion: line reveal / curtain reveal only(安靜、無 scale)。微互動 260ms。
+     首屏內容已改為即時顯示(不做進場),此時長只用於「捲動到下方區塊」的進場,
+     取 650/700ms:從容但不拖(換頁不再有等待感,因為首屏本來就即時)。 */
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
-  --duration-reveal: 500ms;
-  --duration-curtain: 550ms;
+  --duration-reveal: 650ms;
+  --duration-curtain: 700ms;
   --duration-base: 700ms;
   --duration-micro: 260ms; /* hover / focus 等微互動:俐落但不急促 */
 }
@@ -407,34 +408,38 @@ summary:focus-visible,
    .reveal-text  — line-based rise:文字由下往上、被自身區塊裁切浮現(translateY + clip)
    .reveal-media — curtain reveal:影像由下而上拉開簾幕(clip-path;不再做 scale 漂移)
 
-   漸進增強:內容預設完全可見(不依賴 JS)。只有在 <html class="js"> 存在時
-   (由 Base.astro 開頭的 inline script 同步加上)才進入「等待進場」狀態,
-   並由 IntersectionObserver 加上 .is-visible 觸發進場;script 內另有逾時
-   保險,避免 observer 因任何原因未觸發導致內容永久不可見。 */
-html.js .reveal-text {
+   漸進增強:內容預設完全可見(不依賴 JS)。
+   關鍵:只有「首屏以下」的元素才由 JS 加上 .reveal-armed 進入等待進場態;
+   首屏(初次可見)的內容「不」隱藏、隨頁面直接繪製,不依賴 JS 觸發 →
+   避免「首屏內容被藏起來、等 JS 才放出來」造成的跨瀏覽器空白/頓感(Chrome 尤明顯)。
+   捲動到下方時,IntersectionObserver 加上 .is-visible 觸發進場;script 內另有逾時保險。 */
+/* transition 掛在基礎 .reveal-armed(隱藏態):進場方向可靠觸發。
+   JS 只武裝「完全在首屏以下」的元素(見 Base.astro),所以加 .reveal-armed 當下的
+   隱藏動畫一定發生在畫面外、使用者看不到;捲到時再加 .is-visible 播現身。 */
+html.js .reveal-text.reveal-armed {
   clip-path: inset(0 0 100% 0);
   transform: translateY(20px);
   transition: clip-path var(--duration-reveal) var(--ease-editorial),
     transform var(--duration-reveal) var(--ease-editorial);
 }
 
-html.js .reveal-text.is-visible {
+html.js .reveal-text.reveal-armed.is-visible {
   clip-path: inset(0 0 -12% 0);
   transform: translateY(0);
 }
 
-html.js .reveal-media {
+html.js .reveal-media.reveal-armed {
   clip-path: inset(100% 0 0 0);
   transition: clip-path var(--duration-curtain) var(--ease-editorial);
 }
 
-html.js .reveal-media.is-visible {
+html.js .reveal-media.reveal-armed.is-visible {
   clip-path: inset(0 0 0 0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html.js .reveal-text,
-  html.js .reveal-media {
+  html.js .reveal-text.reveal-armed,
+  html.js .reveal-media.reveal-armed {
     clip-path: none;
     transform: none;
     transition: none;
