@@ -85,7 +85,7 @@
      取 650/700ms:從容但不拖(換頁不再有等待感,因為首屏本來就即時)。 */
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
   --duration-reveal: 650ms;
-  --duration-curtain: 700ms;
+  --duration-curtain: 1000ms; /* 照片進場:比文字慢一階,大面積影像浮現更從容 */
   --duration-base: 700ms;
   --duration-micro: 260ms; /* hover / focus 等微互動:俐落但不急促 */
 }
@@ -421,12 +421,19 @@ html.js .reveal-media.reveal-armed {
   transform: translateY(24px);
 }
 
-html.js .reveal-text.reveal-armed.is-visible,
-html.js .reveal-media.reveal-armed.is-visible {
+html.js .reveal-text.reveal-armed.is-visible {
   opacity: 1;
   transform: translateY(0);
   transition: opacity var(--duration-reveal) var(--ease-editorial),
     transform var(--duration-reveal) var(--ease-editorial);
+}
+
+/* 照片比文字更從容一階(--duration-curtain 較長),避免大面積影像一下就跳出來 */
+html.js .reveal-media.reveal-armed.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--duration-curtain) var(--ease-editorial),
+    transform var(--duration-curtain) var(--ease-editorial);
 }
 
 @media (prefers-reduced-motion: reduce) {
