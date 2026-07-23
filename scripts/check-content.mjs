@@ -63,6 +63,13 @@ const scanPlaceholder = (obj, where = 'business-info.json') => {
 };
 scanPlaceholder(biz);
 
+// 佔位值防呆也擴及四語 i18n 頁面文案:像隱私內文曾硬寫的舊電話「02-2621-XXXX」這類
+// 佔位值,先前只掃 business-info 會漏掉。i18n 為真實文案,理論上不含這些樣板字。
+for (const l of LOCALES) {
+  const rel = `src/i18n/${l}.json`;
+  scanPlaceholder(read(rel), rel);
+}
+
 // ---- 商品:分類四語 label;每項 id 唯一、分類有效、price 為數字、四語 name/tagline(image 可空) ----
 const products = read('src/data/products.json');
 const catKeys = new Set((products.categories || []).map((c) => c.key));

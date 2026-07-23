@@ -221,6 +221,19 @@ const jsonLd = {
           el.classList.add('reveal-armed');
           observer.observe(el);
         });
+
+        // 安全網:捲到接近頁面最底時,補顯示任何仍未現身的 armed 元素。
+        // 這能救回「剛好落在頁面最底 10%、因 observer rootMargin 而永遠沒被觸發」的區塊,
+        // 又不會提前在畫面外揭示(只在真的捲到底、元素已在畫面內時才補),故不影響正常進場效果。
+        const revealRemaining = () => {
+          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+            toArm.forEach((el) => {
+              if (!el.classList.contains('is-visible')) revealNow(el);
+            });
+            window.removeEventListener('scroll', revealRemaining);
+          }
+        };
+        window.addEventListener('scroll', revealRemaining, { passive: true });
       }
     </script>
   </body>
