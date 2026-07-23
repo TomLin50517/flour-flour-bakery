@@ -57,7 +57,7 @@ const { items, groupId } = Astro.props;
   .faq-item__icon {
     color: var(--color-accent-text);
     font-size: var(--text-xl);
-    font-weight: 300;
+    font-weight: 400; /* 字型不再載入 300 字重(全站僅此處用到);400 為實際會套用的值 */
     transition: transform var(--duration-base) var(--ease-editorial);
   }
   .faq-item__trigger[aria-expanded='true'] .faq-item__icon {

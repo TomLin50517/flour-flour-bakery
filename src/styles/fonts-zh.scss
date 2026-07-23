@@ -6,4 +6,5 @@ $display: fallback;
 @use '@fontsource/noto-sans-tc/scss/mixins' as NotoSansTC;
 
 @include NotoSerifTC.faces($weights: (400, 500), $subsets: (chinese-traditional, latin, latin-ext), $display: $display, $directory: '@fontsource/noto-serif-tc/files');
-@include NotoSansTC.faces($weights: (300, 400, 500), $subsets: (chinese-traditional, latin, latin-ext), $display: $display, $directory: '@fontsource/noto-sans-tc/files');
+// 字重 300 全站無中文用例(唯一的 font-weight:300 是 FAQ 的「+」符號),不再載入整組 CJK 300。
+@include NotoSansTC.faces($weights: (400, 500), $subsets: (chinese-traditional, latin, latin-ext), $display: $display, $directory: '@fontsource/noto-sans-tc/files');

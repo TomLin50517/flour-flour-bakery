@@ -6,6 +6,7 @@ $display: fallback;
 @use '@fontsource/cormorant-garamond/scss/mixins' as Cormorant;
 @use '@fontsource/inter/scss/mixins' as Inter;
 
-@include Cormorant.faces($weights: (400, 500, 600), $styles: (normal), $subsets: (latin, latin-ext), $display: $display, $directory: '@fontsource/cormorant-garamond/files');
+// 字重只留實際用到的:全站無任何 600(semibold)用例,故不再載入。
+@include Cormorant.faces($weights: (400, 500), $styles: (normal), $subsets: (latin, latin-ext), $display: $display, $directory: '@fontsource/cormorant-garamond/files');
 @include Cormorant.faces($weights: (400, 500), $styles: (italic), $subsets: (latin, latin-ext), $display: $display, $directory: '@fontsource/cormorant-garamond/files');
 @include Inter.faces($weights: (400, 500), $styles: (normal), $subsets: (latin, latin-ext), $display: $display, $directory: '@fontsource/inter/files');
