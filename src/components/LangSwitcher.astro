@@ -89,6 +89,15 @@ const locales = ['zh-hant', 'en', 'ja', 'ko'] as const;
     color: var(--color-ink);
     font-weight: 500;
   }
+
+  /* 手機:語言切換位於全螢幕漢堡選單底部;若維持向下展開,選項會掉出畫面外而選不到。
+     改為向上展開(bottom 對齊 summary 頂端),確保選項落在畫面內。 */
+  @media (max-width: 900px) {
+    .lang-select[open] ul {
+      top: auto;
+      bottom: calc(100% + 14px);
+    }
+  }
 </style>
 
 <script>
