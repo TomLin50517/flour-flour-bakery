@@ -1,5 +1,7 @@
 # build output
 dist/
+# 字型子集(由 scripts/subset-fonts.mjs 於每次建置自動產生,檔名含內容雜湊)
+public/fonts/
 # generated types
 .astro/
 
