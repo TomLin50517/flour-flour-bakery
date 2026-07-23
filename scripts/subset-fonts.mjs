@@ -93,13 +93,15 @@ for (const t of targets) {
 }
 
 // ---- 3) 產生各語系 CSS 與 manifest ----
-// font-display: fallback — 約 100ms 隱形緩衝;子集小又有 preload,通常來得及直接用品牌字(不閃)。
+// font-display: optional — 字型若未在極短的 block 期內就緒,整頁沿用系統字且「不換字」→ 永不跳動。
+// 搭配 preload + 小體積子集,絕大多數情況都來得及,仍顯示品牌字。
+// (先前用 fallback:等不到就先畫系統字、之後換字;Chrome 嚴格執行該 100ms,標題會明顯跳一下。)
 const manifest = {};
 for (const lang of ['zh', 'ja', 'ko']) {
   const css = byLang[lang]
     .map(
       (f) => `@font-face{font-family:'${f.family}';font-style:normal;font-weight:${f.weight};` +
-        `font-display:fallback;src:url('/fonts/${f.name}') format('woff2');}`,
+        `font-display:optional;src:url('/fonts/${f.name}') format('woff2');}`,
     )
     .join('\n');
   const cssName = `fonts-${lang}.${hash8(Buffer.from(css))}.css`;
