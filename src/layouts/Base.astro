@@ -14,6 +14,9 @@ import fontManifest from '../../public/fonts/manifest.json';
 import interLatin400 from '@fontsource/inter/files/inter-latin-400-normal.woff2?url';
 import interLatin500 from '@fontsource/inter/files/inter-latin-500-normal.woff2?url';
 import cormorantItalic500 from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-italic.woff2?url';
+// 英文頁的 --font-heading-locale 就是 Cormorant 正體(等同中文頁的 Noto Serif TC),
+// 未預載會先以系統襯線字繪製、載入後才縮成 Cormorant(字面差很多)→ 明顯的大小跳動。
+import cormorantNormal500 from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2?url';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
@@ -172,6 +175,11 @@ const jsonLd = {
         crossorigin 為字型 preload 必要屬性(字型一律以 CORS 模式抓取,漏了會重複下載)。 */}
     <link rel="preload" as="font" type="font/woff2" href={interLatin400} crossorigin />
     <link rel="preload" as="font" type="font/woff2" href={interLatin500} crossorigin />
+
+    {/* 英文頁的標題字型即 Cormorant 正體 → 與 CJK 頁預載 CJK 標題字型同理,必須預載 */}
+    {lang === 'en' && (
+      <link rel="preload" as="font" type="font/woff2" href={cormorantNormal500} crossorigin />
+    )}
 
     {/* 首頁 Hero 為 LCP 影像:預先載入以縮短最大內容繪製時間(僅首頁載入) */}
     {path === '/' && (
