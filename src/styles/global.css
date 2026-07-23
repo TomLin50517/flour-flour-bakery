@@ -404,43 +404,35 @@ summary:focus-visible,
   color: var(--color-ink);
 }
 
-/* ---- motion: two sanctioned patterns only(安靜、無 scale/bounce/rotate/parallax)----
-   .reveal-text  — line-based rise:文字由下往上、被自身區塊裁切浮現(translateY + clip)
-   .reveal-media — curtain reveal:影像由下而上拉開簾幕(clip-path;不再做 scale 漂移)
+/* ---- motion: 進場 = 淡入 + 些微上浮(fade + rise)----
+   採 opacity/transform:這是最穩定可靠的可轉場屬性,跨瀏覽器沒有 clip-path 那些怪異行為
+   (曾導致轉場凍結在起點、捲到也不現身)。
 
-   漸進增強:內容預設完全可見(不依賴 JS)。
-   關鍵:只有「首屏以下」的元素才由 JS 加上 .reveal-armed 進入等待進場態;
-   首屏(初次可見)的內容「不」隱藏、隨頁面直接繪製,不依賴 JS 觸發 →
-   避免「首屏內容被藏起來、等 JS 才放出來」造成的跨瀏覽器空白/頓感(Chrome 尤明顯)。
-   捲動到下方時,IntersectionObserver 加上 .is-visible 觸發進場;script 內另有逾時保險。 */
-/* transition 掛在基礎 .reveal-armed(隱藏態):進場方向可靠觸發。
-   JS 只武裝「完全在首屏以下」的元素(見 Base.astro),所以加 .reveal-armed 當下的
-   隱藏動畫一定發生在畫面外、使用者看不到;捲到時再加 .is-visible 播現身。 */
-html.js .reveal-text.reveal-armed {
-  clip-path: inset(0 0 100% 0);
-  transform: translateY(20px);
-  transition: clip-path var(--duration-reveal) var(--ease-editorial),
-    transform var(--duration-reveal) var(--ease-editorial);
-}
+   漸進增強 + 消除頓感:內容預設完全可見(不依賴 JS)。只有「首屏以下」的元素才由 JS 加上
+   .reveal-armed 進入等待進場態;首屏(初次可見)的內容「不」隱藏、隨頁面直接繪製 →
+   避免「首屏被藏起來、等 JS 才放出來」造成的跨瀏覽器空白/頓感(Chrome 尤明顯)。
 
-html.js .reveal-text.reveal-armed.is-visible {
-  clip-path: inset(0 0 -12% 0);
-  transform: translateY(0);
-}
-
+   關鍵:隱藏態「不」帶 transition → JS 加 .reveal-armed 當下是「瞬間」隱藏(首屏以下、看不見),
+   不會 animate 隱藏動作、也不會把轉場卡在半途;transition 只掛在 .is-visible,
+   所以「只有」捲進畫面、被 IntersectionObserver 加上 .is-visible 時才播「現身」動畫。 */
+html.js .reveal-text.reveal-armed,
 html.js .reveal-media.reveal-armed {
-  clip-path: inset(100% 0 0 0);
-  transition: clip-path var(--duration-curtain) var(--ease-editorial);
+  opacity: 0;
+  transform: translateY(24px);
 }
 
+html.js .reveal-text.reveal-armed.is-visible,
 html.js .reveal-media.reveal-armed.is-visible {
-  clip-path: inset(0 0 0 0);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--duration-reveal) var(--ease-editorial),
+    transform var(--duration-reveal) var(--ease-editorial);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html.js .reveal-text.reveal-armed,
   html.js .reveal-media.reveal-armed {
-    clip-path: none;
+    opacity: 1;
     transform: none;
     transition: none;
   }
