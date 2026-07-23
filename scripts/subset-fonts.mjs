@@ -56,19 +56,16 @@ const charsets = {
 
 // ---- 2) 要子集化的字型。來源為 @fontsource 的「整套腳本」單檔(非編號分塊)。
 // family/weight 需與 global.css 的字型堆疊一致;critical=首屏關鍵(標題/內文),會被 preload。
+// 每語系只保留「標題 500 + 內文 400」兩個字重,且兩個都 preload → 沒有任何延遲載入的 CJK 字型,
+// 首載不會再出現「部分文字晚一步換字」。(查證:CJK 內文全站只用預設 400;heading 400 僅
+// .card-title/手機選單使用,已統一為 500;body 500 僅聯絡表單成功訊息使用。)
 const targets = [
-  { lang: 'zh', pkg: 'noto-sans-tc',   file: 'noto-sans-tc-chinese-traditional-400-normal.woff2',  family: 'Noto Sans TC',  weight: 400, critical: true },
-  { lang: 'zh', pkg: 'noto-sans-tc',   file: 'noto-sans-tc-chinese-traditional-500-normal.woff2',  family: 'Noto Sans TC',  weight: 500 },
-  { lang: 'zh', pkg: 'noto-serif-tc',  file: 'noto-serif-tc-chinese-traditional-400-normal.woff2', family: 'Noto Serif TC', weight: 400 },
-  { lang: 'zh', pkg: 'noto-serif-tc',  file: 'noto-serif-tc-chinese-traditional-500-normal.woff2', family: 'Noto Serif TC', weight: 500, critical: true },
-  { lang: 'ja', pkg: 'shippori-mincho', file: 'shippori-mincho-japanese-400-normal.woff2', family: 'Shippori Mincho', weight: 400 },
-  { lang: 'ja', pkg: 'shippori-mincho', file: 'shippori-mincho-japanese-500-normal.woff2', family: 'Shippori Mincho', weight: 500, critical: true },
+  { lang: 'zh', pkg: 'noto-sans-tc',  file: 'noto-sans-tc-chinese-traditional-400-normal.woff2',  family: 'Noto Sans TC',  weight: 400, critical: true },
+  { lang: 'zh', pkg: 'noto-serif-tc', file: 'noto-serif-tc-chinese-traditional-500-normal.woff2', family: 'Noto Serif TC', weight: 500, critical: true },
   { lang: 'ja', pkg: 'noto-sans-jp',    file: 'noto-sans-jp-japanese-400-normal.woff2',    family: 'Noto Sans JP',    weight: 400, critical: true },
-  { lang: 'ja', pkg: 'noto-sans-jp',    file: 'noto-sans-jp-japanese-500-normal.woff2',    family: 'Noto Sans JP',    weight: 500 },
-  { lang: 'ko', pkg: 'noto-serif-kr', file: 'noto-serif-kr-korean-400-normal.woff2', family: 'Noto Serif KR', weight: 400 },
-  { lang: 'ko', pkg: 'noto-serif-kr', file: 'noto-serif-kr-korean-500-normal.woff2', family: 'Noto Serif KR', weight: 500, critical: true },
+  { lang: 'ja', pkg: 'shippori-mincho', file: 'shippori-mincho-japanese-500-normal.woff2', family: 'Shippori Mincho', weight: 500, critical: true },
   { lang: 'ko', pkg: 'noto-sans-kr',  file: 'noto-sans-kr-korean-400-normal.woff2',  family: 'Noto Sans KR',  weight: 400, critical: true },
-  { lang: 'ko', pkg: 'noto-sans-kr',  file: 'noto-sans-kr-korean-500-normal.woff2',  family: 'Noto Sans KR',  weight: 500 },
+  { lang: 'ko', pkg: 'noto-serif-kr', file: 'noto-serif-kr-korean-500-normal.woff2', family: 'Noto Serif KR', weight: 500, critical: true },
 ];
 
 const kb = (n) => Math.round(n / 1024);

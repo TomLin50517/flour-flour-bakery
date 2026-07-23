@@ -269,7 +269,9 @@ summary:focus-visible,
 }
 .card-title {
   font-family: var(--font-heading-locale);
-  font-weight: var(--font-weight-regular);
+  /* CJK 標題只自架 500 一個字重(見 scripts/subset-fonts.mjs):統一為 medium,
+     避免為了此處單獨多載一個 200KB+ 的字重、且該字重會晚到而造成換字閃動。 */
+  font-weight: var(--font-weight-medium);
   font-size: var(--text-lg);
 }
 .body-large {
