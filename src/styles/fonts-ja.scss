@@ -1,0 +1,9 @@
+// fonts-ja.scss — 日文字型(Shippori Mincho 標題 / Noto Sans JP 內文)。
+// 只在日文頁載入。含 latin/latin-ext 供日英夾雜文字使用。
+$display: fallback;
+
+@use '@fontsource/shippori-mincho/scss/mixins' as Shippori;
+@use '@fontsource/noto-sans-jp/scss/mixins' as NotoSansJP;
+
+@include Shippori.faces($weights: (400, 500), $subsets: (japanese, latin, latin-ext), $display: $display, $directory: '@fontsource/shippori-mincho/files');
+@include NotoSansJP.faces($weights: (300, 400, 500), $subsets: (japanese, latin, latin-ext), $display: $display, $directory: '@fontsource/noto-sans-jp/files');

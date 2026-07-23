@@ -1,0 +1,9 @@
+// fonts-zh.scss — 繁中字型(Noto Serif TC 標題 / Noto Sans TC 內文・UI 備援)。
+// 只在繁中頁載入(Base.astro 依 lang 條件掛 <link>)。含 latin/latin-ext 供中英夾雜文字使用。
+$display: fallback;
+
+@use '@fontsource/noto-serif-tc/scss/mixins' as NotoSerifTC;
+@use '@fontsource/noto-sans-tc/scss/mixins' as NotoSansTC;
+
+@include NotoSerifTC.faces($weights: (400, 500), $subsets: (chinese-traditional, latin, latin-ext), $display: $display, $directory: '@fontsource/noto-serif-tc/files');
+@include NotoSansTC.faces($weights: (300, 400, 500), $subsets: (chinese-traditional, latin, latin-ext), $display: $display, $directory: '@fontsource/noto-sans-tc/files');

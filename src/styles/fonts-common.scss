@@ -1,0 +1,11 @@
+// fonts-common.scss — 全站共用的拉丁字型(Cormorant Garamond + Inter)。
+// 這些用於英文標題、eyebrow、UI 導覽,每個語系頁都需要,故全站載入(Base.astro 直接 import)。
+// 拆分緣由見 fonts-zh/ja/ko.scss:各語系頁只額外載自己的 CJK,縮小首屏 render-blocking 的字型 CSS。
+$display: fallback;
+
+@use '@fontsource/cormorant-garamond/scss/mixins' as Cormorant;
+@use '@fontsource/inter/scss/mixins' as Inter;
+
+@include Cormorant.faces($weights: (400, 500, 600), $styles: (normal), $subsets: (latin, latin-ext), $display: $display, $directory: '@fontsource/cormorant-garamond/files');
+@include Cormorant.faces($weights: (400, 500), $styles: (italic), $subsets: (latin, latin-ext), $display: $display, $directory: '@fontsource/cormorant-garamond/files');
+@include Inter.faces($weights: (400, 500), $styles: (normal), $subsets: (latin, latin-ext), $display: $display, $directory: '@fontsource/inter/files');

@@ -2,7 +2,11 @@
 // 404 頁(spec §5.6):靜態主機僅一份 404.html,無法按語系預產生;
 // 預設顯示繁中,JS 依 location.pathname 前綴切換為對應語系文案(四語文案內嵌於同一頁)
 import '../styles/global.css';
-import '../styles/fonts.scss'; // 自架字型(與 Base.astro 同源);404 頁不走 Base,需各自引入
+// 404 頁不走 Base,且以 JS 切換顯示四語系,故一次載入共用拉丁 + 全部 CJK 字型。
+import '../styles/fonts-common.scss';
+import '../styles/fonts-zh.scss';
+import '../styles/fonts-ja.scss';
+import '../styles/fonts-ko.scss';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getDict, getBusinessInfo, localePrefix, locales, type Lang } from '../i18n';
