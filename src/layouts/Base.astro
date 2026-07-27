@@ -49,7 +49,7 @@ const cjkFonts = manifestKey[lang]
   ? (fontManifest as Record<string, { css: string; preload: string[] }>)[manifestKey[lang]!]
   : null;
 
-// JSON-LD Bakery(LocalBusiness)— spec §6;地址採繁中原文以利地圖/在地搜尋辨識,geo 為淡水老街概略座標(待實際地址確認後更新)
+// JSON-LD Bakery(LocalBusiness)— spec §6;地址採繁中原文以利地圖/在地搜尋辨識;geo 為 Google 商家「Flour Flour Bakery」實際座標
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Bakery',
@@ -67,8 +67,8 @@ const jsonLd = {
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 25.1723491,
-    longitude: 121.4362253,
+    latitude: 25.1727343,
+    longitude: 121.43573,
   },
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
