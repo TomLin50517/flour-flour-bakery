@@ -49,6 +49,10 @@ for (const field of ['hours', 'address', 'addressNote']) {
 for (const k of ['opens', 'closes']) {
   if (!nonEmpty(biz?.hoursSpec?.[k])) errors.push(`business-info.json:hoursSpec 缺少 ${k}`);
 }
+// 店家座標(供地圖嵌入、導航連結、JSON-LD 共用):缺少或非數字會導致地圖定位錯誤
+for (const k of ['latitude', 'longitude']) {
+  if (typeof biz?.geo?.[k] !== 'number') errors.push(`business-info.json:geo.${k} 必須是數字`);
+}
 
 // ---- 佔位值防呆:非空檢查擋不掉「02-2621-XXXX」這種明顯的樣板值,遞迴掃 business-info 所有字串 ----
 const PLACEHOLDER = /XXXX|REPLACE-WITH|REPLACE_WITH|lorem ipsum|example\.com|待填|TBD|請填/i;

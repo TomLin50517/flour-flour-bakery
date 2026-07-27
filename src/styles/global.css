@@ -337,6 +337,7 @@ summary:focus-visible,
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center; /* 按鈕在直向 flex 容器(如聯絡表單)中會被拉成滿版,需置中才不會文字靠左 */
   gap: var(--space-1);
   border-radius: var(--radius-pill);
   padding: 16px 32px;

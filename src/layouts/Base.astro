@@ -67,8 +67,8 @@ const jsonLd = {
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 25.1727343,
-    longitude: 121.43573,
+    latitude: bizZh.geo.latitude, // 與地圖嵌入同源(business-info.geo),改一處即同步
+    longitude: bizZh.geo.longitude,
   },
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',

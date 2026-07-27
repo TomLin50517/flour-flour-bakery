@@ -68,6 +68,9 @@ const { form, privacyHref, submitEmail } = Astro.props;
     <!-- 送出邏輯見下方 <script>:經 FormSubmit(免帳號)寄到店家信箱;失敗顯示錯誤、成功顯示成功訊息。 -->
     <button type="submit" class="btn btn--primary">{form.submitCta}</button>
 
+    <!-- 送出結果提示:放在按鈕正下方(緊鄰使用者剛按下的位置),避免回饋出現在遠處而像「沒反應」 -->
+    <p class="contact-form__notice" role="status" aria-live="polite" hidden></p>
+
     <p class="contact-form__privacy">
       {form.privacyNotePrefix} <a href={privacyHref}>{form.privacyNoteLink}</a> {form.privacyNoteSuffix}
     </p>
@@ -114,6 +117,20 @@ const { form, privacyHref, submitEmail } = Astro.props;
     width: 1px;
     height: 1px;
     overflow: hidden;
+  }
+  /* 送出結果提示:緊鄰按鈕、有底色與框線,確保使用者按下後一定看得到回饋 */
+  .contact-form__notice {
+    margin: 0;
+    padding: 12px 16px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+  .contact-form__notice[hidden] {
+    display: none;
   }
   .contact-form__privacy {
     font-size: var(--text-sm);
@@ -198,17 +215,17 @@ const { form, privacyHref, submitEmail } = Astro.props;
         submitBtn.setAttribute('aria-busy', 'true');
         submitBtn.textContent = '⋯'; // 明確的「送出中」視覺回饋(語系中性)
       }
-      // 顯示提示於訊息欄下方,並還原按鈕(用於「需啟用」與「送出失敗」)
-      const msgError = form.querySelector<HTMLElement>('[data-error-for="message"]');
+      // 提示顯示在按鈕正下方(aria-live 會即時朗讀),並還原按鈕。用於「需啟用」與「送出失敗」。
+      const noticeEl = form.querySelector<HTMLElement>('.contact-form__notice');
       const showNotice = (text: string) => {
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.removeAttribute('aria-busy');
           submitBtn.textContent = originalCta;
         }
-        if (msgError) {
-          msgError.textContent = text;
-          msgError.hidden = false;
+        if (noticeEl) {
+          noticeEl.textContent = text;
+          noticeEl.hidden = false;
         }
       };
 

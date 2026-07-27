@@ -13,6 +13,10 @@
     "opens": "11:00",
     "closes": "19:00"
   },
+  "geo": {
+    "latitude": 25.1727343,
+    "longitude": 121.43573
+  },
   "address": {
     "zh-hant": "251 新北市淡水區中正路21巷6號",
     "en": "No. 6, Ln. 21, Zhongzheng Rd., Tamsui Dist., New Taipei City 251",
