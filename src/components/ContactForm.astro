@@ -12,6 +12,7 @@ export interface Props {
     successMessage: string;
     errorRequired: string;
     errorEmail: string;
+    errorSend?: string; // 選填:送出失敗訊息(未提供時用內建中英雙語備援)
     privacyNotePrefix: string;
     privacyNoteLink: string;
     privacyNoteSuffix: string;
@@ -20,6 +21,14 @@ export interface Props {
 }
 
 const { form, privacyHref } = Astro.props;
+
+// ┌─────────────────────────────────────────────────────────────────────┐
+// │ Web3Forms access key — 在此貼上從 web3forms.com 取得的 key。          │
+// │ 用 ffule00@gmail.com 申請;送出的表單就會寄到那個信箱。               │
+// │ key 可公開(只能寄到已驗證的信箱),放前端無妨。                       │
+// │ 留空('')時:表單維持原本行為(僅顯示成功訊息、不寄出),不會壞。     │
+// └─────────────────────────────────────────────────────────────────────┘
+const WEB3FORMS_ACCESS_KEY = '';
 ---
 
 <div class="contact-form-wrapper">
@@ -28,6 +37,8 @@ const { form, privacyHref } = Astro.props;
     novalidate
     data-error-required={form.errorRequired}
     data-error-email={form.errorEmail}
+    data-error-send={form.errorSend}
+    data-web3forms-key={WEB3FORMS_ACCESS_KEY}
   >
     <div class="field">
       <label for="cf-name">{form.nameLabel} *</label>
@@ -61,7 +72,7 @@ const { form, privacyHref } = Astro.props;
       <input type="text" id="cf-company" name="company" tabindex="-1" autocomplete="off" />
     </div>
 
-    <!-- TODO: v1 前端無後端,送出後僅顯示成功訊息;之後可接 Formspree 或自建 API(spec §8-7) -->
+    <!-- 送出邏輯見下方 <script>:已設定 Web3Forms key → 真的寄到信箱;未設定 → 僅顯示成功訊息。 -->
     <button type="submit" class="btn btn--primary">{form.submitCta}</button>
 
     <p class="contact-form__privacy">
@@ -170,8 +181,67 @@ const { form, privacyHref } = Astro.props;
 
       const wrapper = form.closest('.contact-form-wrapper');
       const successEl = wrapper?.querySelector<HTMLElement>('.contact-form__success');
-      form.hidden = true;
-      if (successEl) successEl.hidden = false;
+      const showSuccess = () => {
+        form.hidden = true;
+        if (successEl) successEl.hidden = false;
+      };
+
+      const key = form.dataset.web3formsKey || '';
+      // 尚未設定 access key → 維持原本行為(僅顯示成功訊息,不實際寄出)。
+      if (!key) {
+        showSuccess();
+        return;
+      }
+
+      // 已設定 → 真的送到 Web3Forms(寄到申請 key 時用的信箱 ffule00@gmail.com)。
+      const val = (n: string) =>
+        (form.querySelector(`[name="${n}"]`) as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null)
+          ?.value.trim() || '';
+      const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      const originalCta = submitBtn?.textContent || '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
+      }
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: key,
+          subject: 'FlourFlour 網站聯絡表單',
+          from_name: 'FlourFlour Website',
+          name: val('name'),
+          email: val('email'),
+          phone: val('phone'),
+          topic: val('subject'), // 用 topic 避免與 Web3Forms 的 email 主旨欄位(subject)衝突
+          message: val('message'),
+          botcheck: '', // Web3Forms 內建 honeypot 欄位
+        }),
+      })
+        .then((r) => r.json())
+        .then((data) => {
+          if (data && data.success) {
+            showSuccess();
+          } else {
+            throw new Error((data && data.message) || 'send failed');
+          }
+        })
+        .catch(() => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.removeAttribute('aria-busy');
+            submitBtn.textContent = originalCta;
+          }
+          const sendError =
+            form.dataset.errorSend ||
+            '送出失敗,請稍後再試,或直接來電/Email 與我們聯繫。 Sending failed — please try again, or reach us by phone/email.';
+          const msgError = form.querySelector<HTMLElement>('[data-error-for="message"]');
+          if (msgError) {
+            msgError.textContent = sendError;
+            msgError.hidden = false;
+          }
+        });
     });
   });
 </script>
