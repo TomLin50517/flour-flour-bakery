@@ -196,7 +196,21 @@ const { form, privacyHref, submitEmail } = Astro.props;
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.setAttribute('aria-busy', 'true');
+        submitBtn.textContent = '⋯'; // 明確的「送出中」視覺回饋(語系中性)
       }
+      // 顯示提示於訊息欄下方,並還原按鈕(用於「需啟用」與「送出失敗」)
+      const msgError = form.querySelector<HTMLElement>('[data-error-for="message"]');
+      const showNotice = (text: string) => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute('aria-busy');
+          submitBtn.textContent = originalCta;
+        }
+        if (msgError) {
+          msgError.textContent = text;
+          msgError.hidden = false;
+        }
+      };
 
       fetch(`https://formsubmit.co/ajax/${encodeURIComponent(email)}`, {
         method: 'POST',
@@ -218,24 +232,22 @@ const { form, privacyHref, submitEmail } = Astro.props;
           // FormSubmit 的 success 可能是字串 "true" 或布林 true
           if (data && (data.success === true || data.success === 'true')) {
             showSuccess();
-          } else {
-            throw new Error((data && data.message) || 'send failed');
+            return;
           }
+          // 首次使用需啟用(一次性:店家點過信中的啟用連結後就不會再出現)。
+          if (data && /activat/i.test(String(data.message || ''))) {
+            showNotice(
+              '表單啟用中:店家信箱已收到一封啟用信,點擊連結後即生效。 The form is being activated — the owner just needs to click the link we emailed.',
+            );
+            return;
+          }
+          throw new Error((data && data.message) || 'send failed');
         })
         .catch(() => {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.removeAttribute('aria-busy');
-            submitBtn.textContent = originalCta;
-          }
-          const sendError =
+          showNotice(
             form.dataset.errorSend ||
-            '送出失敗,請稍後再試,或直接來電/Email 與我們聯繫。 Sending failed — please try again, or reach us by phone/email.';
-          const msgError = form.querySelector<HTMLElement>('[data-error-for="message"]');
-          if (msgError) {
-            msgError.textContent = sendError;
-            msgError.hidden = false;
-          }
+              '送出失敗,請稍後再試,或直接來電/Email 與我們聯繫。 Sending failed — please try again, or reach us by phone/email.',
+          );
         });
     });
   });
