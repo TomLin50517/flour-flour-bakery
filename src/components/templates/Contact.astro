@@ -45,7 +45,7 @@ const emailHref = `mailto:${b.email}`;
   </section>
 
   <section class="section container contact-form-section reveal-text">
-    <ContactForm form={t.contact.form} privacyHref={`${p}/privacy`} />
+    <ContactForm form={t.contact.form} privacyHref={`${p}/privacy`} submitEmail={b.email} />
   </section>
 </Base>
 

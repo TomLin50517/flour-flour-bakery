@@ -1,5 +1,5 @@
 ---
-// ContactForm.astro(spec §5.5):必填 + Email 格式驗證、honeypot、v1 不接後端僅顯示成功訊息
+// ContactForm.astro(spec §5.5):必填 + Email 格式驗證、honeypot;送出經 FormSubmit(免帳號)寄到店家信箱。
 export interface Props {
   form: {
     nameLabel: string;
@@ -18,17 +18,10 @@ export interface Props {
     privacyNoteSuffix: string;
   };
   privacyHref: string;
+  submitEmail: string; // 收件信箱(來自 business-info,單一來源);表單經 FormSubmit 寄到此處
 }
 
-const { form, privacyHref } = Astro.props;
-
-// ┌─────────────────────────────────────────────────────────────────────┐
-// │ Web3Forms access key — 在此貼上從 web3forms.com 取得的 key。          │
-// │ 用 ffule00@gmail.com 申請;送出的表單就會寄到那個信箱。               │
-// │ key 可公開(只能寄到已驗證的信箱),放前端無妨。                       │
-// │ 留空('')時:表單維持原本行為(僅顯示成功訊息、不寄出),不會壞。     │
-// └─────────────────────────────────────────────────────────────────────┘
-const WEB3FORMS_ACCESS_KEY = '';
+const { form, privacyHref, submitEmail } = Astro.props;
 ---
 
 <div class="contact-form-wrapper">
@@ -38,7 +31,7 @@ const WEB3FORMS_ACCESS_KEY = '';
     data-error-required={form.errorRequired}
     data-error-email={form.errorEmail}
     data-error-send={form.errorSend}
-    data-web3forms-key={WEB3FORMS_ACCESS_KEY}
+    data-submit-email={submitEmail}
   >
     <div class="field">
       <label for="cf-name">{form.nameLabel} *</label>
@@ -72,7 +65,7 @@ const WEB3FORMS_ACCESS_KEY = '';
       <input type="text" id="cf-company" name="company" tabindex="-1" autocomplete="off" />
     </div>
 
-    <!-- 送出邏輯見下方 <script>:已設定 Web3Forms key → 真的寄到信箱;未設定 → 僅顯示成功訊息。 -->
+    <!-- 送出邏輯見下方 <script>:經 FormSubmit(免帳號)寄到店家信箱;失敗顯示錯誤、成功顯示成功訊息。 -->
     <button type="submit" class="btn btn--primary">{form.submitCta}</button>
 
     <p class="contact-form__privacy">
@@ -186,14 +179,15 @@ const WEB3FORMS_ACCESS_KEY = '';
         if (successEl) successEl.hidden = false;
       };
 
-      const key = form.dataset.web3formsKey || '';
-      // 尚未設定 access key → 維持原本行為(僅顯示成功訊息,不實際寄出)。
-      if (!key) {
+      const email = form.dataset.submitEmail || '';
+      // 沒有收件信箱(理論上不會,business-info 一定有)→ 保守退回僅顯示成功訊息。
+      if (!email) {
         showSuccess();
         return;
       }
 
-      // 已設定 → 真的送到 Web3Forms(寄到申請 key 時用的信箱 ffule00@gmail.com)。
+      // 送到 FormSubmit 的 AJAX 端點(免帳號),它再轉寄到店家信箱。
+      // 首次送出會觸發一封確認信到該信箱,點連結啟用後,之後的送出才會真正收到。
       const val = (n: string) =>
         (form.querySelector(`[name="${n}"]`) as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null)
           ?.value.trim() || '';
@@ -204,24 +198,25 @@ const WEB3FORMS_ACCESS_KEY = '';
         submitBtn.setAttribute('aria-busy', 'true');
       }
 
-      fetch('https://api.web3forms.com/submit', {
+      fetch(`https://formsubmit.co/ajax/${encodeURIComponent(email)}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: key,
-          subject: 'FlourFlour 網站聯絡表單',
-          from_name: 'FlourFlour Website',
           name: val('name'),
           email: val('email'),
           phone: val('phone'),
-          topic: val('subject'), // 用 topic 避免與 Web3Forms 的 email 主旨欄位(subject)衝突
+          topic: val('subject'),
           message: val('message'),
-          botcheck: '', // Web3Forms 內建 honeypot 欄位
+          _replyto: val('email'), // 可直接「回覆」該封信給填表人
+          _subject: 'FlourFlour 網站聯絡表單',
+          _template: 'table',
+          _captcha: 'false', // AJAX 送出需關閉 reCAPTCHA
         }),
       })
         .then((r) => r.json())
         .then((data) => {
-          if (data && data.success) {
+          // FormSubmit 的 success 可能是字串 "true" 或布林 true
+          if (data && (data.success === true || data.success === 'true')) {
             showSuccess();
           } else {
             throw new Error((data && data.message) || 'send failed');
