@@ -59,10 +59,19 @@ const { form, privacyHref, submitEmail } = Astro.props;
       <p class="field-error" data-error-for="message" hidden></p>
     </div>
 
-    <!-- honeypot:隱藏欄位防機器人,接後端時沿用(spec §5.5) -->
+    <!-- honeypot:隱藏欄位防機器人(spec §5.5)。
+         ⚠️ 欄位名不可用 company/organization 等真實語意字詞:Chrome 的自動填入會主動填入,
+         導致真人送出被誤判為機器人而靜默中止(Firefox 正常、Chrome「完全沒反應」的成因)。
+         改用無語意的 _honey,並移除 label 文字,避免任何瀏覽器的自動填入啟發式命中。 -->
     <div class="field field--honeypot" aria-hidden="true">
-      <label for="cf-company">Company</label>
-      <input type="text" id="cf-company" name="company" tabindex="-1" autocomplete="off" />
+      <input
+        type="text"
+        id="cf-honey"
+        name="_honey"
+        tabindex="-1"
+        autocomplete="off"
+        aria-label="Leave this field empty"
+      />
     </div>
 
     <!-- 送出邏輯見下方 <script>:經 FormSubmit(免帳號)寄到店家信箱;失敗顯示錯誤、成功顯示成功訊息。 -->
@@ -158,8 +167,15 @@ const { form, privacyHref, submitEmail } = Astro.props;
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const honeypot = form.querySelector<HTMLInputElement>('input[name="company"]');
-      if (honeypot && honeypot.value) return;
+      // honeypot 有值 → 幾乎必為機器人:不實際送出,但仍顯示成功(讓機器人以為成功、不重試)。
+      // 刻意「不」靜默中止:若哪天仍被自動填入命中,使用者至少看得到回饋,不會遇到毫無反應的死按鈕。
+      const honeypot = form.querySelector<HTMLInputElement>('input[name="_honey"]');
+      if (honeypot && honeypot.value) {
+        const wrapperEl = form.closest('.contact-form-wrapper');
+        form.hidden = true;
+        wrapperEl?.querySelector<HTMLElement>('.contact-form__success')?.removeAttribute('hidden');
+        return;
+      }
 
       let valid = true;
 
