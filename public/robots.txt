@@ -1,4 +1,58 @@
+# FlourFlour BAKERY — 歡迎搜尋引擎與 AI 助理索引本站。
+# 預設允許所有爬蟲;下方再明確列出主要的搜尋與 AI 爬蟲,讓意圖清楚,
+# 也避免日後若有人在 * 底下加了限制規則時被連帶誤擋。
 User-agent: *
+Allow: /
+
+# ---- 搜尋引擎 ----
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# ---- AI 助理:即時瀏覽(使用者請 AI 讀取本站時) ----
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# ---- AI 爬蟲:建立索引/訓練資料 ----
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
 Allow: /
 
 Sitemap: https://flourflour.com.tw/sitemap-index.xml
