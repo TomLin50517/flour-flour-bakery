@@ -15,15 +15,14 @@ const t = getDict(lang);
 const p = localePrefix[lang];
 
 // 各章影像:與 i18n 的 story.chapters 以「陣列順序」(01–05)對應,四語系順序一致。
-// 圖片維持不動,故不隨文案調整而變動。各章統一 3:2 橫幅;05 為直幅夕陽,3:2 置中會裁掉太陽,
-// 故 focus 上偏保留地平線與日落倒影。
+// 各章統一 3:2 橫幅;五張照片原始比例皆已接近或等於 3:2,置中裁切即可,不需個別調整焦點。
 type ChapterMedia = { src: string; aspect: string; focus?: string };
 const chapterMedia: ChapterMedia[] = [
   { src: '/images/story-river.jpg', aspect: '3 / 2' },
   { src: '/images/story-flour.jpg', aspect: '3 / 2' },
   { src: '/images/story-flower.jpg', aspect: '3 / 2' },
   { src: '/images/story-fold.jpg', aspect: '3 / 2' },
-  { src: '/images/story-light.jpg', aspect: '3 / 2', focus: 'center 30%' },
+  { src: '/images/story-light.jpg', aspect: '3 / 2' },
 ];
 
 // 文案內含 \n 換行、\n\n 段落間距(來自來源試算表的詩意斷句),拆成行陣列供模板逐行渲染。
