@@ -103,6 +103,7 @@ collections:
             fields:
               - { name: opens, label: '開店（如 11:00）', widget: string }
               - { name: closes, label: '打烊（如 19:00）', widget: string }
+          - { name: mapsName, label: 'Google 商家名稱（需與 Google 地圖上的店名完全一致，供地圖與導航定位用）', widget: string }
           - name: geo
             label: 店家座標（地圖圖釘・導航・Google 搜尋共用；取自 Google 商家）
             widget: object

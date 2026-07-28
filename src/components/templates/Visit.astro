@@ -18,8 +18,9 @@ const v = t.visit;
 // 乾淨地址(無括註)供顯示;地圖圖釘與導航改用店家實際經緯度,落點精準
 const b = getBusinessInfo(lang);
 const address = b.address;
-const coords = `${b.geo.latitude},${b.geo.longitude}`; // 單一來源(business-info.geo),與地圖/JSON-LD 同步
-const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${coords}`;
+// 導航目的地用「店名 + 地址」(business-info 單一來源),Google 會解析到商家本身。
+// ⚠️ 不要改用經緯度:Google 會把座標反查成最近門牌(曾把 6 號導成隔壁 8 號)。
+const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(b.mapsQuery)}`;
 
 // 環境導覽影像,依 v.environment 陣列順序對應(金色水岸 / 淡江大橋 / 渡船頭 / 百年建築 / 淡水老街 / 榕堤河岸)。
 // 有 src 者渲染 <img>(附實際像素尺寸降低 CLS);未提供者退回攝影佔位系統。
@@ -99,7 +100,7 @@ const envMedia = [
     <h2 class="section-title visit-here__heading reveal-text">{v.gettingHereHeading}</h2>
     <div class="visit-here__grid">
       <div class="visit-here__map reveal-media">
-        <MapEmbed placeholderText={v.mapPlaceholder} loadCta={v.mapLoadCta} address={coords} />
+        <MapEmbed placeholderText={v.mapPlaceholder} loadCta={v.mapLoadCta} address={address} mapsQuery={b.mapsQuery} />
         <p class="visit-here__address reveal-text">
           <span class="ui-label">{v.addressLabel}</span>
           <span class="body-copy">{address}</span>

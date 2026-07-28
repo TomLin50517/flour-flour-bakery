@@ -6,14 +6,14 @@ export interface Props {
   placeholderText: string;
   loadCta: string;
   address: string;
-  geo?: { latitude: number; longitude: number }; // 有座標時優先用座標定位
+  mapsQuery: string; // 「店名,地址」(來自 business-info),解析到 Google 商家本身
   previewImage?: string; // 選填:本地靜態地圖縮圖路徑(例如 /map-preview.jpg)
 }
 
-const { placeholderText, loadCta, address, geo, previewImage } = Astro.props;
-// 以 Google 商家的實際座標定位(地址文字查詢會落在錯誤地點);無座標時才退回地址查詢。
-const mapQuery = geo ? `${geo.latitude},${geo.longitude}` : address;
-const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=17&output=embed`;
+const { placeholderText, loadCta, address, mapsQuery, previewImage } = Astro.props;
+// 用「店名 + 地址」查詢,讓圖釘落在 Google 商家本身並顯示店名。
+// ⚠️ 不要改用經緯度:Google 會把座標反查成最近門牌(曾把 6 號顯示成隔壁 8 號)。
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}&z=17&output=embed`;
 ---
 
 <div class="map-embed" data-map-src={mapSrc}>

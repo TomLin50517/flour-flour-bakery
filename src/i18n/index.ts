@@ -37,7 +37,7 @@ export function getBusinessInfo(lang: Lang) {
   const b = businessInfo as {
     phone: string; email: string; instagram: string; facebook: string;
     hours: Record<Lang, string>; hoursSpec: { opens: string; closes: string };
-    geo: { latitude: number; longitude: number };
+    geo: { latitude: number; longitude: number }; mapsName: string;
     address: Record<Lang, string>; addressNote: Record<Lang, string>;
   };
   return {
@@ -47,7 +47,11 @@ export function getBusinessInfo(lang: Lang) {
     facebook: b.facebook,
     hours: b.hours[lang],
     hoursSpec: b.hoursSpec, // 機器可讀營業時間(非語系),供 JSON-LD 使用,與 hours 顯示字串同源
-    geo: b.geo, // Google 商家實際座標(非語系):供 JSON-LD 與地圖嵌入共用,避免用地址文字查詢定位到錯誤地點
+    geo: b.geo, // Google 商家實際座標(非語系):供 JSON-LD 使用
+    // Google 商家「登錄名稱」(需與 Google 上完全一致,可能與品牌寫法不同)。
+    // 地圖/導航一律用「店名 + 地址」查詢:直接用經緯度會被 Google 反查成最近門牌(曾顯示成隔壁 8 號)。
+    mapsName: b.mapsName,
+    mapsQuery: `${b.mapsName},${b.address[lang]}`,
     address: b.address[lang],
     addressNote: b.addressNote[lang],
     addressFull: b.address[lang] + b.addressNote[lang],
