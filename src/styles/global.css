@@ -198,9 +198,13 @@ summary:focus-visible,
   outline-offset: 3px;
 }
 
+/* 跳至主要內容(WCAG 2.4.1 Bypass Blocks):鍵盤/讀屏使用者按第一個 Tab 即可略過導覽列,
+   直接跳到內文。滑鼠使用者永遠看不到它。
+   ⚠️ position 必須是 fixed 而非 absolute:absolute 是相對整份文件定位,使用者一旦捲動後
+   按 Tab,連結會出現在文件頂端(畫面外),看起來就像「按不出來」。 */
 .skip-link {
-  position: absolute;
-  top: -48px;
+  position: fixed;
+  top: 0;
   left: 16px;
   z-index: 100;
   background: var(--color-ink);
@@ -209,11 +213,21 @@ summary:focus-visible,
   font-size: var(--text-sm);
   letter-spacing: 0.04em;
   text-decoration: none;
-  transition: top var(--duration-base) var(--ease-editorial);
+  /* 未聚焦時完全移出畫面上方(不佔空間、不可見);聚焦時才滑入 */
+  transform: translateY(-120%);
+  transition: transform var(--duration-micro) var(--ease-editorial);
 }
 
 .skip-link:focus {
-  top: 16px;
+  transform: translateY(16px); /* 立即滑入畫面左上角 */
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
 }
 
 .container {
