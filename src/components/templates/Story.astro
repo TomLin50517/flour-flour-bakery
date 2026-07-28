@@ -86,6 +86,12 @@ const toLines = (text: string) => text.split('\n');
     gap: var(--space-7);
     align-items: center;
   }
+  /* 鏡射列(偶數章):只交換左右side,圖片仍要維持 60fr 主導欄寬,不能隨之縮小。
+     故連同 grid-template-columns 一併反轉(40fr 60fr),讓 order:2 把圖片排進「反轉後的
+     60fr 那欄」——若只反轉 order 不反轉欄寬,圖片會被排進原本 40fr 的窄欄,誤縮成小圖。 */
+  .chapter__grid--flip {
+    grid-template-columns: 40fr 60fr;
+  }
   .chapter__grid--flip .chapter__media {
     order: 2;
   }
