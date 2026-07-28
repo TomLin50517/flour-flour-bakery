@@ -20,7 +20,7 @@ import cormorantNormal500 from '@fontsource/cormorant-garamond/files/cormorant-g
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
-import { getDict, getBusinessInfo, localePrefix, locales, type Lang } from '../i18n';
+import { getDict, getBusinessInfo, localePrefix, htmlLang, locales, type Lang } from '../i18n';
 import announcement from '../data/announcement.json';
 
 export interface Props {
@@ -33,7 +33,6 @@ export interface Props {
 
 const { lang, title, description, path, transparentHeader = false } = Astro.props;
 
-const htmlLang = { 'zh-hant': 'zh-Hant', en: 'en', ja: 'ja', ko: 'ko' } as const;
 const t = getDict(lang);
 const b = getBusinessInfo(lang);
 const bizZh = getBusinessInfo('zh-hant'); // JSON-LD 採繁中原文為單一標準值
@@ -88,7 +87,7 @@ const jsonLd = {
     <!-- 首次造訪依瀏覽器語言自動導向對應語系頁面(不在支援語系內則預設繁中);
          只在使用者尚未有語系偏好紀錄時執行一次,之後(含手動切換語言後)不再自動判斷/導向,
          避免每次載入都打斷使用者已做的語言選擇。放在 head 最前面,盡量在繪製前完成導向判斷。 -->
-    <script is:inline>
+    <script is:inline define:vars={{ prefixes: localePrefix }}>
       (function () {
         var STORAGE_KEY = 'ff-lang-pref';
         try {
@@ -96,8 +95,7 @@ const jsonLd = {
         } catch (e) {
           return;
         }
-
-        var prefixes = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' };
+        // prefixes 由 define:vars 從 i18n 的 localePrefix 傳入(單一來源,不在此重寫)
 
         function detect() {
           var langs =

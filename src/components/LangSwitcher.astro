@@ -1,16 +1,15 @@
 ---
 // LangSwitcher.astro — 語言切換下拉:收合時直接顯示目前語言的完整原生名稱(如「繁體中文」)+ ▼,
 // 而非圖示/縮寫/國旗,讓第一次使用的人一眼就能認出這是語言切換;點開後列出四語系完整名稱。
+import { localePrefix, locales, type Lang } from '../i18n';
+
 export interface Props {
-  lang: 'zh-hant' | 'en' | 'ja' | 'ko';
+  lang: Lang;
   path: string; // 不含語系前綴,如 '/', '/story'
   labels: Record<string, string>;
 }
 
 const { lang, path, labels } = Astro.props;
-
-const localePrefix = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' } as const;
-const locales = ['zh-hant', 'en', 'ja', 'ko'] as const;
 ---
 
 <details class="lang-select">

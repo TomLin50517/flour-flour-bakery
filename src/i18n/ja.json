@@ -184,6 +184,7 @@
       "successMessage": "メッセージを受け付けました。担当より折り返しご連絡いたします。",
       "errorRequired": "このフィールドは必須です",
       "errorEmail": "正しいメールアドレスを入力してください",
+      "errorSend": "送信に失敗しました。しばらくしてから再度お試しいただくか、お電話・メールでご連絡ください。",
       "privacyNotePrefix": "送信することで、当店の",
       "privacyNoteLink": "プライバシーポリシー",
       "privacyNoteSuffix": "に基づく個人情報の取り扱いに同意したものとみなされます。"

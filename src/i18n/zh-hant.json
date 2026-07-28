@@ -184,6 +184,7 @@
       "successMessage": "已收到您的訊息，我們會盡快回覆。",
       "errorRequired": "此欄位為必填",
       "errorEmail": "請輸入正確的 Email 格式",
+      "errorSend": "送出失敗，請稍後再試，或直接來電、Email 與我們聯繫。",
       "privacyNotePrefix": "送出表示您同意我們依",
       "privacyNoteLink": "隱私權政策",
       "privacyNoteSuffix": "處理您的個人資料。"

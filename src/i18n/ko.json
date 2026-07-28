@@ -184,6 +184,7 @@
       "successMessage": "문의가 접수되었습니다. 빠른 시일 내에 답변드리겠습니다.",
       "errorRequired": "필수 입력 항목입니다",
       "errorEmail": "올바른 이메일 형식을 입력해 주세요",
+      "errorSend": "전송에 실패했습니다. 잠시 후 다시 시도하시거나 전화 또는 이메일로 문의해 주세요.",
       "privacyNotePrefix": "제출 시 당사의",
       "privacyNoteLink": "개인정보처리방침",
       "privacyNoteSuffix": "에 따라 개인정보 처리에 동의하는 것으로 간주됩니다."

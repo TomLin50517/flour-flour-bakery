@@ -74,6 +74,22 @@ for (const l of LOCALES) {
   scanPlaceholder(read(rel), rel);
 }
 
+// ---- 聯絡表單文案:每個語系都必須齊全,缺任一項會讓表單顯示空白訊息 ----
+const FORM_KEYS = [
+  'nameLabel', 'phoneLabel', 'emailLabel', 'subjectLabel', 'messageLabel', 'submitCta',
+  'successMessage', 'errorRequired', 'errorEmail', 'errorSend',
+  'privacyNotePrefix', 'privacyNoteLink', 'privacyNoteSuffix',
+];
+for (const l of LOCALES) {
+  const formCopy = read(`src/i18n/${l}.json`)?.contact?.form;
+  for (const k of FORM_KEYS) {
+    if (!nonEmpty(formCopy?.[k])) errors.push(`i18n/${l}.json:contact.form 缺少 ${k}`);
+  }
+  if (!Array.isArray(formCopy?.subjectOptions) || formCopy.subjectOptions.length === 0) {
+    errors.push(`i18n/${l}.json:contact.form.subjectOptions 需為非空陣列`);
+  }
+}
+
 // ---- 商品:分類四語 label;每項 id 唯一、分類有效、price 為數字、四語 name/tagline(image 可空) ----
 const products = read('src/data/products.json');
 const catKeys = new Set((products.categories || []).map((c) => c.key));

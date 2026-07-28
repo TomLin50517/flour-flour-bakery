@@ -8,11 +8,21 @@ export type Lang = 'zh-hant' | 'en' | 'ja' | 'ko';
 
 export const locales: Lang[] = ['zh-hant', 'en', 'ja', 'ko'];
 
+// 語系對照表的單一來源。⚠️ 元件請一律 import,不要各自重寫一份 —— 重複定義過去已造成
+// 「改了一處、其他處沒跟上」的不一致。無法 import 的 inline script 請用 define:vars 傳入。
 export const localePrefix: Record<Lang, string> = {
   'zh-hant': '',
   en: '/en',
   ja: '/ja',
   ko: '/ko',
+};
+
+// <html lang> / hreflang 用的 BCP-47 標記
+export const htmlLang: Record<Lang, string> = {
+  'zh-hant': 'zh-Hant',
+  en: 'en',
+  ja: 'ja',
+  ko: 'ko',
 };
 
 const dict = { 'zh-hant': zhHant, en, ja, ko };

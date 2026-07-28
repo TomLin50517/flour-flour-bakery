@@ -37,10 +37,10 @@
   --font-ui: 'Inter', 'Noto Sans TC', 'Noto Sans JP', 'Noto Sans KR', sans-serif;
 
   /* ---- semantic font weights — 安靜克制,避免以 600/700 製造重點,層級交給字級/字距/留白 ---- */
-  --font-weight-light: 300;
+  /* 只保留實際自架的兩個字重(見 scripts/subset-fonts.mjs:CJK 僅 400/500)。
+     不要加回 300/600:字型未載入該字重,使用後會被靜默替換成最接近者,造成看不出原因的樣式不一致。 */
   --font-weight-regular: 400;
   --font-weight-medium: 500;
-  --font-weight-semibold: 600;
 
   /* type scale */
   --text-eyebrow: 12px;

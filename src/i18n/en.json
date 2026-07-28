@@ -184,6 +184,7 @@
       "successMessage": "Thanks — we've received your message and will get back to you soon.",
       "errorRequired": "This field is required",
       "errorEmail": "Please enter a valid email address",
+      "errorSend": "Sending failed. Please try again later, or contact us by phone or email.",
       "privacyNotePrefix": "By submitting, you agree to our",
       "privacyNoteLink": "Privacy Policy",
       "privacyNoteSuffix": "for how we handle your personal data."

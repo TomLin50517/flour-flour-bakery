@@ -12,7 +12,7 @@ export interface Props {
     successMessage: string;
     errorRequired: string;
     errorEmail: string;
-    errorSend?: string; // 選填:送出失敗訊息(未提供時用內建中英雙語備援)
+    errorSend: string; // 送出失敗訊息(四語皆有,由 check-content 把關)
     privacyNotePrefix: string;
     privacyNoteLink: string;
     privacyNoteSuffix: string;
@@ -164,6 +164,14 @@ const { form, privacyHref, submitEmail } = Astro.props;
     const errorRequired = form.dataset.errorRequired || '';
     const errorEmail = form.dataset.errorEmail || '';
 
+    // 「顯示成功」為單一實作:honeypot 與正常送出兩條路徑共用,避免同一行為出現兩種寫法。
+    const wrapper = form.closest('.contact-form-wrapper');
+    const successEl = wrapper?.querySelector<HTMLElement>('.contact-form__success');
+    const showSuccess = () => {
+      form.hidden = true;
+      if (successEl) successEl.hidden = false;
+    };
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
@@ -171,9 +179,7 @@ const { form, privacyHref, submitEmail } = Astro.props;
       // 刻意「不」靜默中止:若哪天仍被自動填入命中,使用者至少看得到回饋,不會遇到毫無反應的死按鈕。
       const honeypot = form.querySelector<HTMLInputElement>('input[name="_honey"]');
       if (honeypot && honeypot.value) {
-        const wrapperEl = form.closest('.contact-form-wrapper');
-        form.hidden = true;
-        wrapperEl?.querySelector<HTMLElement>('.contact-form__success')?.removeAttribute('hidden');
+        showSuccess();
         return;
       }
 
@@ -204,13 +210,6 @@ const { form, privacyHref, submitEmail } = Astro.props;
       }
 
       if (!valid) return;
-
-      const wrapper = form.closest('.contact-form-wrapper');
-      const successEl = wrapper?.querySelector<HTMLElement>('.contact-form__success');
-      const showSuccess = () => {
-        form.hidden = true;
-        if (successEl) successEl.hidden = false;
-      };
 
       const email = form.dataset.submitEmail || '';
       // 沒有收件信箱(理論上不會,business-info 一定有)→ 保守退回僅顯示成功訊息。
@@ -277,10 +276,7 @@ const { form, privacyHref, submitEmail } = Astro.props;
           throw new Error((data && data.message) || 'send failed');
         })
         .catch(() => {
-          showNotice(
-            form.dataset.errorSend ||
-              '送出失敗,請稍後再試,或直接來電/Email 與我們聯繫。 Sending failed — please try again, or reach us by phone/email.',
-          );
+          showNotice(form.dataset.errorSend || '');
         });
     });
   });

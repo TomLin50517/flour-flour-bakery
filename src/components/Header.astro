@@ -3,9 +3,10 @@
 // 首頁初始透明疊於 hero,捲動後轉為暖白;內頁固定暖白。導覽採英文編輯體(與 eyebrow 一致),
 // 客服/聯絡/隱私等功能性連結移至 Footer。Journal 需待日誌內容建立後再加入。
 import LangSwitcher from './LangSwitcher.astro';
+import { localePrefix, type Lang } from '../i18n';
 
 export interface Props {
-  lang: 'zh-hant' | 'en' | 'ja' | 'ko';
+  lang: Lang;
   path: string;
   langLabels: Record<string, string>;
   transparent?: boolean;
@@ -13,7 +14,6 @@ export interface Props {
 }
 
 const { lang, path, langLabels, transparent = false, reserveEmail } = Astro.props;
-const localePrefix = { 'zh-hant': '', en: '/en', ja: '/ja', ko: '/ko' } as const;
 const p = localePrefix[lang];
 const home = p || '/';
 const reserveHref = `mailto:${reserveEmail}?subject=${encodeURIComponent('Reservation Inquiry')}`;

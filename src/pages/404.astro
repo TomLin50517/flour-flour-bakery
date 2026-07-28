@@ -10,9 +10,8 @@ const cjkCssHrefs = Object.values(
 ).map((m) => m.css);
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { getDict, getBusinessInfo, localePrefix, locales, type Lang } from '../i18n';
+import { getDict, getBusinessInfo, localePrefix, htmlLang, locales, type Lang } from '../i18n';
 
-const htmlLang = { 'zh-hant': 'zh-Hant', en: 'en', ja: 'ja', ko: 'ko' } as const;
 const defaultDict = getDict('zh-hant');
 ---
 
@@ -24,18 +23,22 @@ const defaultDict = getDict('zh-hant');
     <title>{defaultDict.pageMeta.notFound.title}</title>
     <meta name="description" content={defaultDict.pageMeta.notFound.description} />
     <meta name="robots" content="noindex" />
-    <script is:inline>
+    <script is:inline define:vars={{ prefixes: localePrefix, htmlLangMap: htmlLang }}>
       // 於繪製前依網址前綴判定語系,設定 <html data-lang>(供 CSS 只顯示對應區塊,避免其他語系閃現繁中)與 lang。
+      // prefixes / htmlLangMap 由 define:vars 從 i18n 傳入(單一來源,不在此重寫)。
       (function () {
         var p = location.pathname;
         var lang = 'zh-hant';
-        if (p === '/en' || p.indexOf('/en/') === 0) lang = 'en';
-        else if (p === '/ja' || p.indexOf('/ja/') === 0) lang = 'ja';
-        else if (p === '/ko' || p.indexOf('/ko/') === 0) lang = 'ko';
-        var htmlLang = { 'zh-hant': 'zh-Hant', en: 'en', ja: 'ja', ko: 'ko' }[lang];
+        for (var key in prefixes) {
+          var prefix = prefixes[key];
+          if (prefix && (p === prefix || p.indexOf(prefix + '/') === 0)) {
+            lang = key;
+            break;
+          }
+        }
         var de = document.documentElement;
         de.setAttribute('data-lang', lang);
-        de.setAttribute('lang', htmlLang);
+        de.setAttribute('lang', htmlLangMap[lang]);
       })();
     </script>
     <link rel="icon" href="/favicon.ico" sizes="any" />
