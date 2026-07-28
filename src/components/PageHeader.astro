@@ -1,7 +1,7 @@
 ---
-// PageHeader.astro — 內頁共用頁首:編輯感 eyebrow + serif 標題,安靜留白,取代舊版色帶 banner
+// PageHeader.astro — 內頁共用頁首:編輯感 eyebrow(選填)+ serif 標題,安靜留白,取代舊版色帶 banner
 export interface Props {
-  eyebrow: string;
+  eyebrow?: string; // 未傳入時不顯示該行(如 Story 頁不需要英文小標)
   title: string;
 }
 
@@ -10,7 +10,7 @@ const { eyebrow, title } = Astro.props;
 
 <header class="page-header">
   <div class="container reveal-text">
-    <p class="eyebrow">{eyebrow}</p>
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
     <h1>{title}</h1>
   </div>
 </header>
