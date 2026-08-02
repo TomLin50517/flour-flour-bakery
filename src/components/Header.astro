@@ -32,7 +32,7 @@ const navLeft = [
     </nav>
 
     <a href={home} class="site-header__brand" aria-label="FlourFlour BAKERY">
-      <img src="/images/logo-horizontal-ink.png" alt="FlourFlour BAKERY" class="site-header__logo" />
+      <img src="/images/logo-horizontal.svg" alt="FlourFlour BAKERY" class="site-header__logo" />
     </a>
 
     <div class="site-header__right">
@@ -122,7 +122,8 @@ const navLeft = [
     color: var(--color-accent-text);
   }
 
-  /* transparent state over the hero:白色 logo 以 filter 產生,捲動後還原墨色 */
+  /* transparent state over the hero:白色 logo 以 filter 產生(brightness(0) 把任何顏色壓成黑,
+     invert(1) 再轉白,故不受 logo 實際配色影響);捲動後 filter:none 還原品牌原色。 */
   .site-header--transparent {
     position: absolute;
     inset-inline: 0;

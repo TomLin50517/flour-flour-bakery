@@ -62,7 +62,7 @@ const toLines = (text: string) => text.split('\n');
 
   <section class="story-quote">
     <div class="container reveal-text">
-      <img src="/images/logo-flower-ink.png" alt="" class="story-quote__logo" />
+      <img src="/images/logo-mark.svg" alt="" class="story-quote__logo" />
       <p>
         {toLines(t.story.quote).map((line, li, arr) => (
           <>{line}{li < arr.length - 1 && <br />}</>
