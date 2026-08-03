@@ -16,6 +16,9 @@ const b = getBusinessInfo(lang);
 const p = localePrefix[lang];
 
 const featured = getProducts(lang).slice(0, 3);
+
+// manifesto 標語含 \n 手動斷行(各語系斷點不同),拆成行陣列供逐行渲染。
+const toLines = (text: string) => text.split('\n');
 ---
 
 <Base
@@ -41,7 +44,11 @@ const featured = getProducts(lang).slice(0, 3);
   <!-- 2. Brand Manifesto:純文字、留白 ≥160px、寬 ≤720px -->
   <section class="manifesto">
     <div class="container manifesto__inner reveal-text">
-      <p class="manifesto__heading">{t.home.manifesto.heading}</p>
+      <p class="manifesto__heading">
+        {toLines(t.home.manifesto.heading).map((line, li, arr) => (
+          <>{line}{li < arr.length - 1 && <br />}</>
+        ))}
+      </p>
       {t.home.manifesto.body && <p class="manifesto__body">{t.home.manifesto.body}</p>}
     </div>
   </section>
