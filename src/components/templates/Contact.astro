@@ -17,6 +17,7 @@ const p = localePrefix[lang];
 
 const phoneHref = `tel:${b.phone.replace(/-/g, '')}`;
 const emailHref = `mailto:${b.email}`;
+const igHref = `https://www.instagram.com/${b.instagram.replace('@', '')}/`;
 const threadsHref = `https://www.threads.net/${b.threads}`;
 const tiktokHref = `https://www.tiktok.com/${b.tiktok}`;
 const lineHref = `https://line.me/R/ti/p/${b.line}`;
@@ -39,7 +40,7 @@ const lineHref = `https://line.me/R/ti/p/${b.line}`;
         <dd>{b.hours}</dd>
         <dt>{t.contact.socialLabel}</dt>
         <dd>
-          Instagram {b.instagram} ·
+          <a href={igHref} target="_blank" rel="noopener">Instagram</a> ·
           <a href={b.facebook} target="_blank" rel="noopener">Facebook</a> ·
           <a href={threadsHref} target="_blank" rel="noopener">Threads</a> ·
           <a href={tiktokHref} target="_blank" rel="noopener">TikTok</a> ·
