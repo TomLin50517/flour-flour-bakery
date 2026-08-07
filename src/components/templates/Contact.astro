@@ -17,6 +17,9 @@ const p = localePrefix[lang];
 
 const phoneHref = `tel:${b.phone.replace(/-/g, '')}`;
 const emailHref = `mailto:${b.email}`;
+const threadsHref = `https://www.threads.net/${b.threads}`;
+const tiktokHref = `https://www.tiktok.com/${b.tiktok}`;
+const lineHref = `https://line.me/R/ti/p/${b.line}`;
 ---
 
 <Base lang={lang} path="/contact" title={t.pageMeta.contact.title} description={t.pageMeta.contact.description}>
@@ -35,7 +38,13 @@ const emailHref = `mailto:${b.email}`;
         <dt>{t.contact.hoursLabel}</dt>
         <dd>{b.hours}</dd>
         <dt>{t.contact.socialLabel}</dt>
-        <dd>Instagram {b.instagram} · <a href={b.facebook} target="_blank" rel="noopener">Facebook</a></dd>
+        <dd>
+          Instagram {b.instagram} ·
+          <a href={b.facebook} target="_blank" rel="noopener">Facebook</a> ·
+          <a href={threadsHref} target="_blank" rel="noopener">Threads</a> ·
+          <a href={tiktokHref} target="_blank" rel="noopener">TikTok</a> ·
+          <a href={lineHref} target="_blank" rel="noopener">LINE</a>
+        </dd>
       </dl>
     </div>
 

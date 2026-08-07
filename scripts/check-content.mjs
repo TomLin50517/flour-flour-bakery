@@ -37,7 +37,7 @@ for (const l of LOCALES) {
 
 // ---- 聯絡事實:電話/Email/社群非空;營業時間/地址/括註四語齊全 ----
 const biz = read('src/data/business-info.json');
-for (const k of ['phone', 'email', 'instagram', 'facebook', 'mapsName']) {
+for (const k of ['phone', 'email', 'instagram', 'facebook', 'threads', 'tiktok', 'line', 'mapsName']) {
   if (!nonEmpty(biz?.[k])) errors.push(`business-info.json:缺少 ${k}`);
 }
 for (const field of ['hours', 'address', 'addressNote']) {

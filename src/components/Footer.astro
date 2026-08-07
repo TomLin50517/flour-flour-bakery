@@ -19,6 +19,9 @@ const p = localePrefix[lang];
 // 聯絡事實來自單一來源 business-info;b.address 已是短版(不含括註),適合窄欄位。
 const b = getBusinessInfo(lang);
 const igHref = `https://www.instagram.com/${b.instagram.replace('@', '')}/`;
+const threadsHref = `https://www.threads.net/${b.threads}`;
+const tiktokHref = `https://www.tiktok.com/${b.tiktok}`;
+const lineHref = `https://line.me/R/ti/p/${b.line}`;
 ---
 
 <footer class="site-footer">
@@ -38,6 +41,9 @@ const igHref = `https://www.instagram.com/${b.instagram.replace('@', '')}/`;
         <h3>{footer.followHeading}</h3>
         <a href={igHref} target="_blank" rel="noopener">Instagram</a>
         <a href={b.facebook} target="_blank" rel="noopener">Facebook</a>
+        <a href={threadsHref} target="_blank" rel="noopener">Threads</a>
+        <a href={tiktokHref} target="_blank" rel="noopener">TikTok</a>
+        <a href={lineHref} target="_blank" rel="noopener">LINE</a>
       </div>
       <div class="site-footer__col">
         <h3>{footer.infoHeading}</h3>

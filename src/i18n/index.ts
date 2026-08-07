@@ -36,6 +36,7 @@ export function getDict(lang: Lang) {
 export function getBusinessInfo(lang: Lang) {
   const b = businessInfo as {
     phone: string; email: string; instagram: string; facebook: string;
+    threads: string; tiktok: string; line: string;
     hours: Record<Lang, string>; hoursSpec: { opens: string; closes: string };
     geo: { latitude: number; longitude: number }; mapsName: string;
     address: Record<Lang, string>; addressNote: Record<Lang, string>;
@@ -45,6 +46,9 @@ export function getBusinessInfo(lang: Lang) {
     email: b.email,
     instagram: b.instagram,
     facebook: b.facebook,
+    threads: b.threads,
+    tiktok: b.tiktok,
+    line: b.line,
     hours: b.hours[lang],
     hoursSpec: b.hoursSpec, // 機器可讀營業時間(非語系),供 JSON-LD 使用,與 hours 顯示字串同源
     geo: b.geo, // Google 商家實際座標(非語系):供 JSON-LD 使用
