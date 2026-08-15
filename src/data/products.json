@@ -34,18 +34,18 @@
       "category": "croissant",
       "price": 80,
       "containsAlcohol": false,
-      "image": "/images/products/plain-croissant.jpg",
+      "image": "/images/products/ChatGPT Image 2026年8月16日 上午02_29_37 (1).png",
       "name": {
-        "zh-hant": "原味可頌",
-        "en": "Plain Croissant",
+        "zh-hant": "原味",
+        "en": "The First Fold",
         "ja": "プレーン・クロワッサン",
         "ko": "플레인 크루아상"
       },
       "tagline": {
-        "zh-hant": "奶香，是旅程的開始",
-        "en": "Where every good thing begins — with butter.",
-        "ja": "すべての幸せは、バターの香りから。",
-        "ko": "모든 좋은 것은 버터 향에서 시작됩니다."
+        "zh-hant": "回到可頌，最初的樣子",
+        "en": "Where every croissant begins.",
+        "ja": "クロワッサンの、はじまりへ。",
+        "ko": "크루아상의 시작으로 돌아가다"
       }
     },
     {
