@@ -90,7 +90,7 @@
       "id": "honey-longan-croissant",
       "category": "croissant",
       "price": 135,
-      "containsAlcohol": true,
+      "containsAlcohol": false,
       "image": "/images/products/ChatGPT Image 2026年8月16日 上午02_29_38 (3).png",
       "name": {
         "zh-hant": "蜜香龍眼可頌",
