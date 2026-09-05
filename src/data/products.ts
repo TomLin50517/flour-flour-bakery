@@ -35,7 +35,8 @@ export interface CategorySpotlight {
 export interface Category {
   key: string;
   label: string;
-  spotlight: CategorySpotlight | null;
+  // 分類可以介紹不只一項特色食材(例如冰淇淋的香草、可可各自一段),故為陣列;未設定則為空陣列。
+  spotlights: CategorySpotlight[];
 }
 
 const FALLBACK: Lang = 'zh-hant';
@@ -53,22 +54,26 @@ export function getProducts(lang: Lang): Product[] {
   }));
 }
 
+interface RawSpotlight {
+  heading: LocaleMap;
+  body: LocaleMap;
+  image: string | null;
+}
+
 interface RawCategory {
   key: string;
   label: LocaleMap;
-  spotlight?: { heading: LocaleMap; body: LocaleMap; image: string | null };
+  spotlights?: RawSpotlight[];
 }
 
 export function getCategories(lang: Lang): Category[] {
   return (data.categories as RawCategory[]).map((c) => ({
     key: c.key,
     label: pick(c.label, lang),
-    spotlight: c.spotlight
-      ? {
-          heading: pick(c.spotlight.heading, lang),
-          body: pick(c.spotlight.body, lang),
-          image: c.spotlight.image,
-        }
-      : null,
+    spotlights: (c.spotlights || []).map((s) => ({
+      heading: pick(s.heading, lang),
+      body: pick(s.body, lang),
+      image: s.image,
+    })),
   }));
 }

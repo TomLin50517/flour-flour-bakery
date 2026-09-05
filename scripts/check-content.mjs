@@ -97,11 +97,11 @@ for (const [i, c] of (products.categories || []).entries()) {
   const where = `products.json categories[${i}]${c?.key ? ` (${c.key})` : ''}`;
   if (!nonEmpty(c?.key)) errors.push(`${where}:缺少 key`);
   for (const l of LOCALES) if (!nonEmpty(c?.label?.[l])) errors.push(`${where}:label 缺少 ${l}`);
-  // spotlight(分類食材故事)為選填;一旦有填,heading/body 四語系都要齊全(image 可留空)
-  if (c?.spotlight) {
+  // spotlights(分類食材故事,可多項)為選填;每一項一旦存在,heading/body 四語系都要齊全(image 可留空)
+  for (const [si, s] of (c?.spotlights || []).entries()) {
     for (const field of ['heading', 'body']) {
       for (const l of LOCALES) {
-        if (!nonEmpty(c.spotlight[field]?.[l])) errors.push(`${where}:spotlight.${field} 缺少 ${l}`);
+        if (!nonEmpty(s?.[field]?.[l])) errors.push(`${where}:spotlights[${si}].${field} 缺少 ${l}`);
       }
     }
   }

@@ -6,6 +6,7 @@
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../PageHeader.astro';
 import ProductCard from '../ProductCard.astro';
+import ImagePlaceholder from '../ImagePlaceholder.astro';
 import { getDict, getBusinessInfo, localePrefix, type Lang } from '../../i18n';
 import { getProducts, getCategories } from '../../data/products';
 
@@ -74,22 +75,33 @@ const jsonLd = {
     >
       <h2 class="category-heading reveal-text">{cat.label}</h2>
 
-      {cat.spotlight && (
-        <div class="category-spotlight reveal-text">
-          {cat.spotlight.image && (
-            <img
-              src={cat.spotlight.image}
-              alt=""
-              class="category-spotlight__photo reveal-media"
-              width="960"
-              height="640"
-              loading="lazy"
-            />
-          )}
-          <div class="category-spotlight__text">
-            <h3>{cat.spotlight.heading}</h3>
-            <p>{cat.spotlight.body}</p>
-          </div>
+      {cat.spotlights.length > 0 && (
+        <div class="category-spotlights">
+          {cat.spotlights.map((spot, si) => (
+            <div class:list={['category-spotlight', 'reveal-text', { 'category-spotlight--flip': si % 2 === 1 }]}>
+              {spot.image ? (
+                <img
+                  src={spot.image}
+                  alt=""
+                  class="category-spotlight__photo reveal-media"
+                  width="960"
+                  height="640"
+                  loading="lazy"
+                />
+              ) : (
+                <ImagePlaceholder
+                  label="Ingredient Photography"
+                  ratio="4:3"
+                  aspect="4 / 3"
+                  class="category-spotlight__photo reveal-media"
+                />
+              )}
+              <div class="category-spotlight__text">
+                <h3>{spot.heading}</h3>
+                <p>{spot.body}</p>
+              </div>
+            </div>
+          ))}
         </div>
       )}
 
@@ -157,13 +169,27 @@ const jsonLd = {
   html.js .product-category.is-active-panel {
     display: block;
   }
-  /* 分類食材故事(選填):只有設定 spotlight 的分類(目前為冰淇淋、飲品)才會出現 */
+  /* 分類食材故事(選填、可多項):只有設定 spotlights 的分類(目前為冰淇淋、飲品)才會出現;
+     多項時單數項(第 2、4...項)左右翻轉,避免整排圖都在同一側太單調。 */
+  .category-spotlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-bottom: var(--space-7);
+  }
   .category-spotlight {
     display: grid;
     grid-template-columns: 55fr 45fr;
     gap: var(--space-6);
     align-items: center;
-    margin-bottom: var(--space-7);
+  }
+  /* 翻轉列:連同欄寬一起反轉(40fr 60fr),讓圖片維持在主導欄寬的那一側——
+     若只反轉 order 不反轉欄寬,圖片會被排進原本較窄的欄,誤縮小(同 Story 頁的修法)。 */
+  .category-spotlight--flip {
+    grid-template-columns: 45fr 55fr;
+  }
+  .category-spotlight--flip .category-spotlight__photo {
+    order: 2;
   }
   .category-spotlight__photo {
     width: 100%;
@@ -202,8 +228,12 @@ const jsonLd = {
       gap: var(--space-2);
       overflow-x: auto;
     }
-    .category-spotlight {
+    .category-spotlight,
+    .category-spotlight--flip {
       grid-template-columns: 1fr;
+    }
+    .category-spotlight--flip .category-spotlight__photo {
+      order: 0;
     }
   }
   @media (min-width: 480px) and (max-width: 1120px) {

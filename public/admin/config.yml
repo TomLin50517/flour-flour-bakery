@@ -153,9 +153,10 @@ collections:
                   - { name: en, label: English, widget: string }
                   - { name: ja, label: 日本語, widget: string }
                   - { name: ko, label: 한국어, widget: string }
-              - name: spotlight
-                label: '特色食材介紹（選填；只有需要的分類才填，例如冰淇淋、飲品）'
-                widget: object
+              - name: spotlights
+                label: '特色食材介紹（選填、可新增多項；只有需要的分類才填，例如冰淇淋、飲品）'
+                label_singular: 食材
+                widget: list
                 required: false
                 fields:
                   - name: heading
@@ -186,12 +187,17 @@ collections:
             widget: list
             fields:
               - { name: id, label: 'ID（英文代號，需唯一，例如 lemon-croissant）', widget: string }
+              # 這份 select 選項是手動對應上面「分類」清單的 key,CMS 無法直接讀取同一份檔案裡的
+              # 另一個欄位當選項來源。日後若在「分類」清單新增/刪除/改名分類,務必同步修改這裡,
+              # 否則會出現「後台新增商品挑不到新分類」的不一致(對照 src/data/products.json 的 categories)。
               - name: category
                 label: 分類
                 widget: select
                 options:
                   - { label: 經典可頌, value: croissant }
                   - { label: 丹麥棒, value: danish }
+                  - { label: 冰淇淋, value: ice-cream }
+                  - { label: 飲品, value: drink }
                   - { label: 特色禮盒, value: gift }
               - { name: price, label: '價格（數字，NT$）', widget: number, value_type: int, min: 0 }
               - { name: containsAlcohol, label: 含酒精？, widget: boolean, default: false }
