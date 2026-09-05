@@ -1,5 +1,8 @@
 ---
-// 產品介紹模板 — editorial 版型:安靜頁首 + 分類 tab(錨點切換)+ 產品格線 + 頁尾備註
+// 產品介紹模板 — editorial 版型:安靜頁首 + 分類頁籤(同時只顯示一個分類)+ 產品格線 + 頁尾備註
+// 頁籤採漸進增強:SSR 把全部分類完整輸出到 DOM(SEO/無 JS 皆完整,ItemList JSON-LD 涵蓋全部商品),
+// 「同時只顯示一個分類」交給 CSS 的 html.js 開關生效(跟 reveal-text/reveal-media 同一套手法),
+// JS 負責切換顯示 + 同步網址 hash(可分享/重整後停留在原分類);無 JS 時全部分類維持可見,退回錨點捲動。
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../PageHeader.astro';
 import ProductCard from '../ProductCard.astro';
@@ -45,16 +48,51 @@ const jsonLd = {
   <PageHeader eyebrow="PRODUCTS" title={t.products.bannerTitle} />
 
   <nav class="category-tabs" aria-label="product categories">
-    <div class="container category-tabs__inner">
-      {categories.map((cat) => (
-        <a href={`#${cat.key}`}>{cat.label}</a>
+    <div class="container category-tabs__inner" role="tablist">
+      {categories.map((cat, i) => (
+        <a
+          href={`#${cat.key}`}
+          role="tab"
+          id={`tab-${cat.key}`}
+          aria-selected={i === 0 ? 'true' : 'false'}
+          aria-controls={cat.key}
+          data-tab-link
+          class:list={['category-tabs__link', { 'is-active': i === 0 }]}
+        >
+          {cat.label}
+        </a>
       ))}
     </div>
   </nav>
 
-  {categories.map((cat) => (
-    <section class="section container product-category" id={cat.key}>
+  {categories.map((cat, i) => (
+    <section
+      id={cat.key}
+      role="tabpanel"
+      aria-labelledby={`tab-${cat.key}`}
+      class:list={['section', 'container', 'product-category', { 'is-active-panel': i === 0 }]}
+    >
       <h2 class="category-heading reveal-text">{cat.label}</h2>
+
+      {cat.spotlight && (
+        <div class="category-spotlight reveal-text">
+          {cat.spotlight.image && (
+            <img
+              src={cat.spotlight.image}
+              alt=""
+              class="category-spotlight__photo reveal-media"
+              width="960"
+              height="640"
+              loading="lazy"
+            />
+          )}
+          <div class="category-spotlight__text">
+            <h3>{cat.spotlight.heading}</h3>
+            <p>{cat.spotlight.body}</p>
+          </div>
+        </div>
+      )}
+
       <div class="product-grid">
         {products
           .filter((item) => item.category === cat.key)
@@ -85,22 +123,61 @@ const jsonLd = {
     gap: var(--space-4);
     padding-block: var(--space-2);
   }
-  .category-tabs__inner a {
+  .category-tabs__link {
     text-decoration: none;
-    color: var(--color-ink);
+    color: var(--color-ink-soft);
     font-family: var(--font-ui);
     font-size: var(--text-sm);
     letter-spacing: 0.06em;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: color var(--duration-base) var(--ease-editorial),
+      border-color var(--duration-base) var(--ease-editorial);
+  }
+  .category-tabs__link.is-active {
+    color: var(--color-ink);
+    border-color: var(--color-accent-text);
   }
   .category-heading {
     text-align: center;
     font-size: var(--text-2xl);
     margin-bottom: var(--space-6);
   }
-  /* 錨點捲動時預留 sticky 分類列高度;用共用 class 而非硬編分類 id,
+  /* 無 JS fallback:錨點捲動時預留 sticky 分類列高度;用共用 class 而非硬編分類 id,
      日後從 CMS 新增分類也會自動套用 */
   .product-category {
     scroll-margin-top: 64px;
+  }
+  /* 頁籤切換的隱藏行為只在 JS 成功執行時套用(見 Base.astro 的 html.js 標記,
+     跟 reveal-text/reveal-media 同一套漸進增強手法)。JS 關閉或載入失敗時,
+     全部分類維持一般可見,退回原本「整頁列出 + 錨點捲動」的行為,不會被誤藏。 */
+  html.js .product-category {
+    display: none;
+  }
+  html.js .product-category.is-active-panel {
+    display: block;
+  }
+  /* 分類食材故事(選填):只有設定 spotlight 的分類(目前為冰淇淋、飲品)才會出現 */
+  .category-spotlight {
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    gap: var(--space-6);
+    align-items: center;
+    margin-bottom: var(--space-7);
+  }
+  .category-spotlight__photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .category-spotlight__text h3 {
+    font-size: var(--text-xl);
+  }
+  .category-spotlight__text p {
+    color: var(--color-ink-soft);
+    margin-top: var(--space-3);
+    max-width: 46ch;
   }
   .product-grid {
     display: grid;
@@ -125,6 +202,9 @@ const jsonLd = {
       gap: var(--space-2);
       overflow-x: auto;
     }
+    .category-spotlight {
+      grid-template-columns: 1fr;
+    }
   }
   @media (min-width: 480px) and (max-width: 1120px) {
     .product-grid {
@@ -132,3 +212,38 @@ const jsonLd = {
     }
   }
 </style>
+
+<script>
+  // 分類頁籤:漸進增強。SSR 把全部分類都完整輸出到 DOM,「同時只顯示一個分類」的隱藏行為
+  // 完全交給 CSS 的 html.js 開關(見上方樣式)——這裡只負責「切換哪個分類該顯示」+
+  // 「依網址 hash 決定初始分類」,JS 沒執行的話 html.js 不會出現,CSS 隱藏規則就不生效,
+  // 頁面直接退回原本「整頁列出 + 錨點捲動」的行為。
+  const tabs = document.querySelectorAll<HTMLAnchorElement>('[data-tab-link]');
+  const panels = document.querySelectorAll<HTMLElement>('.product-category');
+
+  function activate(key: string, updateHash: boolean) {
+    const matched = Array.from(panels).some((panel) => panel.id === key);
+    if (!matched) return; // 無效 key(例如舊書籤指到已刪除的分類):維持目前顯示狀態
+
+    panels.forEach((panel) => {
+      panel.classList.toggle('is-active-panel', panel.id === key);
+    });
+    tabs.forEach((tab) => {
+      const isActive = tab.getAttribute('href') === `#${key}`;
+      tab.classList.toggle('is-active', isActive);
+      tab.setAttribute('aria-selected', String(isActive));
+    });
+    if (updateHash) history.replaceState(null, '', `#${key}`);
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      const key = tab.getAttribute('href')?.slice(1);
+      if (key) activate(key, true);
+    });
+  });
+
+  const initialKey = location.hash.slice(1) || panels[0]?.id;
+  if (initialKey) activate(initialKey, false);
+</script>

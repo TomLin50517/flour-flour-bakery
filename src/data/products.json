@@ -19,6 +19,24 @@
       }
     },
     {
+      "key": "ice-cream",
+      "label": {
+        "zh-hant": "冰淇淋",
+        "en": "Ice Cream",
+        "ja": "アイスクリーム",
+        "ko": "아이스크림"
+      }
+    },
+    {
+      "key": "drink",
+      "label": {
+        "zh-hant": "飲品",
+        "en": "Drinks",
+        "ja": "ドリンク",
+        "ko": "음료"
+      }
+    },
+    {
       "key": "gift",
       "label": {
         "zh-hant": "特色禮盒",

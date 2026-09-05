@@ -153,6 +153,33 @@ collections:
                   - { name: en, label: English, widget: string }
                   - { name: ja, label: 日本語, widget: string }
                   - { name: ko, label: 한국어, widget: string }
+              - name: spotlight
+                label: '特色食材介紹（選填；只有需要的分類才填，例如冰淇淋、飲品）'
+                widget: object
+                required: false
+                fields:
+                  - name: heading
+                    label: 標題
+                    widget: object
+                    fields:
+                      - { name: zh-hant, label: 繁體中文, widget: string }
+                      - { name: en, label: English, widget: string }
+                      - { name: ja, label: 日本語, widget: string }
+                      - { name: ko, label: 한국어, widget: string }
+                  - name: body
+                    label: 內文
+                    widget: object
+                    fields:
+                      - { name: zh-hant, label: 繁體中文, widget: text }
+                      - { name: en, label: English, widget: text }
+                      - { name: ja, label: 日本語, widget: text }
+                      - { name: ko, label: 한국어, widget: text }
+                  - name: image
+                    label: 圖片
+                    widget: image
+                    required: false
+                    media_folder: '/public/images/products'
+                    public_folder: '/images/products'
           - name: products
             label: 商品
             label_singular: 商品

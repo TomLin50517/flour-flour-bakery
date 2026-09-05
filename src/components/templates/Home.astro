@@ -1,8 +1,9 @@
 ---
 // 首頁 — 安靜奢華編輯版型:Hero(92vh 單張攝影)→ Manifesto(純文字留白)→ Signature(非對稱)
-// → The Place(河岸場域)→ Today's Bake(3 款)→ Gift(深色)→ Visit → Minimal Footer(Base 內建)
+// → Today's Bake(3 款)→ Drink(非對稱,圖尚未到位)→ The Place(河岸場域)→ Gift(深色)→ Visit → Minimal Footer(Base 內建)
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../ProductCard.astro';
+import ImagePlaceholder from '../ImagePlaceholder.astro';
 import { getDict, getBusinessInfo, localePrefix, type Lang } from '../../i18n';
 import { getProducts } from '../../data/products';
 
@@ -71,22 +72,7 @@ const toLines = (text: string) => text.split('\n');
     </div>
   </section>
 
-  <!-- 4. The River / The Place:品牌場域 -->
-  <section class="section place">
-    <div class="container place__grid">
-      <div class="place__content reveal-text">
-        <p class="eyebrow">THE PLACE</p>
-        <h2>{t.home.place.title}</h2>
-        <p class="place__body">{t.home.place.body}</p>
-        <a class="link-arrow" href={`${p}/story`}>{t.home.place.cta} →</a>
-      </div>
-      <div class="place__media reveal-media">
-        <img src="/images/place-tamsui-oldhouse.jpg" alt={t.home.place.title} class="place__photo" width="1200" height="800" loading="lazy" />
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. Today's Bake:三款 -->
+  <!-- 4. Today's Bake:三款(特別推薦) -->
   <section class="section today" id="today-fresh">
     <div class="container">
       <div class="today__header reveal-text">
@@ -104,7 +90,37 @@ const toLines = (text: string) => text.split('\n');
     </div>
   </section>
 
-  <!-- 6. Gift Collection:深色區塊 -->
+  <!-- 5. Drink:非對稱,比照 Signature 排版(圖尚未到位,先用佔位圖) -->
+  <section class="section drink">
+    <div class="container drink__grid">
+      <div class="drink__media reveal-media">
+        <ImagePlaceholder label="Drink Photography" ratio="4:5" aspect="4 / 5" class="drink__photo" />
+      </div>
+      <div class="drink__content reveal-text">
+        <p class="eyebrow">DRINK</p>
+        <h2>{t.home.drink.title}</h2>
+        <p class="drink__body">{t.home.drink.body}</p>
+        <a class="link-arrow" href={`${p}/products#drink`}>{t.home.drink.cta} →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. The River / The Place:品牌場域 -->
+  <section class="section place">
+    <div class="container place__grid">
+      <div class="place__content reveal-text">
+        <p class="eyebrow">THE PLACE</p>
+        <h2>{t.home.place.title}</h2>
+        <p class="place__body">{t.home.place.body}</p>
+        <a class="link-arrow" href={`${p}/story`}>{t.home.place.cta} →</a>
+      </div>
+      <div class="place__media reveal-media">
+        <img src="/images/place-tamsui-oldhouse.jpg" alt={t.home.place.title} class="place__photo" width="1200" height="800" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Gift Collection:深色區塊 -->
   <section class="gift">
     <div class="container gift__inner">
       <div class="gift__media reveal-media">
@@ -119,7 +135,7 @@ const toLines = (text: string) => text.split('\n');
     </div>
   </section>
 
-  <!-- 7. Visit FlourFlour -->
+  <!-- 8. Visit FlourFlour -->
   <section class="section visit">
     <div class="container reading-column visit__inner reveal-text">
       <p class="eyebrow">VISIT</p>
@@ -328,10 +344,7 @@ const toLines = (text: string) => text.split('\n');
     margin-top: var(--space-4);
   }
 
-  /* ---- 4. the place ---- */
-  .place {
-    background: var(--color-surface);
-  }
+  /* ---- 6. the place ---- */
   .place__grid {
     display: grid;
     grid-template-columns: 45fr 55fr;
@@ -357,7 +370,7 @@ const toLines = (text: string) => text.split('\n');
     object-fit: cover;
   }
 
-  /* ---- 5. today's bake ---- */
+  /* ---- 4. today's bake ---- */
   .today__header {
     text-align: center;
   }
@@ -376,7 +389,31 @@ const toLines = (text: string) => text.split('\n');
     margin-top: var(--space-6);
   }
 
-  /* ---- 6. gift:深色 ---- */
+  /* ---- 5. drink:非對稱,比照 signature 65/35(圖尚未到位,先用佔位圖);
+     底色沿用原本「the place」在這個順序位置該有的米色調,當作 signature/featured 之後的視覺喘息 ---- */
+  .drink {
+    background: var(--color-surface);
+  }
+  .drink__grid {
+    display: grid;
+    grid-template-columns: 65fr 35fr;
+    gap: var(--space-7);
+    align-items: center;
+  }
+  .drink__content h2 {
+    font-size: var(--text-3xl);
+    margin-top: var(--space-2);
+  }
+  .drink__body {
+    color: var(--color-ink-soft);
+    margin-top: var(--space-3);
+    max-width: 52ch;
+  }
+  .drink__content .link-arrow {
+    margin-top: var(--space-4);
+  }
+
+  /* ---- 7. gift:深色 ---- */
   .gift {
     background: var(--deep-ink);
     color: var(--flour-white);
@@ -415,7 +452,7 @@ const toLines = (text: string) => text.split('\n');
     margin-top: var(--space-2); /* 已是按鈕(自帶內距),與內文的間距略收 */
   }
 
-  /* ---- 7. visit ---- */
+  /* ---- 8. visit ---- */
   .visit__inner {
     text-align: center;
   }
@@ -444,6 +481,7 @@ const toLines = (text: string) => text.split('\n');
 
   @media (max-width: 900px) {
     .signature__grid,
+    .drink__grid,
     .place__grid {
       grid-template-columns: 1fr;
       gap: var(--space-5);

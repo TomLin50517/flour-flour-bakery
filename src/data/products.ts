@@ -26,9 +26,16 @@ export interface Product {
   tagline: string;
 }
 
+export interface CategorySpotlight {
+  heading: string;
+  body: string;
+  image: string | null;
+}
+
 export interface Category {
   key: string;
   label: string;
+  spotlight: CategorySpotlight | null;
 }
 
 const FALLBACK: Lang = 'zh-hant';
@@ -46,9 +53,22 @@ export function getProducts(lang: Lang): Product[] {
   }));
 }
 
+interface RawCategory {
+  key: string;
+  label: LocaleMap;
+  spotlight?: { heading: LocaleMap; body: LocaleMap; image: string | null };
+}
+
 export function getCategories(lang: Lang): Category[] {
-  return (data.categories as { key: string; label: LocaleMap }[]).map((c) => ({
+  return (data.categories as RawCategory[]).map((c) => ({
     key: c.key,
     label: pick(c.label, lang),
+    spotlight: c.spotlight
+      ? {
+          heading: pick(c.spotlight.heading, lang),
+          body: pick(c.spotlight.body, lang),
+          image: c.spotlight.image,
+        }
+      : null,
   }));
 }
