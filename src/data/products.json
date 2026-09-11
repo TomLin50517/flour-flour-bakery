@@ -463,6 +463,101 @@
         "ja": "熟した白桃と烏龍が、軽やかにほどけます。",
         "ko": "잘 익은 복숭아와 우롱이 가볍고 우아하게 펼쳐집니다."
       }
+    },
+    {
+      "id": "cold-brew-coffee",
+      "category": "drink",
+      "price": 180,
+      "containsAlcohol": false,
+      "image": "/images/products/Cold Brew Coffee.jpg",
+      "name": {
+        "zh-hant": "冷萃咖啡",
+        "en": "Cold Brew Coffee",
+        "ja": "コールドブリューコーヒー",
+        "ko": "콜드브루 커피"
+      },
+      "tagline": {
+        "zh-hant": "低溫慢萃，讓時間沉澱出一杯清澈、柔順而富有層次的純粹風味。入口溫潤，尾韻乾淨悠長，冰涼之中仍保有細緻香氣。",
+        "en": "Slowly extracted at a low temperature, allowing time to reveal a pure expression of clarity, smoothness, and depth. Gentle on the palate, with a clean, lingering finish and delicate aromas that remain beautifully present even when chilled.",
+        "ja": "低温でじっくりと抽出し、時間をかけて、澄みわたるような口当たりと奥行きのあるピュアな味わいを引き出しました。口当たりはまろやかで、後味はすっきりと長く、冷たさの中にも繊細な香りが息づきます。",
+        "ko": "낮은 온도에서 천천히 추출해, 시간이 빚어낸 맑고 부드러우며 깊이 있는 순수한 풍미를 담았습니다. 입안에서는 은은하고 편안하게 감돌며, 깔끔하고 긴 여운과 함께 차가움 속에서도 섬세한 향이 살아납니다."
+      }
+    },
+    {
+      "id": "classic-ice-cream",
+      "category": "ice-cream",
+      "price": 140,
+      "containsAlcohol": false,
+      "image": "/images/products/Classic_icecream.png",
+      "name": {
+        "zh-hant": "經典原味冰淇淋",
+        "en": "Classic Ice Cream",
+        "ja": "クラシックアイスクリーム",
+        "ko": "클래식 아이스크림"
+      },
+      "tagline": {
+        "zh-hant": "純淨乳香與細緻滑順的口感，呈現簡單而耐人回味的經典風味。",
+        "en": "Pure milky notes and a silky-smooth texture create a timeless flavor to savor.",
+        "ja": "ピュアなミルクの香りとなめらかな口どけが、シンプルで奥深い味わいを奏でます。",
+        "ko": "순수한 우유의 풍미와 부드러운 식감이 어우러진, 오래도록 기억에 남는 클래식한 맛입니다."
+      }
+    },
+    {
+      "id": "black-flake-salt-ice-cream",
+      "category": "ice-cream",
+      "price": 180,
+      "containsAlcohol": false,
+      "image": "/images/products/Black_Flake_Salt_icecream.png",
+      "name": {
+        "zh-hant": "黑雪花鹽冰淇淋",
+        "en": "Black Flake Salt Ice Cream",
+        "ja": "ブラックフレークソルトアイスクリーム",
+        "ko": "블랙 플레이크 솔트 아이스크림"
+      },
+      "tagline": {
+        "zh-hant": "輕薄酥脆的黑雪花鹽點綴柔滑冰淇淋，鹹甜交織，尾韻更顯深邃。",
+        "en": "Delicate, crisp black salt flakes accent the silky ice cream with a refined balance of sweet and savory.",
+        "ja": "軽やかで繊細な黒いフレークソルトが、なめらかなアイスに上品な甘さと塩味の余韻を添えます。",
+        "ko": "가볍고 바삭한 블랙 플레이크 솔트가 부드러운 아이스크림에 세련된 단짠의 여운을 더합니다."
+      }
+    },
+    {
+      "id": "balsamic-vinegar-ice-cream",
+      "category": "ice-cream",
+      "price": 200,
+      "containsAlcohol": false,
+      "image": "/images/products/Balsamico_icecream.png",
+      "name": {
+        "zh-hant": "巴薩米克醋冰淇淋",
+        "en": "Balsamic Vinegar Ice Cream",
+        "ja": "バルサミコアイスクリーム",
+        "ko": "발사믹 식초 아이스크림"
+      },
+      "tagline": {
+        "zh-hant": "巴薩米克醋的酸甜果香點亮醇厚乳香，交織出優雅而富有層次的風味。",
+        "en": "The sweet-tart fruitiness of balsamic vinegar brightens the creamy richness with elegant complexity.",
+        "ja": "バルサミコの甘酸っぱい果実味が豊かなミルクのコクを引き立て、上品な奥行きを生み出します。",
+        "ko": "발사믹 식초의 새콤달콤한 과실 향이 진한 우유 풍미를 밝혀 주며 우아한 깊이를 더합니다."
+      }
+    },
+    {
+      "id": "whisky-ice-cream",
+      "category": "ice-cream",
+      "price": 200,
+      "containsAlcohol": true,
+      "image": "/images/products/Whisky_icecream.png",
+      "name": {
+        "zh-hant": "威士忌冰淇淋",
+        "en": "Whisky Ice Cream",
+        "ja": "ウイスキーアイスクリーム",
+        "ko": "위스키 아이스크림"
+      },
+      "tagline": {
+        "zh-hant": "醇厚威士忌香氣融入柔滑乳香，留下溫暖而深邃的迷人餘韻。",
+        "en": "Silky milk ice cream infused with rich whisky aromas, leaving a warm and sophisticated finish.",
+        "ja": "なめらかなミルクの味わいに芳醇なウイスキーが重なり、温かく深い余韻を残します。",
+        "ko": "부드러운 우유 풍미에 깊고 풍부한 위스키 향이 더해져 따뜻하고 우아한 여운을 남깁니다."
+      }
     }
   ]
 }
