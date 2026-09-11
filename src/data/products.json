@@ -41,6 +41,21 @@
             "ko": "지중해에서 온 블랙 플레이크 솔트. 얇고 바삭한 소금 결정과 깊은 먹빛이 요리에 섬세한 짠맛과 고급스러운 시각적 포인트를 더합니다."
           },
           "image": "/images/products/Black Flake Salt.png"
+        },
+        {
+          "heading": {
+            "zh-hant": "巴薩米克醋",
+            "en": "Balsamic Vinegar",
+            "ja": "バルサミコ酢",
+            "ko": "발사믹 식초"
+          },
+          "body": {
+            "zh-hant": "源自義大利摩德納，歷經五代 家族傳承，始終堅守傳統香醋的釀造工藝。嚴選自家莊園葡萄，於珍貴木桶中經時間緩慢熟成，凝聚出濃郁、細膩且層次豐富的風味。Malpighi 不只是一款調味品，更是義大利匠人精神、家族傳承與味覺藝術的完美結晶",
+            "en": "Originating in Modena, Italy, Malpighi has upheld the traditional art of balsamic vinegar making through five generations of family heritage. Grapes carefully selected from its own estate are slowly aged in precious wooden barrels, developing a rich, refined, and beautifully layered flavor. More than a condiment, Malpighi is the perfect expression of Italian craftsmanship, family heritage, and the art of taste.",
+            "ja": "イタリア・モデナに生まれ、五代にわたる家族の伝統の中で、昔ながらのバルサミコ酢造りを守り続けてきました。自社農園で育てたぶどうを厳選し、貴重な木樽の中でゆっくりと熟成。濃密で繊細、幾重にも広がる奥深い味わいを生み出します。Malpighiは単なる調味料ではなく、イタリアの職人精神、家族の伝統、そして味覚の芸術が結晶した逸品です。",
+            "ko": "이탈리아 모데나에서 시작해 5대에 걸친 가족의 전통 속에서 정통 발사믹 식초 양조 방식을 지켜왔습니다. 자체 농장에서 엄선한 포도를 귀한 나무통에서 오랜 시간 천천히 숙성해 진하고 섬세하며 풍부한 풍미의 층을 완성합니다. Malpighi는 단순한 조미료를 넘어 이탈리아 장인정신과 가족의 유산, 미각 예술이 완벽하게 어우러진 결정체입니다."
+          },
+          "image": "/images/products/Balsamico.png"
         }
       ]
     },
