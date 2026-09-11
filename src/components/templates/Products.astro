@@ -76,32 +76,33 @@ const jsonLd = {
       <h2 class="category-heading reveal-text">{cat.label}</h2>
 
       {cat.spotlights.length > 0 && (
-        <div class="category-spotlights">
-          {cat.spotlights.map((spot, si) => (
-            <div class:list={['category-spotlight', 'reveal-text', { 'category-spotlight--flip': si % 2 === 1 }]}>
-              {spot.image ? (
-                <img
-                  src={spot.image}
-                  alt=""
-                  class="category-spotlight__photo reveal-media"
-                  width="960"
-                  height="640"
-                  loading="lazy"
-                />
-              ) : (
-                <ImagePlaceholder
-                  label="Ingredient Photography"
-                  ratio="4:3"
-                  aspect="4 / 3"
-                  class="category-spotlight__photo reveal-media"
-                />
-              )}
-              <div class="category-spotlight__text">
-                <h3>{spot.heading}</h3>
-                <p>{spot.body}</p>
+        <div class="category-spotlights reveal-text">
+          <p class="category-spotlights__label">{t.products.ingredientsLabel}</p>
+          <div class="category-spotlights__grid">
+            {cat.spotlights.map((spot) => (
+              <div class="category-spotlight">
+                {spot.image ? (
+                  <img
+                    src={spot.image}
+                    alt=""
+                    class="category-spotlight__photo"
+                    width="160"
+                    height="160"
+                    loading="lazy"
+                  />
+                ) : (
+                  <ImagePlaceholder
+                    label="Ingredient"
+                    ratio="1:1"
+                    aspect="1 / 1"
+                    class="category-spotlight__photo"
+                  />
+                )}
+                <h3 class="category-spotlight__heading">{spot.heading}</h3>
+                <p class="category-spotlight__body">{spot.body}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       )}
 
@@ -169,41 +170,48 @@ const jsonLd = {
   html.js .product-category.is-active-panel {
     display: block;
   }
-  /* 分類食材故事(選填、可多項):只有設定 spotlights 的分類(目前為冰淇淋、飲品)才會出現;
-     多項時單數項(第 2、4...項)左右翻轉,避免整排圖都在同一側太單調。 */
+  /* 分類食材故事(選填、可多項):只有設定 spotlights 的分類(目前為飲品)才會出現。
+     刻意做得比商品格線小很多——這是輔助說明,不是主商品,一排小縮圖+短說明,
+     不能跟下面的商品卡搶視覺主從。 */
   .category-spotlights {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-    margin-bottom: var(--space-7);
+    margin-bottom: var(--space-6);
+  }
+  .category-spotlights__label {
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+    margin-bottom: var(--space-3);
+  }
+  .category-spotlights__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--space-4);
+    max-width: 720px;
+    margin-inline: auto;
   }
   .category-spotlight {
-    display: grid;
-    grid-template-columns: 55fr 45fr;
-    gap: var(--space-6);
-    align-items: center;
-  }
-  /* 翻轉列:連同欄寬一起反轉(40fr 60fr),讓圖片維持在主導欄寬的那一側——
-     若只反轉 order 不反轉欄寬,圖片會被排進原本較窄的欄,誤縮小(同 Story 頁的修法)。 */
-  .category-spotlight--flip {
-    grid-template-columns: 45fr 55fr;
-  }
-  .category-spotlight--flip .category-spotlight__photo {
-    order: 2;
+    text-align: center;
   }
   .category-spotlight__photo {
     width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
+    max-width: 120px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
+    border-radius: var(--radius-card);
+    margin-inline: auto;
   }
-  .category-spotlight__text h3 {
-    font-size: var(--text-xl);
+  .category-spotlight__heading {
+    font-size: var(--text-sm);
+    margin-top: var(--space-2);
   }
-  .category-spotlight__text p {
+  .category-spotlight__body {
+    font-size: var(--text-eyebrow);
+    line-height: 1.5;
     color: var(--color-ink-soft);
-    margin-top: var(--space-3);
-    max-width: 46ch;
+    margin-top: 4px;
   }
   .product-grid {
     display: grid;
@@ -228,12 +236,9 @@ const jsonLd = {
       gap: var(--space-2);
       overflow-x: auto;
     }
-    .category-spotlight,
-    .category-spotlight--flip {
-      grid-template-columns: 1fr;
-    }
-    .category-spotlight--flip .category-spotlight__photo {
-      order: 0;
+    .category-spotlights__grid {
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: var(--space-3);
     }
   }
   @media (min-width: 480px) and (max-width: 1120px) {

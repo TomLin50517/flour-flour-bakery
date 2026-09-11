@@ -135,7 +135,8 @@
     "bannerTitle": "제품 소개",
     "footnote": "제품은 매일 한정 수량으로 준비됩니다. 전화 예약을 권장드립니다.",
     "footnoteCta": "전화로 예약하기",
-    "alcoholLabel": "알코올 포함"
+    "alcoholLabel": "알코올 포함",
+    "ingredientsLabel": "특선 재료"
   },
   "service": {
     "bannerTitle": "고객센터",

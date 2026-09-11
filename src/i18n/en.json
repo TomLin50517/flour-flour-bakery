@@ -135,7 +135,8 @@
     "bannerTitle": "Products",
     "footnote": "Daily quantities are limited — reservations by phone are recommended.",
     "footnoteCta": "Call to reserve",
-    "alcoholLabel": "Contains Alcohol"
+    "alcoholLabel": "Contains Alcohol",
+    "ingredientsLabel": "Featured Ingredients"
   },
   "service": {
     "bannerTitle": "Customer Service",
