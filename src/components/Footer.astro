@@ -42,7 +42,7 @@ const lineHref = `https://line.me/R/ti/p/${b.line}`;
         <a href={igHref} target="_blank" rel="noopener">Instagram</a>
         <a href={b.facebook} target="_blank" rel="noopener">Facebook</a>
         <a href={threadsHref} target="_blank" rel="noopener">Threads</a>
-        <a href={tiktokHref} target="_blank" rel="noopener">TikTok</a>
+        {b.tiktokEnabled && <a href={tiktokHref} target="_blank" rel="noopener">TikTok</a>}
         <a href={lineHref} target="_blank" rel="noopener">LINE</a>
       </div>
       <div class="site-footer__col">

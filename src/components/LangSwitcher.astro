@@ -106,4 +106,13 @@ const { lang, path, labels } = Astro.props;
       if (menu.open && !menu.contains(e.target as Node)) menu.open = false;
     });
   });
+
+  // 切換語系要保留網址的 hash(例如商品頁的 #drink 分類頁籤)。href 是伺服端渲染時算好的
+  // 純路徑(伺服端看不到 hash,那是純前端的東西),所以在這裡補上目前的 hash 再讓連結生效,
+  // 否則切語系會導回無 hash 的網址,頁籤跟著重置回預設的第一個分類。
+  if (location.hash) {
+    document.querySelectorAll<HTMLAnchorElement>('.lang-select a').forEach((a) => {
+      a.href += location.hash;
+    });
+  }
 </script>

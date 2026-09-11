@@ -91,6 +91,7 @@ collections:
           - { name: facebook, label: 'Facebook 粉專完整網址', widget: string }
           - { name: threads, label: 'Threads 帳號（含 @）', widget: string }
           - { name: tiktok, label: 'TikTok 帳號（含 @）', widget: string }
+          - { name: tiktokEnabled, label: '顯示 TikTok 連結（取消勾選＝暫時隱藏，帳號設定保留不會消失）', widget: boolean, default: true }
           - { name: line, label: 'LINE 官方帳號 ID（含 @）', widget: string }
           - name: hours
             label: 營業時間（顯示文字）

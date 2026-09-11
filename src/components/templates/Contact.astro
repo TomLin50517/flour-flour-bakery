@@ -21,6 +21,16 @@ const igHref = `https://www.instagram.com/${b.instagram.replace('@', '')}/`;
 const threadsHref = `https://www.threads.net/${b.threads}`;
 const tiktokHref = `https://www.tiktok.com/${b.tiktok}`;
 const lineHref = `https://line.me/R/ti/p/${b.line}`;
+
+// TikTok 可能被暫時關閉(business-info.json 的 tiktokEnabled),用陣列組出社群連結,
+// 才能在少一個連結時仍正確處理「·」分隔符,不會留下多餘或缺漏的分隔點。
+const socialLinks = [
+  { label: 'Instagram', href: igHref },
+  { label: 'Facebook', href: b.facebook },
+  { label: 'Threads', href: threadsHref },
+  ...(b.tiktokEnabled ? [{ label: 'TikTok', href: tiktokHref }] : []),
+  { label: 'LINE', href: lineHref },
+];
 ---
 
 <Base lang={lang} path="/contact" title={t.pageMeta.contact.title} description={t.pageMeta.contact.description}>
@@ -40,11 +50,12 @@ const lineHref = `https://line.me/R/ti/p/${b.line}`;
         <dd>{b.hours}</dd>
         <dt>{t.contact.socialLabel}</dt>
         <dd>
-          <a href={igHref} target="_blank" rel="noopener">Instagram</a> ·
-          <a href={b.facebook} target="_blank" rel="noopener">Facebook</a> ·
-          <a href={threadsHref} target="_blank" rel="noopener">Threads</a> ·
-          <a href={tiktokHref} target="_blank" rel="noopener">TikTok</a> ·
-          <a href={lineHref} target="_blank" rel="noopener">LINE</a>
+          {socialLinks.map((link, i) => (
+            <>
+              <a href={link.href} target="_blank" rel="noopener">{link.label}</a>
+              {i < socialLinks.length - 1 && ' · '}
+            </>
+          ))}
         </dd>
       </dl>
     </div>
