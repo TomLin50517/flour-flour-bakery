@@ -133,7 +133,7 @@
       "category": "croissant",
       "price": 135,
       "containsAlcohol": false,
-      "image": "/images/products/檸光初雪_官方產品照.png",
+      "image": "/images/products/Lemon.png",
       "name": {
         "zh-hant": "檸光初雪",
         "en": "Lemon",
@@ -152,7 +152,7 @@
       "category": "croissant",
       "price": 135,
       "containsAlcohol": false,
-      "image": "/images/products/暮夜可可_官方產品照.png",
+      "image": "/images/products/Chocolate.png",
       "name": {
         "zh-hant": "巧克力可頌",
         "en": "Chocolate",
@@ -171,7 +171,7 @@
       "category": "croissant",
       "price": 135,
       "containsAlcohol": false,
-      "image": "/images/products/蜜韻龍眼_官方產品照.png",
+      "image": "/images/products/Longan.png",
       "name": {
         "zh-hant": "蜜韻龍眼",
         "en": "Longan Honey",
@@ -190,7 +190,7 @@
       "category": "croissant",
       "price": 135,
       "containsAlcohol": false,
-      "image": "/images/products/青霧茶香_官方產品照.png",
+      "image": "/images/products/Matcha.png",
       "name": {
         "zh-hant": "青霧茶香",
         "en": "Matcha",
@@ -209,7 +209,7 @@
       "category": "croissant",
       "price": 150,
       "containsAlcohol": false,
-      "image": "/images/products/墨羽芝香_官方產品照.png",
+      "image": "/images/products/Black Sesame.png",
       "name": {
         "zh-hant": "墨羽芝香",
         "en": "Black Sesame",
@@ -228,7 +228,7 @@
       "category": "croissant",
       "price": 150,
       "containsAlcohol": false,
-      "image": "/images/products/夕陽金沙_官方產品照.png",
+      "image": "/images/products/Golden Salted Egg Yolk.png",
       "name": {
         "zh-hant": "夕陽金沙",
         "en": "Golden Salted Egg Yolk",
@@ -247,7 +247,7 @@
       "category": "croissant",
       "price": 150,
       "containsAlcohol": true,
-      "image": "/images/products/提拉米蘇_官方產品照.png",
+      "image": "/images/products/Tiramisu.png",
       "name": {
         "zh-hant": "提拉米蘇",
         "en": "Tiramisu",
@@ -266,7 +266,7 @@
       "category": "croissant",
       "price": 150,
       "containsAlcohol": false,
-      "image": "/images/products/緋紅玫韻_官方產品照.png",
+      "image": "/images/products/Rose Raspberry.png",
       "name": {
         "zh-hant": "緋紅玫韻",
         "en": "Rose Raspberry",
