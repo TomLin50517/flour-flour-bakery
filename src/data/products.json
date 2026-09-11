@@ -112,17 +112,17 @@
     {
       "id": "plain-croissant",
       "category": "croissant",
-      "price": 80,
+      "price": 90,
       "containsAlcohol": false,
-      "image": "/images/products/ChatGPT Image 2026年8月16日 上午02_29_37 (1).png",
+      "image": "/images/products/原味_官方產品照.png",
       "name": {
         "zh-hant": "原味",
-        "en": "The First Fold",
+        "en": "Classic",
         "ja": "プレーン・クロワッサン",
         "ko": "플레인 크루아상"
       },
       "tagline": {
-        "zh-hant": "回到可頌，最初的樣子",
+        "zh-hant": "純粹奶香，經典不敗",
         "en": "Where every croissant begins.",
         "ja": "クロワッサンの、はじまりへ。",
         "ko": "크루아상의 시작으로 돌아가다"
@@ -133,15 +133,15 @@
       "category": "croissant",
       "price": 135,
       "containsAlcohol": false,
-      "image": "/images/products/ChatGPT Image 2026年8月16日 上午02_40_23.png",
+      "image": "/images/products/檸光初雪_官方產品照.png",
       "name": {
-        "zh-hant": "檸檬可頌",
-        "en": "Lemon Croissant",
+        "zh-hant": "檸光初雪",
+        "en": "Lemon",
         "ja": "レモン・クロワッサン",
         "ko": "레몬 크루아상"
       },
       "tagline": {
-        "zh-hant": "晨光般的清新酸香",
+        "zh-hant": "清新酸甜，一口戀夏",
         "en": "A bright, citrus freshness, like morning light.",
         "ja": "朝の光のような、爽やかな酸味。",
         "ko": "아침 햇살 같은 상큼한 산미."
@@ -152,15 +152,15 @@
       "category": "croissant",
       "price": 135,
       "containsAlcohol": false,
-      "image": "/images/products/ChatGPT Image 2026年8月16日 上午02_29_38 (6).png",
+      "image": "/images/products/暮夜可可_官方產品照.png",
       "name": {
         "zh-hant": "巧克力可頌",
-        "en": "Chocolate Croissant",
+        "en": "Chocolate",
         "ja": "ショコラ・クロワッサン",
         "ko": "초콜릿 크루아상"
       },
       "tagline": {
-        "zh-hant": "深邃可可，靜靜綻放",
+        "zh-hant": "濃醇可可，大人系美味",
         "en": "Richness — the gentlest of answers.",
         "ja": "濃厚さは、いちばん優しい答え。",
         "ko": "진함은 가장 부드러운 답입니다."
@@ -171,15 +171,15 @@
       "category": "croissant",
       "price": 135,
       "containsAlcohol": false,
-      "image": "/images/products/ChatGPT Image 2026年8月16日 上午02_29_38 (3).png",
+      "image": "/images/products/蜜韻龍眼_官方產品照.png",
       "name": {
-        "zh-hant": "蜜香龍眼可頌",
-        "en": "Honey Longan Croissant",
+        "zh-hant": "蜜韻龍眼",
+        "en": "Longan Honey",
         "ja": "蜜香龍眼クロワッサン",
         "ko": "룽옌 꿀 크루아상"
       },
       "tagline": {
-        "zh-hant": "蜜香流轉，餘韻悠長",
+        "zh-hant": "台灣蜜香，溫潤回甘",
         "en": "Longan honey, lingering long on the palate.",
         "ja": "蜜の香りが流れ、余韻は長く。",
         "ko": "꿀 향이 흐르고, 여운은 길게."
@@ -190,15 +190,15 @@
       "category": "croissant",
       "price": 135,
       "containsAlcohol": false,
-      "image": "/images/products/ChatGPT Image 2026年8月16日 上午02_29_38 (5).png",
+      "image": "/images/products/青霧茶香_官方產品照.png",
       "name": {
-        "zh-hant": "抹茶可頌",
-        "en": "Matcha Croissant",
+        "zh-hant": "青霧茶香",
+        "en": "Matcha",
         "ja": "抹茶クロワッサン",
         "ko": "말차 크루아상"
       },
       "tagline": {
-        "zh-hant": "一抹茶韻，靜心回甘",
+        "zh-hant": "清雅茶韻，回味無窮",
         "en": "Savour it quietly — a note of matcha.",
         "ja": "静かに味わう、一抹の茶の香り。",
         "ko": "조용히 음미하는 한 줄기 찻향."
@@ -209,15 +209,15 @@
       "category": "croissant",
       "price": 150,
       "containsAlcohol": false,
-      "image": "/images/products/ChatGPT Image 2026年8月16日 上午02_29_37 (2).png",
+      "image": "/images/products/墨羽芝香_官方產品照.png",
       "name": {
-        "zh-hant": "黑芝麻可頌",
-        "en": "Black Sesame Croissant",
+        "zh-hant": "墨羽芝香",
+        "en": "Black Sesame",
         "ja": "黒ごまクロワッサン",
         "ko": "흑임자 크루아상"
       },
       "tagline": {
-        "zh-hant": "芝麻醇厚，溫柔留香",
+        "zh-hant": "醇厚芝香，低調奢華",
         "en": "Deep, mellow sesame that lingers gently.",
         "ja": "香ばしいごまの、やわらかな余韻。",
         "ko": "진하고 부드러운 참깨의 여운."
@@ -228,15 +228,15 @@
       "category": "croissant",
       "price": 150,
       "containsAlcohol": false,
-      "image": "/images/products/ChatGPT Image 2026年8月16日 上午02_29_38 (4).png",
+      "image": "/images/products/夕陽金沙_官方產品照.png",
       "name": {
-        "zh-hant": "夕陽金沙可頌",
-        "en": "Sunset Salted-Yolk Croissant",
+        "zh-hant": "夕陽金沙",
+        "en": "Golden Salted Egg Yolk",
         "ja": "夕陽 塩漬け卵黄クロワッサン",
         "ko": "석양 소금 노른자 크루아상"
       },
       "tagline": {
-        "zh-hant": "把夕陽烘進每一口",
+        "zh-hant": "鹹香濃郁，幸福爆餡",
         "en": "The Tamsui sunset, baked into every bite.",
         "ja": "夕陽を、ひと口ずつ焼き込んで。",
         "ko": "석양을 한 입마다 구워 넣다."
@@ -247,15 +247,15 @@
       "category": "croissant",
       "price": 150,
       "containsAlcohol": true,
-      "image": "/images/products/ChatGPT Image 2026年8月16日 上午02_40_15.png",
+      "image": "/images/products/提拉米蘇_官方產品照.png",
       "name": {
-        "zh-hant": "提拉米蘇可頌",
-        "en": "Tiramisu Croissant",
+        "zh-hant": "提拉米蘇",
+        "en": "Tiramisu",
         "ja": "ティラミス・クロワッサン",
         "ko": "티라미수 크루아상"
       },
       "tagline": {
-        "zh-hant": "微醺可可，慢享時光",
+        "zh-hant": "濃醇咖啡，層次迷人",
         "en": "One tipsy bite, and time slows a little.",
         "ja": "ほろ酔いの一口、時間が少しゆるむ。",
         "ko": "살짝 취하는 한 입, 시간이 느려집니다."
@@ -266,15 +266,15 @@
       "category": "croissant",
       "price": 150,
       "containsAlcohol": false,
-      "image": "/images/products/ChatGPT Image 2026年8月16日 上午02_29_39 (7).png",
+      "image": "/images/products/緋紅玫韻_官方產品照.png",
       "name": {
-        "zh-hant": "玫瑰覆盆子可頌",
-        "en": "Rose Raspberry Croissant",
+        "zh-hant": "緋紅玫韻",
+        "en": "Rose Raspberry",
         "ja": "ローズ&ラズベリー・クロワッサン",
         "ko": "로즈 라즈베리 크루아상"
       },
       "tagline": {
-        "zh-hant": "花果芬芳，浪漫盛放",
+        "zh-hant": "浪漫花果，細膩優雅",
         "en": "Rose and raspberry, in romantic full bloom.",
         "ja": "花と果実が香る、ロマンティックな満開。",
         "ko": "장미와 라즈베리, 낭만의 만개."
