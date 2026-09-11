@@ -49,7 +49,7 @@
             "ja": "金萱烏龍に、瑞々しいライチの香りを重ねて。",
             "ko": "금훤 우롱에 맑은 리치 향을 은은히 더했습니다."
           },
-          "image": "/images/products/Lychee.png"
+          "image": "/images/products/ChatGPT Image 2026年9月11日 下午11_04_10.png"
         },
         {
           "heading": {
@@ -354,6 +354,82 @@
         "en": "Taiwan's flavour, tenderly kept.",
         "ja": "台湾の風味を、そっと大切に。",
         "ko": "대만의 풍미를 곱게 간직하다."
+      }
+    },
+    {
+      "id": "lychee-oolong-tea",
+      "category": "drink",
+      "price": 180,
+      "containsAlcohol": false,
+      "image": "/images/products/Lychee Oolong Tea.jpg",
+      "name": {
+        "zh-hant": "荔枝烏龍",
+        "en": "Lychee Oolong Tea",
+        "ja": "ライチ烏龍茶",
+        "ko": "리치 우롱차"
+      },
+      "tagline": {
+        "zh-hant": "湊近瓶口，首先撲鼻而來的是荔枝多汁的鮮甜果香，緊接著是金萱烏龍沉穩飽滿的溫潤茶香，甜而不膩。",
+        "en": "Juicy lychee opens into mellow Jinxuan oolong.",
+        "ja": "瑞々しいライチの後に、まろやかな金萱烏龍。",
+        "ko": "싱그러운 리치 뒤로 금훤 우롱의 부드러운 향이 이어집니다."
+      }
+    },
+    {
+      "id": "longan-black-oolong",
+      "category": "drink",
+      "price": 180,
+      "containsAlcohol": false,
+      "image": "/images/products/Wood-Fired Longan Black Oolong Tea.jpg",
+      "name": {
+        "zh-hant": "柴燒龍眼黑烏龍",
+        "en": "Wood-Fired Longan Black Oolong Tea",
+        "ja": "薪火龍眼黒烏龍茶",
+        "ko": "장작 훈연 용안 블랙 우롱차"
+      },
+      "tagline": {
+        "zh-hant": "極具辨識度的龍眼木柴燒燻香沉穩襲來，隨後釋放出黑烏龍的甘醇厚實與龍眼的熟果甜香，層次驚艷、喉韻深沉。",
+        "en": "Woodsmoke, ripe longan and black oolong linger deeply.",
+        "ja": "薪香、熟した龍眼、黒烏龍。深い余韻へ。",
+        "ko": "장작 향과 익은 용안, 블랙 우롱이 깊은 여운을 남깁니다."
+      }
+    },
+    {
+      "id": "camellia-oolong-tea",
+      "category": "drink",
+      "price": 180,
+      "containsAlcohol": false,
+      "image": "/images/products/Camellia Oolong Tea.jpg",
+      "name": {
+        "zh-hant": "山茶花烏龍",
+        "en": "Camellia Oolong Tea",
+        "ja": "山茶花烏龍茶",
+        "ko": "동백꽃 우롱차"
+      },
+      "tagline": {
+        "zh-hant": "充滿氣質的香氣。山茶花清雅細緻的白色花香率先綻放，隨後與台灣烏龍的內斂茶韻和諧交融，純淨而繞樑。",
+        "en": "White camellia settles into a pure oolong finish.",
+        "ja": "白い山茶花の香りが、澄んだ烏龍へほどけます。",
+        "ko": "맑은 동백꽃 향이 깨끗한 우롱의 여운으로 이어집니다."
+      }
+    },
+    {
+      "id": "peach-oolong-tea",
+      "category": "drink",
+      "price": 180,
+      "containsAlcohol": false,
+      "image": "/images/products/Peach Oolong Tea.jpg",
+      "name": {
+        "zh-hant": "水蜜桃烏龍",
+        "en": "Peach Oolong Tea",
+        "ja": "白桃烏龍茶",
+        "ko": "복숭아 우롱차"
+      },
+      "tagline": {
+        "zh-hant": "輕輕一嗅，迎面而來的是成熟蜜桃的初戀感甜美，隨後台灣烏龍的清香悠然散開，交織出極具現代感的輕盈優雅。",
+        "en": "Ripe peach and fresh oolong unfold in quiet grace.",
+        "ja": "熟した白桃と烏龍が、軽やかにほどけます。",
+        "ko": "잘 익은 복숭아와 우롱이 가볍고 우아하게 펼쳐집니다."
       }
     }
   ]
