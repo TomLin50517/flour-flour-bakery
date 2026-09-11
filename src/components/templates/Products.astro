@@ -73,8 +73,6 @@ const jsonLd = {
       aria-labelledby={`tab-${cat.key}`}
       class:list={['section', 'container', 'product-category', { 'is-active-panel': i === 0 }]}
     >
-      <h2 class="category-heading reveal-text">{cat.label}</h2>
-
       {cat.spotlights.length > 0 && (
         <div class="category-spotlights reveal-text">
           <p class="category-spotlights__label">{t.products.ingredientsLabel}</p>
@@ -150,11 +148,6 @@ const jsonLd = {
   .category-tabs__link.is-active {
     color: var(--color-ink);
     border-color: var(--color-accent-text);
-  }
-  .category-heading {
-    text-align: center;
-    font-size: var(--text-2xl);
-    margin-bottom: var(--space-6);
   }
   /* 無 JS fallback:錨點捲動時預留 sticky 分類列高度;用共用 class 而非硬編分類 id,
      日後從 CMS 新增分類也會自動套用 */
