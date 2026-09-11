@@ -65,6 +65,36 @@
             "ko": "장작에 그을린 용안의 단맛과 블랙 우롱의 깊은 여운."
           },
           "image": "/images/products/Wood-Fired Longan.png"
+        },
+        {
+          "heading": {
+            "zh-hant": "山茶花",
+            "en": "Camellia",
+            "ja": "山茶花",
+            "ko": "동백꽃"
+          },
+          "body": {
+            "zh-hant": "清雅細緻的山茶花香，與台灣烏龍茶相互交織，運用獨特的窨香工藝反覆窨製，讓花香與茶香彼此融合完美平衡。",
+            "en": "Delicate camellia blossoms into a pure oolong finish.",
+            "ja": "山茶花の香りと、澄んだ烏龍の余韻。",
+            "ko": "은은한 동백꽃 향과 맑은 우롱의 여운."
+          },
+          "image": "/images/products/Camellia.png"
+        },
+        {
+          "heading": {
+            "zh-hant": "水蜜桃",
+            "en": "Peach",
+            "ja": "白桃",
+            "ko": "복숭아"
+          },
+          "body": {
+            "zh-hant": "甜美的蜜桃香氣與清香烏龍完美融合，傳承古法窨製技術，融合現代風味，打造符合當代品味的時尚茶飲。",
+            "en": "Ripe peach brightens the quiet clarity of oolong.",
+            "ja": "熟した白桃の甘い香りを、清らかな烏龍に。",
+            "ko": "잘 익은 복숭아 향이 맑은 우롱과 가볍게 어우러집니다."
+          },
+          "image": "/images/products/Peach.png"
         }
       ]
     },
