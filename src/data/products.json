@@ -34,7 +34,24 @@
         "en": "Drinks",
         "ja": "ドリンク",
         "ko": "음료"
-      }
+      },
+      "spotlights": [
+        {
+          "heading": {
+            "zh-hant": "荔枝",
+            "en": "Lychee",
+            "ja": "ライチ",
+            "ko": "리치"
+          },
+          "body": {
+            "zh-hant": "融合了金萱烏龍茶與荔枝的精華，傳承古法窨製技術，融入現代風味，重塑東方茶香與耳目一新的味覺體驗。",
+            "en": "Lychee notes rest gently over mellow Jinxuan oolong.",
+            "ja": "金萱烏龍に、瑞々しいライチの香りを重ねて。",
+            "ko": "금훤 우롱에 맑은 리치 향을 은은히 더했습니다."
+          },
+          "image": "/images/products/ChatGPT Image 2026年9月11日 下午11_04_10.png"
+        }
+      ]
     },
     {
       "key": "gift",
