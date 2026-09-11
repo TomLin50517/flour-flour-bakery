@@ -25,7 +25,24 @@
         "en": "Ice Cream",
         "ja": "アイスクリーム",
         "ko": "아이스크림"
-      }
+      },
+      "spotlights": [
+        {
+          "heading": {
+            "zh-hant": "黑雪花鹽",
+            "en": "Black Flake Salt",
+            "ja": "ブラックフレークソルト",
+            "ko": "블랙 플레이크 솔트"
+          },
+          "body": {
+            "zh-hant": "來自地中海的黑色雪花片鹽，以輕薄酥脆的鹽晶與深邃墨色，為料理增添細緻鹹味與精品般的視覺層次。",
+            "en": "Black flake salt from the Mediterranean, featuring delicate, crisp crystals and a deep charcoal hue, adds refined salinity and a luxurious visual dimension to every dish.",
+            "ja": "地中海生まれのブラックフレークソルト。軽やかでパリッとした塩の結晶と深い墨色が、料理に繊細な塩味と洗練された美しいアクセントを添えます。",
+            "ko": "지중해에서 온 블랙 플레이크 솔트. 얇고 바삭한 소금 결정과 깊은 먹빛이 요리에 섬세한 짠맛과 고급스러운 시각적 포인트를 더합니다."
+          },
+          "image": "/images/products/Black Flake Salt.png"
+        }
+      ]
     },
     {
       "key": "drink",
