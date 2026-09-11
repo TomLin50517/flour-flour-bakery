@@ -107,12 +107,15 @@ const { lang, path, labels } = Astro.props;
     });
   });
 
-  // 切換語系要保留網址的 hash(例如商品頁的 #drink 分類頁籤)。href 是伺服端渲染時算好的
-  // 純路徑(伺服端看不到 hash,那是純前端的東西),所以在這裡補上目前的 hash 再讓連結生效,
-  // 否則切語系會導回無 hash 的網址,頁籤跟著重置回預設的第一個分類。
-  if (location.hash) {
-    document.querySelectorAll<HTMLAnchorElement>('.lang-select a').forEach((a) => {
-      a.href += location.hash;
+  // 切換語系要保留網址的 hash(例如商品頁點了「飲品」頁籤後的 #drink)。href 是伺服端渲染時
+  // 算好的純路徑,伺服端看不到 hash。原本在頁面載入時「當下」補一次 hash,但商品頁的分類頁籤
+  // 是載入後才用 history.replaceState 改 hash(見 Products.astro),這段 script 早就跑完、
+  // 不會再重跑,所以載入後才切頁籤再切語系,hash 還是補不到——改成「點擊當下」才讀取當前
+  // hash 並重算目標網址,不管 hash 是什麼時候變的都能補到最新的。
+  document.querySelectorAll<HTMLAnchorElement>('.lang-select a').forEach((a) => {
+    const base = a.href.split('#')[0];
+    a.addEventListener('click', () => {
+      if (location.hash) a.href = base + location.hash;
     });
-  }
+  });
 </script>
