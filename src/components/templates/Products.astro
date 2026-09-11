@@ -150,9 +150,11 @@ const jsonLd = {
     border-color: var(--color-accent-text);
   }
   /* 無 JS fallback:錨點捲動時預留 sticky 分類列高度;用共用 class 而非硬編分類 id,
-     日後從 CMS 新增分類也會自動套用 */
+     日後從 CMS 新增分類也會自動套用。.section 預設 160px 上下留白是給首頁那種大區塊用的,
+     這裡上面已經有頁籤列頂著,不需要再留這麼多空白,改小很多。 */
   .product-category {
     scroll-margin-top: 64px;
+    padding-block: var(--space-4);
   }
   /* 頁籤切換的隱藏行為只在 JS 成功執行時套用(見 Base.astro 的 html.js 標記,
      跟 reveal-text/reveal-media 同一套漸進增強手法)。JS 關閉或載入失敗時,
