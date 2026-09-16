@@ -13,7 +13,7 @@
       "key": "danish",
       "label": {
         "zh-hant": "丹麥棒",
-        "en": "Danish Sticks",
+        "en": "Danish Pastry Sticks",
         "ja": "デニッシュスティック",
         "ko": "데니시 스틱"
       }
@@ -313,41 +313,41 @@
       }
     },
     {
-      "id": "longan-tea-danish",
-      "category": "danish",
-      "price": 550,
-      "containsAlcohol": false,
-      "image": "/images/products/longan-tea-danish.jpg",
-      "name": {
-        "zh-hant": "茶香龍眼丹麥棒",
-        "en": "Longan Tea Danish Stick",
-        "ja": "龍眼茶デニッシュスティック",
-        "ko": "룽옌차 데니시 스틱"
-      },
-      "tagline": {
-        "zh-hant": "茶香伴風景，甜在旅程",
-        "en": "Tea and river view, sweetness for the journey.",
-        "ja": "茶の香りと風景、旅の甘さ。",
-        "ko": "차향과 풍경, 여정 속 달콤함."
-      }
-    },
-    {
       "id": "youtiao-danish",
       "category": "danish",
       "price": 600,
       "containsAlcohol": false,
       "image": "/images/products/youtiao-danish.jpg",
       "name": {
-        "zh-hant": "丹麥油條棒",
-        "en": "Youtiao Danish Stick",
-        "ja": "油條デニッシュスティック",
-        "ko": "유탸오 데니시 스틱"
+        "zh-hant": "經典原味",
+        "en": "Classic Danish Pastry Stick",
+        "ja": "クラシック・デニッシュスティック",
+        "ko": "클래식 데니시 스틱"
       },
       "tagline": {
-        "zh-hant": "熟悉記憶，優雅重逢",
-        "en": "A familiar memory, elegantly met again.",
-        "ja": "懐かしい記憶と、優雅な再会。",
-        "ko": "익숙한 기억과의 우아한 재회."
+        "zh-hant": "層層折疊的丹麥麵糰，經烘烤呈現輕盈酥脆的口感。純粹的奶油香氣隨著咀嚼慢慢展開，簡單而耐吃，呈現丹麥麵糰最經典的風味。",
+        "en": "Layers of Danish pastry bake to a delicate crisp, releasing pure butter notes with every bite. Simple, balanced and quietly satisfying—a timeless expression of classic laminated dough.",
+        "ja": "幾重にも折り重ねたデニッシュ生地を軽やかに焼き上げました。繊細な歯ざわりと、噛むほどに広がる澄んだバターの香り。飾らないおいしさが、静かな余韻を残します。",
+        "ko": "겹겹이 접은 데니시 반죽을 가볍고 섬세하게 구워냈습니다. 바삭한 결 사이로 순수한 버터 향이 천천히 퍼지며, 단정하고 오래 기억되는 클래식한 풍미를 전합니다."
+      }
+    },
+    {
+      "id": "longan-tea-danish",
+      "category": "danish",
+      "price": 550,
+      "containsAlcohol": false,
+      "image": "/images/products/longan-tea-danish.jpg",
+      "name": {
+        "zh-hant": "龍眼",
+        "en": "Longan Danish Pastry Stick",
+        "ja": "龍眼デニッシュスティック",
+        "ko": "용안 데니시 스틱"
+      },
+      "tagline": {
+        "zh-hant": "將龍眼風味融入層層酥脆的丹麥點心，烘烤後散發溫潤果香與自然甜韻。酥香之中帶著淡雅龍眼氣息，呈現具有在地記憶的獨特風味。",
+        "en": "Longan is folded into crisp layers of Danish pastry, bringing mellow fruit notes and a gentle natural sweetness. A refined local character lingers beneath the warm, buttery finish.",
+        "ja": "龍眼の穏やかな甘みを、幾重ものデニッシュ生地に重ねました。軽やかな食感の奥に温かな果実香が広がり、土地の記憶を思わせるやさしい余韻へ。",
+        "ko": "용안의 은은한 단맛을 바삭한 데니시 결에 담았습니다. 따뜻한 과실 향과 자연스러운 달콤함이 버터의 고소함과 어우러져, 지역의 기억을 닮은 여운을 남깁니다."
       }
     },
     {
@@ -490,16 +490,16 @@
       "containsAlcohol": false,
       "image": "/images/products/Classic_icecream.png",
       "name": {
-        "zh-hant": "經典原味冰淇淋",
-        "en": "Classic Ice Cream",
-        "ja": "クラシックアイスクリーム",
-        "ko": "클래식 아이스크림"
+        "zh-hant": "初雪原香",
+        "en": "First Snow",
+        "ja": "初雪ミルク",
+        "ko": "첫눈 밀크"
       },
       "tagline": {
-        "zh-hant": "純淨乳香與細緻滑順的口感，呈現簡單而耐人回味的經典風味。",
-        "en": "Pure milky notes and a silky-smooth texture create a timeless flavor to savor.",
-        "ja": "ピュアなミルクの香りとなめらかな口どけが、シンプルで奥深い味わいを奏でます。",
-        "ko": "순수한 우유의 풍미와 부드러운 식감이 어우러진, 오래도록 기억에 남는 클래식한 맛입니다."
+        "zh-hant": "純白細緻的霜淇淋，點綴些許岩鹽，柔和鹹味襯托濃郁奶香。入口滑順輕盈，如初雪般純粹。",
+        "en": "Silken white soft serve, finished with a touch of rock salt. Its gentle salinity draws out the richness of the milk, leaving a clean, weightless finish reminiscent of first snow.",
+        "ja": "なめらかな純白のソフトクリームに、ひとつまみの岩塩を。やわらかな塩味がミルクのコクを引き立て、初雪のように澄んだ軽やかな余韻を残します。",
+        "ko": "순백의 부드러운 소프트아이스크림에 암염을 살짝 더했습니다. 은은한 짠맛이 우유의 깊은 풍미를 깨우고, 첫눈처럼 맑고 가벼운 여운을 남깁니다."
       }
     },
     {
@@ -509,16 +509,16 @@
       "containsAlcohol": false,
       "image": "/images/products/Black_Flake_Salt_icecream.png",
       "name": {
-        "zh-hant": "黑雪花鹽冰淇淋",
-        "en": "Black Flake Salt Ice Cream",
-        "ja": "ブラックフレークソルトアイスクリーム",
-        "ko": "블랙 플레이크 솔트 아이스크림"
+        "zh-hant": "黑晶雪花",
+        "en": "Black Flake Salt",
+        "ja": "黒晶フレークソルト",
+        "ko": "블랙 플레이크 솔트"
       },
       "tagline": {
-        "zh-hant": "輕薄酥脆的黑雪花鹽點綴柔滑冰淇淋，鹹甜交織，尾韻更顯深邃。",
-        "en": "Delicate, crisp black salt flakes accent the silky ice cream with a refined balance of sweet and savory.",
-        "ja": "軽やかで繊細な黒いフレークソルトが、なめらかなアイスに上品な甘さと塩味の余韻を添えます。",
-        "ko": "가볍고 바삭한 블랙 플레이크 솔트가 부드러운 아이스크림에 세련된 단짠의 여운을 더합니다."
+        "zh-hant": "細緻霜淇淋淋上橄欖油，再以黑晶雪花點綴。溫潤油脂香氣與細微鹹味交織，讓奶香更加圓潤立體。",
+        "en": "Silken soft serve drizzled with olive oil and finished with black flake salt. A rounded olive aroma and fine salinity lend new depth to the mellow milk.",
+        "ja": "なめらかなソフトクリームにオリーブオイルを垂らし、黒いフレークソルトを添えました。まろやかな香りと繊細な塩味が、ミルクの奥行きを静かに引き出します。",
+        "ko": "부드러운 소프트아이스크림에 올리브 오일을 두르고 블랙 플레이크 솔트를 더했습니다. 온화한 향과 섬세한 짠맛이 우유의 풍미를 한층 입체적으로 완성합니다."
       }
     },
     {
@@ -528,35 +528,35 @@
       "containsAlcohol": false,
       "image": "/images/products/Balsamico_icecream.png",
       "name": {
-        "zh-hant": "巴薩米克醋冰淇淋",
-        "en": "Balsamic Vinegar Ice Cream",
-        "ja": "バルサミコアイスクリーム",
-        "ko": "발사믹 식초 아이스크림"
+        "zh-hant": "琥珀醋韻",
+        "en": "Amber Balsamico",
+        "ja": "琥珀バルサミコ",
+        "ko": "앰버 발사믹"
       },
       "tagline": {
-        "zh-hant": "巴薩米克醋的酸甜果香點亮醇厚乳香，交織出優雅而富有層次的風味。",
-        "en": "The sweet-tart fruitiness of balsamic vinegar brightens the creamy richness with elegant complexity.",
-        "ja": "バルサミコの甘酸っぱい果実味が豊かなミルクのコクを引き立て、上品な奥行きを生み出します。",
-        "ko": "발사믹 식초의 새콤달콤한 과실 향이 진한 우유 풍미를 밝혀 주며 우아한 깊이를 더합니다."
+        "zh-hant": "香醇霜淇淋佐以陳年醋與岩鹽，酸甜醋香與柔和奶香彼此交融。琥珀色澤下，呈現酸、甜、鹹之間細緻而悠長的層次。",
+        "en": "Silken soft serve with aged balsamic and rock salt. Bright acidity, mellow sweetness and a gentle saline note meet in a long, finely layered amber finish.",
+        "ja": "なめらかなソフトクリームに熟成バルサミコと岩塩を。酸味、甘み、塩味が繊細に重なり、琥珀色の深く長い余韻へと続きます。",
+        "ko": "부드러운 소프트아이스크림에 숙성 발사믹과 암염을 더했습니다. 산미와 단맛, 은은한 짠맛이 섬세하게 겹쳐져 깊고 긴 호박빛 여운을 완성합니다."
       }
     },
     {
       "id": "whisky-ice-cream",
       "category": "ice-cream",
-      "price": 200,
+      "price": 240,
       "containsAlcohol": true,
       "image": "/images/products/Whisky_icecream.png",
       "name": {
-        "zh-hant": "威士忌冰淇淋",
-        "en": "Whisky Ice Cream",
-        "ja": "ウイスキーアイスクリーム",
-        "ko": "위스키 아이스크림"
+        "zh-hant": "暮夜酒香</br>噶瑪蘭威士忌・岩鹽",
+        "en": "Midnight Whisky",
+        "ja": "宵のウイスキー",
+        "ko": "미드나이트 위스키"
       },
       "tagline": {
-        "zh-hant": "醇厚威士忌香氣融入柔滑乳香，留下溫暖而深邃的迷人餘韻。",
-        "en": "Silky milk ice cream infused with rich whisky aromas, leaving a warm and sophisticated finish.",
-        "ja": "なめらかなミルクの味わいに芳醇なウイスキーが重なり、温かく深い余韻を残します。",
-        "ko": "부드러운 우유 풍미에 깊고 풍부한 위스키 향이 더해져 따뜻하고 우아한 여운을 남깁니다."
+        "zh-hant": "細緻霜淇淋佐以噶瑪蘭威士忌與岩鹽，奶香中緩緩展開成熟酒韻，微鹹滋味襯托威士忌的深邃香氣，留下悠長而迷人的尾韻。",
+        "en": "Silken soft serve with Kavalan Whisky and rock salt. The milk's soft richness opens slowly into mature whisky notes, while subtle salinity carries the finish long and deep.",
+        "ja": "なめらかなソフトクリームにカバランウイスキーと岩塩を。ミルクのコクに深い酒香がゆっくりとほどけ、ほのかな塩味が長い余韻を引き立てます。",
+        "ko": "부드러운 소프트아이스크림에 카발란 위스키와 암염을 더했습니다. 우유의 깊은 풍미 사이로 성숙한 위스키 향이 천천히 펼쳐지고, 은은한 짠맛이 긴 여운을 이끕니다."
       }
     }
   ]
