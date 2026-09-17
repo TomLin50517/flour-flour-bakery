@@ -1,9 +1,8 @@
 ---
 // 首頁 — 安靜奢華編輯版型:Hero(92vh 單張攝影)→ Manifesto(純文字留白)→ Signature(非對稱)
-// → Today's Bake(3 款)→ Drink(非對稱,圖尚未到位)→ The Place(河岸場域)→ Gift(深色)→ Visit → Minimal Footer(Base 內建)
+// → Today's Bake(3 款)→ Drink(非對稱)→ The Place(河岸場域)→ Gift(深色)→ Visit → Minimal Footer(Base 內建)
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../ProductCard.astro';
-import ImagePlaceholder from '../ImagePlaceholder.astro';
 import { getDict, getBusinessInfo, localePrefix, type Lang } from '../../i18n';
 import { getProducts } from '../../data/products';
 
@@ -90,11 +89,11 @@ const toLines = (text: string) => text.split('\n');
     </div>
   </section>
 
-  <!-- 5. Drink:非對稱,比照 Signature 排版(圖尚未到位,先用佔位圖) -->
+  <!-- 5. Drink:非對稱,比照 Signature 排版 -->
   <section class="section drink">
     <div class="container drink__grid">
       <div class="drink__media reveal-media">
-        <ImagePlaceholder label="Drink Photography" ratio="4:5" aspect="4 / 5" class="drink__photo" />
+        <img src="/images/products/Peach Oolong Tea.jpg" alt={t.home.drink.title} class="drink__photo" width="1023" height="1279" loading="lazy" decoding="async" />
       </div>
       <div class="drink__content reveal-text">
         <p class="eyebrow">DRINK</p>
@@ -389,7 +388,7 @@ const toLines = (text: string) => text.split('\n');
     margin-top: var(--space-6);
   }
 
-  /* ---- 5. drink:非對稱,比照 signature 65/35(圖尚未到位,先用佔位圖);
+  /* ---- 5. drink:非對稱,比照 signature 65/35;
      底色沿用原本「the place」在這個順序位置該有的米色調,當作 signature/featured 之後的視覺喘息 ---- */
   .drink {
     background: var(--color-surface);
