@@ -17,7 +17,6 @@ const t = getDict(lang);
 
   <section class="section privacy-page">
     <div class="container reading-column reveal-text">
-      <p class="privacy-page__note">{t.privacy.lastUpdated}</p>
       {t.privacy.sections.map((section) => (
         <div class="privacy-page__section">
           <h2>{section.heading}</h2>
@@ -29,10 +28,6 @@ const t = getDict(lang);
 </Base>
 
 <style>
-  .privacy-page__note {
-    color: var(--color-ink-soft);
-    font-size: var(--text-sm);
-  }
   .privacy-page__section {
     margin-top: var(--space-5);
   }
