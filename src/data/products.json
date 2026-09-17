@@ -558,6 +558,82 @@
         "ja": "【カバランウイスキー・岩塩】なめらかなソフトクリームにカバランウイスキーと岩塩を。ミルクのコクに深い酒香がゆっくりとほどけ、ほのかな塩味が長い余韻を引き立てます。",
         "ko": "【카발란 위스키 · 암염】부드러운 소프트아이스크림에 카발란 위스키와 암염을 더했습니다. 우유의 깊은 풍미 사이로 성숙한 위스키 향이 천천히 펼쳐지고, 은은한 짠맛이 긴 여운을 이끕니다."
       }
+    },
+    {
+      "id": "iced-americano",
+      "category": "drink",
+      "price": 120,
+      "containsAlcohol": false,
+      "image": "/images/products/Iced Americano.png",
+      "name": {
+        "zh-hant": "冰美式咖啡",
+        "en": "Iced Americano",
+        "ja": "アイスアメリカーノ",
+        "ko": "아이스 아메리카노"
+      },
+      "tagline": {
+        "zh-hant": "濃縮咖啡注入冰水，保留鮮明咖啡香氣，口感清爽俐落，純粹不厚重。",
+        "en": "Espresso poured over chilled water preserves its vivid aroma and clean structure—a crisp, pure cup with an effortless finish.",
+        "ja": "エスプレッソを冷たい水に注ぎ、鮮やかな香りをそのままに。すっきりとした輪郭と軽やかな後味が心地よい、純粋な一杯です。",
+        "ko": "에스프레소를 차가운 물에 더해 선명한 향을 살렸습니다. 가볍고 또렷한 질감과 깨끗한 마무리가 돋보이는 순수한 한 잔입니다."
+      }
+    },
+    {
+      "id": "hot-americano",
+      "category": "drink",
+      "price": 120,
+      "containsAlcohol": false,
+      "image": "/images/products/Hot Americano.png",
+      "name": {
+        "zh-hant": "熱美式咖啡",
+        "en": "Hot Americano",
+        "ja": "ホットアメリカーノ",
+        "ko": "핫 아메리카노"
+      },
+      "tagline": {
+        "zh-hant": "以濃縮咖啡調和熱水，香氣溫潤展開，呈現純粹而平衡的咖啡風味。",
+        "en": "Espresso lengthened with hot water allows its warm aroma to open gradually, creating a cup that is pure, balanced and quietly expressive.",
+        "ja": "エスプレッソに温かな湯を重ね、香りをゆっくりと開かせました。純粋で調和のとれた味わいが、穏やかな余韻へと続きます。",
+        "ko": "에스프레소에 따뜻한 물을 더해 향이 천천히 피어나도록 했습니다. 순수하고 균형 잡힌 풍미가 차분한 여운으로 이어집니다."
+      }
+    },
+    {
+      "id": "iced-latte",
+      "category": "drink",
+      "price": 160,
+      "containsAlcohol": false,
+      "image": "/images/products/Iced Latte.png",
+      "name": {
+        "zh-hant": "冰拿鐵",
+        "en": "Iced Latte",
+        "ja": "アイスカフェラテ",
+        "ko": "아이스 카페라테"
+      },
+      "tagline": {
+        "zh-hant": "濃縮咖啡與冰涼鮮奶交融，奶香柔順，平衡咖啡的醇厚與香氣。",
+        "en": "Espresso and chilled fresh milk meet in a smooth, balanced pour. Mellow creaminess softens the coffee's depth while preserving its fine aroma.",
+        "ja": "エスプレッソと冷たいミルクをなめらかに。やさしいコクがコーヒーの深みを包みながら、繊細な香りを美しく引き立てます。",
+        "ko": "에스프레소와 차가운 우유가 부드럽게 어우러집니다. 온화한 밀크의 풍미가 커피의 깊이를 감싸면서 섬세한 향을 또렷하게 살립니다."
+      }
+    },
+    {
+      "id": "hot-latte",
+      "category": "drink",
+      "price": 160,
+      "containsAlcohol": false,
+      "image": "/images/products/Hot Latte.png",
+      "name": {
+        "zh-hant": "熱拿鐵",
+        "en": "Hot Latte",
+        "ja": "ホットカフェラテ",
+        "ko": "핫 카페라테"
+      },
+      "tagline": {
+        "zh-hant": "濃縮咖啡搭配溫熱鮮奶，口感細緻滑順，咖啡香與奶香溫柔融合。",
+        "en": "Espresso and steamed fresh milk come together in a velvety cup, where roasted coffee notes and gentle milk sweetness settle into harmony.",
+        "ja": "エスプレッソと温かなミルクを、きめ細かくなめらかに。香ばしいコーヒーとやさしいミルクの甘みが、穏やかに調和します。",
+        "ko": "에스프레소와 따뜻한 우유가 벨벳처럼 부드럽게 어우러집니다. 고소한 커피 향과 은은한 우유의 단맛이 편안한 균형을 이룹니다."
+      }
     }
   ]
 }
