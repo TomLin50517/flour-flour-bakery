@@ -202,7 +202,7 @@
       "id": "honey-longan-croissant",
       "category": "croissant",
       "price": 135,
-      "containsAlcohol": false,
+      "containsAlcohol": true,
       "image": "/images/products/Longan.png",
       "name": {
         "zh-hant": "蜜韻龍眼",
