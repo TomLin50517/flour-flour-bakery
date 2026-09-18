@@ -37,6 +37,9 @@ export interface Category {
   label: string;
   // 分類可以介紹不只一項特色食材(例如冰淇淋的香草、可可各自一段),故為陣列;未設定則為空陣列。
   spotlights: CategorySpotlight[];
+  // 分類尚未準備好時可暫時隱藏(例如禮盒還沒定案):首頁對應區塊、產品頁頁籤與 ItemList
+  // 結構化資料都不會渲染,不是單純 CSS 隱藏,搜尋引擎爬不到內容;之後準備好只要取消勾選即可恢復。
+  hidden: boolean;
 }
 
 const FALLBACK: Lang = 'zh-hant';
@@ -64,6 +67,7 @@ interface RawCategory {
   key: string;
   label: LocaleMap;
   spotlights?: RawSpotlight[];
+  hidden?: boolean;
 }
 
 export function getCategories(lang: Lang): Category[] {
@@ -75,5 +79,6 @@ export function getCategories(lang: Lang): Category[] {
       body: pick(s.body, lang),
       image: s.image,
     })),
+    hidden: c.hidden ?? false,
   }));
 }

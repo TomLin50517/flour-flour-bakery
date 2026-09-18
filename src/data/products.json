@@ -137,7 +137,8 @@
         "en": "Signature Gift Boxes",
         "ja": "ギフトボックス",
         "ko": "시그니처 기프트 박스"
-      }
+      },
+      "hidden": true
     }
   ],
   "products": [

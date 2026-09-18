@@ -146,6 +146,7 @@ collections:
             widget: list
             fields:
               - { name: key, label: '代號（英文，請勿更改）', widget: string }
+              - { name: hidden, label: '暫時隱藏此分類（勾選＝首頁對應區塊與產品頁頁籤都不顯示，商品資料也不會被搜尋引擎收錄；適合商品還沒定案時使用）', widget: boolean, default: false }
               - name: label
                 label: 分類名稱
                 widget: object

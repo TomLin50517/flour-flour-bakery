@@ -4,7 +4,7 @@
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../ProductCard.astro';
 import { getDict, getBusinessInfo, localePrefix, type Lang } from '../../i18n';
-import { getProducts } from '../../data/products';
+import { getProducts, getCategories } from '../../data/products';
 
 export interface Props {
   lang: Lang;
@@ -15,7 +15,15 @@ const t = getDict(lang);
 const b = getBusinessInfo(lang);
 const p = localePrefix[lang];
 
-const featured = getProducts(lang).slice(0, 3);
+// 特別推薦:指定固定三款(不再自動取陣列前三筆),陣列順序即畫面顯示順序。
+const FEATURED_IDS = ['plain-croissant', 'black-sesame-croissant', 'longan-tea-danish'];
+const allProducts = getProducts(lang);
+const featured = FEATURED_IDS
+  .map((id) => allProducts.find((item) => item.id === id))
+  .filter((item): item is NonNullable<typeof item> => item !== undefined);
+
+// 禮盒還沒準備好時,跟產品頁的 gift 頁籤共用同一個 hidden 開關,首頁這區也整段不渲染。
+const showGift = !getCategories(lang).find((cat) => cat.key === 'gift')?.hidden;
 
 // manifesto 標語含 \n 手動斷行(各語系斷點不同),拆成行陣列供逐行渲染。
 const toLines = (text: string) => text.split('\n');
@@ -119,20 +127,22 @@ const toLines = (text: string) => text.split('\n');
     </div>
   </section>
 
-  <!-- 7. Gift Collection:深色區塊 -->
-  <section class="gift">
-    <div class="container gift__inner">
-      <div class="gift__media reveal-media">
-        <img src="/images/gift-saltedyolk-cheese.jpg" alt={t.home.gift.heading} class="gift__photo" width="1114" height="1469" loading="lazy" />
+  <!-- 7. Gift Collection:深色區塊(禮盒商品未定案時整段不渲染,見上方 showGift) -->
+  {showGift && (
+    <section class="gift">
+      <div class="container gift__inner">
+        <div class="gift__media reveal-media">
+          <img src="/images/gift-saltedyolk-cheese.jpg" alt={t.home.gift.heading} class="gift__photo" width="1114" height="1469" loading="lazy" />
+        </div>
+        <div class="reveal-text">
+          <p class="eyebrow gift__eyebrow">GIFT</p>
+          <h2>{t.home.gift.heading}</h2>
+          <p class="gift__body">{t.home.gift.body}</p>
+          <a class="btn btn--on-dark gift__cta" href={`${p}/products#gift`}>{t.home.gift.cta}</a>
+        </div>
       </div>
-      <div class="reveal-text">
-        <p class="eyebrow gift__eyebrow">GIFT</p>
-        <h2>{t.home.gift.heading}</h2>
-        <p class="gift__body">{t.home.gift.body}</p>
-        <a class="btn btn--on-dark gift__cta" href={`${p}/products#gift`}>{t.home.gift.cta}</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  )}
 
   <!-- 8. Visit FlourFlour -->
   <section class="section visit">
@@ -398,6 +408,12 @@ const toLines = (text: string) => text.split('\n');
     grid-template-columns: 65fr 35fr;
     gap: var(--space-7);
     align-items: center;
+  }
+  .drink__photo {
+    width: 100%;
+    height: auto; /* 讓 aspect-ratio 主導高度,避免 <img height> 屬性把窄螢幕下的照片拉長變形 */
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
   }
   .drink__content h2 {
     font-size: var(--text-3xl);

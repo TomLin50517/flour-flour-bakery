@@ -19,8 +19,11 @@ const t = getDict(lang);
 const b = getBusinessInfo(lang);
 const p = localePrefix[lang];
 
-const categories = getCategories(lang);
-const products = getProducts(lang);
+// 隱藏分類(例如禮盒還沒準備好)整批排除,不是 CSS 隱藏——不渲染頁籤/內容區,
+// 底下的商品也不進 ItemList 結構化資料,搜尋引擎爬不到,之後準備好取消 hidden 即可恢復。
+const categories = getCategories(lang).filter((cat) => !cat.hidden);
+const hiddenKeys = new Set(getCategories(lang).filter((cat) => cat.hidden).map((cat) => cat.key));
+const products = getProducts(lang).filter((item) => !hiddenKeys.has(item.category));
 
 const jsonLd = {
   '@context': 'https://schema.org',
