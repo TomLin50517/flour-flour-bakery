@@ -132,13 +132,13 @@
     },
     {
       "key": "gift",
+      "hidden": true,
       "label": {
         "zh-hant": "特色禮盒",
         "en": "Signature Gift Boxes",
         "ja": "ギフトボックス",
         "ko": "시그니처 기프트 박스"
-      },
-      "hidden": true
+      }
     }
   ],
   "products": [
@@ -316,7 +316,7 @@
     {
       "id": "youtiao-danish",
       "category": "danish",
-      "price": 550,
+      "price": 500,
       "containsAlcohol": false,
       "image": "/images/products/Classic Danish .png",
       "name": {
