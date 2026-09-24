@@ -1,6 +1,24 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+// 無尾斜線網址 → 有尾斜線正式網址的「永久」轉址(Cloudflare 靜態資源的 _redirects)。
+// 主機內建的 html_handling 只會回 307(暫時轉址),無法改成永久,所以在這裡由實際建置出的頁面
+// 自動產生 301 規則:新增/刪除頁面不需手動維護。只涵蓋網頁路徑,不動 robots/sitemap/圖片等檔案。
+const trailingSlashRedirects = {
+  name: 'trailing-slash-redirects',
+  hooks: {
+    'astro:build:done': ({ pages, dir }) => {
+      const lines = pages
+        .map((p) => p.pathname.replace(/\/$/, ''))
+        .filter((path) => path && path !== '404')
+        .map((path) => `/${path} /${path}/ 301`);
+      writeFileSync(fileURLToPath(new URL('_redirects', dir)), lines.join('\n') + '\n');
+    },
+  },
+};
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,6 +43,7 @@ export default defineConfig({
     },
   },
   integrations: [
+    trailingSlashRedirects,
     sitemap({
       i18n: {
         defaultLocale: 'zh-hant',
