@@ -17,6 +17,14 @@ export const localePrefix: Record<Lang, string> = {
   ko: '/ko',
 };
 
+// 各語系頁面的「正式網址路徑」:一律以 / 結尾,與實際輸出的目錄式網址(/products/)及 sitemap 一致。
+// 沒有尾斜線的版本(/products)會被主機轉址,不可拿來當 canonical / hreflang。
+// path 為不含語系前綴的頁面路徑,如 '/'、'/products'。
+export function canonicalPathFor(lang: Lang, path: string): string {
+  const full = `${localePrefix[lang]}${path}`;
+  return full.endsWith('/') ? full : `${full}/`;
+}
+
 // <html lang> / hreflang 用的 BCP-47 標記
 export const htmlLang: Record<Lang, string> = {
   'zh-hant': 'zh-Hant',

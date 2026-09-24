@@ -20,7 +20,7 @@ import cormorantNormal500 from '@fontsource/cormorant-garamond/files/cormorant-g
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
-import { getDict, getBusinessInfo, localePrefix, htmlLang, locales, type Lang } from '../i18n';
+import { getDict, getBusinessInfo, localePrefix, canonicalPathFor, htmlLang, locales, type Lang } from '../i18n';
 import announcement from '../data/announcement.json';
 
 export interface Props {
@@ -38,7 +38,7 @@ const b = getBusinessInfo(lang);
 const bizZh = getBusinessInfo('zh-hant'); // JSON-LD 採繁中原文為單一標準值
 
 const siteUrl = 'https://flourflour.com.tw';
-const canonicalPath = `${localePrefix[lang]}${path}`;
+const canonicalPath = canonicalPathFor(lang, path);
 const ogLocale = { 'zh-hant': 'zh_TW', en: 'en_US', ja: 'ja_JP', ko: 'ko_KR' } as const;
 
 // 本頁需要的 CJK 字型(英文頁僅需共用拉丁字,故為 null)。各語系只載自己的子集;
@@ -141,9 +141,9 @@ const jsonLd = {
     <meta name="description" content={description} />
     <link rel="canonical" href={`${siteUrl}${canonicalPath}`} />
     {locales.map((l) => (
-      <link rel="alternate" hreflang={htmlLang[l]} href={`${siteUrl}${localePrefix[l]}${path}`} />
+      <link rel="alternate" hreflang={htmlLang[l]} href={`${siteUrl}${canonicalPathFor(l, path)}`} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${path}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${canonicalPathFor('zh-hant', path)}`} />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="FlourFlour BAKERY" />
