@@ -1,39 +1,39 @@
 {
   "meta": {
-    "siteName": "FlourFlour BAKERY",
-    "titleSuffix": " | FlourFlour BAKERY"
+    "siteName": "Flour Flour Bakery",
+    "titleSuffix": " | Flour Flour Bakery"
   },
   "pageMeta": {
     "home": {
-      "title": "FlourFlour BAKERY|A Quiet Taste of Tamsui. — 淡水・川辺のベーカリー",
+      "title": "Flour Flour Bakery|A Quiet Taste of Tamsui. — 淡水・川辺のベーカリー",
       "description": "FlourFlourは淡水の川辺にある古民家ベーカリー。こだわりのクロワッサン、デニッシュスティック、台湾らしい味わいのスイーツをお届けします。淡水老街を散策しながら、幾重にも重なるサクサクの味わいと淡水のお土産をお楽しみください。"
     },
     "story": {
-      "title": "私たちの物語 | FlourFlour BAKERY",
+      "title": "私たちの物語 | Flour Flour Bakery",
       "description": "川、粉、花、折り、光——五つの章で綴る、淡水河のほとりでパンを焼く日々。"
     },
     "products": {
-      "title": "商品紹介 | FlourFlour BAKERY",
+      "title": "商品紹介 | Flour Flour Bakery",
       "description": "FlourFlour のクロワッサン、デニッシュ、台湾風の焼き菓子、そして淡水のギフト。定番から季節限定まで、一層一層を丁寧に折り込んでお届けします。"
     },
     "service": {
-      "title": "カスタマーサービス | FlourFlour BAKERY",
+      "title": "カスタマーサービス | Flour Flour Bakery",
       "description": "ご注文方法、保存方法、よくあるご質問。お答えが見つからない場合はお電話または Facebook でお問い合わせください。"
     },
     "contact": {
-      "title": "お問い合わせ | FlourFlour BAKERY",
-      "description": "FlourFlour BAKERY の住所・電話番号・営業時間・お問い合わせフォームはこちら。ご来店、お電話でのご予約をお待ちしております。"
+      "title": "お問い合わせ | Flour Flour Bakery",
+      "description": "Flour Flour Bakery の住所・電話番号・営業時間・お問い合わせフォームはこちら。ご来店、お電話でのご予約をお待ちしております。"
     },
     "visit": {
-      "title": "淡水を訪ねる | FlourFlour BAKERY",
+      "title": "淡水を訪ねる | Flour Flour Bakery",
       "description": "淡水の川と光に会いに、わざわざ訪れる価値のある町。風景の案内、淡水老街の一日プラン、FlourFlour へのアクセスと駐車場情報。"
     },
     "privacy": {
-      "title": "プライバシーポリシー | FlourFlour BAKERY",
-      "description": "FlourFlour BAKERY における個人情報の収集・利用・保護についてのご案内。"
+      "title": "プライバシーポリシー | Flour Flour Bakery",
+      "description": "Flour Flour Bakery における個人情報の収集・利用・保護についてのご案内。"
     },
     "notFound": {
-      "title": "ページが見つかりません | FlourFlour BAKERY",
+      "title": "ページが見つかりません | Flour Flour Bakery",
       "description": "このパンはもう売り切れてしまったようです。"
     }
   },
@@ -54,7 +54,7 @@
     "visitHeading": "Visit",
     "followHeading": "Follow",
     "infoHeading": "Information",
-    "copyright": "© 2026 FlourFlour BAKERY",
+    "copyright": "© 2026 Flour Flour Bakery",
     "privacyLink": "プライバシーポリシー"
   },
   "home": {
@@ -286,7 +286,7 @@
     "sections": [
       {
         "heading": "適用範囲",
-        "body": "本ポリシーは、FlourFlour BAKERY 公式サイト（以下「本サイト」）が、お客様よりご提供いただいた個人情報をどのように収集・処理・利用するかについて定めるものです。本ポリシーは、本サイト以外の外部リンク先サイト、および本サイトが権限を委託していない第三者には適用されません。"
+        "body": "本ポリシーは、Flour Flour Bakery 公式サイト（以下「本サイト」）が、お客様よりご提供いただいた個人情報をどのように収集・処理・利用するかについて定めるものです。本ポリシーは、本サイト以外の外部リンク先サイト、および本サイトが権限を委託していない第三者には適用されません。"
       },
       {
         "heading": "個人情報の収集方法と収集項目",

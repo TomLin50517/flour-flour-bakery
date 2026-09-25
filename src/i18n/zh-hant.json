@@ -1,39 +1,39 @@
 {
   "meta": {
-    "siteName": "FlourFlour BAKERY",
-    "titleSuffix": " | FlourFlour BAKERY"
+    "siteName": "Flour Flour Bakery",
+    "titleSuffix": " | Flour Flour Bakery"
   },
   "pageMeta": {
     "home": {
-      "title": "FlourFlour BAKERY｜A Quiet Taste of Tamsui. — 淡水河岸的精品烘焙",
+      "title": "Flour Flour Bakery｜A Quiet Taste of Tamsui. — 淡水河岸的精品烘焙",
       "description": "FlourFlour 是淡水河岸老宅裡的烘焙坊，主打精品可頌、丹麥棒與台灣風味甜點。來淡水老街散步，品嚐層層酥香，也挑選一份別具心意的淡水伴手禮。"
     },
     "story": {
-      "title": "我們的故事 | FlourFlour BAKERY",
+      "title": "我們的故事 | Flour Flour Bakery",
       "description": "河、粉、花、摺、光——五個章節，說我們如何在淡水河邊烤麵包。"
     },
     "products": {
-      "title": "產品介紹 | FlourFlour BAKERY",
+      "title": "產品介紹 | Flour Flour Bakery",
       "description": "探索 FlourFlour 的精品可頌、丹麥酥皮、台灣風味烘焙與淡水伴手禮，從經典口味到季節限定，細緻摺出每一層酥香。"
     },
     "service": {
-      "title": "客服中心 | FlourFlour BAKERY",
+      "title": "客服中心 | Flour Flour Bakery",
       "description": "訂購方式、保存須知與常見問題。找不到答案，歡迎致電或透過 Facebook 私訊詢問。"
     },
     "contact": {
-      "title": "聯絡我們 | FlourFlour BAKERY",
-      "description": "FlourFlour BAKERY 店址、電話、營業時間與聯絡表單。歡迎來店或來電預訂。"
+      "title": "聯絡我們 | Flour Flour Bakery",
+      "description": "Flour Flour Bakery 店址、電話、營業時間與聯絡表單。歡迎來店或來電預訂。"
     },
     "visit": {
-      "title": "造訪淡水 | FlourFlour BAKERY",
+      "title": "造訪淡水 | Flour Flour Bakery",
       "description": "為淡水的河與光，值得專程走一趟。環境導覽、淡水老街一日遊路線，以及前往 FlourFlour 的交通與停車資訊。"
     },
     "privacy": {
-      "title": "隱私權政策 | FlourFlour BAKERY",
-      "description": "FlourFlour BAKERY 個人資料蒐集、處理與利用政策說明。"
+      "title": "隱私權政策 | Flour Flour Bakery",
+      "description": "Flour Flour Bakery 個人資料蒐集、處理與利用政策說明。"
     },
     "notFound": {
-      "title": "找不到頁面 | FlourFlour BAKERY",
+      "title": "找不到頁面 | Flour Flour Bakery",
       "description": "這片麵包好像被買走了。"
     }
   },
@@ -54,7 +54,7 @@
     "visitHeading": "Visit",
     "followHeading": "Follow",
     "infoHeading": "Information",
-    "copyright": "© 2026 FlourFlour BAKERY",
+    "copyright": "© 2026 Flour Flour Bakery",
     "privacyLink": "隱私權政策"
   },
   "home": {
@@ -286,7 +286,7 @@
     "sections": [
       {
         "heading": "適用範圍",
-        "body": "本政策說明 FlourFlour BAKERY 官方網站（以下稱「本網站」）如何蒐集、處理及利用您透過網站所提供的個人資料。本政策不適用於本網站以外之連結網站，亦不適用於非本網站授權或委託之人員。"
+        "body": "本政策說明 Flour Flour Bakery 官方網站（以下稱「本網站」）如何蒐集、處理及利用您透過網站所提供的個人資料。本政策不適用於本網站以外之連結網站，亦不適用於非本網站授權或委託之人員。"
       },
       {
         "heading": "個人資料的蒐集方式與項目",

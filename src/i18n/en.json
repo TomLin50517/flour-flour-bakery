@@ -1,39 +1,39 @@
 {
   "meta": {
-    "siteName": "FlourFlour BAKERY",
-    "titleSuffix": " | FlourFlour BAKERY"
+    "siteName": "Flour Flour Bakery",
+    "titleSuffix": " | Flour Flour Bakery"
   },
   "pageMeta": {
     "home": {
-      "title": "FlourFlour BAKERY | A Quiet Taste of Tamsui. — a Tamsui riverside bakery",
+      "title": "Flour Flour Bakery | A Quiet Taste of Tamsui. — a Tamsui riverside bakery",
       "description": "FlourFlour is a bakery in a historic house by the Tamsui River, known for artisan croissants, Danish pastry sticks and Taiwanese-inspired sweets. Stroll through Tamsui Old Street, savour the flaky layers and choose a thoughtful Tamsui gift."
     },
     "story": {
-      "title": "Our Story | FlourFlour BAKERY",
+      "title": "Our Story | Flour Flour Bakery",
       "description": "The river, the flour, the flower, the fold, the light — five chapters on how we bake beside the Tamsui River."
     },
     "products": {
-      "title": "Products | FlourFlour BAKERY",
+      "title": "Products | Flour Flour Bakery",
       "description": "Explore FlourFlour's artisan croissants, Danish pastries, Taiwanese-inspired bakes and Tamsui gifts — from classic flavours to seasonal specials, each layer folded with care."
     },
     "service": {
-      "title": "Customer Service | FlourFlour BAKERY",
+      "title": "Customer Service | Flour Flour Bakery",
       "description": "How to order, storage tips, and frequently asked questions. Can't find your answer? Call us or message us on Facebook."
     },
     "contact": {
-      "title": "Contact Us | FlourFlour BAKERY",
-      "description": "Find FlourFlour BAKERY's address, phone number, opening hours and contact form. Visits and phone orders are welcome."
+      "title": "Contact Us | Flour Flour Bakery",
+      "description": "Find Flour Flour Bakery's address, phone number, opening hours and contact form. Visits and phone orders are welcome."
     },
     "visit": {
-      "title": "Visit Tamsui | FlourFlour BAKERY",
+      "title": "Visit Tamsui | Flour Flour Bakery",
       "description": "Tamsui is worth a special trip — for the river and the light. A guide to the setting, an old-street day-trip route, and how to reach FlourFlour, with transport and parking."
     },
     "privacy": {
-      "title": "Privacy Policy | FlourFlour BAKERY",
-      "description": "How FlourFlour BAKERY collects, uses and protects your personal data."
+      "title": "Privacy Policy | Flour Flour Bakery",
+      "description": "How Flour Flour Bakery collects, uses and protects your personal data."
     },
     "notFound": {
-      "title": "Page Not Found | FlourFlour BAKERY",
+      "title": "Page Not Found | Flour Flour Bakery",
       "description": "Looks like this loaf has already been sold."
     }
   },
@@ -54,7 +54,7 @@
     "visitHeading": "Visit",
     "followHeading": "Follow",
     "infoHeading": "Information",
-    "copyright": "© 2026 FlourFlour BAKERY",
+    "copyright": "© 2026 Flour Flour Bakery",
     "privacyLink": "Privacy Policy"
   },
   "home": {
@@ -286,7 +286,7 @@
     "sections": [
       {
         "heading": "Scope",
-        "body": "This policy explains how the FlourFlour BAKERY website (\"this website\") collects, processes and uses the personal data you provide to us. It does not apply to any linked website outside this domain, nor to any party not authorized or engaged by this website."
+        "body": "This policy explains how the Flour Flour Bakery website (\"this website\") collects, processes and uses the personal data you provide to us. It does not apply to any linked website outside this domain, nor to any party not authorized or engaged by this website."
       },
       {
         "heading": "How We Collect Personal Data, and What We Collect",

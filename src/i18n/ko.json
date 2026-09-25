@@ -1,39 +1,39 @@
 {
   "meta": {
-    "siteName": "FlourFlour BAKERY",
-    "titleSuffix": " | FlourFlour BAKERY"
+    "siteName": "Flour Flour Bakery",
+    "titleSuffix": " | Flour Flour Bakery"
   },
   "pageMeta": {
     "home": {
-      "title": "FlourFlour BAKERY | A Quiet Taste of Tamsui. — 단수이 강변의 베이커리",
+      "title": "Flour Flour Bakery | A Quiet Taste of Tamsui. — 단수이 강변의 베이커리",
       "description": "FlourFlour는 단수이 강변의 오래된 가옥에 자리한 베이커리입니다. 크루아상과 데니시 스틱, 대만의 맛을 담은 디저트를 선보입니다. 단수이 라오제를 산책하며 겹겹이 쌓인 바삭한 풍미를 즐기고, 특별한 단수이 선물도 골라보세요."
     },
     "story": {
-      "title": "우리의 이야기 | FlourFlour BAKERY",
+      "title": "우리의 이야기 | Flour Flour Bakery",
       "description": "강, 밀가루, 꽃, 접기, 빛——다섯 개의 장으로 전하는, 단수이 강가에서 빵을 굽는 나날."
     },
     "products": {
-      "title": "제품 소개 | FlourFlour BAKERY",
+      "title": "제품 소개 | Flour Flour Bakery",
       "description": "FlourFlour의 크루아상, 데니시 페이스트리, 대만풍 베이커리와 단수이 선물까지. 클래식한 맛부터 시즌 한정까지, 결 하나하나를 정성껏 접어냅니다."
     },
     "service": {
-      "title": "고객센터 | FlourFlour BAKERY",
+      "title": "고객센터 | Flour Flour Bakery",
       "description": "주문 방법, 보관 안내, 자주 묻는 질문을 확인하세요. 답을 찾지 못하셨다면 전화나 페이스북으로 문의해 주세요."
     },
     "contact": {
-      "title": "문의하기 | FlourFlour BAKERY",
-      "description": "FlourFlour BAKERY의 주소, 전화번호, 영업시간과 문의 폼을 확인하세요. 방문 및 전화 예약을 환영합니다."
+      "title": "문의하기 | Flour Flour Bakery",
+      "description": "Flour Flour Bakery의 주소, 전화번호, 영업시간과 문의 폼을 확인하세요. 방문 및 전화 예약을 환영합니다."
     },
     "visit": {
-      "title": "단수이 방문 | FlourFlour BAKERY",
+      "title": "단수이 방문 | Flour Flour Bakery",
       "description": "강과 빛을 위해 일부러 찾을 가치가 있는 단수이. 풍경 안내와 옛거리 하루 코스, 그리고 FlourFlour로 오시는 교통·주차 정보."
     },
     "privacy": {
-      "title": "개인정보처리방침 | FlourFlour BAKERY",
-      "description": "FlourFlour BAKERY의 개인정보 수집, 이용 및 보호에 관한 안내입니다."
+      "title": "개인정보처리방침 | Flour Flour Bakery",
+      "description": "Flour Flour Bakery의 개인정보 수집, 이용 및 보호에 관한 안내입니다."
     },
     "notFound": {
-      "title": "페이지를 찾을 수 없습니다 | FlourFlour BAKERY",
+      "title": "페이지를 찾을 수 없습니다 | Flour Flour Bakery",
       "description": "이 빵은 이미 다 팔린 것 같아요."
     }
   },
@@ -54,7 +54,7 @@
     "visitHeading": "Visit",
     "followHeading": "Follow",
     "infoHeading": "Information",
-    "copyright": "© 2026 FlourFlour BAKERY",
+    "copyright": "© 2026 Flour Flour Bakery",
     "privacyLink": "개인정보처리방침"
   },
   "home": {
@@ -286,7 +286,7 @@
     "sections": [
       {
         "heading": "적용 범위",
-        "body": "본 정책은 FlourFlour BAKERY 공식 웹사이트(이하 '본 웹사이트')가 고객님께서 제공하신 개인정보를 어떻게 수집·처리·이용하는지 설명합니다. 본 정책은 본 웹사이트 외부로 연결되는 링크 사이트나 본 웹사이트로부터 권한을 위임받지 않은 자에게는 적용되지 않습니다."
+        "body": "본 정책은 Flour Flour Bakery 공식 웹사이트(이하 '본 웹사이트')가 고객님께서 제공하신 개인정보를 어떻게 수집·처리·이용하는지 설명합니다. 본 정책은 본 웹사이트 외부로 연결되는 링크 사이트나 본 웹사이트로부터 권한을 위임받지 않은 자에게는 적용되지 않습니다."
       },
       {
         "heading": "개인정보 수집 방법 및 항목",
