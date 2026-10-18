@@ -1,6 +1,6 @@
 ---
 // 產品介紹模板 — editorial 版型:安靜頁首 + 分類頁籤(同時只顯示一個分類)+ 產品格線 + 頁尾備註
-// 頁籤採漸進增強:SSR 把全部分類完整輸出到 DOM(SEO/無 JS 皆完整,ItemList JSON-LD 涵蓋全部商品),
+// 頁籤採漸進增強:SSR 把全部分類完整輸出到 DOM(SEO/無 JS 皆完整),
 // 「同時只顯示一個分類」交給 CSS 的 html.js 開關生效(跟 reveal-text/reveal-media 同一套手法),
 // JS 負責切換顯示 + 同步網址 hash(可分享/重整後停留在原分類);無 JS 時全部分類維持可見,退回錨點捲動。
 import Base from '../../layouts/Base.astro';
@@ -20,35 +20,16 @@ const b = getBusinessInfo(lang);
 const p = localePrefix[lang];
 
 // 隱藏分類(例如禮盒還沒準備好)整批排除,不是 CSS 隱藏——不渲染頁籤/內容區,
-// 底下的商品也不進 ItemList 結構化資料,搜尋引擎爬不到,之後準備好取消 hidden 即可恢復。
+// 搜尋引擎爬不到,之後準備好取消 hidden 即可恢復。
 const categories = getCategories(lang).filter((cat) => !cat.hidden);
 const hiddenKeys = new Set(getCategories(lang).filter((cat) => cat.hidden).map((cat) => cat.key));
 const products = getProducts(lang).filter((item) => !hiddenKeys.has(item.category));
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  itemListElement: products.map((item, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    item: {
-      '@type': 'Product',
-      name: item.name,
-      description: item.tagline,
-      offers: {
-        '@type': 'Offer',
-        priceCurrency: 'TWD',
-        price: item.price,
-        availability: 'https://schema.org/InStock',
-      },
-    },
-  })),
-};
+// 刻意不輸出 Product/Offer 結構化資料:本站是展示型、不能線上下單,標成「可購買商品」會被 Google 用
+// 網路商店標準檢查(要求圖片、評價、運送、退貨),且不符事實。線上訂購系統上線後再補完整商品標註。
 ---
 
 <Base lang={lang} path="/products" title={t.pageMeta.products.title} description={t.pageMeta.products.description}>
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-
   <PageHeader eyebrow="PRODUCTS" title={t.products.bannerTitle} />
 
   <nav class="category-tabs" aria-label="product categories">
