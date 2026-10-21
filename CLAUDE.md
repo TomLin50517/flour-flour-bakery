@@ -49,6 +49,9 @@ Astro 7 靜態站,4 語言(`zh-hant` 預設無前綴、`en`、`ja`、`ko`),部�
 
 - **不要直接 push 到 `master`**。在自己的分支上工作,改完開 Pull Request,等 review 通過才合併。`master` 的異動會自動部署到正式站 `flourflour.com.tw`,直接 push 等於沒人看過就上線。
 - **分支名用小寫、連字號分隔**,不要用斜線分層(例如 `designer-hero-update`,不要 `feature/designer/hero-update`)——Cloudflare 會把分支名轉成預覽網址的一部分,簡單的名字轉出來的網址才好分享、好記。
+- **多人同時工作時,分支名以自己的名字開頭**(例如 `tiffany-home-hero`、`christine-products-layout`),避免兩個人用到同一個分支名而互相蓋掉。開新分支前先問使用者的名字(或從 `git config user.name` / `gh api user` 取得),不要自己編。
+- **開始工作前,先把分支建在最新的 `master` 上**(`git fetch origin` 後從 `origin/master` 開分支),減少之後的衝突。
+- **兩人改到同一個檔案時會衝突**。PR 出現衝突(`gh pr view` 顯示 `CONFLICTING`)時,在自己的分支上用 `git merge origin/master` 把最新版併進來並解決衝突,**不要用 rebase + force push**(非技術使用者難以復原)。如果衝突發生在使用者沒有動過的檔案或段落,代表是另一位的改動,**先停下來跟使用者說明,請他找網站所有者確認該保留哪一邊**,不要自己選。
 - 這個 repo 已經接了 Cloudflare 的 Git 整合,且已開啟「Builds for non-production branches」。**只要分支上有開著的 PR,Cloudflare 會自動在 PR 留言貼上這個分支的預覽網址**(一個穩定的分支別名網址 + 一個對應這次 commit 的版本網址),每次 push 都會更新。這個預覽網址跟正式站幾乎一樣,但網域不同、還沒上線。
 
 ### 不用等使用者問,改完、push 完就主動回報預覽結果
