@@ -55,7 +55,8 @@
     "followHeading": "Follow",
     "infoHeading": "Information",
     "copyright": "© 2026 Flour Flour Bakery",
-    "privacyLink": "プライバシーポリシー"
+    "privacyLink": "プライバシーポリシー",
+    "orderLink": "LINEでご注文"
   },
   "home": {
     "hero": {
@@ -168,6 +169,7 @@
     "addressLabel": "住所",
     "hoursLabel": "営業時間",
     "socialLabel": "SNS",
+    "orderLabel": "LINEでご注文",
     "mapPlaceholder": "地図プレビュー",
     "mapLoadCta": "地図を読み込む",
     "form": {

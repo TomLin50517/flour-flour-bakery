@@ -55,7 +55,8 @@
     "followHeading": "Follow",
     "infoHeading": "Information",
     "copyright": "© 2026 Flour Flour Bakery",
-    "privacyLink": "Privacy Policy"
+    "privacyLink": "Privacy Policy",
+    "orderLink": "Order via LINE"
   },
   "home": {
     "hero": {
@@ -168,6 +169,7 @@
     "addressLabel": "Address",
     "hoursLabel": "Hours",
     "socialLabel": "Social",
+    "orderLabel": "Order via LINE",
     "mapPlaceholder": "Map preview",
     "mapLoadCta": "Load map",
     "form": {

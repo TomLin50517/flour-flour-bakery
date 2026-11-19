@@ -1,0 +1,66 @@
+---
+// LineQr.astro — LINE 加好友 QR + 「訂購連結」文字,Footer 與聯絡頁共用。
+// QR 在建置時由 business-info.json 的 LINE ID 產生(inline SVG,零執行期 JS、零額外請求),
+// 在 /admin 改 LINE ID 後 QR 會跟著換,不會出現圖與連結對不上。
+// 整塊可點:手機使用者沒辦法掃自己的螢幕,點了直接開 LINE 加好友頁。
+import { encode } from 'uqr';
+
+export interface Props {
+  line: string; // LINE 官方帳號 ID(含 @)
+  label: string; // 「訂購連結」(各語系文字)
+  size?: number; // QR 邊長(px)
+}
+
+const { line, label, size = 96 } = Astro.props;
+const href = `https://line.me/R/ti/p/${line}`;
+
+// 同一列連續的深色格合併成一個矩形,路徑只有 2KB 上下(逐格輸出約 8KB,Footer 每頁都有)。
+const BORDER = 2; // 白底留白(QR 規格的 quiet zone 至少 2 格),深色背景上靠這圈白底才掃得到
+const { data, size: modules } = encode(href, { ecc: 'M', border: 0 });
+const runs: string[] = [];
+data.forEach((row, y) => {
+  let x = 0;
+  while (x < modules) {
+    if (!row[x]) { x++; continue; }
+    const start = x;
+    while (x < modules && row[x]) x++;
+    runs.push(`M${start + BORDER} ${y + BORDER}h${x - start}v1h-${x - start}z`);
+  }
+});
+const viewSize = modules + BORDER * 2;
+const path = runs.join('');
+---
+
+<a class="line-qr" href={href} target="_blank" rel="noopener" aria-label={`${label} (LINE ${line})`}>
+  <svg
+    class="line-qr__code"
+    viewBox={`0 0 ${viewSize} ${viewSize}`}
+    width={size}
+    height={size}
+    role="img"
+    aria-hidden="true"
+    shape-rendering="crispEdges"
+  >
+    <rect width={viewSize} height={viewSize} fill="#fff" />
+    <path d={path} fill="#1c1a17" />
+  </svg>
+  <span class="line-qr__label">{label}</span>
+</a>
+
+<style>
+  .line-qr {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    width: fit-content;
+    text-decoration: none;
+    color: var(--line-qr-color, inherit);
+  }
+  .line-qr__code {
+    display: block;
+    border-radius: 2px;
+  }
+  .line-qr__label {
+    font-size: var(--text-sm);
+  }
+</style>

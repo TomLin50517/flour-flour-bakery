@@ -55,7 +55,8 @@
     "followHeading": "Follow",
     "infoHeading": "Information",
     "copyright": "© 2026 Flour Flour Bakery",
-    "privacyLink": "개인정보처리방침"
+    "privacyLink": "개인정보처리방침",
+    "orderLink": "LINE으로 주문"
   },
   "home": {
     "hero": {
@@ -168,6 +169,7 @@
     "addressLabel": "주소",
     "hoursLabel": "영업시간",
     "socialLabel": "소셜 미디어",
+    "orderLabel": "LINE으로 주문",
     "mapPlaceholder": "지도 미리보기",
     "mapLoadCta": "지도 불러오기",
     "form": {

@@ -55,7 +55,8 @@
     "followHeading": "Follow",
     "infoHeading": "Information",
     "copyright": "© 2026 Flour Flour Bakery",
-    "privacyLink": "隱私權政策"
+    "privacyLink": "隱私權政策",
+    "orderLink": "訂購連結"
   },
   "home": {
     "hero": {
@@ -168,6 +169,7 @@
     "addressLabel": "地址",
     "hoursLabel": "營業時間",
     "socialLabel": "社群",
+    "orderLabel": "訂購連結",
     "mapPlaceholder": "地圖示意",
     "mapLoadCta": "載入地圖",
     "form": {
